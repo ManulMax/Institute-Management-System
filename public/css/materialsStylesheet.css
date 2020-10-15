@@ -1,0 +1,97 @@
+
+/* ----------------------------- middle content ----------------------------- */
+
+
+
+/* ----------------------------- right content ----------------------------- */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-left: 35%;
+
+}
+
+input[type=file] {
+  display: none;
+}
+
+.uploadLabel{
+  background-color: #EEE8AA;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.row {
+  padding-bottom:20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.previewContainer {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#removeLink{
+  float: right;
+  margin-top: 20px;
+  border: none;
+  border-radius: 15px;
+}
+
+#removeLink:link, #removeLink:visited {
+  background-color: grey;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#removeLink:hover, #removeLink:active {
+  background-color: #696969;
+}
