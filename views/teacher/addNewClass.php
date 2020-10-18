@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +23,13 @@
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
 	<ul>
-	  <li><a href="teacherHome.html"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li><a href="materials.php"><i class="fas fa-upload"></i>Upload Materials</a></li>
-	  <li><a href="createQuiz.html"><i class="fas fa-question"></i>Quizzes</a></li>
-	  <li><a href="addNewClass.html"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="reschedule.html"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="paperMarkerRegistration.html"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="salaryDetails.html"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+	  <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
+	  <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
+	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	</ul>
 	<div class="chip"><img src="<?php echo URL; ?>public/icons/Logout.png" alt="Person" width="96" height="96">Log out</div>
 	<div class="chip" style: "float:left;"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Profile</div>
@@ -47,7 +48,7 @@
       <label for="subject">Subject :</label>
     </div>
     <div class="col-75">
-      <div class="custom-select" style="width:400px;">
+      <div style="width:400px;">
 		  <select>
 			<option value="0">Select Subject:</option>
       <?php
@@ -67,7 +68,7 @@
       <label for="subject">Batch :</label>
     </div>
     <div class="col-75">
-      <div class="custom-select" style="width:200px;">
+      <div style="width:200px;">
 		  <select>
 			<option value="0">Select Batch:</option>
 			<option value="1"><?php echo date("Y"); ?> A/L</option>
@@ -93,16 +94,16 @@
       <label for="subject"> Day :</label>
     </div>
     <div class="col-20">
-      <div class="custom-select" style="width:200px;">
+      <div style="width:200px;">
 
-      <select name="day" class="day" id = "selecter">
+      <select id = "daySelector">
       <option value="Monday">Monday</option>
       <option value="Tuesday">Tuesday</option>
       <option value="Wednesday">Wednesday</option>
-      <option value="4">Thursday</option>
-      <option value="5">Friday</option>
-      <option value="6">Saturday</option>
-      <option value="7">Sunday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+      <option value="Saturday">Saturday</option>
+      <option value="Sunday">Sunday</option>
       </select>    
 
 	   </div>
@@ -113,14 +114,14 @@
       <label for="subject">Hall :</label>
     </div>
     <div class="col-20">
-      <div class="custom-select" style="width:200px;">
+      <div style="width:200px;">
 
-		  <select name="hall" class="hall" onchange="<?php echo URL; ?>addNewClass/viewCurrentSchedules/".$_POST['hall']."/".$_POST['day']>
+		  <select id="hallSelector">
 
         <?php
             $num=1;
             while($row = mysqli_fetch_assoc($this->hallList)){	
-			         echo "<option value = '".$num."'". ">" .$row['name']. "</option>";
+			         echo "<option value = '".$row['name']."'". ">" .$row['name']. "</option>";
                $num++;
             }
         ?>
@@ -140,14 +141,19 @@
     <th>Batch</th>
   </tr>
 
-  <?php while($schedule = mysqli_fetch_assoc($this->hallList)){ ?>
-  <tr>
-    <td><?php echo $schedule['start_time']." - ".$schedule['start_time']; ?></td>
-    <td><?php echo $schedule['fname']." ".$schedule['mname']." ".$schedule['lname']; ?></td>
-    <td><?php echo $schedule['name']; ?></td>
-    <td><?php echo $schedule['batch']; ?></td>
-  </tr>
-  <?php }?>
+  <?php 
+
+  if(isset($this->scheduleList)){
+    while($row = mysqli_fetch_assoc($this->scheduleList)){ ?>
+      <tr>
+        <td><?php echo $row['start_time']." - ".$row['start_time']; ?></td>
+        <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['batch']; ?></td>
+      </tr>
+      <?php }
+  }
+  ?>
 </table>
 
 
@@ -173,9 +179,7 @@
   <div class="row" style="margin-top:30px;">
     <input type="submit" value="Send Details">
   </div>
-  <button type="button" onclick = "gfg_Run()">  
-        Click here 
-    </button>
+  <a href="<?php echo URL ?>addNewClass/viewCurrentSchedules/h3/Tuesday"><button type="button">Click here</button></a>
     <p id = "GFG_DOWN" style = 
         "font-size: 23px; font-weight: bold; color: green; "> 
     </p>
@@ -213,10 +217,11 @@
 <script> 
         var el_down = document.getElementById("GFG_DOWN");  
           
-        function gfg_Run() { 
-            document.getElementById("GFG_DOWN").innerHTML =  
-                 $("#selecter").val();
-        }          
+            document.getElementById("GFG_DOWN").innerHTML = $("#daySelector").val()+" "+$("#hallSelector").val();
+                 var hh = $("#hallSelector").val();
+                 var dd = $("#daySelector").val();
+                 document.cookie = "hh = "+ hh;
+                 document.cookie = "dd = "+ dd; 
    
 
 

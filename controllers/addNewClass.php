@@ -9,12 +9,13 @@ class addNewClass extends Controller{
     function index(){
     	$this->view->hallList = $this->model->listHalls();
     	$this->view->subjectList = $this->model->listSubjects();
-    	$this->view->scheduleList = $this->model->listCurrentSchedules("h1","Monday");
     	$this->view->render('teacher/addNewClass');
     }
 
     function viewCurrentSchedules($hallName,$daySelected){
+    	$temp = $this->model->listCurrentSchedules($hallName,$daySelected);
+    	echo $temp;
     	$this->view->scheduleList = $this->model->listCurrentSchedules($hallName,$daySelected);
-    	$this->view->render('teacher/addNewClass');
+    	header('location: '.URL.'addNewClass');
     }
 }

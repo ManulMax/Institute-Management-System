@@ -31,39 +31,22 @@ class Database
 		$sql = "select ".$select." from ".$from." where ".$where;
 
         $result = mysqli_query($connection,$sql);
+
         return $result;
 
 	}
 
-/**
-* List all the rows from the given table for a given condition.
-*
-* @param string $table Name of the table.
-*
-* @param string $fields Array of fields that need be retrieved (* for all).
-*
-* @param string $where WHERE condition in SQL query.
-*
-* @return array Result of the query as an associative array.
-*/
-	public function listWhere($table,$fields,$where){
+	public function listWhere($select,$from,$where){
+		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
+		$sql = "select ".$select." from ".$from." where ".$where;
 
-		$fieldNames = NULL;
-		if($fields=='*'){
-			$fieldNames = $fields;
-		} else{
-			foreach ($fields as $name) {
-			$fieldNames .= "$name,";
-			}
-			$fieldNames = rtrim($fieldNames,',');
-		}
+        $result = mysqli_query($connection,$sql);
 
-		$stmt = $this->prepare("SELECT $fieldNames FROM $table WHERE $where");
+        return $result;
 
-        $stmt->execute();
-        
-        return $stmt->fetch();
 	}
+
+
 /**
 * Insert a record to a table.
 *
@@ -71,18 +54,15 @@ class Database
 *
 * @param string $data Data need to be inserted to the database as an associative array.
 */
-	public function insert($table,$data){
+	public function insert($table,$fields,$values){
+		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
 
-		$fieldNames = implode(',', array_keys($data));
-		$fieldValues = ':'.implode(', :', array_keys($data));
+		$sql = "insert into ".$table."".$fields." values".$values;
+		//$stmt = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
+ 
+        $result = mysqli_query($connection,$sql);
+        //mysqli_close($connection);
 
-		$stmt = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
-        
-        foreach ($data as $key => $value) {
-        	$stmt->bindValue(":$key",$value);
-        }
-
-        $stmt->execute();
 	}
 
 /**
