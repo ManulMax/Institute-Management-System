@@ -7,6 +7,6 @@ class materials extends Controller{
     }
 
     function index(){
-    	$this->view->render('dashboard/admin/ProductCategory');
+    	$this->view->render('teacher/materials');
     }
 }

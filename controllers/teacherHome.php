@@ -7,6 +7,6 @@ class teacherHome extends Controller{
     }
 
     function index(){
-    	$this->view->render('dashboard/admin/ProductCategory');
+    	$this->view->render('teacher/teacherHome');
     }
 }

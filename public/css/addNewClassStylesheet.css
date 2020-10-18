@@ -53,7 +53,9 @@ input[type=submit]:hover {
   font-family: Arial;
 }
 
-
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
 
 .select-selected {
   background-color: grey;
@@ -84,7 +86,7 @@ input[type=submit]:hover {
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
- 
+  user-select: none;
 }
 
 /*style items (options):*/

@@ -7,6 +7,6 @@ class reschedule extends Controller{
     }
 
     function index(){
-    	$this->view->render('dashboard/admin/ProductCategory');
+    	$this->view->render('teacher/reschedule');
     }
 }
