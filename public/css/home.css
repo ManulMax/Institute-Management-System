@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
+@-ms-viewport {
+    width: device-width; }
+  body {
+    -ms-overflow-style: scrollbar; }
+  
+  @media screen and (max-width: 480px) {
+    html, body {
+      min-width: 320px; } }
+  html {
+    box-sizing: border-box; }
+  
+  *, *:before, *:after {
+    box-sizing: inherit; }
+
+/* ---------------------------------------------------------top nav------------------------------------------ */
+.container .top-nav:before {
+    content: "";
+    position: absolute;
+    height: 700px;
+    width: 700px;
+    top: -10%;
+    right: 60%;
+    transform: translateY(-50%);
+    background-image: linear-gradient(-45deg, #cf5444 0%, #f33920 100%);
+    transition: 1.8s ease-in-out;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .container .top-nav:after{
+    content: "";
+    position: absolute;
+    height: 400px;
+    width: 300px;
+    top: -10%;
+    left: 82%;
+    transform: translateY(-60%);
+    background-image: linear-gradient(-45deg, #301f8f 0%, #157cd1 100%);
+    transition: 1.8s ease-in-out;
+    border-radius: 50%;
+    z-index: 1;
+    
+}
+
+.container .top-nav .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 40%;
+    height: 40%;
+    place-items: center;
+}
+
+/* ------------------------------------------------Nav Bar Left Side------------------------------------------------------- */
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 83%;
+    background-color:#1f8f3e;
+    overflow-y: hidden;
+    transition: cubic-bezier();
+    padding-top: 60px;
+    
+}
+  
+.side-nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    
+}
+  
+.side-nav a:hover {
+    color: #f1f1f1;
+}
+  
+.side-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+  
+#nav-click {
+    position:absolute;
+    top:0;
+    right:0;
+    padding-right: 10px;
+    padding-top: 10px;
+    z-index: 1;
+}
+
+#nav-click:hover{
+    color: #f1f1f1;
+}
+
+/* ------------------------------------------------------------top mid-------------------------------------------- */
+
+.container .top-mid{
+    padding-top: 50px;
+    display: block;
+    font-size: large;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: lighter;
+    color: rgb(198, 201, 201);
+    
+}
+
+/* -----------------------------------------------------grid panel------------------------------------------------------ */
+
+/* .container .grid-panel{
+    display: flex;
+    box-sizing: border-box;
+    border: #1f8f3e;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr;
+    grid-column-gap: 45px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+    
+}  */
+
+.grid-panel .grid-panel1 {
+    display: flex;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: lighter;
+    color: rgb(24, 31, 31);
+    
+  }
+.grid-panel .grid-panel2{
+    display: flex;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: lighter;
+    color: rgb(24, 31, 31);
+}
+  .col-top {
+    flex: 1;
+    background-color: #44CF6C;
+    margin: 20px 40px 30px 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .col-top a{
+      text-decoration: none;
+      color: rgb(24, 31, 31);
+  }
+
+  .grid-panel2 .col-top .alert{
+      display: block;
+      visibility: hidden;
+      padding-left: 60px;
+  }
+/* -------------------------------------------------------------mid panel-------------------------------------------------- */
+
+.container .mid{
+    display: block;
+    font-size: large;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: lighter;
+    color: darkslategrey;    
+}
+
+.container .mid-panel{
+    display: flex;
+    margin-left: 60px;
+    margin-right: 60px;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: lighter;
+    color: rgb(24, 31, 31);
+}
+.col-mid{
+    flex: 1;
+    background-color: #44CF6C;
+    margin: 50px 30px 50px 30px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.col-mid p{
+    color: rgb(255, 255, 255);
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: small;
+    font-weight: bold;
+}
+
+
+/* -----------------------------------------------------------footer------------------------------------------------------- */
+#footer {
+    background-color: #111111;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 5rem 0 2rem 0 ;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#footer .inner .content{
+    text-decoration: none;
+    color: grey;
+}
+
+#footer a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none; }
+    #footer a:hover {
+    color: #ce1b28; 
+}
+
+#footer .content {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex; 
+}
+
+#footer .content section {
+      width: 25%;
+      padding-left: 30px; 
+}
+
+#footer .content section:first-child {
+    width: 50%;
+    padding-right: 4rem;
+    
+}
+
+#footer .content section:last-child {
+    padding-left: 4rem; 
+}
+
+#footer .copyright {
+    border-top: 1px solid;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    padding: 2rem 0;
+    text-align: center; 
+}
+
+#footer .content p{
+    
+    padding-top: 10px;
+    line-height: 1.8;
+}
+
+ul {
+    list-style: disc;
+    margin: 0 0 2rem 0;
+    padding-left: 1rem; 
+}
+ul li {
+    padding-left: 0.325rem; 
+    }
+
+ul.plain {
+    list-style: none;
+    padding-left: 0;
+    }
+
+ul.plain li {
+    margin-bottom: 1rem; 
+    }
+ul.plain li .icon {
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 1rem;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    background: rgba(0, 0, 0, 0.5); 
+}
+ul.alt {
+    list-style: none;
+    padding-left: 0; 
+}
+ul.alt li {
+    border-top: solid 1px;
+    padding: 0.75rem 0; 
+}
+ul.alt li:first-child {
+    border-top: 0;
+    padding-top: 0; 
+}
+ul.alt li:last-child {
+    padding-bottom: 0; 
+}
+/* ------------------------------------------------------ media rule------------------------------------------------------- */
+@media(max-width: 570px){
+    .grid-panel .grid-panel1 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+  }
+
+    .grid-panel .grid-panel2{
+        display: block;
+    }
+
+    .top-mid{
+        padding-right: 80px;
+    }
+
+    .mid-panel{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .mid{
+        display: block;
+    }
+}
