@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 100px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #d7ffce;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: "Arial Rounded MT Bold";
+      }
+
+      .cls-2 {
+        font-size: 41.667px;
+      }
+    </style>
+  </defs>
+  <text id="VIDARSHA" class="cls-1" transform="translate(-0.681 130.65) scale(0.939)">VIDARSHA</text>
+  <text id="key_to_the_future" data-name="key to the future" class="cls-2" transform="translate(166.946 194.854) scale(1.024)">key to the future</text>
+  <rect class="cls-3" x="23" y="142" width="148" height="16"/>
+</svg>
