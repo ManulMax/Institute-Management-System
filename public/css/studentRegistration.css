@@ -1,0 +1,68 @@
+.middle {
+  float: left;
+  padding: 10px;
+  height: 950px;
+  width: 83%;
+  overflow: scroll;
+}
+
+/* ----------------------------- middle content ----------------------------- */
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+	padding:30px;
+}
+
+tr{
+	
+	height:50px;
+	text-align:center;
+	width:100%;
+}
+
+*td{
+	width:20%;
+	text-align:center;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=date], input[type=file], input[type=tel], textarea {
+
+padding: 15px;
+width:100%;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+
+
+
+input[type=text]:focus, input[type=date]:focus, input[type=file]:focus, input[type=radio]:focus input[type=tel]:focus{
+background-color: #ddd;
+outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+}
+
+.registerbtn:hover {
+opacity:1;
+}
