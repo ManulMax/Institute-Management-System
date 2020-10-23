@@ -1,0 +1,90 @@
+
+.middle {
+	float: left;
+  padding: 10px;
+  height: 950px;
+  width: 83%;
+}
+
+
+/* ----------------------------- middle content ----------------------------- */
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.title h3{
+  color: black;
+  text-align: center;
+  margin-bottom: 25px;
+  padding:10px;
+}
+
+.btn, .btn2 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.btn2{
+	padding: 5px;
+	margin-right:35%; 
+	float: right;	
+}
+
+.btn:hover {background-color: #44CF6C;}
+.btn2:hover {background-color: #44CF6C;}
+
+
+label{
+	padding:10px;
+}
+
+.search{
+  width: 25%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  
+  
+}
+
+
+
+#allocations {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-top:30px;
+  float:right;
+  margin-right:5%;
+  
+ 
+}
+
+#allocations td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+#allocations tr:nth-child(even){background-color: #f2f2f2;}
+
+
+
+#allocations th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #9fa9a3;
+  color: white;
+}
