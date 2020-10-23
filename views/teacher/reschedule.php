@@ -5,8 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" href="../../public/libraries/calendar-datepickerdemo/css/mobiscroll.javascript.min.css">
-<script src="../../public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
+
 
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
@@ -29,12 +28,13 @@
 	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
 	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	</ul>
-	<div class="chip"><img src="<?php echo URL; ?>public/icons/Logout.png" alt="Person" width="96" height="96">Log out</div>
-	<div class="chip" style: "float:left;"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Profile</div>
+	
+	
   </div>
-  <div class="header">
+  <div class="headerClass">
 	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="far fa-calendar-alt"></i>Re-schedule</h2>
-	  <div class="chip"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Teacher Name</div>
+	  <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
+	 <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
   </div>
   
   
@@ -168,26 +168,7 @@
 	</form>
 
   </div>
-  <div class="right" style="background-color:#2F4F4F;">
-	  
-	<div height="40%">
-		<div mbsc-page class="demo-datepicker">
-		  <div style="height:100%">
-			  <div class="mbsc-grid">
-				<div class="mbsc-row">
 
-					<div mbsc-form>
-						<div class="mbsc-form-grid">
-							<div id="demo-calendar-date-picker"></div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		  </div>
-		</div>
-	</div>
-</div>
 
 <div class="footer">
   <p>Footer</p>
@@ -276,49 +257,6 @@ then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
 
 
-
-
-
-
-
-mobiscroll.settings = {
-        lang: 'en',                       // Specify language like: lang: 'pl' or omit setting to use default
-        theme: 'ios',                     // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light'             // More info about themeVariant: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-themeVariant
-    };
-    
-    var now = new Date();
-    
-    mobiscroll.calendar('#demo-calendar-date-picker', {
-        display: 'inline',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-header', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        headerText: '{value}',            // More info about headerText: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-headerText
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-non-form', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    var instance = mobiscroll.calendar('#demo-calendar-date-external', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        showOnTap: false,                 // More info about showOnTap: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnTap
-        showOnFocus: false,               // More info about showOnFocus: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnFocus
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(new Date(), true);
-        }
-    });
 </script>
 
 

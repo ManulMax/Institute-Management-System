@@ -28,19 +28,12 @@ class createQuiz_Model extends Model{
 
     public function create($data){
 
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
+        $this->db->insert("quiz","(topic,time_limit,class_id)","('".$data['topic']."','".$data['time_limit']."',1)");
 
-
+        $quizID = $this->db->listWhere("id","quiz","topic='".$data['topic']."'");
+        $num = mysqli_fetch_assoc($quizID);
+ 
+        $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","(1,".$num['id'].",'".$data['ques']."','".$data['ans1']."','".$data['ans2']."','".$data['ans3']."','".$data['ans4']."','".$data['ans5']."',1)");
     }
 
     public function update($data){

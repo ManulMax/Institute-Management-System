@@ -9,8 +9,11 @@
 <script src="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
 
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherHomeStylesheet">
+
 
 </head>
 
@@ -19,7 +22,7 @@
 
 <div class="row">
   <div class="leftNav">
-  <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
+  <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
 	<ul>
 	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
 	  <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
@@ -28,50 +31,159 @@
 	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
 	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
 	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
-	<div class="chip"><img src="<?php echo URL; ?>public/icons/Logout.png" alt="Person" width="96" height="96">Log out</div>
-	<div class="chip" style: "float:left;"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Profile</div>
+	</ul>	
+	
   </div>
-  <div class="header">
+
+
+  <div class="headerClass">
 	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
-	  <div class="chip"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Teacher Name</div>
+    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
+	 <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
   </div>
+
+
   <div class="middle" style="background-color:white;">
-	<div class="card">
-	  <div class="container">
-		<h4><b>Upload Materials</b></h4>  
-	  </div>
-	</div>
-	<div class="card">
-	  <div class="container">
-		<h4><b>Add New Class</b></h4>  
-	  </div>
-	</div>
-  </div>
-  <div class="right" style="background-color:#2F4F4F;">
-	  
-		<div height="40%">
-			<div mbsc-page class="demo-datepicker">
-			  <div style="height:100%">
-				  <div class="mbsc-grid">
-					<div class="mbsc-row">
 
-						<div mbsc-form>
-							<div class="mbsc-form-grid">
-								<div id="demo-calendar-date-picker"></div>
-							</div>
-						</div>
 
-					</div>
+  	<table width="100%"  height="200px">
+  		<tr>
+  			<td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+  				<div class="card">
+  					<div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+  					<div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+			  	 <div class="containerCard">
+					<h4><b>2020 A/L</b></h4>  
+				  </div>
 				</div>
-			  </div>
-			</div>
-		</div>
-		
-		
-		
-	</div>
+  			</td>
+  			<td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+  				<div class="card">
+  				<div class="quarter-circle-top-left"><i id="icon2" class="fas fa-users fa-2x"></i></div>
+  				<div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+			  	 <div class="containerCard">
+					<h4><b>2021 A/L</b></h4>  
+				  </div>
+				</div>
+  			</td>
+			<td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+  				<div class="card">
+  				<div class="quarter-circle-top-left"><i id="icon3" class="fas fa-users fa-2x"></i></div>
+  				<div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+			  	 <div class="containerCard">
+					<h4><b>2022 A/L</b></h4>  
+				  </div>
+				</div>
+  			</td>
+  			<td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+  				<div class="card">
+  				<div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
+  				<div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+			  	 <div class="containerCard">
+					<h4><b>Revision</b></h4>  
+				  </div>
+				</div>
+  			</td>
+
+  		</tr>
+  	</table>
+
+
+
+    <div style="position: relative;width: 40%;height: 400px;margin-top: 5%;">
+      <canvas id="myChart"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+        datasets: [{
+            label: 'Weekly Attendance',
+            data: [12, 19, 3, 5],
+            backgroundColor: [
+                '#8FBC8F',
+                '#8FBC8F',
+                '#8FBC8F',
+                '#8FBC8F'
+            ],
+            borderColor: [
+                '#8FBC8F',
+                '#8FBC8F',
+                '#8FBC8F',
+                '#8FBC8F'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+    </div>
+
+
+<div class="container" style="margin: 30px;">
+
+
+<!-- data taken from generatedata.com -->
+<table id="data">
+<thead>
+  <tr>
+    <th>Class</th>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Hall</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Shoshana</td>
+    <td>Wooten</td>
+    <td>Valdosta</td>
+    <td>United Kingdom</td>
+  </tr>
+  <tr>
+    <td>Stewart</td>
+    <td>Dillard</td>
+    <td>South Portland</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>Tana</td>
+    <td>Villarreal</td>
+    <td>Waltham</td>
+    <td>Solomon Islands</td>
+  </tr>
+  <tr>
+    <td>Wendy</td>
+    <td>Greer</td>
+    <td>Bellflower</td>
+    <td>Mauritania</td>
+  </tr>
+  <tr>
+    <td>Kenneth</td>
+    <td>Livingston</td>
+    <td>Anaheim</td>
+    <td>Honduras</td>
+  </tr>
+</tbody>
+</table>
 </div>
+
+
+</div>
+
+
+
+
 
 <div class="footer">
   <p>Footer</p>
@@ -79,48 +191,5 @@
 
 </body>
 
-
-<script>
-
-    mobiscroll.settings = {
-        lang: 'en',                       // Specify language like: lang: 'pl' or omit setting to use default
-        theme: 'ios',                     // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light'             // More info about themeVariant: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-themeVariant
-    };
-    
-    var now = new Date();
-    
-    mobiscroll.calendar('#demo-calendar-date-picker', {
-        display: 'inline',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-header', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        headerText: '{value}',            // More info about headerText: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-headerText
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-non-form', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    var instance = mobiscroll.calendar('#demo-calendar-date-external', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        showOnTap: false,                 // More info about showOnTap: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnTap
-        showOnFocus: false,               // More info about showOnFocus: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnFocus
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(new Date(), true);
-        }
-    });
-    
-</script>
 
 </html>

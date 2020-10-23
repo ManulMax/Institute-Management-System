@@ -5,9 +5,12 @@
   background-color: #ffffff;
   font-family: Raleway;
   margin-left: 10%;
+  margin-top: 20px;
   padding: 40px;
   width: 70%;
   min-width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 h1 {

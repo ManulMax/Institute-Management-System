@@ -1,18 +1,16 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  font-family: 'Open Sans';
 }
 
-body {
-  margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-.header {
-  background-color: #07A3B2;
+.headerClass {
+  background-color: #063811;
   padding:1px;
   margin:0;
   font-size: 16px;
-  height: 50px;
+  height: 60px;
   color: white;
 }
 
@@ -40,11 +38,12 @@ body {
 
 
 .leftNav {
-  background-color: #000000;
+  background-color: #063811;
   float: left;
-  padding: 10px;
+  padding-top: 10px;
   height: 1000px;
   width: 17%;
+  font-size: 15px;
   
 }
 
@@ -52,9 +51,11 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 20px;
+  padding-right: 0;
+  padding-left: 0;
   width: 100%;
-  background-color: #000000;
-  margin-bottom:250px;
+  background-color: #063811;
+  margin-bottom:10px;
 }
 
 .leftNav ul li a {
@@ -78,8 +79,17 @@ i{
 .middle {
   float: left;
   padding: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
   height: 950px;
-  width: 63%;
+  width: 83%;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.middle::-webkit-scrollbar{
+  display: none;
 }
 
 .right {
@@ -103,6 +113,9 @@ i{
   padding: 10px;
   text-align: center;
   width: 100%;
+  position: absolute;
+  margin-top: 1000px;
+  float: left;
 
 }
 
@@ -176,16 +189,50 @@ i{
 
 /* ----------------------------- middle content ----------------------------- */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
   transition: 0.3s;
-  width: 40%;
-  height: 100px;
+  width: 100%;
+  height: 150px;
+  background-color: #2E8B57;
+  color: white;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.4);
 }
 
-.container {
-  padding: 20px 30%;
+.containerCard {
+  padding-left: 40%;
+  margin-top: 25px;
+}
+
+.quarter-circle-top-left{
+    width: 70px;
+    height: 70px;
+    background: #66CDAA;
+    border-radius: 0 0 100px 0;
+    -moz-border-radius: 0 0 100px 0;
+    -webkit-border-radius: 0 0 100px 0;
+    margin-right: 0;
+}
+
+#icon1, #icon2, #icon3, #icon4{
+  color: #2E8B57;
+}
+
+.userDiv {
+  width: 40px;
+  height: 50px;
+  background-color: #3CB371;
+  transition: width 0.7s;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.userDiv:hover {
+  width: 225px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #2E8B57;
+  padding: 0 10px 0 25px;
 }

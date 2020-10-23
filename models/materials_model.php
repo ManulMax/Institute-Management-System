@@ -6,9 +6,9 @@ class materials_Model extends Model{
      	parent::__construct();
     }
 
-    public function listHalls(){
+    public function listMaterials(){
 
-    	return $this->db->listAll("hall");
+    	return $this->db->listAll("study_material");
         
 
     }
@@ -27,18 +27,8 @@ class materials_Model extends Model{
     }
 
     public function create($data){
-
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
+            move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\".$data['filename']);
+            $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',1,1)");
 
 
     }
