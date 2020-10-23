@@ -21,6 +21,7 @@ class Database
 		$sql = "select * from ".$table;
 
         $result = mysqli_query($connection,$sql);
+
         return $result;
 
 	}

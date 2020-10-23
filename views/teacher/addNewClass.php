@@ -6,8 +6,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" href="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/css/mobiscroll.javascript.min.css">
-<script src="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
 
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
@@ -15,28 +13,50 @@
 <script src= 
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
     </script>
+
+
+
+<!-- filter table -->
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/styles.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
+<script>
+$(function(){
+  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+  $('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+  .container { margin: 150px auto; max-width: 960px; }
+  </style>
 </head>
+
+
 
 <body>
 
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
-	<ul>
-	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
-	  <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
-	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
-	<div class="chip"><img src="<?php echo URL; ?>public/icons/Logout.png" alt="Person" width="96" height="96">Log out</div>
-	<div class="chip" style: "float:left;"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Profile</div>
+  <ul>
+    <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
+    <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
+    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+  </ul>
+  
+  
   </div>
-  <div class="header">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-users"></i>New Class</h2>
-	  <div class="chip"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Teacher Name</div>
+  <div class="headerClass">
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-users"></i>New Class</h2>
+    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
+    <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
   </div>
   
   
@@ -133,13 +153,103 @@
 
 
   <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
-  <table id="allocations">
+
+  <div class="container" style="margin: 30px;margin-top: 0px;">
+
+<div class="row">
+<div class="table-filters">
+  <div class="col-20">
+    <label for="filter-country">Name:</label>
+    <input type="text" class="input-text" id="filter-name" data-filter-col="0,1">
+  </div>
+<div class="col-20"></div>
+  <div class="col-20">
+    <label for="filter-city">City:</label>
+    <select id="filter-city" data-filter-col="2" style="min-width:60px">
+      <option value="">- All -</option>
+      <option value="j">J</option>
+      <option value="k">K</option>
+      <option value="ll">LL</option>
+    </select>
+  </div>
+<div class="col-20"></div>
+<div class="col-20">
+  <label for="filter-country">Country:</label>
+  <input type="text" class="input-text" id="filter-country" data-filter-col="3">
+
+  <label for="filter-tick">
+    <input type="checkbox" id="filter-tick" data-filter-col="0,1,2,3" data-filter-val="B"> B</label>
+</div>
+
+</div>
+</div>
+
+<!-- data taken from generatedata.com -->
+<table id="data">
+<thead>
   <tr>
-    <th>Duration</th>
-    <th>Teacher</th>
-    <th>Subject</th>
-    <th>Batch</th>
+    <th>Class</th>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Hall</th>
   </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Shoshana</td>
+    <td>Wooten</td>
+    <td>Valdosta</td>
+    <td>United Kingdom</td>
+  </tr>
+  <tr>
+    <td>Stewart</td>
+    <td>Dillard</td>
+    <td>South Portland</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>Tana</td>
+    <td>Villarreal</td>
+    <td>Waltham</td>
+    <td>Solomon Islands</td>
+  </tr>
+  <tr>
+    <td>Wendy</td>
+    <td>Greer</td>
+    <td>Bellflower</td>
+    <td>Mauritania</td>
+  </tr>
+  <tr>
+    <td>Kenneth</td>
+    <td>Livingston</td>
+    <td>Anaheim</td>
+    <td>Honduras</td>
+  </tr>
+</tbody>
+</table>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+
+
+
+
+
 
   <?php 
 
@@ -179,35 +289,12 @@
   <div class="row" style="margin-top:30px;">
     <input type="submit" value="Send Details">
   </div>
-  <a href="<?php echo URL ?>addNewClass/viewCurrentSchedules/h3/Tuesday"><button type="button">Click here</button></a>
-    <p id = "GFG_DOWN" style = 
-        "font-size: 23px; font-weight: bold; color: green; "> 
-    </p>
+
     
 </form>
 
 </div>
   
- <div class="right" style="background-color:#2F4F4F;">
-	  
-	<div height="40%">
-		<div mbsc-page class="demo-datepicker">
-		  <div style="height:100%">
-			  <div class="mbsc-grid">
-				<div class="mbsc-row">
-
-					<div mbsc-form>
-						<div class="mbsc-form-grid">
-							<div id="demo-calendar-date-picker"></div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		  </div>
-		</div>
-	</div>
-</div>
 
 <div class="footer">
   <p>Footer</p>
@@ -215,14 +302,7 @@
 
 </body>
 <script> 
-        var el_down = document.getElementById("GFG_DOWN");  
-          
-            document.getElementById("GFG_DOWN").innerHTML = $("#daySelector").val()+" "+$("#hallSelector").val();
-                 var hh = $("#hallSelector").val();
-                 var dd = $("#daySelector").val();
-                 document.cookie = "hh = "+ hh;
-                 document.cookie = "dd = "+ dd; 
-   
+
 
 
 
@@ -305,50 +385,6 @@ function closeAllSelect(elmnt) {
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
 
-
-
-
-
-
-    mobiscroll.settings = {
-        lang: 'en',                       // Specify language like: lang: 'pl' or omit setting to use default
-        theme: 'ios',                     // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light'             // More info about themeVariant: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-themeVariant
-    };
-    
-    var now = new Date();
-    
-    mobiscroll.calendar('#demo-calendar-date-picker', {
-        display: 'inline',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-header', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        headerText: '{value}',            // More info about headerText: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-headerText
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-non-form', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    var instance = mobiscroll.calendar('#demo-calendar-date-external', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        showOnTap: false,                 // More info about showOnTap: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnTap
-        showOnFocus: false,               // More info about showOnFocus: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnFocus
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(new Date(), true);
-        }
-    });
-    
 
 </script>
 

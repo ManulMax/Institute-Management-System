@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>jQuery Filtable: Filtable Table Example</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="../filtable.js?dev"></script>
+<script>
+$(function(){
+	// Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+	$('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+	body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+	.container { margin: 150px auto; max-width: 960px; }
+	</style>
+</head>
+
+<body>
+	<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/table/filter-form-Controls-filtable.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+<h1>jQuery Filtable: Filtable Table Example</h1>
+
+
+<div class="table-filters">
+	<label for="filter-country">Name:</label>
+	<input type="text" class="input-text" id="filter-name" data-filter-col="0,1">
+
+	<label for="filter-city">City:</label>
+	<select id="filter-city" data-filter-col="2" style="min-width:60px">
+		<option value="">- All -</option>
+		<option value="j">J</option>
+		<option value="k">K</option>
+		<option value="ll">LL</option>
+	</select>
+
+	<label for="filter-country">Country:</label>
+	<input type="text" class="input-text" id="filter-country" data-filter-col="3">
+
+	<label for="filter-tick">
+		<input type="checkbox" id="filter-tick" data-filter-col="0,1,2,3" data-filter-val="B"> B</label>
+
+</div>
+
+
+<!-- data taken from generatedata.com -->
+<table id="data">
+<thead>
+	<tr>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>City</th>
+		<th>Country</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Shoshana</td>
+		<td class="name">Wooten</td>
+		<td>Valdosta</td>
+		<td>United Kingdom</td>
+	</tr>
+	<tr>
+		<td>Stewart</td>
+		<td class="name">Dillard</td>
+		<td>South Portland</td>
+		<td>Italy</td>
+	</tr>
+	<tr>
+		<td>Tana</td>
+		<td class="name">Villarreal</td>
+		<td>Waltham</td>
+		<td>Solomon Islands</td>
+	</tr>
+	<tr>
+		<td>Wendy</td>
+		<td class="name">Greer</td>
+		<td>Bellflower</td>
+		<td>Mauritania</td>
+	</tr>
+	<tr>
+		<td>Kenneth</td>
+		<td class="name">Livingston</td>
+		<td>Anaheim</td>
+		<td>Honduras</td>
+	</tr>
+	<tr>
+		<td>Holly</td>
+		<td class="name">Strong</td>
+		<td>Placentia</td>
+		<td>Greenland</td>
+	</tr>
+	<tr>
+		<td>Lynn</td>
+		<td class="name">Cooley</td>
+		<td>Temecula</td>
+		<td>Papua New Guinea</td>
+	</tr>
+	<tr>
+		<td>Autumn</td>
+		<td class="name">Barry</td>
+		<td>Malden</td>
+		<td>Serbia and Montenegro</td>
+	</tr>
+	<tr>
+		<td>Hadassah</td>
+		<td class="name">Berry</td>
+		<td>Ketchikan</td>
+		<td>Egypt</td>
+	</tr>
+	<tr>
+		<td>Hector</td>
+		<td class="name">Burns</td>
+		<td>Kokomo</td>
+		<td>Monaco</td>
+	</tr>
+	<tr>
+		<td>Eagan</td>
+		<td class="name">Carr</td>
+		<td>Jeannette</td>
+		<td>Slovakia</td>
+	</tr>
+	<tr>
+		<td>Charissa</td>
+		<td class="name">Barker</td>
+		<td>Meadville</td>
+		<td>New Zealand</td>
+	</tr>
+	<tr>
+		<td>Abigail</td>
+		<td class="name">Holman</td>
+		<td>Dubuque</td>
+		<td>Kiribati</td>
+	</tr>
+	<tr>
+		<td>Caesar</td>
+		<td class="name">Carver</td>
+		<td>Jordan Valley</td>
+		<td>Mexico</td>
+	</tr>
+	<tr>
+		<td>Barbara</td>
+		<td class="name">Shields</td>
+		<td>Saint Joseph</td>
+		<td>Germany</td>
+	</tr>
+	<tr>
+		<td>Rose</td>
+		<td class="name">Pace</td>
+		<td>Moraga</td>
+		<td>Ecuador</td>
+	</tr>
+	<tr>
+		<td>Nero</td>
+		<td class="name">William</td>
+		<td>Hutchinson</td>
+		<td>Serbia and Montenegro</td>
+	</tr>
+	<tr>
+		<td>Thor</td>
+		<td class="name">Kelly</td>
+		<td>Jeffersonville</td>
+		<td>Liberia</td>
+	</tr>
+	<tr>
+		<td>Edward</td>
+		<td class="name">Barron</td>
+		<td>Mandan</td>
+		<td>Paraguay</td>
+	</tr>
+	<tr>
+		<td>Mohammad</td>
+		<td class="name">Mcfadden</td>
+		<td>Cicero</td>
+		<td>Bolivia</td>
+	</tr>
+</tbody>
+</table>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

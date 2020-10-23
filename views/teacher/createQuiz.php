@@ -26,25 +26,29 @@
 	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
 	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	</ul>
-	<div class="chip"><img src="<?php echo URL; ?>public/icons/Logout.png" alt="Person" width="96" height="96">Log out</div>
-	<div class="chip" style: "float:left;"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Profile</div>
+	
+	
   </div>
-  <div class="header">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Create Quiz</h2>
-	  <div class="chip"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Teacher Name</div>
+  <div class="headerClass">
+	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-question"></i>Quizzes</h2>
+	  <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
+	  <div class="userDiv" style="margin-top:7px;float: right;margin-right: 45px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
+	  
   </div>
   
   
   
   <div class="middle" style="background-color:white;">
-	<form id="regForm" action="/action_page.php">
+	<form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
 	  <h1>Create Quiz:</h1>
 	  <div>Quiz Title:
-		<p><input type="text"></p><br />
+		<p><input type="text" name="topic"></p><br />
+		Time Limit:
+		<p><input type="text" name="time"></p>
 	  </div>
 	  <!-- One "tab" for each step in the form: -->
 	  <div class="tab" id="qlist">Question:
-		<p><textarea rows="4" cols="90"></textarea></p>
+		<p><textarea rows="4" cols="90" name="ques"></textarea></p>
 		
 		<table border="0" width="100%" cellpadding="10px">
 			<tbody>
@@ -91,10 +95,6 @@
 	</form>
   </div>
   
-  <div class="right" style="background-color:#2F4F4F;">
-	  
-	</div>
-  
   
   
 </div>
@@ -117,6 +117,9 @@ function myFunction(){
 	document.getElementById("qlist").appendChild(cln);
 	count++;
 }
+
+
+
 
 
 
