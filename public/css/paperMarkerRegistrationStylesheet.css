@@ -1,4 +1,4 @@
-input[type=text], select, textarea {
+input[type=text],input[type=date],input[type=email] select, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #aaa;
@@ -6,13 +6,6 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
-input[type=date], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  resize: vertical;
-}
 
 label {
   padding: 12px 12px 12px 0;
