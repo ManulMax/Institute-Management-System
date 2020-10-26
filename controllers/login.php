@@ -9,4 +9,9 @@ class login extends Controller{
     function index(){
     	$this->view->render('login');
     }
+
+    function loginUser(){
+
+        $this->model->loginUser();
+    }
 }

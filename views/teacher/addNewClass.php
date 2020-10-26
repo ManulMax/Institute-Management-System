@@ -16,6 +16,7 @@
 
 
 
+
 <!-- filter table -->
 
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/styles.css">
@@ -43,8 +44,26 @@ $(function(){
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
   <ul>
     <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-    <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
-    <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="<?php echo URL; ?>materials">Class 1</a>
+          <a href="<?php echo URL; ?>materials">Class 2</a>
+          <a href="<?php echo URL; ?>materials">Class 3</a>
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="<?php echo URL; ?>materials">Class 1</a>
+          <a href="<?php echo URL; ?>materials">Class 2</a>
+          <a href="<?php echo URL; ?>materials">Class 3</a>
+        </div>
+    </li>
     <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
     <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
@@ -62,26 +81,8 @@ $(function(){
   
   <div class="middle" style="background-color:white;">
 
-<form action="" method="post" style="padding-left: 10%;padding-right: 10%;padding-top: 5%;">
-  <div class="row">
-    <div class="col-20">
-      <label for="subject">Subject :</label>
-    </div>
-    <div class="col-75">
-      <div style="width:400px;">
-		  <select>
-			<option value="0">Select Subject:</option>
-      <?php
-          $num=1;
-          while($row = mysqli_fetch_assoc($this->subjectList)){  
-             echo "<option value = '".$num."'". ">" .$row['name']. "</option>";
-             $num++;
-          }
-      ?>
-		  </select>
-	  </div>
-    </div>
-  </div>
+<form action="" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">
+
   
   <div class="row">
     <div class="col-20">
@@ -105,18 +106,20 @@ $(function(){
       <label for="subject">No. of Students :</label>
     </div>
     <div class="col-20">
-      <input type="text" class="stu">
+      <input type="text">
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-20">
-      <label for="subject"> Day :</label>
-    </div>
-    <div class="col-20">
-      <div style="width:200px;">
 
-      <select id = "daySelector">
+  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
+
+  <div class="container" style="margin-bottom:10px;margin-top: 0px;">
+
+<div class="row">
+<div class="table-filters">
+   <div class="col-20">
+    <label for="filter-day">Day:</label>
+    <select id="filter-day" data-filter-col="0" style="min-width:60px">
       <option value="Monday">Monday</option>
       <option value="Tuesday">Tuesday</option>
       <option value="Wednesday">Wednesday</option>
@@ -124,107 +127,51 @@ $(function(){
       <option value="Friday">Friday</option>
       <option value="Saturday">Saturday</option>
       <option value="Sunday">Sunday</option>
-      </select>    
-
-	   </div>
-    </div>
-	<div class="col-20">
-    </div>
-	<div class="col-20">
-      <label for="subject">Hall :</label>
-    </div>
-    <div class="col-20">
-      <div style="width:200px;">
-
-		  <select id="hallSelector">
-
-        <?php
-            $num=1;
-            while($row = mysqli_fetch_assoc($this->hallList)){	
-			         echo "<option value = '".$row['name']."'". ">" .$row['name']. "</option>";
-               $num++;
-            }
-        ?>
-		  </select>
-	  </div>
-    </div>
-  </div>
-  <br />
-
-
-  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
-
-  <div class="container" style="margin: 30px;margin-top: 0px;">
-
-<div class="row">
-<div class="table-filters">
-  <div class="col-20">
-    <label for="filter-country">Name:</label>
-    <input type="text" class="input-text" id="filter-name" data-filter-col="0,1">
-  </div>
-<div class="col-20"></div>
-  <div class="col-20">
-    <label for="filter-city">City:</label>
-    <select id="filter-city" data-filter-col="2" style="min-width:60px">
-      <option value="">- All -</option>
-      <option value="j">J</option>
-      <option value="k">K</option>
-      <option value="ll">LL</option>
     </select>
   </div>
 <div class="col-20"></div>
-<div class="col-20">
-  <label for="filter-country">Country:</label>
-  <input type="text" class="input-text" id="filter-country" data-filter-col="3">
+  <div class="col-20">
+    <label for="filter-hall">Hall:</label>
+    <select id="filter-hall" data-filter-col="2" style="min-width:60px">
+      <option value="">- All -</option>
+      <?php
 
-  <label for="filter-tick">
-    <input type="checkbox" id="filter-tick" data-filter-col="0,1,2,3" data-filter-val="B"> B</label>
-</div>
+            while($row = mysqli_fetch_assoc($this->hallList)){  
+
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
+    </select>
+  </div>
+
 
 </div>
 </div>
+<br />
 
 <!-- data taken from generatedata.com -->
-<table id="data">
+<table id="data" style="width: 100%;margin-right: 0;">
 <thead>
   <tr>
-    <th>Class</th>
     <th>Day</th>
     <th>Time</th>
     <th>Hall</th>
+    <th>Subject</th>
+    <th>Batch</th>
+    <th>Teacher</th>
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>Shoshana</td>
-    <td>Wooten</td>
-    <td>Valdosta</td>
-    <td>United Kingdom</td>
-  </tr>
-  <tr>
-    <td>Stewart</td>
-    <td>Dillard</td>
-    <td>South Portland</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>Tana</td>
-    <td>Villarreal</td>
-    <td>Waltham</td>
-    <td>Solomon Islands</td>
-  </tr>
-  <tr>
-    <td>Wendy</td>
-    <td>Greer</td>
-    <td>Bellflower</td>
-    <td>Mauritania</td>
-  </tr>
-  <tr>
-    <td>Kenneth</td>
-    <td>Livingston</td>
-    <td>Anaheim</td>
-    <td>Honduras</td>
-  </tr>
+
+  <?php
+
+      while($row = mysqli_fetch_assoc($this->scheduleList)){  
+         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']." ".$row['mname']." ".$row['lname']."</td></tr>";
+
+      }
+  ?>
+ 
 </tbody>
 </table>
 </div>
@@ -245,29 +192,6 @@ $(function(){
 
 
 
-
-
-
-
-
-
-  <?php 
-
-  if(isset($this->scheduleList)){
-    while($row = mysqli_fetch_assoc($this->scheduleList)){ ?>
-      <tr>
-        <td><?php echo $row['start_time']." - ".$row['start_time']; ?></td>
-        <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-        <td><?php echo $row['name']; ?></td>
-        <td><?php echo $row['batch']; ?></td>
-      </tr>
-      <?php }
-  }
-  ?>
-</table>
-
-
-
 <label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
 
   <div class="row">
@@ -275,7 +199,7 @@ $(function(){
       <label for="subject"> Start Time :</label>
     </div>
     <div class="col-20">
-      <input type="text">
+      <input type="time">
     </div>
 	<div class="col-20">
     </div>
@@ -283,7 +207,16 @@ $(function(){
       <label for="subject">End Time :</label>
     </div>
     <div class="col-20">
-      <input type="text">
+      <input type="time">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-20">
+      <label>Start Date :</label>
+    </div>
+    <div class="col-20">
+      <input type="date">
     </div>
   </div>
   <div class="row" style="margin-top:30px;">
@@ -302,6 +235,27 @@ $(function(){
 
 </body>
 <script> 
+
+
+
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+
 
 
 
