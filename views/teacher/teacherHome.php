@@ -30,9 +30,15 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+          <?php
+       
+         while($row = mysqli_fetch_assoc($this->classList)){ 
+          unset($_SESSION["myclass"]);
+          Session::set('myclass',$row['id']); ?>  
+
+          <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+        <?php  } ?>
+
         </div>
     </li>
     <li>

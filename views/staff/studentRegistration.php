@@ -35,7 +35,7 @@
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:white;">
 	
-	<form action="<?php echo URL;?>studentRegistration/create" method="post" >
+	<form enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" >
 	<div class="container">
    
     <table >

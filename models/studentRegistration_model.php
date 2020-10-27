@@ -32,14 +32,18 @@ class studentRegistration_Model extends Model{
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
 
-        $this->db->insert('student',"(fname,mname,lname,tel_no,address,NIC,DOB,gender,email,school,grade,stream,subject1,subject2,subject3,user_id)","('".$data['fname']."','".$data['mname']."','".$data['lname']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['school']."','".$data['grade']."','".$data['stream']."','".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$num['id'].")");
+        move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\img\studentImages\\".$data['imagename']);
 
-        $reg_no = $this->db->listWhere("stu_reg_no","student","NIC='".$data['NIC']."'");
+
+        
+        $this->db->insert('student',"(fname,mname,lname,tel_no,address,NIC,DOB,gender,email,school,grade,stream,image,user_id)","('".$data['fname']."','".$data['mname']."','".$data['lname']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['school']."','".$data['grade']."','".$data['stream']."','".$data['imagename']."',".$num['id'].")");
+
+        $reg_no = $this->db->listWhere("reg_no","student","NIC='".$data['NIC']."'");
         $reg = mysqli_fetch_assoc($reg_no);
 
-        $this->db->insert('parent',"(name,tel_no,stu_reg_no)","('".$data['name']."','".$data['tel']."',".$reg['stu_reg_no'].")");
+        $this->db->insert('parent',"(name,tel_no,stu_reg_no)","('".$data['name']."','".$data['tel']."',".$reg['reg_no'].")");
 
-        $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['stu_reg_no'].")");
+      /*  $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['stu_reg_no'].")"); */
 
 
  

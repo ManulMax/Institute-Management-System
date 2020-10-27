@@ -6,9 +6,14 @@ class materials extends Controller{
         parent::__construct();
     }
 
-    function index(){
-    	$this->view->materialList = $this->model->listMaterials();
+    function index($classID){
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+    	$this->view->materialList = $this->model->listMaterials($classID);
     	$this->view->render('teacher/materials');
+    }
+
+    function getMaterials($id){
+        $this->view->materialList = $this->model->listMaterials($id);
     }
 
     function create(){

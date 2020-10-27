@@ -24,9 +24,13 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+          <?php
+       
+         while($row = mysqli_fetch_assoc($this->classList)){ 
+          ?>  
+
+          <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+        <?php  } ?>
         </div>
     </li>
     <li>
@@ -34,9 +38,15 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+        	<?php
+       
+         while($row = mysqli_fetch_assoc($this->classList)){ 
+          unset($_SESSION["myclass"]);
+          Session::set('myclass',$row['id']); ?>  
+
+          <a href="<?php echo URL; ?>materials"><?php echo $row['batch']; ?></a>
+        <?php  } ?>
+
         </div>
     </li>
 	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
@@ -44,7 +54,7 @@
 	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
 	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	</ul>
-	
+
 	
   </div>
   <div class="headerClass">
