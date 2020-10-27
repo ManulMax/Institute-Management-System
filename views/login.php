@@ -15,6 +15,7 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+<<<<<<< HEAD
           <form action="#" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
@@ -24,6 +25,27 @@
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
+=======
+          <form action="<?php echo URL; ?>login/loginUser" method="post" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <select name="type">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+                <option value="papermarker">Paper marker</option>
+              </select>
+>>>>>>> ff8e740880a8a8aebcbe0b72f208abf27a1a1613
             </div>
             <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Follow Vidarsha In Social Networks</p>

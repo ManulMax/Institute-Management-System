@@ -6,10 +6,16 @@ class materials_Model extends Model{
      	parent::__construct();
     }
 
-    public function listHalls(){
+    public function listClasses($userid){
 
-    	return $this->db->listAll("hall");
-        
+        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
+
+    }
+
+    public function listMaterials($id){
+
+        return $this->db->listWhere("*","study_material","class_id=$id");
+    
 
     }
 
@@ -27,18 +33,8 @@ class materials_Model extends Model{
     }
 
     public function create($data){
-
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
+            move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\".$data['filename']);
+            $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',1,1)");
 
 
     }

@@ -97,6 +97,21 @@ form.sign-in-form {
   color: #333;
 }
 
+<<<<<<< HEAD
+=======
+.input-field select {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+  width: 100%;
+  margin: 0;
+}
+
+>>>>>>> ff8e740880a8a8aebcbe0b72f208abf27a1a1613
 .input-field input::placeholder {
   color: #aaa;
   font-weight: 500;

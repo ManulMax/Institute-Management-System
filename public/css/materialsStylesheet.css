@@ -95,3 +95,9 @@ input[type=submit]:hover {
 #removeLink:hover, #removeLink:active {
   background-color: #696969;
 }
+
+.middle p a {
+  color: #2F4F4F;
+  text-decoration: none;
+  text-transform: uppercase;
+}

@@ -7,6 +7,8 @@ class reschedule extends Controller{
     }
 
     function index(){
+    	$this->view->hallList = $this->model->listHalls();
+        $this->view->scheduleList = $this->model->listSchedules();
     	$this->view->render('teacher/reschedule');
     }
 }

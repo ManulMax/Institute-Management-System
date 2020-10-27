@@ -6,8 +6,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" href="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/css/mobiscroll.javascript.min.css">
-<script src="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
 
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
@@ -15,53 +13,76 @@
 <script src= 
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
     </script>
+
+
+
+
+<!-- filter table -->
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/styles.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
+<script>
+$(function(){
+  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+  $('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+  .container { margin: 150px auto; max-width: 960px; }
+  </style>
 </head>
+
+
 
 <body>
 
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
-	<ul>
-	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
-	  <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
-	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
-	<div class="chip"><img src="<?php echo URL; ?>public/icons/Logout.png" alt="Person" width="96" height="96">Log out</div>
-	<div class="chip" style: "float:left;"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Profile</div>
+  <ul>
+    <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="<?php echo URL; ?>materials">Class 1</a>
+          <a href="<?php echo URL; ?>materials">Class 2</a>
+          <a href="<?php echo URL; ?>materials">Class 3</a>
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="<?php echo URL; ?>materials">Class 1</a>
+          <a href="<?php echo URL; ?>materials">Class 2</a>
+          <a href="<?php echo URL; ?>materials">Class 3</a>
+        </div>
+    </li>
+    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+  </ul>
+  
+  
   </div>
-  <div class="header">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-users"></i>New Class</h2>
-	  <div class="chip"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Teacher Name</div>
+  <div class="headerClass">
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-users"></i>New Class</h2>
+    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
+    <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
   </div>
   
   
   <div class="middle" style="background-color:white;">
 
-<form action="" method="post" style="padding-left: 10%;padding-right: 10%;padding-top: 5%;">
-  <div class="row">
-    <div class="col-20">
-      <label for="subject">Subject :</label>
-    </div>
-    <div class="col-75">
-      <div style="width:400px;">
-		  <select>
-			<option value="0">Select Subject:</option>
-      <?php
-          $num=1;
-          while($row = mysqli_fetch_assoc($this->subjectList)){  
-             echo "<option value = '".$num."'". ">" .$row['name']. "</option>";
-             $num++;
-          }
-      ?>
-		  </select>
-	  </div>
-    </div>
-  </div>
+<form action="" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">
+
   
   <div class="row">
     <div class="col-20">
@@ -85,18 +106,20 @@
       <label for="subject">No. of Students :</label>
     </div>
     <div class="col-20">
-      <input type="text" class="stu">
+      <input type="text">
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-20">
-      <label for="subject"> Day :</label>
-    </div>
-    <div class="col-20">
-      <div style="width:200px;">
 
-      <select id = "daySelector">
+  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
+
+  <div class="container" style="margin-bottom:10px;margin-top: 0px;">
+
+<div class="row">
+<div class="table-filters">
+   <div class="col-20">
+    <label for="filter-day">Day:</label>
+    <select id="filter-day" data-filter-col="0" style="min-width:60px">
       <option value="Monday">Monday</option>
       <option value="Tuesday">Tuesday</option>
       <option value="Wednesday">Wednesday</option>
@@ -104,57 +127,68 @@
       <option value="Friday">Friday</option>
       <option value="Saturday">Saturday</option>
       <option value="Sunday">Sunday</option>
-      </select>    
-
-	   </div>
-    </div>
-	<div class="col-20">
-    </div>
-	<div class="col-20">
-      <label for="subject">Hall :</label>
-    </div>
-    <div class="col-20">
-      <div style="width:200px;">
-
-		  <select id="hallSelector">
-
-        <?php
-            $num=1;
-            while($row = mysqli_fetch_assoc($this->hallList)){	
-			         echo "<option value = '".$row['name']."'". ">" .$row['name']. "</option>";
-               $num++;
-            }
-        ?>
-		  </select>
-	  </div>
-    </div>
+    </select>
   </div>
-  <br />
+<div class="col-20"></div>
+  <div class="col-20">
+    <label for="filter-hall">Hall:</label>
+    <select id="filter-hall" data-filter-col="2" style="min-width:60px">
+      <option value="">- All -</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->hallList)){  
+
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
+    </select>
+  </div>
 
 
-  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
-  <table id="allocations">
+</div>
+</div>
+<br />
+
+<!-- data taken from generatedata.com -->
+<table id="data" style="width: 100%;margin-right: 0;">
+<thead>
   <tr>
-    <th>Duration</th>
-    <th>Teacher</th>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Hall</th>
     <th>Subject</th>
     <th>Batch</th>
+    <th>Teacher</th>
   </tr>
+</thead>
+<tbody>
 
-  <?php 
+  <?php
 
-  if(isset($this->scheduleList)){
-    while($row = mysqli_fetch_assoc($this->scheduleList)){ ?>
-      <tr>
-        <td><?php echo $row['start_time']." - ".$row['start_time']; ?></td>
-        <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-        <td><?php echo $row['name']; ?></td>
-        <td><?php echo $row['batch']; ?></td>
-      </tr>
-      <?php }
-  }
+      while($row = mysqli_fetch_assoc($this->scheduleList)){  
+         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']." ".$row['mname']." ".$row['lname']."</td></tr>";
+
+      }
   ?>
+ 
+</tbody>
 </table>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 
 
@@ -165,7 +199,7 @@
       <label for="subject"> Start Time :</label>
     </div>
     <div class="col-20">
-      <input type="text">
+      <input type="time">
     </div>
 	<div class="col-20">
     </div>
@@ -173,41 +207,27 @@
       <label for="subject">End Time :</label>
     </div>
     <div class="col-20">
-      <input type="text">
+      <input type="time">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-20">
+      <label>Start Date :</label>
+    </div>
+    <div class="col-20">
+      <input type="date">
     </div>
   </div>
   <div class="row" style="margin-top:30px;">
     <input type="submit" value="Send Details">
   </div>
-  <a href="<?php echo URL ?>addNewClass/viewCurrentSchedules/h3/Tuesday"><button type="button">Click here</button></a>
-    <p id = "GFG_DOWN" style = 
-        "font-size: 23px; font-weight: bold; color: green; "> 
-    </p>
+
     
 </form>
 
 </div>
   
- <div class="right" style="background-color:#2F4F4F;">
-	  
-	<div height="40%">
-		<div mbsc-page class="demo-datepicker">
-		  <div style="height:100%">
-			  <div class="mbsc-grid">
-				<div class="mbsc-row">
-
-					<div mbsc-form>
-						<div class="mbsc-form-grid">
-							<div id="demo-calendar-date-picker"></div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		  </div>
-		</div>
-	</div>
-</div>
 
 <div class="footer">
   <p>Footer</p>
@@ -215,14 +235,28 @@
 
 </body>
 <script> 
-        var el_down = document.getElementById("GFG_DOWN");  
-          
-            document.getElementById("GFG_DOWN").innerHTML = $("#daySelector").val()+" "+$("#hallSelector").val();
-                 var hh = $("#hallSelector").val();
-                 var dd = $("#daySelector").val();
-                 document.cookie = "hh = "+ hh;
-                 document.cookie = "dd = "+ dd; 
-   
+
+
+
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+
+
 
 
 
@@ -305,50 +339,6 @@ function closeAllSelect(elmnt) {
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
 
-
-
-
-
-
-    mobiscroll.settings = {
-        lang: 'en',                       // Specify language like: lang: 'pl' or omit setting to use default
-        theme: 'ios',                     // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light'             // More info about themeVariant: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-themeVariant
-    };
-    
-    var now = new Date();
-    
-    mobiscroll.calendar('#demo-calendar-date-picker', {
-        display: 'inline',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-header', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        headerText: '{value}',            // More info about headerText: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-headerText
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    mobiscroll.calendar('#demo-calendar-non-form', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(now, true);
-        }
-    });
-    
-    var instance = mobiscroll.calendar('#demo-calendar-date-external', {
-        display: 'bubble',                // Specify display mode like: display: 'bottom' or omit setting to use default
-        showOnTap: false,                 // More info about showOnTap: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnTap
-        showOnFocus: false,               // More info about showOnFocus: https://docs.mobiscroll.com/4-10-7/javascript/calendar#opt-showOnFocus
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-7/javascript/calendar#event-onInit
-            inst.setVal(new Date(), true);
-        }
-    });
-    
 
 </script>
 
