@@ -37,16 +37,22 @@ $(function(){
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
-	<ul>
-	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li>
+  <ul>
+    <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
         </div>
     </li>
     <li>
@@ -54,58 +60,60 @@ $(function(){
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
-	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
-	
-	
+    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+  </ul>
+  
+  
   </div>
   <div class="headerClass">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="far fa-calendar-alt"></i>Re-schedule</h2>
-	  <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-	 <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="far fa-calendar-alt"></i>Re-schedule</h2>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
   
   
-	<!--  <div class="row">
-		<div class="col-40">
-		  <label class="container">Temporary Re-schedule
-			  <input type="radio" checked="checked" name="radio">
-			  <span class="checkmark"></span>
-			</label>
-		</div>
-		<div class="col-40">
-		  <label class="container">Permanant Re-schedule
-			  <input type="radio" name="radio">
-			  <span class="checkmark"></span>
-			</label>
-		</div>		
-	  </div>
-	
+  <!--  <div class="row">
+    <div class="col-40">
+      <label class="container">Temporary Re-schedule
+        <input type="radio" checked="checked" name="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="col-40">
+      <label class="container">Permanant Re-schedule
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>    
+    </div>
+  
 
-	  <div class="row">
-		<div class="col-20">
-		  <label for="subject">Class :</label>
-		</div>
-		<div class="col-75">
-		  <div class="custom-select" style="width:400px;">
-			  <select>
-				<option value="0">Select Class:</option>
-				<option value="1">Class 1</option>
-				<option value="2">Class 2</option>
-			  </select>
-		  </div>
-		</div>
-	  </div>
-	-->  
+    <div class="row">
+    <div class="col-20">
+      <label for="subject">Class :</label>
+    </div>
+    <div class="col-75">
+      <div class="custom-select" style="width:400px;">
+        <select>
+        <option value="0">Select Class:</option>
+        <option value="1">Class 1</option>
+        <option value="2">Class 2</option>
+        </select>
+      </div>
+    </div>
+    </div>
+  -->  
 <div class="middle" style="background-color:white;">
 
 <form action="" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">

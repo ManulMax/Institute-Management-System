@@ -17,20 +17,22 @@
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
-	<ul>
-	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li>
+  <ul>
+    <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
           <?php
-       
-         while($row = mysqli_fetch_assoc($this->classList)){ 
-          ?>  
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
 
-          <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
-        <?php  } ?>
         </div>
     </li>
     <li>
@@ -38,29 +40,25 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        	<?php
+          <?php
        
-         while($row = mysqli_fetch_assoc($this->classList)){ 
-          unset($_SESSION["myclass"]);
-          Session::set('myclass',$row['id']); ?>  
-
-          <a href="<?php echo URL; ?>materials"><?php echo $row['batch']; ?></a>
-        <?php  } ?>
-
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
-	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
+    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+  </ul>
 
-	
+  
   </div>
   <div class="headerClass">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-upload"></i>Upload Materials</h2>
-	  <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-	  <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-upload"></i>Upload Materials</h2>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
   
@@ -69,7 +67,7 @@
   <div class="middle" style="background-color:white;width:53%;padding-left: 40px;padding-right: 40px;">
 
 
-			
+      
         <?php
 
         $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
@@ -81,69 +79,69 @@
              <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
              <hr />
         <?php  } ?>
-	
+  
   </div>
   
   
   
-  <div class="right" style="background-color:#2F4F4F;width:30%;">
+  <div class="right" style="background-color:#90EE90;width:30%;color: black;">
   
  <!-- ------ form ------ --> 
  <h2 style="text-indent:10px;"><i class="fas fa-upload"></i>Upload New Material</h2>
-	  <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create">
-		<div class="row">
-		  <div class="col-25">
-			<label for="fname">Heading</label>
-		  </div>
-		  <div class="col-75">
-			<input type="text" name="heading">
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-25">
-			<label for="fname">File Name</label>
-		  </div>
-		  <div class="col-75">
-			<input type="text" name="name">
-		  </div>
-		</div>
-		<div class="row">
-		<div class="col-25">
-			<label for="subject">Description</label>
-		  </div>
-		  <div class="col-75">
-			<textarea placeholder="Write something.." style="height:150px" name="description"></textarea>
-		  </div>
-		</div>
+    <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create">
+    <div class="row">
+      <div class="col-25">
+      <label for="fname">Heading</label>
+      </div>
+      <div class="col-75">
+      <input type="text" name="heading">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+      <label for="fname">File Name</label>
+      </div>
+      <div class="col-75">
+      <input type="text" name="name">
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-25">
+      <label for="subject">Description</label>
+      </div>
+      <div class="col-75">
+      <textarea placeholder="Write something.." style="height:150px" name="description"></textarea>
+      </div>
+    </div>
 
-			<div class="custom-file-container" data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;margin:auto;justify-content:center;">
+      <div class="custom-file-container" data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;margin:auto;justify-content:center;">
 
-			  <label>Upload File </label>	  
-			  <label class="custom-file-container__custom-file" >
-				  <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-				  <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" name="file">
-				  <span class="custom-file-container__custom-file__custom-file-control"></span>
-			  </label>
-			  <a  id="removeLink" href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">Remove</a>
+        <label>Upload File </label>   
+        <label class="custom-file-container__custom-file" >
+          <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+          <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" name="file">
+          <span class="custom-file-container__custom-file__custom-file-control"></span>
+        </label>
+        <a  id="removeLink" href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">Remove</a>
 
-			  <div class="previewContainer">
-				<div class="custom-file-container__image-preview"></div>
-			  </div>		  
-			  <input type="submit" class="upload-info-button" name="submit" value="Upload File">
-			</div>			
-				
-		</form>
-		
-	</div>
+        <div class="previewContainer">
+        <div class="custom-file-container__image-preview"></div>
+        </div>      
+        <input type="submit" class="upload-info-button" name="submit" value="Upload File">
+      </div>      
+        
+    </form>
+    
+  </div>
 </div>
 
 
 </body>
 <script src="<?php echo URL; ?>public/libraries/file-upload-with-preview-master/dist/file-upload-with-preview.min.js"></script>
 <script language="JavaScript">
-	var myUpload = new FileUploadWithPreview('myUploader');
-	
-	var myUploadInfoButton = document.querySelector('.upload-info-button');
+  var myUpload = new FileUploadWithPreview('myUploader');
+  
+  var myUploadInfoButton = document.querySelector('.upload-info-button');
 myUploadInfoButton.addEventListener('click', function(){
   console.log('Upload:', myUpload, myUpload.cachedFile);
 })
@@ -170,7 +168,7 @@ var myUpload = new FileUploadWithPreview('myUploader',{
 </script>
 
 <script type="text/javascript">
-	
+  
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
@@ -187,7 +185,7 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
-	
+  
 </script>
 
 </html>

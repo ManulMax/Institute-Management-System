@@ -35,13 +35,13 @@ $(function(){
   </style>
 </head>
 
-
+ 
 
 <body>
 
 <div class="row">
   <div class="leftNav">
-  <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
+  <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
   <ul>
     <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
     <li>
@@ -49,9 +49,15 @@ $(function(){
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
         </div>
     </li>
     <li>
@@ -59,9 +65,11 @@ $(function(){
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials">Class 1</a>
-          <a href="<?php echo URL; ?>materials">Class 2</a>
-          <a href="<?php echo URL; ?>materials">Class 3</a>
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
     <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
@@ -74,8 +82,8 @@ $(function(){
   </div>
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-users"></i>New Class</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-    <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
   
@@ -85,39 +93,39 @@ $(function(){
 
   
   <div class="row">
-    <div class="col-20">
+    <div class="col-20" style="width: 25%;">
       <label for="subject">Batch :</label>
     </div>
     <div class="col-75">
-      <div style="width:200px;">
-		  <select>
-			<option value="0">Select Batch:</option>
-			<option value="1"><?php echo date("Y"); ?> A/L</option>
-			<option value="2"><?php echo date("Y")+1; ?> A/L</option>
+      <div style="width:250px;">
+      <select>
+      <option value="0">Select Batch:</option>
+      <option value="1"><?php echo date("Y"); ?> A/L</option>
+      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
       <option value="3"><?php echo date("Y")+2; ?> A/L</option>
       <option value="4">Revision</option>
-		  </select>
-	  </div>
+      </select>
+    </div>
     </div>
   </div>
   
   <div class="row">
-    <div class="col-20">
-      <label for="subject">No. of Students :</label>
+    <div class="col-20" style="width: 25%;">
+      <label for="subject">Expected Student Count :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="text">
     </div>
   </div>
+<br />
 
-
-  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
+  
 
   <div class="container" style="margin-bottom:10px;margin-top: 0px;">
 
 <div class="row">
 <div class="table-filters">
-   <div class="col-20">
+   <div class="col-30">
     <label for="filter-day">Day:</label>
     <select id="filter-day" data-filter-col="0" style="min-width:60px">
       <option value="Monday">Monday</option>
@@ -130,7 +138,7 @@ $(function(){
     </select>
   </div>
 <div class="col-20"></div>
-  <div class="col-20">
+  <div class="col-30">
     <label for="filter-hall">Hall:</label>
     <select id="filter-hall" data-filter-col="2" style="min-width:60px">
       <option value="">- All -</option>
@@ -149,7 +157,7 @@ $(function(){
 </div>
 </div>
 <br />
-
+<label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
 <!-- data taken from generatedata.com -->
 <table id="data" style="width: 100%;margin-right: 0;">
 <thead>
@@ -191,34 +199,35 @@ $(function(){
 </script>
 
 
-
+<br />
 <label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
 
   <div class="row">
-    <div class="col-20">
+    <div class="col-20" style="width: 15%;">
       <label for="subject"> Start Time :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="time">
     </div>
-	<div class="col-20">
+  <div class="col-20" style="width: 10%;">
     </div>
-	<div class="col-20">
+  <div class="col-20" style="width: 15%;">
       <label for="subject">End Time :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="time">
     </div>
   </div>
 
   <div class="row">
-    <div class="col-20">
+    <div class="col-20" style="width: 15%;">
       <label>Start Date :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="date">
     </div>
   </div>
+  <br />
   <div class="row" style="margin-top:30px;">
     <input type="submit" value="Send Details">
   </div>

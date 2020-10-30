@@ -8,8 +8,8 @@ class materials extends Controller{
 
     function index($classID){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
-    	$this->view->materialList = $this->model->listMaterials($classID);
-    	$this->view->render('teacher/materials');
+        $this->view->materialList = $this->model->listMaterials($classID);
+        $this->view->render('teacher/materials');
     }
 
     function getMaterials($id){
@@ -18,13 +18,13 @@ class materials extends Controller{
 
     function create(){
 
-    	$data = array();
+        $data = array();
 
-    	$data['heading']=$_POST['heading'];
-		$data['name']=$_POST['name'];
-		$data['description']=$_POST['description'];
-		$data['filename']=$_FILES['file']['name'];
-		$data['temp']=$_FILES['file']['tmp_name'];
+        $data['heading']=$_POST['heading'];
+        $data['name']=$_POST['name'];
+        $data['description']=$_POST['description'];
+        $data['filename']=$_FILES['file']['name'];
+        $data['temp']=$_FILES['file']['tmp_name'];
 
 
         $this->model->create($data);
