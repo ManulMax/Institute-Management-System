@@ -11,6 +11,7 @@ class addNewClass extends Controller{
         $this->view->scheduleList = $this->model->listSchedules();
     	$this->view->render('teacher/addNewClass');
     }
+         
 
     function viewCurrentSchedules($hallName,$daySelected){
     	$this->view->scheduleList = $this->model->listCurrentSchedules($hallName,$daySelected);
