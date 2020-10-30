@@ -5,7 +5,7 @@ class addNewClass extends Controller{
     {
         parent::__construct();
     }
-
+       
     function index(){
     	$this->view->hallList = $this->model->listHalls();
         $this->view->scheduleList = $this->model->listSchedules();
