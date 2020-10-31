@@ -203,10 +203,10 @@ input[type=submit]:hover {
 
 /* Style the indicator (dot/circle) */
 .containerRadio .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }

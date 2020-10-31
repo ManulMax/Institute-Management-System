@@ -1,9 +1,19 @@
-input[type=text],input[type=date],input[type=email] select, textarea {
+input[type=text],input[type=date],input[type=email], select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  padding: 15px;
   resize: vertical;
+  font-size: 17px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #228B22;
+}
+
+textarea {
+  padding: 15px;
+  width: 100%;
+  font-size: 17px;
+  outline: 0;
+  border: 1px solid #228B22;
 }
 
 
@@ -40,6 +50,7 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  font-size: 17px;
 }
 
 input[type=submit]:hover {

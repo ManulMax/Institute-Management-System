@@ -1,13 +1,20 @@
 
 .wrapper{
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 60%;
   max-height:1000px;
+  height: 600px;
   padding: 50px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  margin-left: 40%;
-  margin-top: 200px;
+  margin-left: 50%;
+  margin-top: 350px;
+}
+
+.wrapper p {
+  position: relative;
+  margin-left: 25%;
+  text-align: left;
 }
 
 .wrapper .title h3{
@@ -63,4 +70,23 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+
+#salaryTable {
+  border-collapse: collapse;
+  margin-left: 25%;
+  width: 50%;
+  font-size: 15px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+#salaryTable th, td {
+  border: 1px solid #ddd;
+    padding: 8px;
+}
+#salaryTable th {
+  background-color: #66CDAA;
+  padding: 10px;
+
 }
