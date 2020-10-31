@@ -28,7 +28,7 @@ tr{
 }
 
 /* Full-width input fields */
-input[type=text], input[type=date], input[type=file], input[type=tel], textarea {
+input[type=text], input[type=date], input[type=file], input[type=tel], select, textarea {
 
 padding: 15px;
 width:100%;
@@ -38,9 +38,14 @@ border: none;
 background: #f1f1f1;
 }
 
+.select{
+	background-color: grey;
+	
+}
 
 
-input[type=text]:focus, input[type=date]:focus, input[type=file]:focus, input[type=radio]:focus input[type=tel]:focus{
+
+input[type=text]:focus, input[type=date]:focus, input[type=file]:focus, input[type=radio]:focus input[type=tel]:focus, select:focus{
 background-color: #ddd;
 outline: none;
 }
@@ -66,3 +71,4 @@ opacity: 0.9;
 .registerbtn:hover {
 opacity:1;
 }
+

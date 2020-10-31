@@ -7,13 +7,13 @@ class studentRegistration extends Controller{
     }
 
     function index(){
-    	
-    	$this->view->render('staff/studentRegistration');
+        
+        $this->view->render('staff/studentRegistration');
     }
 
     function create(){
 
-    	$data = array();
+        $data = array();
         $data['fname'] = $_POST['fname'];
         $data['mname'] = $_POST['mname'];
         $data['lname'] = $_POST['lname'];
@@ -28,10 +28,12 @@ class studentRegistration extends Controller{
         $data['school'] = $_POST['school'];
         $data['grade'] = $_POST['grade'];
         $data['stream'] = $_POST['stream'];
-     /*   $data['subject1'] = $_POST['subject1'];
+        $data['subject1'] = $_POST['subject1'];
         $data['subject2'] = $_POST['subject2'];
         $data['subject3'] = $_POST['subject3'];
-        $data['img'] = $_POST['img']; */
+
+        $data['img'] = $_POST['img']; 
+
         
         $data['imagename']=$_FILES['img']['name'];
         $data['temp']=$_FILES['img']['tmp_name'];
