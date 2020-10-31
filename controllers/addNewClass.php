@@ -7,15 +7,14 @@ class addNewClass extends Controller{
     }
 
     function index(){
-    	$this->view->hallList = $this->model->listHalls();
-    	$this->view->subjectList = $this->model->listSubjects();
-    	$this->view->render('teacher/addNewClass');
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->hallList = $this->model->listHalls();
+        $this->view->scheduleList = $this->model->listSchedules();
+        $this->view->render('teacher/addNewClass');
     }
 
     function viewCurrentSchedules($hallName,$daySelected){
-    	$temp = $this->model->listCurrentSchedules($hallName,$daySelected);
-    	echo $temp;
-    	$this->view->scheduleList = $this->model->listCurrentSchedules($hallName,$daySelected);
-    	header('location: '.URL.'addNewClass');
+        $this->view->scheduleList = $this->model->listCurrentSchedules($hallName,$daySelected);
+        header('location: '.URL.'addNewClass');
     }
 }

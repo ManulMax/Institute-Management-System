@@ -11,6 +11,24 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/rescheduleStylesheet">
 
+
+
+<!-- filter table -->
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/styles.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
+<script>
+$(function(){
+  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+  $('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+  .container { margin: 150px auto; max-width: 960px; }
+  </style>
 </head>
 
 
@@ -19,155 +37,248 @@
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
-	<ul>
-	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
-	  <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
-	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
-	
-	
+  <ul>
+    <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
+    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+  </ul>
+  
+  
   </div>
   <div class="headerClass">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="far fa-calendar-alt"></i>Re-schedule</h2>
-	  <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-	 <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="far fa-calendar-alt"></i>Re-schedule</h2>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
   
   
+  <!--  <div class="row">
+    <div class="col-40">
+      <label class="container">Temporary Re-schedule
+        <input type="radio" checked="checked" name="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="col-40">
+      <label class="container">Permanant Re-schedule
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>    
+    </div>
   
-  <div class="middle" style="background-color:white;">
-	<form action="" style="padding-left: 10%;padding-right: 10%;padding-top: 5%;">
-	  <div class="row">
-		<div class="col-40">
-		  <label class="container">Temporary Re-schedule
-			  <input type="radio" checked="checked" name="radio">
-			  <span class="checkmark"></span>
-			</label>
-		</div>
-		<div class="col-40">
-		  <label class="container">Permanant Re-schedule
-			  <input type="radio" name="radio">
-			  <span class="checkmark"></span>
-			</label>
-		</div>		
-	  </div>
-	  
-	  <div class="row">
-		<div class="col-20">
-		  <label for="subject">Class :</label>
-		</div>
-		<div class="col-75">
-		  <div class="custom-select" style="width:400px;">
-			  <select>
-				<option value="0">Select Class:</option>
-				<option value="1">Class 1</option>
-				<option value="2">Class 2</option>
-			  </select>
-		  </div>
-		</div>
-	  </div>
-	  
-	  <div class="row">
-		<div class="col-20">
-		  <label for="subject">No. of Students :</label>
-		</div>
-		<div class="col-20">
-		  <input type="text">
-		</div>
-	  </div>
 
-	  <div class="row">
-		<div class="col-20">
-		  <label for="subject"> Day :</label>
-		</div>
-		<div class="col-20">
-		  <div class="custom-select" style="width:200px;">
-			  <select>
-				<option value="0">Select Day:</option>
-				<option value="1">Monday</option>
-				<option value="2">Tuesday</option>
-				<option value="3">Wednesday</option>
-				<option value="4">Thursday</option>
-				<option value="5">Friday</option>
-				<option value="6">Saturday</option>
-				<option value="7">Sunday</option>
-			  </select>
-		  </div>
-		</div>
-		<div class="col-20">
-		</div>
-		<div class="col-20">
-		  <label for="subject">Hall :</label>
-		</div>
-		<div class="col-20">
-		  <div class="custom-select" style="width:200px;">
-			  <select>
-				<option value="0">Select Hall:</option>
-				<option value="1">Hall 1</option>
-				<option value="2">Hall 2</option>
-				<option value="3">Hall 3</option>
-				<option value="4">Hall 4</option>
-				<option value="5">Hall 5</option>
-			  </select>
-		  </div>
-		</div>
-	  </div>
-	  <br />
-	  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
-	  <table id="allocations">
-	  <tr>
-		<th>Duration</th>
-		<th>Teacher</th>
-		<th>Subject</th>
-	  </tr>
-	  <tr>
-		<td>8:00 a.m. - 11:00 a.m.</td>
-		<td>Mr.Kamal Perera</td>
-		<td>Biology</td>
-	  </tr>
-	  <tr>
-		<td>11:00 a.m. - 3:00 p.m.</td>
-		<td></td>
-		<td></td>
-	  </tr>
-	  <tr>
-		<td>3:00 p.m. - 6:00 p.m.</td>
-		<td>Miss.Amasha Gamage</td>
-		<td>Information Technology</td>
-	  </tr>
-	</table>
+    <div class="row">
+    <div class="col-20">
+      <label for="subject">Class :</label>
+    </div>
+    <div class="col-75">
+      <div class="custom-select" style="width:400px;">
+        <select>
+        <option value="0">Select Class:</option>
+        <option value="1">Class 1</option>
+        <option value="2">Class 2</option>
+        </select>
+      </div>
+    </div>
+    </div>
+  -->  
+<div class="middle" style="background-color:white;">
+
+<form action="" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">
+
+<div class="row">
+    <div class="col-40" style="margin: 0;">
+      <label class="containerRadio" style="margin: 0;">Temporary Re-schedule
+        <input type="radio" checked="checked" name="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="col-40" style="margin: 0;">
+      <label class="containerRadio" style="margin: 0;">Permanant Re-schedule
+        <input type="radio" name="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>    
+    </div>
 
 
-
-	<label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
-
-	  <div class="row">
-		<div class="col-20">
-		  <label for="subject"> Start Time :</label>
-		</div>
-		<div class="col-20">
-		  <input type="text">
-		</div>
-		<div class="col-20">
-		</div>
-		<div class="col-20">
-		  <label for="subject">End Time :</label>
-		</div>
-		<div class="col-20">
-		  <input type="text">
-		</div>
-	  </div>
-	  <div class="row" style="margin-top:30px;">
-		<input type="submit" value="Send Details">
-	  </div>
-	</form>
-
+  
+  <div class="row">
+    <div class="col-20">
+      <label for="subject">Batch :</label>
+    </div>
+    <div class="col-75">
+      <div style="width:200px;">
+      <select>
+      <option value="0">Select Batch:</option>
+      <option value="1"><?php echo date("Y"); ?> A/L</option>
+      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
+      <option value="3"><?php echo date("Y")+2; ?> A/L</option>
+      <option value="4">Revision</option>
+      </select>
+    </div>
+    </div>
   </div>
+  
+  <div class="row">
+    <div class="col-20">
+      <label for="subject">No. of Students :</label>
+    </div>
+    <div class="col-20">
+      <input type="text">
+    </div>
+  </div>
+
+
+  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
+
+  <div class="container" style="margin-bottom:10px;margin-top: 0px;">
+
+<div class="row">
+<div class="table-filters">
+   <div class="col-20">
+    <label for="filter-day">Day:</label>
+    <select id="filter-day" data-filter-col="0" style="min-width:60px">
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+      <option value="Wednesday">Wednesday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+      <option value="Saturday">Saturday</option>
+      <option value="Sunday">Sunday</option>
+    </select>
+  </div>
+<div class="col-20"></div>
+  <div class="col-20">
+    <label for="filter-hall">Hall:</label>
+    <select id="filter-hall" data-filter-col="2" style="min-width:60px">
+      <option value="">- All -</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->hallList)){  
+
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
+    </select>
+  </div>
+
+
+</div>
+</div>
+<br />
+
+<!-- data taken from generatedata.com -->
+<table id="data" style="width: 100%;margin-right: 0;">
+<thead>
+  <tr>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Hall</th>
+    <th>Subject</th>
+    <th>Batch</th>
+    <th>Teacher</th>
+  </tr>
+</thead>
+<tbody>
+
+  <?php
+
+      while($row = mysqli_fetch_assoc($this->scheduleList)){  
+         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']." ".$row['mname']." ".$row['lname']."</td></tr>";
+
+      }
+  ?>
+ 
+</tbody>
+</table>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+<label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
+
+  <div class="row">
+    <div class="col-20">
+      <label for="subject"> Start Time :</label>
+    </div>
+    <div class="col-20">
+      <input type="time">
+    </div>
+  <div class="col-20">
+    </div>
+  <div class="col-20">
+      <label for="subject">End Time :</label>
+    </div>
+    <div class="col-20">
+      <input type="time">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-20">
+      <label>Start Date :</label>
+    </div>
+    <div class="col-20">
+      <input type="date">
+    </div>
+  </div>
+  <div class="row" style="margin-top:30px;">
+    <input type="submit" value="Send Details">
+  </div>
+
+    
+</form>
+
+</div>
+
 
 
 <div class="footer">
@@ -177,6 +288,29 @@
 </body>
 
 <script>
+
+
+
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+
+
+
 var x, i, j, l, ll, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
 x = document.getElementsByClassName("custom-select");

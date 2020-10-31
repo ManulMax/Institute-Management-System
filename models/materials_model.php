@@ -6,10 +6,16 @@ class materials_Model extends Model{
      	parent::__construct();
     }
 
-    public function listMaterials(){
+    public function listClasses($userid){
 
-    	return $this->db->listAll("study_material");
-        
+        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
+
+    }
+
+    public function listMaterials($id){
+
+        return $this->db->listWhere("*","study_material","class_id=$id");
+    
 
     }
 

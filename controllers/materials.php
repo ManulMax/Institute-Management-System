@@ -6,20 +6,25 @@ class materials extends Controller{
         parent::__construct();
     }
 
-    function index(){
-    	$this->view->materialList = $this->model->listMaterials();
-    	$this->view->render('teacher/materials');
+    function index($classID){
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->materialList = $this->model->listMaterials($classID);
+        $this->view->render('teacher/materials');
+    }
+
+    function getMaterials($id){
+        $this->view->materialList = $this->model->listMaterials($id);
     }
 
     function create(){
 
-    	$data = array();
+        $data = array();
 
-    	$data['heading']=$_POST['heading'];
-		$data['name']=$_POST['name'];
-		$data['description']=$_POST['description'];
-		$data['filename']=$_FILES['file']['name'];
-		$data['temp']=$_FILES['file']['tmp_name'];
+        $data['heading']=$_POST['heading'];
+        $data['name']=$_POST['name'];
+        $data['description']=$_POST['description'];
+        $data['filename']=$_FILES['file']['name'];
+        $data['temp']=$_FILES['file']['tmp_name'];
 
 
         $this->model->create($data);
