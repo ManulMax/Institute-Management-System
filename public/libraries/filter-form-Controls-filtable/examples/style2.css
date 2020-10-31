@@ -1,0 +1,81 @@
+
+#data {
+	border-collapse: collapse;
+
+	width: 100%;
+	font-size: 15px;
+	margin-left: 10%;
+	margin-top: 5%;
+}
+#data th, td {
+	border: 1px solid #ddd;
+    padding: 8px;
+}
+#data th {
+	background-color: #66CDAA;
+	padding: 10px;
+
+}
+
+#allocation{
+	border-collapse: collapse;
+
+	width: 100%;
+	font-size: 15px;
+	margin-left: 10%;
+	margin-top: 5%;
+}
+
+#allocation td {
+	border: none;
+    padding: 8px;
+    width:20%;
+}
+
+
+
+
+
+/* form styles */
+.table-filters input, select {
+	font: inherit;
+	margin: 0;
+	padding: 4px;
+
+}
+.table-filters .input-text {
+	min-width: 100px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+.table-filters select {
+	min-width: 150px;
+}
+.table-filters label {
+	margin: 0 4px 0 8px;
+}
+
+
+
+/* Filtable styles */
+#data tr.hidden {
+	display: none;
+}
+
+}
+#data tr:nth-child(even+1) {
+	background-color: #f2f2f2;
+}
+
+
+#data tr:hover {
+	background-color: #ddd;
+}
+
+
+.large-table {
+	width: 100%;
+}
+.large-table td {
+	font-size: 12px;
+}
