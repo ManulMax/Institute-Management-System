@@ -1,24 +1,32 @@
-input[type=text], select, textarea {
+input[type=text],input[type=date],input[type=email], select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  padding: 15px;
   resize: vertical;
+  font-size: 17px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #228B22;
 }
 
-input[type=date], select, textarea {
+textarea {
+  padding: 15px;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  resize: vertical;
+  font-size: 17px;
+  outline: 0;
+  border: 1px solid #228B22;
 }
+
 
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
 
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 20px;
+}
 
 .col-20 {
   float: left;
@@ -30,6 +38,10 @@ label {
   float: left;
   width: 75%;
   margin-top: 20px;
+}
+
+.row {
+  padding-bottom: 20px;
 }
 
 /* Clear floats after the columns */
@@ -47,8 +59,30 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  font-size: 17px;
 }
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+
+
+
+#data {
+  border-collapse: collapse;
+  margin-left: 10%;
+  width: 80%;
+  font-size: 15px;
+  margin-top: 2%;
+  margin-bottom: 0;
+}
+#data th, td {
+  border: 1px solid #ddd;
+    padding: 8px;
+}
+#data th {
+  background-color: #66CDAA;
+  padding: 10px;
+
 }

@@ -43,6 +43,8 @@ class Database
 
         $result = mysqli_query($connection,$sql);
 
+        
+
         return $result;
 
 	}
@@ -77,20 +79,9 @@ class Database
 */
 
 	public function update($table,$data,$where){
-
-		$fieldDetails = NULL;
-		foreach ($data as $key => $value) {
-			$fieldDetails .= "`$key` = :$key,";
-		}
-		$fieldDetails = rtrim($fieldDetails,',');
-
-		$stmt = $this->prepare("UPDATE $table SET $fieldDetails WHERE $where");
-        
-        foreach ($data as $key => $value) {
-        	$stmt->bindValue(":$key",$value);
-        }
-
-        $stmt->execute();
+		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
+		$sql = "update ".$table." SET ".$data." where ".$where;
+		$result = mysqli_query($connection,$sql);
 	}
 
 /**

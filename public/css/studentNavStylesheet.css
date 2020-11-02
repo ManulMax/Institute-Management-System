@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Open Sans';
+}
+
+
+.headerClass {
+  background-color: #063811;
+  padding:1px;
+  margin:0;
+  font-size: 16px;
+  height: 60px;
+  color: white;
+}
+
+.chip {
+  float:right;
+  display: inline-block;
+  padding: 0 25px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  color: black;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+
+.leftNav {
+  background-color: #063811;
+  float: left;
+  padding-top: 10px;
+  height: 1000px;
+  width: 17%;
+  font-size: 15px;
+  
+}
+
+.leftNav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  background-color: #063811;
+  margin-bottom:10px;
+  color: white;
+}
+
+.leftNav ul li a {
+  display: block;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+.leftNav ul li a:hover {
+  background-color: #306B76;
+  color: white;
+}
+
+i{
+  padding:10px;
+}
+
+
+
+
+
+
+
+
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown-btn:hover {
+  background-color: #306B76;
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+
+
+
+
+
+
+
+.middle {
+  float: left;
+  padding: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  height: 950px;
+  width: 83%;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.middle::-webkit-scrollbar{
+  display: none;
+}
+
+.right {
+  float: left;
+  padding: 10px;
+  height: 950px;
+  width: 20%;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  margin-top: 1000px;
+  float: left;
+
+}
+
+/* ------------------ calendar ------------------------------ */
+.month ul {list-style-type: none;}
+
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 12%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 12%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+/* ----------------------------- middle content ----------------------------- */
+.card {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  width: 100%;
+  height: 150px;
+  background-color: #2E8B57;
+  color: white;
+}
+
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.4);
+}
+
+.containerCard {
+  padding-left: 40%;
+  margin-top: 25px;
+}
+
+.quarter-circle-top-left{
+    width: 70px;
+    height: 70px;
+    background: #66CDAA;
+    border-radius: 0 0 100px 0;
+    -moz-border-radius: 0 0 100px 0;
+    -webkit-border-radius: 0 0 100px 0;
+    margin-right: 0;
+}
+
+#icon1, #icon2, #icon3, #icon4{
+  color: #2E8B57;
+}
+
+.userDiv {
+  width: 40px;
+  height: 50px;
+  background-color: #3CB371;
+  transition: width 0.7s;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.userDiv:hover {
+  width: 225px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #2E8B57;
+  padding: 0 10px 0 25px;
+}

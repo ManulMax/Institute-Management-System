@@ -7,18 +7,20 @@ class paperMarkerRegistration extends Controller{
     }
 
     function index(){
-
-    	$this->view->render('teacher/paperMarkerRegistration');
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->pmList = $this->model->listPaperMarkers();
+        
+        $this->view->render('teacher/paperMarkerRegistration');
     }
 
     function create(){
 
-    	$data = array();
+        $data = array();
         $data['name'] = $_POST['name'];
         $data['tel_no'] = $_POST['tel'];
         $data['address'] = $_POST['address'];
         $data['NIC'] = $_POST['NIC'];
-        
+        $data['gender'] = $_POST['gender'];
         $data['DOB'] = $_POST['DOB'];
         $data['email'] = $_POST['email'];
         $data['qualifications'] = $_POST['qualifications'];

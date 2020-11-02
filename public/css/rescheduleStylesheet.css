@@ -1,9 +1,10 @@
-input[type=text], select, textarea {
+input[type=text],input[type=date],input[type=time], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   resize: vertical;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #228B22;
 }
 
 label {
@@ -18,10 +19,16 @@ label {
   margin-top: 20px;
 }
 
+.col-30 {
+  float: left;
+  width: 30%;
+  margin-top: 20px;
+}
+
 .col-40 {
   float: left;
   width: 40%;
-  margin-top: 20px;
+
 }
 
 .col-75 {
@@ -148,7 +155,7 @@ input[type=submit]:hover {
 
 
 /* The container */
-.container {
+.containerRadio {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -161,7 +168,7 @@ input[type=submit]:hover {
 }
 
 /* Hide the browser's default radio button */
-.container input {
+.containerRadio input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -179,12 +186,12 @@ input[type=submit]:hover {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.containerRadio:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.containerRadio input:checked ~ .checkmark {
   background-color: #07A3B2;
 }
 
@@ -196,16 +203,16 @@ input[type=submit]:hover {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
+.containerRadio input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.container .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
+.containerRadio .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }

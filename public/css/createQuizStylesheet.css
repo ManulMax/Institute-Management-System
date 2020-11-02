@@ -2,28 +2,38 @@
 
 
 #regForm {
-  background-color: #ffffff;
-  font-family: Raleway;
+  background-color: #F0FFF0;
   margin-left: 10%;
   margin-top: 20px;
   padding: 40px;
   width: 70%;
-  min-width: 300px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
 }
 
 h1 {
   text-align: center;  
 }
 
-input {
+input[type=text],input[type=date],input[type=time], select {
   padding: 10px;
   width: 100%;
   font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #228B22;
+  background-color: #F0FFF0;
+
 }
+
+textarea {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  outline: 0;
+  border: 1px solid #228B22;
+  background-color: #F0FFF0;
+}
+
 
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
@@ -36,10 +46,22 @@ input[type=radio] {
     height: 1.5em;
 }
 
+.topSection {
+  background-color: #90EE90;
+  margin-left: -40px;
+  margin-right: -40px;
+  margin-top: -83px;
+
+  padding: 40px;
+  padding-top: 83px;
+}
+
 /* Hide all steps by default: */
 .tab {
   display: none;
-  color: blue;
+  color: #228B22;
+  padding-top: 20px;
+  background-color: #F0FFF0;
 }
 
 #regForm button {
@@ -48,7 +70,6 @@ input[type=radio] {
   border: none;
   padding: 10px 20px;
   font-size: 17px;
-  font-family: Raleway;
   cursor: pointer;
 }
 

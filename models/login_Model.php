@@ -6,4 +6,81 @@ class login_Model extends Model{
      	parent::__construct();
     }
 
+    public function loginUser(){
+
+    	$users = $this->db->listWhere("*","user","username='".$_POST['username']."'");
+
+    	if($users){
+    		foreach ($users as $user) {
+                
+
+            if($_POST['password'] == $user['password']){
+                Session::init();
+                Session::set('loggedIn',true);
+                Session::set('userid',$user['id']);
+                Session::set('username',$user['username']);
+                Session::set('userType',$user['type']);
+
+                if ($user['flag']==0) {
+                    header('location: '.URL.'login?status=new');
+
+                }else if($user['flag']==1){
+
+                    if(Session::get('userType')=='Admin'){
+                        header('location: '.URL.'adminDashboard');
+
+                    } else if(Session::get('userType')=='Teacher'){
+                        header('location: '.URL.'teacherHome');
+
+                    } else if(Session::get('userType')=='Student'){
+                        header('location: '.URL.'studentHome');
+
+                    } else if(Session::get('userType')=='Staff'){
+                        header('location: '.URL.'teacherHome');
+
+                    }else if(Session::get('userType')=='Paper Marker'){
+                        header('location: '.URL.'teacherHome');
+                    }else{
+                        header('location: '.URL.'login');
+                    }
+                }else{
+                    header('location: '.URL.'login');
+                }
+                
+    		}else{
+                header('location: '.URL.'login?msg=Incorrect password');
+            }
+            exit;  		
+    	}
+    }
+    header('location: '.URL.'login?msg=Incorrect username');
+    exit;
+
+}
+
+
+    public function passwordChange(){
+
+        $users = $this->db->update("user","password='".$_POST['new_passwd']."',flag=1","id=".$_SESSION['userid']);
+
+                if(Session::get('userType')=='Admin'){
+                    header('location: '.URL.'adminDashboard');
+
+                } else if(Session::get('userType')=='Teacher'){
+                    header('location: '.URL.'teacherHome');
+
+                } else if(Session::get('userType')=='Student'){
+                    header('location: '.URL.'studentHome');
+
+                } else if(Session::get('userType')=='Staff'){
+                    header('location: '.URL.'teacherHome');
+
+                }else if(Session::get('userType')=='Paper Marker'){
+                    header('location: '.URL.'teacherHome');
+                }
+                
+
+        }
+    
+
 }

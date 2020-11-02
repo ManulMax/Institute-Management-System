@@ -14,28 +14,6 @@
   color: white;
 }
 
-.chip {
-  float:right;
-  display: inline-block;
-  padding: 0 25px;
-  height: 40px;
-  font-size: 16px;
-  line-height: 40px;
-  border-radius: 25px;
-  background-color: #f1f1f1;
-  color: black;
-  margin-top: 3px;
-  margin-right: 10px;
-}
-
-.chip img {
-  float: left;
-  margin: 0 10px 0 -25px;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
-
 
 .leftNav {
   background-color: #063811;
@@ -56,6 +34,7 @@
   width: 100%;
   background-color: #063811;
   margin-bottom:10px;
+  color: white;
 }
 
 .leftNav ul li a {
@@ -74,6 +53,50 @@
 i{
   padding:10px;
 }
+
+
+
+
+
+
+
+
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown-btn:hover {
+  background-color: #306B76;
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+
+
+
+
+
 
 
 .middle {
@@ -114,78 +137,12 @@ i{
   text-align: center;
   width: 100%;
   position: absolute;
-  margin-top: 1000px;
+  margin-top: 950px;
   float: left;
 
 }
 
-/* ------------------ calendar ------------------------------ */
-.month ul {list-style-type: none;}
 
-
-.month {
-  padding: 70px 25px;
-  width: 100%;
-  background: #1abc9c;
-  text-align: center;
-}
-
-.month ul {
-  margin: 0;
-  padding: 0;
-}
-
-.month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.month .prev {
-  float: left;
-  padding-top: 10px;
-}
-
-.month .next {
-  float: right;
-  padding-top: 10px;
-}
-
-.weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color: #ddd;
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 12%;
-  color: #666;
-  text-align: center;
-}
-
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 12%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #1abc9c;
-  color: white !important
-}
 
 /* ----------------------------- middle content ----------------------------- */
 .card {
@@ -221,18 +178,68 @@ i{
 }
 
 .userDiv {
-  width: 40px;
-  height: 50px;
-  background-color: #3CB371;
+  width: 35px;
+  height: 35px;
+  background-color: white;
   transition: width 0.7s;
   border-radius: 25px;
   font-weight: bold;
+  color: #063811;
 }
 
 .userDiv:hover {
   width: 225px;
-  height: 50px;
+  height: 35px;
   border-radius: 25px;
-  background-color: #2E8B57;
-  padding: 0 10px 0 25px;
+  padding: 0 10px 0 10px;
 }
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+

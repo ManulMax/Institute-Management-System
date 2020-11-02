@@ -17,82 +17,108 @@
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
-	<ul>
-	  <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li><a href="<?php echo URL; ?>materials"><i class="fas fa-upload"></i>Upload Materials</a></li>
-	  <li><a href="<?php echo URL; ?>createQuiz"><i class="fas fa-question"></i>Quizzes</a></li>
-	  <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
-	  <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-	</ul>
-	
-	
+  <ul>
+    <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
+    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+  </ul>
+  
+  
   </div>
   <div class="headerClass">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-question"></i>Quizzes</h2>
-	  <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-	  <div class="userDiv" style="margin-top:7px;float: right;margin-right: 45px;"><i class="fas fa-user fa-2x"></i>Hello Teacher ;-)</div>
-	  
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-question"></i>Quizzes</h2>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
+    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
+    
   </div>
   
   
   
   <div class="middle" style="background-color:white;">
-	<form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
-	  <h1>Create Quiz:</h1>
-	  <div>Quiz Title:
-		<p><input type="text" name="topic"></p><br />
-		Time Limit:
-		<p><input type="text" name="time"></p>
-	  </div>
-	  <!-- One "tab" for each step in the form: -->
-	  <div class="tab" id="qlist">Question:
-		<p><textarea rows="4" cols="90" name="ques"></textarea></p>
-		
-		<table border="0" width="100%" cellpadding="10px">
-			<tbody>
-				<tr>
-					<td><input placeholder="Choice 1..." oninput="this.className = ''" name="ans1"></td>
-					<td><input type="radio"</td>
-				</tr>
-				<tr>
-					<td><input placeholder="Choice 2..." oninput="this.className = ''" name="ans2"></td>
-					<td><input type="radio"</td>
-				</tr>
-				<tr>
-					<td><input placeholder="Choice 3..." oninput="this.className = ''" name="ans3"></td>
-					<td><input type="radio"</td>
-				</tr>
-				<tr>
-					<td><input placeholder="Choice 4..." oninput="this.className = ''" name="ans4"></td>
-					<td><input type="radio"</td>
-				</tr>
-				<tr>
-					<td><input placeholder="Choice 5..." oninput="this.className = ''" name="ans5"></td>
-					<td><input type="radio"</td>
-				</tr>
-			</tbody>
-		</table>
-		<br />
-		
-	  </div>
+  <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
+    <h1>Create Quiz:</h1>
+    <div class="topSection">Quiz Title:
+    <p style="width: 60%;"><input style="background-color: #90EE90;" type="text" name="topic"></p><br />
+    Time Limit:
+    <p style="width: 20%;"><input style="background-color: #90EE90;" type="text" name="time"></p><br />
+    </div>
+    <!-- One "tab" for each step in the form: -->
+    <div class="tab" id="qlist">Question:
+    <p><textarea rows="4" cols="90" name="ques"></textarea></p>
+    
+    <table border="0" width="100%" cellpadding="10px">
+      <tbody>
+        <tr>
+          <td><input type="text" placeholder="Choice 1..." oninput="this.className = ''" name="ans1"></td>
+          <td><input type="radio"</td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Choice 2..." oninput="this.className = ''" name="ans2"></td>
+          <td><input type="radio"</td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Choice 3..." oninput="this.className = ''" name="ans3"></td>
+          <td><input type="radio"</td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Choice 4..." oninput="this.className = ''" name="ans4"></td>
+          <td><input type="radio"</td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Choice 5..." oninput="this.className = ''" name="ans5"></td>
+          <td><input type="radio"</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    
+    </div>
 
-	  <div style="overflow:auto;">
-		<div style="float:right;">
-		  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-		  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-		  <button type="button" id="next" onclick="myFunction()">New Question</button>
-		</div>
-	  </div>
-	  <!-- Circles which indicates the steps of the form: -->
-	  <div style="text-align:center;margin-top:40px;">
-		<span class="step"></span>
-		<span class="step"></span>
-		<span class="step"></span>
-		<span class="step"></span>
-	  </div>
-	</form>
+    <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      <button type="button" id="next" onclick="myFunction()">New Question</button>
+    </div>
+    </div>
+    <!-- Circles which indicates the steps of the form: -->
+    <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    </div>
+  </form>
   </div>
   
   
@@ -107,16 +133,39 @@
 <script>
 var count = 0;
 function myFunction(){
-	if(count == 0){
-		var itm = document.getElementById("qlist");
-	}else{
-		var itm = document.getElementById("qlist").lastChild;
-	}
-	
-	var cln = itm.cloneNode(true);
-	document.getElementById("qlist").appendChild(cln);
-	count++;
+  if(count == 0){
+    var itm = document.getElementById("qlist");
+  }else{
+    var itm = document.getElementById("qlist").lastChild;
+  }
+  
+  var cln = itm.cloneNode(true);
+  document.getElementById("qlist").appendChild(cln);
+  count++;
 }
+
+
+
+
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+
+
 
 
 
