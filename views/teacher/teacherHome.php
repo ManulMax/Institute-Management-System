@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherHomeStylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -64,7 +66,7 @@
 
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
@@ -87,10 +89,18 @@
 
     <table width="100%"  height="200px">
       <tr>
+
         <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
             <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
-            <div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+            <?php
+
+            while($row = mysqli_fetch_assoc($this->stuCount1)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
            <div class="containerCard">
           <h4><b>2020 A/L</b></h4>  
           </div>
@@ -99,7 +109,14 @@
         <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
           <div class="quarter-circle-top-left"><i id="icon2" class="fas fa-users fa-2x"></i></div>
-          <div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+          <?php
+
+            while($row = mysqli_fetch_assoc($this->stuCount2)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
            <div class="containerCard">
           <h4><b>2021 A/L</b></h4>  
           </div>
@@ -108,7 +125,14 @@
       <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
           <div class="quarter-circle-top-left"><i id="icon3" class="fas fa-users fa-2x"></i></div>
-          <div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+          <?php
+
+            while($row = mysqli_fetch_assoc($this->stuCount3)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
            <div class="containerCard">
           <h4><b>2022 A/L</b></h4>  
           </div>
@@ -117,7 +141,14 @@
         <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
           <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
-          <div style="margin-left: 37%;margin-top: -35px;"><h4><b>50 Students</b></h4></div>
+          <?php
+
+            while($row = mysqli_fetch_assoc($this->stuCount4)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
            <div class="containerCard">
           <h4><b>Revision</b></h4>  
           </div>
@@ -183,36 +214,13 @@ var myChart = new Chart(ctx, {
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>Shoshana</td>
-    <td>Wooten</td>
-    <td>Valdosta</td>
-    <td>United Kingdom</td>
-  </tr>
-  <tr>
-    <td>Stewart</td>
-    <td>Dillard</td>
-    <td>South Portland</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>Tana</td>
-    <td>Villarreal</td>
-    <td>Waltham</td>
-    <td>Solomon Islands</td>
-  </tr>
-  <tr>
-    <td>Wendy</td>
-    <td>Greer</td>
-    <td>Bellflower</td>
-    <td>Mauritania</td>
-  </tr>
-  <tr>
-    <td>Kenneth</td>
-    <td>Livingston</td>
-    <td>Anaheim</td>
-    <td>Honduras</td>
-  </tr>
+  <?php
+
+      while($row = mysqli_fetch_assoc($this->schedules)){  
+         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+
+      }
+  ?>
 </tbody>
 </table>
 </div>

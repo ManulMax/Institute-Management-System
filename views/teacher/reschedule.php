@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width">
 
 
-
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/rescheduleStylesheet">
@@ -77,7 +76,7 @@ $(function(){
   </div>
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="far fa-calendar-alt"></i>Re-schedule</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
     <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
@@ -140,7 +139,7 @@ $(function(){
       <label for="subject">Batch :</label>
     </div>
     <div class="col-75">
-      <div style="width:200px;">
+      <div style="width:250px;">
       <select>
       <option value="0">Select Batch:</option>
       <option value="1"><?php echo date("Y"); ?> A/L</option>
@@ -156,19 +155,19 @@ $(function(){
     <div class="col-20">
       <label for="subject">No. of Students :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="text">
     </div>
   </div>
 
 
-  <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
+  
 
   <div class="container" style="margin-bottom:10px;margin-top: 0px;">
 
 <div class="row">
 <div class="table-filters">
-   <div class="col-20">
+   <div class="col-30">
     <label for="filter-day">Day:</label>
     <select id="filter-day" data-filter-col="0" style="min-width:60px">
       <option value="Monday">Monday</option>
@@ -181,7 +180,7 @@ $(function(){
     </select>
   </div>
 <div class="col-20"></div>
-  <div class="col-20">
+  <div class="col-30">
     <label for="filter-hall">Hall:</label>
     <select id="filter-hall" data-filter-col="2" style="min-width:60px">
       <option value="">- All -</option>
@@ -200,7 +199,7 @@ $(function(){
 </div>
 </div>
 <br />
-
+<label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
 <!-- data taken from generatedata.com -->
 <table id="data" style="width: 100%;margin-right: 0;">
 <thead>
@@ -246,27 +245,27 @@ $(function(){
 <label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
 
   <div class="row">
-    <div class="col-20">
+    <div class="col-20" style="width: 15%;">
       <label for="subject"> Start Time :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="time">
     </div>
-  <div class="col-20">
+  <div class="col-20" style="width: 10%;">
     </div>
-  <div class="col-20">
+  <div class="col-20" style="width: 15%;">
       <label for="subject">End Time :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="time">
     </div>
   </div>
 
   <div class="row">
-    <div class="col-20">
+    <div class="col-20" style="width: 15%;">
       <label>Start Date :</label>
     </div>
-    <div class="col-20">
+    <div class="col-30">
       <input type="date">
     </div>
   </div>

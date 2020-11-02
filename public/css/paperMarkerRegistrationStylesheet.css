@@ -22,6 +22,11 @@ label {
   display: inline-block;
 }
 
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 20px;
+}
 
 .col-20 {
   float: left;
@@ -33,6 +38,10 @@ label {
   float: left;
   width: 75%;
   margin-top: 20px;
+}
+
+.row {
+  padding-bottom: 20px;
 }
 
 /* Clear floats after the columns */
@@ -55,4 +64,25 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+
+
+
+#data {
+  border-collapse: collapse;
+  margin-left: 10%;
+  width: 80%;
+  font-size: 15px;
+  margin-top: 2%;
+  margin-bottom: 0;
+}
+#data th, td {
+  border: 1px solid #ddd;
+    padding: 8px;
+}
+#data th {
+  background-color: #66CDAA;
+  padding: 10px;
+
 }

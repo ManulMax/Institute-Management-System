@@ -1,3 +1,7 @@
+<?php $val=5; ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,17 +28,10 @@
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" name="password" placeholder="Password" />
+              
             </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <select name="type">
-                <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
-                <option value="staff">Staff</option>
-                <option value="admin">Admin</option>
-                <option value="papermarker">Paper marker</option>
-              </select>
-            </div>
+            <?php if(isset($_GET['msg'])){ ?>
+           <div><p style="color: red;">*<?php echo $_GET['msg']; ?></p></div>  <?php } ?>
             <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Follow Vidarsha In Social Networks</p>
             <div class="social-media">
@@ -52,21 +49,25 @@
               </a>
             </div>
           </form>
-          <form action="#" class="sign-up-form">
-            <h2 class="title">Sign up</h2>
+          <form action="<?php echo URL; ?>login/passwordChange" class="sign-up-form" id="pass" method="post">
+            <h2 class="title">Change Password</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input id="usernm" name="uname" type="text" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" name="current_passwd" placeholder="Current Password" />
             </div>
-            <input type="submit" class="btn" value="Sign up" />
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="new_passwd" placeholder="New Password" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="confirm_passwd" placeholder="Confirm New Password" />
+            </div>
+            <input type="submit" class="btn" value="Save" />
             <p class="social-text">Follow Vidarsha In Social Networks</p>
             <div class="social-media">
               <a href="#" class="social-icon" target="_blank">
@@ -100,8 +101,8 @@
               Click the info button before you sign up to the Vidarsha Online Education 
               System
             </p>
-            <button class="btn transparent" id="sign-up-btn">
-              Sign up
+            <button class="btn transparent" id="sign-up-btn" style="font-size: 0.7rem;">
+              Change Password
             </button>
           </div>
           <img src="<?php echo URL; ?>public/img/logosvg.svg" class="image" alt="" />
@@ -122,5 +123,15 @@
       </div>
     </div>
     <script src="<?php echo URL; ?>public/js/login.js"></script>
+
+<script type="text/javascript">
+  var val = "<?php echo $_GET['status']; ?>";
+  var nm = "<?php echo $_SESSION['username']; ?>";
+  if(val == "new"){
+
+  container.classList.add("sign-up-mode");
+  document.getElementById('usernm').value = nm;
+}
+</script>
   </body>
 </html>

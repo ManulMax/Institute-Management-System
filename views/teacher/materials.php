@@ -57,7 +57,7 @@
   </div>
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-upload"></i>Upload Materials</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
     <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
@@ -73,11 +73,11 @@
         $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
        
          while($row = mysqli_fetch_assoc($this->materialList)){ 
-          ?>  
+          ?>  <br />
              <h3><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
              <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
              <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
-             <hr />
+             <br /><hr />
         <?php  } ?>
   
   </div>
@@ -95,14 +95,6 @@
       </div>
       <div class="col-75">
       <input type="text" name="heading">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-      <label for="fname">File Name</label>
-      </div>
-      <div class="col-75">
-      <input type="text" name="name">
       </div>
     </div>
     <div class="row">

@@ -10,6 +10,12 @@ class paperMarkerRegistration_Model extends Model{
 
         return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
     
+    }
+
+    public function listPaperMarkers(){
+
+        return $this->db->listAll("paper_marker");
+    
 
     }
 
@@ -34,12 +40,12 @@ class paperMarkerRegistration_Model extends Model{
     }
 
     public function create($data){
-        $this->db->insert("user","(username,type)","('".$data['email']."','Paper Marker')");
+        $this->db->insert("user","(username,password,type,flag)","('".$data['email']."',MD5('".$data['NIC']."'),'Paper Marker',0)");
 
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
  
-        $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,email,qualifications,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['email']."','".$data['qualifications']."',".$num['id'].")");
+        $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$num['id'].")");
 
     }
 

@@ -14,6 +14,8 @@
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
     </script>
 
+  
+
 
 
 
@@ -36,7 +38,6 @@ $(function(){
 </head>
 
  
-
 <body>
 
 <div class="row">
@@ -82,7 +83,7 @@ $(function(){
   </div>
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-users"></i>New Class</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></div>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
     <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
   </div>
   
