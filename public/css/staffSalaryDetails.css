@@ -2,15 +2,10 @@
 	float: left;
   padding: 10px;
   height: 950px;
-  width: 63%;
+  width: 83%;
 }
 
-.right {
-	float: left;
-  padding: 10px;
-  height: 950px;
-  width: 20%;
-}
+
 
 
 
@@ -91,18 +86,7 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.wrapper{
-  position: absolute;
-  top: 40%;
-  left: 48%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 800px;
-  max-height:1000px;
-  padding: 30px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+
 
 .wrapper .title h3{
   color: black;
@@ -124,4 +108,4 @@
 /* Darker background on mouse-over */
 .btn:hover {
   background-color:#44CF6C ;
-}
+

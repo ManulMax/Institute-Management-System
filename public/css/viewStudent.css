@@ -25,7 +25,7 @@
 }
 
 .btn, .btn2 {
-  background-color: #4CAF50;
+  background-color:#66CDAA ;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -39,52 +39,20 @@
 	float: right;	
 }
 
-.btn:hover {background-color: #44CF6C;}
-.btn2:hover {background-color: #44CF6C;}
+.btn,.btn2:hover {background-color: #44CF6C;}
+
+#btnGetCount:hover {background-color: #44CF6C;}
 
 
-label{
-	padding:10px;
-}
-
-.search{
-  width: 25%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
+#btnGetCount{
+  background-color:#66CDAA ;
+  padding: 10px 20px;
   border: none;
-  background: #f1f1f1;
   
   
-}
-
-
-
-#allocations {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 90%;
-  margin-top:30px;
-  float:right;
-  margin-right:5%;
   
- 
 }
 
-#allocations td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-#allocations tr:nth-child(even){background-color: #f2f2f2;}
 
 
 
-#allocations th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #9fa9a3;
-  color: white;
-}
