@@ -52,8 +52,8 @@ $(function(){
 
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-edit"></i>Mark Attendance</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Staff ;-)</div>
+    <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
+   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
   <!------------------------------middle content-------------------------->
@@ -67,28 +67,17 @@ $(function(){
   
     <table id="allocation" >
     <tr>
-    <td><label for="filter-country">Reg No</label></td>
-    <td><input type="text" class="input-text" id="filter-name" data-filter-col="0"></td>
- 
-
-    <td><label for="filter-city">Subject</label></td>
-    <td><select id="filter-city" data-filter-col="3" style="min-width:60px">
+    <td><label for="filter-city">Class</label>
+    <select id="filter-city" data-filter-col="0">
       <option value="">- All -</option>
-      <option value="Chemistry">Chemistry</option>
-      <option value="Physics">Physics</option>
-      <option value="Combined Maths">Combined Maths</option>
+      <?php
 
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
 
-  <td><label for="filter-city">Batch</label></td>
-    <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
-      <option value="">- All -</option>
-      <option value="2021">2021</option>
-      <option value="2022">2022</option>
-      <option value="2023">2023</option>
-      <option value="Revision">Revision</option>
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
 
-   
-
+            }
+      ?>
 </tr>
 </table>
 </div>
@@ -98,51 +87,28 @@ $(function(){
 <table id="data">
 <thead>
   <tr>
-    <th>Reg No</th>
-    <th>Name</th>
+    <th>Class</th>
     <th>Batch</th>
-    <th>Subject</th>
+    <th>Time</th>
+    
+
     
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>1</td>
-    <td>Nitharshana</td>
-    <td>2021</td>
-    <td>Chemistry</td>
-    
-    
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Nitharshana</td>
-    <td>2021</td>
-    <td>Physics</td>
-     
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Villarreal</td>
-    <td>2022</td>
-    <td>Physics</td>
-    
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Greer</td>
-    <td>2020</td>
-    <td>Mauritania</td>
-    
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Livingston</td>
-    <td>2021</td>
-    <td>Physics</td>
-     
-  </tr>
+  <?php
+
+      while($row = mysqli_fetch_assoc($this->schedules)){  
+         echo "<tr><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td></tr>";
+
+      }
+  ?>
 </tbody>
+
+
+
+
+
 </table>
 </div>
 <script type="text/javascript">

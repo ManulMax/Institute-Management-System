@@ -6,9 +6,9 @@ class viewStudent_Model extends Model{
      	parent::__construct();
     }
 
-    public function listHalls(){
+    public function listStudent(){
 
-    	return $this->db->listAll("hall");
+    	return $this->db->listAll("student");
         
 
     }

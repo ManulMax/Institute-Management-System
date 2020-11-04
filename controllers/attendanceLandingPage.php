@@ -7,7 +7,9 @@ class attendanceLandingPage extends Controller{
     }
 
     function index(){
-    	
+
+    	 $this->view->subjectList = $this->model->listSubjects();
+    	$this->view->schedules = $this->model->listSchedules($_SESSION["userid"]);
     	$this->view->render('staff/attendanceLandingPage');
     }
 
