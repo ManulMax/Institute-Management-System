@@ -88,7 +88,7 @@ $(function(){
   </div>
   
   
-  <div class="middle" style="background-color:white;">
+  <div class="middle" style="background-color:#F8F8FF;">
 
 <form action="" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">
 

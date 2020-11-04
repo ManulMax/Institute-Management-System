@@ -74,7 +74,7 @@
        
          while($row = mysqli_fetch_assoc($this->materialList)){ 
           ?>  <br />
-             <h3><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
+             <h3 style="color: #228B22;"><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
              <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
              <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
              <br /><hr />
@@ -84,11 +84,11 @@
   
   
   
-  <div class="right" style="background-color:#90EE90;width:30%;color: black;">
+  <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;">
   
  <!-- ------ form ------ --> 
  <h2 style="text-indent:10px;"><i class="fas fa-upload"></i>Upload New Material</h2>
-    <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create">
+    <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create" style="padding: 20px;">
     <div class="row">
       <div class="col-25">
       <label for="fname">Heading</label>

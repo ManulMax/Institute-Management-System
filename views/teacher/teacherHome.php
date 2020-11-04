@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherHomeStylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Homemade Apple' rel='stylesheet'>
 
 
 </head>
@@ -24,7 +24,7 @@
 
 <div class="row">
   <div class="leftNav">
-  <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
+  <img src="<?php echo URL; ?>public/img/logo2.png" class="img1" height="12%" style="padding-left: 10%;">
   <ul>
     <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
     <li>
@@ -66,7 +66,7 @@
 
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
+    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
@@ -77,14 +77,16 @@
   <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:150px;border-radius: 50%;margin-left: 45%">
+      <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <h2 id="name">Isurika Perera</h2>
+      <h4 id="name">Teacher</h4>
     </div>
 
   </div>
 
 
 
-  <div class="middle" style="background-color:white;">
+  <div class="middle" style="background-color: #F8F8FF;">
 
 
     <table width="100%"  height="200px">
@@ -160,7 +162,7 @@
 
 
 
-    <div style="position: relative;width: 40%;height: 400px;margin-top: 5%;">
+    <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
       <canvas id="myChart"></canvas>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');

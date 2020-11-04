@@ -13,6 +13,7 @@ class login_Model extends Model{
     	if($users){
     		foreach ($users as $user) {
                 
+           // if(password_verify($_POST['password'], $user['password'])){     
 
             if($_POST['password'] == $user['password']){
                 Session::init();

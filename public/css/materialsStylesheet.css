@@ -4,12 +4,23 @@
 
 
 /* ----------------------------- right content ----------------------------- */
-input[type=text], select, textarea {
+input[type=text], select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   resize: vertical;
+  background-color: #E7EBE0FF;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid #228B22;
+}
+
+textarea {
+  padding: 15px;
+  width: 100%;
+  font-size: 17px;
+  background-color: #E7EBE0FF;
+  outline: 0;
+  border: 2px solid #228B22;
 }
 
 label {
@@ -26,6 +37,7 @@ input[type=submit] {
   border-radius: 25px;
   cursor: pointer;
   margin-left: 35%;
+  margin-top: 20px;
 
 }
 
