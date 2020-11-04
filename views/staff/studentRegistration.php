@@ -18,19 +18,19 @@
 	<ul>
 	  <li><a href="staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
       <li><a href="studentRegistration"><i class="fa fa-user-o"></i>Register Student</a></li>
-      <li><a href="updateStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
+      <li><a href="viewStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
       <li><a href="enrollStudent"><i class="fa fa-user-o"></i>Enroll Student</a></li>
       <li><a href="markAttendance"><i class="fas fa-users"></i>Mark Attendance</a></li>
       <li><a href="collectClassFees"><i class="fa fa-money"></i>Collect fees</a></li>
       <li><a href="staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	</ul>
 	
-	
   </div>
-  <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-o"></i>Student Registration</h2>
+
+ <div class="headerClass">
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-edit"></i>Student Registration</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Staff ;-)</div>
+   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Staff ;-)</div>
   </div>
   
   <!----------------------------------Middle contet------------------------------------>

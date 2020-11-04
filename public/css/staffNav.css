@@ -221,18 +221,18 @@ i{
 }
 
 .userDiv {
-  width: 40px;
-  height: 50px;
-  background-color: #3CB371;
+  width: 35px;
+  height: 35px;
+  background-color: white;
   transition: width 0.7s;
   border-radius: 25px;
   font-weight: bold;
+  color: #063811;
 }
 
 .userDiv:hover {
   width: 225px;
-  height: 50px;
+  height: 35px;
   border-radius: 25px;
-  background-color: #2E8B57;
-  padding: 0 10px 0 25px;
+  padding: 0 10px 0 10px;
 }

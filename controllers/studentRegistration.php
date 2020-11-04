@@ -32,7 +32,7 @@ class studentRegistration extends Controller{
         $data['subject2'] = $_POST['subject2'];
         $data['subject3'] = $_POST['subject3'];
 
-        $data['img'] = $_POST['img']; 
+       
 
         
         $data['imagename']=$_FILES['img']['name'];
