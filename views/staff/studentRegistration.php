@@ -17,13 +17,13 @@
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
 	<ul>
-	  <li><a href="staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-      <li><a href="studentRegistration"><i class="fa fa-user-o"></i>Register Student</a></li>
-      <li><a href="viewStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
-      <li><a href="enrollStudent"><i class="fa fa-user-o"></i>Enroll Student</a></li>
-      <li><a href="markAttendance"><i class="fas fa-users"></i>Mark Attendance</a></li>
-      <li><a href="collectClassFees"><i class="fa fa-money"></i>Collect fees</a></li>
-      <li><a href="staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+	  <li><a href="<?php echo URL; ?>staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+      <li><a href="<?php echo URL; ?>studentRegistration"><i class="fa fa-user-o"></i>Register Student</a></li>
+      <li><a href="<?php echo URL; ?>viewStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
+      <li><a href="<?php echo URL; ?>enrollStudent"><i class="fa fa-user-o"></i>Enroll Student</a></li>
+      <li><a href="<?php echo URL; ?>attendanceLandingPage"><i class="fas fa-users"></i>Mark Attendance</a></li>
+      <li><a href="<?php echo URL; ?>classFeesLandingPage"><i class="fa fa-money"></i>Collect fees</a></li>
+      <li><a href="<?php echo URL; ?>staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	</ul>
 	
   </div>
