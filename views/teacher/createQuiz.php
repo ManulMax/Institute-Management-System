@@ -68,9 +68,9 @@
   <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
     <h1>Create Quiz:</h1>
     <div class="topSection">Quiz Title:
-    <p style="width: 60%;"><input style="background-color: #90EE90;" type="text" name="topic"></p><br />
+    <p style="width: 60%;"><input style="background-color: #ACE1AF;" type="text" name="topic"></p><br />
     Time Limit:
-    <p style="width: 20%;"><input style="background-color: #90EE90;" type="text" name="time"></p><br />
+    <p style="width: 20%;"><input style="background-color: #ACE1AF;" type="text" name="time"></p><br />
     </div>
     <!-- One "tab" for each step in the form: -->
     <div class="tab" id="qlist">Question:
