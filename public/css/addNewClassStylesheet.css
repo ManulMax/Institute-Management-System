@@ -1,3 +1,8 @@
+#regForm {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+}
 
 input[type=text],input[type=date],input[type=time], select, textarea {
   width: 100%;
@@ -6,6 +11,7 @@ input[type=text],input[type=date],input[type=time], select, textarea {
   border: 0;
   outline: 0;
   border-bottom: 1px solid #228B22;
+  background-color: #F8F8FF;
 }
 
 label {
@@ -120,25 +126,92 @@ input[type=submit]:hover {
 
 /* table */
 
-#allocations {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+#data {
   border-collapse: collapse;
   width: 100%;
 }
 
-#allocations td, #customers th {
+#data td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#allocations tr:nth-child(even){background-color: #f2f2f2;}
+#data tr:nth-child(even){background-color: #f2f2f2;}
 
-#allocations tr:hover {background-color: #ddd;}
+#data tr:hover {background-color: #ddd;}
 
-#allocations th {
+#data th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #90EE90;
-  color: white;
+  color: black;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1545px) {
+   #regForm {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+  }
+
+}
+
+@media only screen and (max-width: 1300px) {
+  #regForm {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+  }
+
+}
+
+@media only screen and (max-width: 1000px) {
+  #regForm {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 5%;
+  }
+
+}
+
+
+@media only screen and (max-width: 900px) {
+ #regForm {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 5%;
+    font-size: 14px;
+  }
+
+  #data {
+    border-collapse: collapse;
+    font-size: 13px;
+    width: 100%;
+
+  }
+
+}
+
+
+
+@media only screen and (max-width: 540px) {
+  #regForm {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 5%;
+    font-size: 14px;
+  }
+
+  #data {
+    border-collapse: collapse;
+    font-size: 13px;
+    width: 100%;
+  }
+
 }
