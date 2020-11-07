@@ -39,21 +39,21 @@ $(function(){
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
   <ul>
-      <li><a href="staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-      <li><a href="studentRegistration"><i class="fa fa-user-o"></i>Register Student</a></li>
-      <li><a href="viewStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
-      <li><a href="enrollStudent"><i class="fa fa-user-o"></i>Enroll Student</a></li>
-      <li><a href="markAttendance"><i class="fas fa-users"></i>Mark Attendance</a></li>
-      <li><a href="collectClassFees"><i class="fa fa-money"></i>Collect fees</a></li>
-      <li><a href="staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+       <li><a href="<?php echo URL; ?>staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+      <li><a href="<?php echo URL; ?>studentRegistration"><i class="fa fa-user-o"></i>Register Student</a></li>
+      <li><a href="<?php echo URL; ?>viewStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
+      <li><a href="<?php echo URL; ?>enrollStudent"><i class="fa fa-user-o"></i>Enroll Student</a></li>
+      <li><a href="<?php echo URL; ?>attendanceLandingPage"><i class="fas fa-users"></i>Mark Attendance</a></li>
+      <li><a href="<?php echo URL; ?>classFeesLandingPage"><i class="fa fa-money"></i>Collect fees</a></li>
+      <li><a href="<?php echo URL; ?>staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
   </ul>
   
   </div>
 
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-edit"></i>View Student</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-  <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Staff ;-)</div>
+    <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
+  <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
   <!------------------------------middle content-------------------------->
@@ -73,21 +73,28 @@ $(function(){
     <td><input type="text" class="input-text" id="filter-name" data-filter-col="0"></td>
  
 
-    <td><label for="filter-city">Subject</label></td>
+    <!--<td><label for="filter-city">Subject</label></td>
     <td><select id="filter-city" data-filter-col="3" style="min-width:60px">
       <option value="">- All -</option>
-      <option value="Chemistry">Chemistry</option>
-      <option value="Physics">Physics</option>
-      <option value="Combined Maths">Combined Maths</option>
+       <?php
 
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
 
-  <td><label for="filter-city">Batch</label></td>
-    <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
-      <option value="">- All -</option>
-      <option value="2021">2021</option>
-      <option value="2022">2022</option>
-      <option value="2023">2023</option>
-      <option value="Revision">Revision</option>
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
+    </select></td>-->
+
+     <td><label for="filter-city">Batch</label></td>
+     <td><select id="filter-city" data-filter-col="3" style="min-width:60px">
+       <option value="">- All -</option>
+      <option value="1"><?php echo date("Y");?> A/L</option>
+      <option value="2"><?php echo date("Y")+1;?> A/L</option>
+      <option value="3"><?php echo date("Y")+2;?> A/L</option>
+      <option value="4">Revision</option>
+     </select></td>
+ 
 
    <td><input type="button" id="btnGetCount" value="Count Rows" onclick = "CountRows()" />
 <script type="text/javascript">
@@ -118,57 +125,29 @@ $(function(){
 <thead>
   <tr>
     <th>Reg No</th>
-    <th>Name</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Batch</th>
-    <th>Subject</th>
+    <th>email</th>
     <th></th>
     <th></th>
   </tr>
 </thead>
+
 <tbody>
-  <tr>
-    <td>1</td>
-    <td>Wooten</td>
-    <td>2021</td>
-    <td>Chemistry</td>
-    <td><input type="submit" class="btn2" name="edit" value="Edit"></td>
-    <td><input type="submit" class="btn2" name="delete" value="Delete"></td>
-    
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Nitharshana</td>
-    <td>2022</td>
-    <td>Physics</td>
-     <td><input type="submit" class="btn2" name="edit" value="Edit"></td>
-    <td><input type="submit" class="btn2" name="delete" value="Delete"></td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Villarreal</td>
-    <td>2022</td>
-    <td>Physics</td>
-     <td><input type="submit" class="btn2" name="edit" value="Edit"></td>
-    <td><input type="submit" class="btn2" name="delete" value="Delete"></td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Greer</td>
-    <td>2020</td>
-    <td>Mauritania</td>
-     <td><input type="submit" class="btn2" name="edit" value="Edit"></td>
-    <td><input type="submit" class="btn2" name="delete" value="Delete"></td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Livingston</td>
-    <td>2021</td>
-    <td>Physics</td>
-     <td><input type="submit" class="btn2" name="edit" value="Edit"></td>
-    <td><input type="submit" class="btn2" name="delete" value="Delete"></td>
-  </tr>
-</tbody>
-</table>
+      <?php
+
+          while($row = mysqli_fetch_assoc($this->stuList)){  
+             echo "<tr><td>".$row['reg_no']."</td><td>" .$row['fname']."</td><td>".$row['lname']."</td><td>".$row['grade']."</td><td>".$row['email']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+
+          }
+      ?>
+      
+    </tbody>
+    </table>
+
+
+
 </div>
 <script type="text/javascript">
 

@@ -36,7 +36,7 @@ class login_Model extends Model{
                         header('location: '.URL.'studentHome');
 
                     } else if(Session::get('userType')=='Staff'){
-                        header('location: '.URL.'teacherHome');
+                        header('location: '.URL.'staffDashboard');
 
                     }else if(Session::get('userType')=='Paper Marker'){
                         header('location: '.URL.'teacherHome');
@@ -73,7 +73,7 @@ class login_Model extends Model{
                     header('location: '.URL.'studentHome');
 
                 } else if(Session::get('userType')=='Staff'){
-                    header('location: '.URL.'teacherHome');
+                    header('location: '.URL.'staffDashboard');
 
                 }else if(Session::get('userType')=='Paper Marker'){
                     header('location: '.URL.'teacherHome');

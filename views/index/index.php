@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vidarsha Edu</title>
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/home.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/home.css">    
     <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script type="text/javascript" src="<?php echo URL; ?>public/js/home.js"></script>
 </head>
 <body>
+    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
     <div class="wrapper-1">
         <header class="head clear">
             <div class="top_left">
@@ -28,25 +30,25 @@
     </div>
     <nav class="top_nav clear">
         <ul class="ul clear">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li class="active"><a href="#">Home</a></li>
             <li><a class="drop" href="#">Galary</a>
                 <ul>
-                    <li><a href="pages/gallery.html">Life At Vidarsha</a></li>
-                    <li><a href="pages/full-width.html">Top Results</a></li>
+                    <li><a href="<?php echo URL; ?>/gallery.html">Life At Vidarsha</a></li>
+                    <li><a href="<?php echo URL; ?>/full-width.html">Top Results</a></li>
                 </ul>
             </li>
             <li><a href="#details">Teachers  Crew</a></li>
             <li><a href="#map">Find  Vidarsha</a></li>            
             <li><a href="#details">Classes  Today </a></li>
             <li><a href="#instruction">Instruction For Student</a></li>
-			<div class="popup">
-			<li><a href="#login-btn" >Login/Signup</a>
-			<span class="popuptext" id="myPopup" >To login click the signup/signin button below <br>
+			  <div class="popup">
+			      <li><a href="#login-btn" >Login/Signup</a>
+			    <span class="popuptext" id="myPopup" >To login click the signup/signin button below <br>
 			පුරනය වීමට පහත signup/signin බොත්තම ක්ලික් කරන්න. පහත උපදෙස් අනුගමනය කරන්න.
-            </span>
-			</li>
-			</div>
-        </ul>
+          </span>
+			    </li>
+			  </div>
+      </ul>
     </nav>
     <div class="back-img" style="background-image:url('<?php echo URL; ?>public/img/back5.jpg');">
         <div id="pageintro" class="intro clear">           
@@ -54,7 +56,7 @@
             <h3 class="heading">The only source of knowledge is experience</h3>  
             <p>-Albert Einstein-</p>            
             <img src="<?php echo URL; ?>public/img/logo2.png" alt="">            
-            <footer><a id="login-btn" class="btn" href="<?php echo URL; ?>public/html/login.html">SignIn or SignUp</a></footer>
+            <footer><a id="login-btn" class="btn" href="<?php echo URL; ?>login">SignIn or SignUp</a></footer>
           </article>          
         </div>
     </div>
@@ -170,10 +172,10 @@
                 With more 10 years experience , we always ready to provide the  
                 best facilities and best education for the students in galle district. 
                 With the high qualified teachers we always aim to deliver 
-				maximum amount of education to all of you who come inside to Vidarsha Roof. <br>
-				වසර 10 කට වැඩි පළපුරුද්දක් ඇති අපි සෑම විටම ගාලු දිස්ත්‍රික්කයේ සිසුන්ට හොඳම පහසුකම් සහ 
-				හොඳම අධ්‍යාපනය ලබා දීමට සූදානම්. උසස් සුදුසුකම් ලත් ගුරුවරුන් සමඟ අපි සැමවිටම 
-				අරමුණු කරන්නේ විදර්ෂා වහල වෙත පැමිණෙන ඔබ සැමට උපරිම අධ්‍යාපනයක් ලබා දීමයි.
+				        maximum amount of education to all of you who come inside to Vidarsha Roof. <br>
+				        වසර 10 කට වැඩි පළපුරුද්දක් ඇති අපි සෑම විටම ගාලු දිස්ත්‍රික්කයේ සිසුන්ට හොඳම පහසුකම් සහ 
+				        හොඳම අධ්‍යාපනය ලබා දීමට සූදානම්. උසස් සුදුසුකම් ලත් ගුරුවරුන් සමඟ අපි සැමවිටම 
+				        අරමුණු කරන්නේ විදර්ෂා වහල වෙත පැමිණෙන ඔබ සැමට උපරිම අධ්‍යාපනයක් ලබා දීමයි.
             </p>
           </div>
         </footer>

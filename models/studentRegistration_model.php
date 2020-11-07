@@ -42,11 +42,11 @@ class studentRegistration_Model extends Model{
         $reg = mysqli_fetch_assoc($reg_no);
 
         $this->db->insert('parent',"(name,tel_no,stu_reg_no)","('".$data['name']."','".$data['tel']."',".$reg['reg_no'].")");
-/*
-$this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
-merge conflicted*/
 
-      $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['stu_reg_no'].")"); 
+$this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
+
+
+      
 
 
     }

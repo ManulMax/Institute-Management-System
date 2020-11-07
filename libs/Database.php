@@ -79,7 +79,7 @@ class Database
 */
 
 	public function update($table,$data,$where){
-		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
+		$connection = mysqli_connect('localhost','root','','vidarsha');
 		$sql = "update ".$table." SET ".$data." where ".$where;
 		$result = mysqli_query($connection,$sql);
 	}

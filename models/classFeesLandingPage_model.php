@@ -1,6 +1,6 @@
 <?php
 
-class attendanceLandingPage_Model extends Model{
+class classFeesLandingPage_Model extends Model{
 
     public function __construct(){
      	parent::__construct();

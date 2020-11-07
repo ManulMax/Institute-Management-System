@@ -1,0 +1,92 @@
+
+.wrapper{
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-height:1000px;
+  height: 600px;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin-left: 50%;
+  margin-top: 350px;
+}
+
+.wrapper p {
+  position: relative;
+  margin-left: 25%;
+  text-align: left;
+}
+
+.wrapper .title h3{
+  color: black;
+  text-align: center;
+  margin-bottom: 25px;
+  padding:10px;
+}
+
+
+input[type=text],input[type=date],input[type=time], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+
+.col-20 {
+  float: left;
+  width: 20%;
+  margin-top: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+#salaryTable {
+  border-collapse: collapse;
+  margin-left: 25%;
+  width: 50%;
+  font-size: 15px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+#salaryTable th, td {
+  border: 1px solid #ddd;
+    padding: 8px;
+}
+#salaryTable th {
+  background-color: #66CDAA;
+  padding: 10px;
+
+}
