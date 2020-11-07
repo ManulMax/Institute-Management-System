@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNav">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentRegistration">
 </head>
 
@@ -35,7 +35,7 @@
   </div>
   
   <!----------------------------------Middle contet------------------------------------>
-  <div class="middle" style="background-color:white;">
+  <div class="middle" style="background-color:#F8F8FF;">
 	
 	<form enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" >
 	<div class="container">

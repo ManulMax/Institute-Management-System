@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
-<title>Teacher Home</title>
+<title>Staff Dashboard</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -12,7 +12,7 @@
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNav">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffDashboard">
 
 

@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNav">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/attendanceLandingPage">
 
 <script src= 
@@ -91,6 +91,7 @@ $(function(){
     <th>Batch</th>
     <th>Time</th>
     
+    
 
     
   </tr>
@@ -99,10 +100,11 @@ $(function(){
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td></tr>";
+         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td></tr>";
 
       }
   ?>
+</tbody>
 </tbody>
 
 
@@ -110,6 +112,11 @@ $(function(){
 
 
 </table>
+
+
+
+
+
 </div>
 <script type="text/javascript">
 
