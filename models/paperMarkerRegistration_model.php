@@ -40,7 +40,7 @@ class paperMarkerRegistration_Model extends Model{
     }
 
     public function create($data){
-        $password=password_hash($data['NIC'], PASSWORD_DEFAULT);
+       // $password=password_hash($data['NIC'], PASSWORD_DEFAULT);
         $this->db->insert("user","(username,password,type,flag)","('".$data['email']."',md5(".$data['NIC']."),'Paper Marker',0)");
 
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");

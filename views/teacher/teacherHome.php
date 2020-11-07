@@ -23,8 +23,10 @@
 <body>
 
 <div class="row">
+
+
   <div class="leftNav">
-  <img src="<?php echo URL; ?>public/img/logo2.png" class="img1" height="12%" style="padding-left: 10%;">
+  <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
   <ul>
     <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>
     <li>
@@ -65,9 +67,9 @@
 
 
   <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
-    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+    <h2><i class="fas fa-home"></i>Dashboard</h2>
+    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
 
@@ -78,8 +80,50 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
-      <h2 id="name">Isurika Perera</h2>
-      <h4 id="name">Teacher</h4>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->userDetails)){  
+
+               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
+               echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
+
+               echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Telephone no.</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Email address</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['tel_no']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['email']."</h3>
+                </div>
+              </div>";
+
+              echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>NIC</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>DOB</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['NIC']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['DOB']."</h3>
+                </div>
+              </div>";
+            }
+          ?>
+
     </div>
 
   </div>

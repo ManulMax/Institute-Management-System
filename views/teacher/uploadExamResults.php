@@ -35,7 +35,7 @@
   </div>
   
   <!----------------------------------Middle contet------------------------------------>
-  <div class="middle" style="background-color:white;">
+  <div class="middle" style="background-color:#F8F8FF;">
 	<div class="container">
     <table>
       <tr>

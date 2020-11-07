@@ -24,7 +24,6 @@ class login_Model extends Model{
 
                 if ($user['flag']==0) {
                     header('location: '.URL.'login?status=new');
-
                 }else if($user['flag']==1){
 
                     if(Session::get('userType')=='Admin'){

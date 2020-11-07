@@ -3,7 +3,7 @@
 
 #regForm {
   background-color: #F0FFF0;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-top: 20px;
   padding: 40px;
   width: 70%;
@@ -104,3 +104,190 @@ button:hover {
   background-color: #4CAF50;
 }
 
+
+@media only screen and (max-width: 1545px) {
+  #regForm {
+    width: 90%;
+   margin-right: 5%;
+   margin-left: 5%;
+   padding: 2%;
+  }
+
+}
+
+@media only screen and (max-width: 1300px) {
+  #regForm {
+    width: 96%;
+   margin-right: 2%;
+   margin-left: 2%;
+  }
+
+}
+
+@media only screen and (max-width: 1000px) {
+  #regForm {
+    width: 96%;
+   margin-right: 2%;
+   margin-left: 2%;
+  }
+
+  .topSection {
+
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: -13px;
+    margin-right: -13px;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 900px) {
+  #regForm {
+    width: 96%;
+   margin-right: 2%;
+   margin-left: 2%;
+  }
+
+  #regForm h1 {
+    font-size: 20px;
+  }
+
+
+  input[type=text]{
+    padding: 5px;
+    width: 100%;
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #228B22;
+    background-color: #F0FFF0;
+
+  }
+
+  input[type=radio] {
+    width: 100%;
+    height: 20px;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 540px) {
+  #regForm {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .topSection {
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  input[type=text]{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #228B22;
+    background-color: #F0FFF0;
+
+  }
+
+  input[type=radio] {
+    width: 100%;
+    height: 20px;
+  }
+
+  .radioBtn {
+    padding: 20px;
+  }
+
+}
+
+
+@media only screen and (max-width: 380px) {
+  #regForm {
+    width: 100%;
+    padding: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .topSection {
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  input[type=text]{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #228B22;
+    background-color: #F0FFF0;
+
+  }
+
+  input[type=radio] {
+    width: 100%;
+    height: 20px;
+  }
+
+  .radioBtn {
+    padding: 20px;
+  }
+
+}
+
+
+@media only screen and (max-width: 300px) {
+  #regForm {
+    width: 100%;
+    padding: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .topSection {
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  input[type=text]{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #228B22;
+    background-color: #F0FFF0;
+
+  }
+
+  input[type=radio] {
+    width: 100%;
+    height: 30px;
+  }
+
+  .radioBtn {
+    padding: 30px;
+  }
+
+}

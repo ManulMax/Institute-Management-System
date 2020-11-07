@@ -8,10 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"      
-    ></script>
+    <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/login.css" />
     <title>Sign in & Sign up Form</title>
   </head>

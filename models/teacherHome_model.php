@@ -6,6 +6,13 @@ class teacherHome_Model extends Model{
      	parent::__construct();
     }
 
+    public function listDetails($userid){
+
+        return $this->db->listWhere("*","teacher","user_id=$userid");
+    
+
+    }
+
     public function listClasses($userid){
 
         return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");

@@ -4,13 +4,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo{
-  font-family: 'Homemade Apple';
-  font-size: 40px;
-  color: #66CDAA;
-  margin-top: 20px;
-  margin-left: 20%;
-}
 
 .headerClass {
   background-color: #063811;
@@ -19,6 +12,13 @@
   font-size: 16px;
   height: 60px;
   color: rgba(244,244,244,0.7);
+}
+
+.headerClass h2 {
+  text-indent:10px;
+  margin-top:8px;
+  margin-left:18%;
+  position:absolute;
 }
 
 
@@ -31,6 +31,12 @@
   width: 17%;
   font-size: 16px;
   
+}
+
+.logo{
+  height: 100px;
+  width: 50%;
+  margin-left: 25%;
 }
 
 .leftNav ul {
@@ -64,7 +70,9 @@ i{
   padding:10px;
 }
 
-
+.drop-btn, .drop-container {
+  display: none;
+}
 
 
 
@@ -195,13 +203,30 @@ i{
   border-radius: 25px;
   font-weight: bold;
   color: #063811;
+  margin-top:10px;
+  float: right;
+  margin-right: 30px;
 }
+
+.userDiv i {
+    font-size: 20px;
+  }
 
 .userDiv:hover {
   width: 225px;
   height: 35px;
   border-radius: 25px;
   padding: 0 10px 0 10px;
+}
+
+.logout {
+  margin-top:6px;
+  float: right;
+  margin-right: 40px;
+}
+
+.logout i {
+  font-size: 28px;
 }
 
 
@@ -257,5 +282,239 @@ i{
 
 
 
+.topic {
+  width: 100%;
+  padding: 12px;
+  resize: vertical;
+  text-align: center;
+}
+
+.detail {
+  width: 100%;
+  padding: 12px;
+  color: #2E8B57;
+  resize: vertical;
+  text-align: center;
+  margin-top: -10px;
+  font-size: 14px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.modal .row {
+  background-color: #D5F5E3;
+  width: 100%;
+}
+
+.col-20 {
+  float: left;
+  width: 20%;
+  margin-top: 20px;
+}
+
+.col-30 {
+  float: left;
+  width: 30%;
+  margin-top: 20px;
+}
+
+.col-50-topic {
+  float: left;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.col-50-detail {
+  float: left;
+  width: 50%;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 
+
+
+
+@media only screen and (max-width: 1545px) {
+  .leftNav {
+    width: 20%;
+    font-size: 14px;
+  }
+
+  .dropdown-btn {
+    font-size: 14px;
+  }
+
+  .headerClass h2 {
+    margin-left: 21%;
+  }
+
+  .middle {
+    width: 80%;
+  }
+}
+
+
+@media only screen and (max-width: 1300px) {
+  .leftNav {
+    width: 25%;
+    font-size: 14px;
+  }
+
+  .logo{
+    height: 100px;
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .dropdown-btn {
+    font-size: 14px;
+  }
+
+  .headerClass h2 {
+    margin-left: 26%;
+  }
+
+  .middle {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .leftNav {
+    width: 25%;
+    font-size: 13px;
+  }
+
+  .dropdown-btn {
+    font-size: 13px;
+  }
+
+  .headerClass h2 {
+    margin-left: 26%;
+  }
+
+  .middle {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .leftNav {
+    height: 60px;
+    width: 10%;
+  }
+
+  .leftnav ul {
+    display: none;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .middle {
+    width: 100%;
+  }
+
+  .headerClass h2 {
+    margin-left: 40%;
+  }
+
+.drop-btn {
+  padding: 3px 0px 3px 0px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  color: rgba(244,244,244,0.7);
+  font-size: 16px;
+}
+
+.drop-btn:hover {
+  background-color: #306B76;
+  color: white;
+}
+
+.drop-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+}
+
+
+@media only screen and (max-width: 540px) {
+  .leftNav {
+    height: 60px;
+    width: 10%;
+    padding-bottom: 5px;
+  }
+
+  .leftnav ul {
+    display: none;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .middle {
+    width: 100%;
+  }
+
+  .headerClass h2 {
+    display: none;
+  }
+
+  .userDiv {
+    width: 25px;
+    height: 25px;
+    margin-top:8px;
+    margin-right: 10px;
+    pointer-events: none;
+  }
+
+  .userDiv i {
+    font-size: 14;
+  }
+
+  .logout {
+    margin-top:8px;
+    float: right;
+    margin-right: 20px;
+  }
+
+  .logout i {
+    font-size: 20px;
+  }
+
+}
+
+@media only screen and (max-width: 380px) {
+  .middle {
+    padding: 0px;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 0px;
+  }
+
+}
