@@ -39,7 +39,7 @@ class login_Model extends Model{
                         header('location: '.URL.'staffDashboard');
 
                     }else if(Session::get('userType')=='Paper Marker'){
-                        header('location: '.URL.'teacherHome');
+                        header('location: '.URL.'papermarkerHome');
                     }else{
                         header('location: '.URL.'login');
                     }

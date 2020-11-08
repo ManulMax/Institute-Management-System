@@ -41,16 +41,23 @@
 	font: inherit;
 	margin: 0;
 	padding: 4px;
+	width: 100%;
+    resize: vertical;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #228B22;
+  background-color: #F8F8FF;
 
 }
-.table-filters .input-text {
+/*.table-filters .input-text {
 	min-width: 100px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 }
 .table-filters select {
 	min-width: 150px;
-}
+	
+}*/
 .table-filters label {
 	margin: 0 4px 0 8px;
 }

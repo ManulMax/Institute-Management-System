@@ -28,11 +28,14 @@
 	
   </div>
 
- <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-edit"></i>Student Registration</h2>
+  <div class="headerClass">
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+   <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
+
+ 
+ 
   
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
@@ -77,7 +80,8 @@
 				<td colspan=5><input type="text" placeholder="Address" name="address" id="address" required></td>
 			</tr>
 			
-	
+			<tr></tr>
+
 			<tr>
 				<td>Parent/Gardian Name</td>
 				<td colspan=5><input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" required></td>
@@ -92,6 +96,7 @@
 				<td></td>
 			</tr>
 			
+			<tr></tr>
 		
 			<tr>
 				<td>School</td>
@@ -122,8 +127,10 @@
 
 			<!--<tr>
 				<td></td>
+			
 				<td><a href="enrollStudent"><button type="submit" class="registerbtn" name="enroll">Enroll to class</button></a></td></tr>-->
 			
+			<tr></tr>
 			<tr>
 				<td>Photo</td>
 				<td colspan=5><input type="file" placeholder="Upload photo " name="img" id="photo" required></td>
@@ -144,6 +151,8 @@
 <div class="footer">
   <p>Footer</p>
 </div>
+
+
 
 </body>
 </html>
