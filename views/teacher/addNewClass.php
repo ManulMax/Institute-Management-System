@@ -38,6 +38,17 @@ $(function(){
 
 <div class="row">
   <div class="leftNav">
+
+<button class="drop-btn">
+          <i class="fas fa-list fa-lg"></i>
+        </button>
+        <div class="drop-container">
+                <a href="#">blaa</a>
+                <a href="#">blaa</a>
+                <a href="#">blaa</a>
+
+        </div>
+    
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
   <ul>
     <li><a href="<?php echo URL; ?>teacherHome"><i class="fas fa-home"></i>Dashboard</a></li>

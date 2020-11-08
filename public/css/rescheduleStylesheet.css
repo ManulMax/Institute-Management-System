@@ -1,3 +1,9 @@
+#regForm {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+}
+
 input[type=text],input[type=date],input[type=time], select, textarea {
   width: 100%;
   padding: 12px;
@@ -65,7 +71,6 @@ input[type=submit]:hover {
 /*the container must be positioned relative:*/
 .custom-select {
   position: relative;
-  font-family: Arial;
 }
 
 .custom-select select {
@@ -128,12 +133,12 @@ input[type=submit]:hover {
 /* table */
 
 #data {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  font-size: 16px;
 }
 
-#data td, #customers th {
+#data td, #data th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -222,7 +227,6 @@ input[type=submit]:hover {
 
 
 
-
 @media only screen and (max-width: 1545px) {
    #regForm {
     padding-left: 10%;
@@ -282,6 +286,46 @@ input[type=submit]:hover {
     border-collapse: collapse;
     font-size: 13px;
     width: 100%;
+  }
+
+}
+
+
+@media only screen and (max-width: 380px) {
+  #regForm {
+    padding-left: 2%;
+    padding-right: 4%;
+    padding-top: 3%;
+    font-size: 12px;
+  }
+
+  #data td, #data th{
+    border-collapse: collapse;
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  .containerRadio .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .containerRadio{
+    margin-top:10px;
   }
 
 }

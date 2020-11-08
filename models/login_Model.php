@@ -20,6 +20,7 @@ class login_Model extends Model{
                 Session::set('loggedIn',true);
                 Session::set('userid',$user['id']);
                 Session::set('username',$user['username']);
+                Session::set('password',$user['password']);
                 Session::set('userType',$user['type']);
 
                 if ($user['flag']==0) {
@@ -60,8 +61,10 @@ class login_Model extends Model{
 
 
     public function passwordChange(){
+        if($_POST['current_passwd'] == $_SESSION['password']){
+            if ($_POST['new_passwd'] == $_POST['confirm_passwd']) {
 
-        $users = $this->db->update("user","password='".$_POST['new_passwd']."',flag=1","id=".$_SESSION['userid']);
+                $users = $this->db->update("user","password='".$_POST['new_passwd']."',flag=1","id=".$_SESSION['userid']);
 
                 if(Session::get('userType')=='Admin'){
                     header('location: '.URL.'adminDashboard');
@@ -78,6 +81,15 @@ class login_Model extends Model{
                 }else if(Session::get('userType')=='Paper Marker'){
                     header('location: '.URL.'teacherHome');
                 }
+            }else{
+                header('location: '.URL.'login?status=new&msg=Password mismatch');
+            }
+            exit;
+        }else{
+            header('location: '.URL.'login?status=new&msg=Incorrect current password');
+        }
+        exit;
+        
                 
 
         }

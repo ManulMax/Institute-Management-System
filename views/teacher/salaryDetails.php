@@ -133,9 +133,9 @@
         <p>Salary details of Month :</p>
         <p>Total Salary :</p>
 
-        <p style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</p>
-        </div>
-      <table id="salaryTable" style="margin-right: 0;">
+        <p style="color: grey;font-weight:bold;margin-top:30px;">Class-wise salary :</p>
+
+        <table id="salaryTable">
         <thead>
           <tr>
             <th>Class</th>
@@ -163,8 +163,9 @@
 
 
     </table>
-
-      <input type="submit" name="" style="width:20%;margin-right: 40%;margin-bottom: 15%;" value=" Download Report">
+    <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%;" value=" Download Report">
+  </div>
+         
     
   </div>
 

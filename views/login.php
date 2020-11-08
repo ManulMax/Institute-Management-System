@@ -64,6 +64,10 @@
               <i class="fas fa-lock"></i>
               <input type="password" name="confirm_passwd" placeholder="Confirm New Password" />
             </div>
+
+            <?php if(isset($_GET['msg'])){ ?>
+           <div><p style="color: red;">*<?php echo $_GET['msg']; ?></p></div>  <?php } ?>
+           
             <input type="submit" class="btn" value="Save" />
             <p class="social-text">Follow Vidarsha In Social Networks</p>
             <div class="social-media">

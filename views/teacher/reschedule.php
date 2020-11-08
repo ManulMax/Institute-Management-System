@@ -175,17 +175,17 @@ $(function(){
   -->  
 <div class="middle" style="background-color:#F8F8FF;">
 
-<form action="" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">
+<form id="regForm" method="post">
 
 <div class="row">
     <div class="col-40" style="margin: 0;">
-      <label class="containerRadio" style="margin: 0;">Temporary Re-schedule
+      <label class="containerRadio">Temporary Re-schedule
         <input type="radio" checked="checked" name="radio">
         <span class="checkmark"></span>
       </label>
     </div>
     <div class="col-40" style="margin: 0;">
-      <label class="containerRadio" style="margin: 0;">Permanant Re-schedule
+      <label class="containerRadio">Permanant Re-schedule
         <input type="radio" name="radio">
         <span class="checkmark"></span>
       </label>
