@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNav">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/attendanceLandingPage">
 
 <script src= 
@@ -50,11 +50,13 @@ $(function(){
   
   </div>
 
-  <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-edit"></i>Mark Attendance</h2>
+   <div class="headerClass">
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+   <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
+
+  
 
   <!------------------------------middle content-------------------------->
   <div class="middle" style="background-color:white;">
@@ -68,7 +70,7 @@ $(function(){
     <table id="allocation" >
     <tr>
     <td><label for="filter-city">Class</label>
-    <select id="filter-city" data-filter-col="0">
+    <select style="width:25%;" id="filter-city" data-filter-col="0">
       <option value="">- All -</option>
       <?php
 
@@ -91,6 +93,7 @@ $(function(){
     <th>Batch</th>
     <th>Time</th>
     
+    
 
     
   </tr>
@@ -99,10 +102,11 @@ $(function(){
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td></tr>";
+         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td></tr>";
 
       }
   ?>
+</tbody>
 </tbody>
 
 
@@ -110,6 +114,11 @@ $(function(){
 
 
 </table>
+
+
+
+
+
 </div>
 <script type="text/javascript">
 
@@ -138,6 +147,8 @@ $(function(){
 <div class="footer">
   <p>Footer</p>
 </div>
+
+
 
 </body>
 </html>

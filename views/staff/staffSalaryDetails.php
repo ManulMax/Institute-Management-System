@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNav">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffSalary">
 
 
@@ -33,11 +33,13 @@
   
   
   </div>
-  <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-money-bill-wave"></i>Salary Details</h2>
-    <div style="margin-top:6px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt" style="font-size: 28px;"></i></a></div>
-    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello Teacher ;-)</div>
+   <div class="headerClass">
+    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
+    <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
+   <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
+
+  
   
   
   <div class="middle" style="background-color:white;">
@@ -53,7 +55,7 @@
 
         
 
-      <input type="submit" name="" style="width:20%;margin-right: 40%;margin-bottom: 15%; margin-top: 10%;" value="Download Report">
+      <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;"" value="Download Report">
     
   </div>
 
@@ -68,6 +70,8 @@
   <p>Footer</p>
 </div>
 </div>
+
+
 
 </body>
 

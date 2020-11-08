@@ -64,7 +64,7 @@
     <br>
 
     <label>Choose file</label>
-    <input type="file" name="uploadFile" class="uplaodFile">
+    <input type="file" name="uploadFile" class="custom-file-input">
 
     <input type="submit" value="Send result shet" name="resultSheet" class="btn2">
 

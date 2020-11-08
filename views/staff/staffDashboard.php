@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
-<title>Teacher Home</title>
+<title>Staff Dashboard</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -40,7 +40,61 @@
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: white;"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+   <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+  </div>
+
+  <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->userDetails)){  
+
+               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h4 id='name'>Staff</h4><br />";
+               /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
+
+               echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Telephone no.</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Email address</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['tel_no']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['email']."</h3>
+                </div>
+              </div>";
+
+              echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>NIC</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>DOB</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['NIC']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['DOB']."</h3>
+                </div>
+              </div>";
+            }
+          ?>
+
+    </div>
+
   </div>
 
 
@@ -139,42 +193,18 @@ var myChart = new Chart(ctx, {
 <thead>
   <tr>
     <th>Class</th>
-    <th>Day</th>
     <th>Time</th>
     <th>Hall</th>
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>Shoshana</td>
-    <td>Wooten</td>
-    <td>Valdosta</td>
-    <td>United Kingdom</td>
-  </tr>
-  <tr>
-    <td>Stewart</td>
-    <td>Dillard</td>
-    <td>South Portland</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>Tana</td>
-    <td>Villarreal</td>
-    <td>Waltham</td>
-    <td>Solomon Islands</td>
-  </tr>
-  <tr>
-    <td>Wendy</td>
-    <td>Greer</td>
-    <td>Bellflower</td>
-    <td>Mauritania</td>
-  </tr>
-  <tr>
-    <td>Kenneth</td>
-    <td>Livingston</td>
-    <td>Anaheim</td>
-    <td>Honduras</td>
-  </tr>
+  <?php
+
+      while($row = mysqli_fetch_assoc($this->schedules)){  
+         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+
+      }
+  ?>
 </tbody>
 </table>
 </div>
@@ -189,6 +219,60 @@ var myChart = new Chart(ctx, {
 <div class="footer">
   <p>Footer</p>
 </div>
+
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+</script>
+
 
 </body>
 
