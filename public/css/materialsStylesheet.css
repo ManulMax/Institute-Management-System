@@ -55,14 +55,17 @@ input[type=file] {
 
 }
 
+.topHeading {
+  text-indent:30%;
+}
+
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
 .row {
   padding-bottom:20px;
-  margin-left: 10px;
-  margin-right: 10px;
+
 }
 
 .col-25 {
@@ -113,4 +116,158 @@ input[type=submit]:hover {
   color: #2F4F4F;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1545px) {
+   #regForm {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+  }
+
+  .middle {
+    width: 50% !important;
+  }
+
+  .previewContainer {
+    padding-left: 0px;
+    padding-right: 100px;
+  }
+
+  input[type=submit] {
+    margin-left: 15%;
+    margin-top: 0px;
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .right {
+    font-size: 15px;
+  }
+
+
+}
+
+@media only screen and (max-width: 1300px) {
+  #regForm {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+  }
+
+  .middle {
+    display: none;
+  }
+
+  .previewContainer {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  input[type=submit] {
+    margin-left: 40%;
+    margin-top: 0px;
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .right {
+    position: absolute;
+    margin-left: 25%;
+    width: 75% !important;
+    height: 940px !important;
+    padding-right: 15% !important;
+    padding-left: 10% !important;
+    font-size: 16px;
+  }
+
+}
+
+@media only screen and (max-width: 1000px) {
+  .right {
+    padding-right: 15% !important;
+    padding-left: 10% !important;
+    font-size: 15px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+}
+
+
+@media only screen and (max-width: 900px) {
+ .right {
+    width: 100% !important;
+    margin-left: 0%;
+    padding-right: 15% !important;
+    padding-left: 10% !important;
+    font-size: 15px;
+  }
+
+  .topHeading {
+    text-indent:17%;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 540px) {
+ .right {
+    padding-right: 10% !important;
+    padding-left: 5% !important;
+    font-size: 15px;
+  }
+
+  .previewContainer {
+    padding-left: 0px;
+    padding-right: 100px;
+  }
+
+  input[type=submit] {
+    margin-left: 15%;
+    margin-top: 0px;
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  label {
+    font-weight: normal;
+  }
+
+  .topHeading {
+    text-indent: 20%;
+    font-size: 18px;
+  }
+
+}
+
+
+@media only screen and (max-width: 380px) {
+  #regForm {
+    font-size: 13px;
+  }
+
+  .right {
+    padding-right: 5% !important;
+    padding-left: 0% !important;
+  }
+
+  input[type=submit] {
+    margin-left: 20%;
+    margin-top: 0px;
+    font-size: 13px;
+    padding: 10px 15px;
+  }
+
 }

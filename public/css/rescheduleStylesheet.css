@@ -11,6 +11,7 @@ input[type=text],input[type=date],input[type=time], select, textarea {
   border: 0;
   outline: 0;
   border-bottom: 1px solid #228B22;
+  background-color: #F8F8FF;
 }
 
 label {

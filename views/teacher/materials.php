@@ -146,8 +146,8 @@
   <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;">
   
  <!-- ------ form ------ --> 
- <h2 style="text-indent:10px;"><i class="fas fa-upload"></i>Upload New Material</h2>
-    <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create" style="padding: 20px;">
+ <h2 class="topHeading"><i class="fas fa-upload"></i>Upload New Material</h2>
+    <form id="regForm" method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create" style="padding: 20px;">
     <div class="row">
       <div class="col-25">
       <label for="fname">Heading</label>

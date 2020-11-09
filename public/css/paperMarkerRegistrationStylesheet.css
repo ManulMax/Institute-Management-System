@@ -1,25 +1,42 @@
+#regForm {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+  font-size: 16px;
+}
+
+#tableDiv {
+  width: 100%;
+  overflow-x: auto;
+}
+
 input[type=text],input[type=date],input[type=email], select {
   width: 100%;
   padding: 15px;
   resize: vertical;
-  font-size: 17px;
   border: 0;
   outline: 0;
   border-bottom: 1px solid #228B22;
+  background-color: #F8F8FF;
 }
 
 textarea {
   padding: 15px;
   width: 100%;
-  font-size: 17px;
   outline: 0;
   border: 1px solid #228B22;
+  background-color: #F8F8FF;
 }
-
 
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
+}
+
+.col-10 {
+  float: left;
+  width: 10%;
+  margin-top: 20px;
 }
 
 .col-15 {
@@ -28,9 +45,9 @@ label {
   margin-top: 20px;
 }
 
-.col-20 {
+.col-25 {
   float: left;
-  width: 20%;
+  width: 25%;
   margin-top: 20px;
 }
 
@@ -59,20 +76,21 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
-
-
+span {
+  display: none;
+}
 
 #data {
   border-collapse: collapse;
-  margin-left: 10%;
-  width: 80%;
+  margin-left: 0;
+  width: 100%;
   font-size: 15px;
   margin-top: 2%;
   margin-bottom: 0;
@@ -84,5 +102,165 @@ input[type=submit]:hover {
 #data th {
   background-color: #66CDAA;
   padding: 10px;
+
+}
+
+#data td {
+  background-color: white;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1545px) {
+   #regForm {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+  }
+
+  #data {
+    overflow-x: auto;
+    margin-left: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  #tableDiv {
+    width: 100%;
+    min-width: 100%;
+  overflow-x: auto;
+}
+
+  input[type=submit] {
+    font-size: 14px;
+  }
+
+}
+
+@media only screen and (max-width: 1300px) {
+  #regForm {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+  }
+
+  #data {
+    margin-left: 2%;
+    width: 60%;
+    font-size: 13px;
+  }
+
+}
+
+@media only screen and (max-width: 1000px) {
+  #regForm {
+    padding-left: 10%;
+    padding-right: 1%;
+    width: 100%;
+    padding-top: 4%;
+    font-size: 13px;
+  }
+
+  input[type=text],input[type=date],input[type=email], select {
+    width: 100%;
+    padding: 15px;
+    padding-right: 0px;
+  }
+
+  textarea {
+    padding: 15px;
+    padding-right: 0px;
+    width: 100%;
+  }
+
+}
+
+
+@media only screen and (max-width: 900px) {
+ #regForm {
+    padding-left: 5%;
+    padding-right: 2%;
+    padding-top: 5%;
+    font-size: 14px;
+  }
+
+  #data {
+    border-collapse: collapse;
+    font-size: 13px;
+    width: 100%;
+
+  }
+
+  .col-15 {
+    float: left;
+    width: 20%;
+    margin-top: 20px;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 540px) {
+  #regForm {
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 5%;
+    font-size: 13px;
+  }
+
+  #data {
+    border-collapse: collapse;
+    font-size: 13px;
+    width: 100%;
+
+  }
+
+
+  .col-15 {
+    float: left;
+    width: 20%;
+    margin-top: 20px;
+  }
+
+  .col-25 {
+    float: left;
+    width: 40%;
+    margin-top: 20px;
+  }
+
+  .col-10 {
+    margin-right: 80%;
+  }
+
+  .genderLabel {
+    width: 20% !important;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 380px) {
+  #regForm {
+    padding-left: 2%;
+    padding-right: 4%;
+    padding-top: 3%;
+    font-size: 11px;
+  }
+
+  #data {
+    overflow-x: auto;
+  }
+
+  #data td, #data th{
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 100%;
+  }
 
 }
