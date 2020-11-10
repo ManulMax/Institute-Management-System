@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNav">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavBar">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/prepareResultSheet">
 </head>
 
@@ -37,7 +37,7 @@
       <tr>
         <td>Class</td>
         <td><select>
-      <option value="0">Select Batch:</option>
+      <option value="0">Select Class:</option>
       <option value="1">2021 A/L</option>
       <option value="2">2022 A/L</option>
       <option value="3">2023 A/L</option>
@@ -46,10 +46,10 @@
       <td>Exam</td>
         <td><select>
       <option value="0">Select Exam:</option>
-      <option value="1">Chemistry</option>
-      <option value="2"> PhysicsL</option>
-      <option value="3"> MathsL</option>
-      <option value="4">Revision</option>
+      <option value="1">Encapsulation</option>
+      <option value="2"> Abstaction</option>
+      <option value="3"> Inheritance</option>
+      <option value="4">Exception Handing</option>
       </select></td>
       </tr>
 
@@ -66,7 +66,7 @@
     <label>Choose file</label>
     <input type="file" name="uploadFile" class="custom-file-input">
 
-    <input type="submit" value="Send result shet" name="resultSheet" class="btn2">
+    <input type="submit" value="Send result sheet" name="resultSheet" class="btn2">
 
 	</div>
   </div>
