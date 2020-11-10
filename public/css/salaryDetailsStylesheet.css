@@ -13,6 +13,7 @@
   position: relative;
   text-align: left;
   padding-left: 25%;
+  font-size: 16px;
 }
 
 .wrapper .title h3{
@@ -20,6 +21,7 @@
   text-align: center;
   margin-bottom: 25px;
   padding:10px;
+  font-size: 17px;
 }
 
 
@@ -100,6 +102,14 @@ input[type=submit]:hover {
     padding: 50px;
     margin-left: 20%;
   }
+}
+
+.wrapper .title h3{
+  color: black;
+  text-align: center;
+  margin-bottom: 25px;
+  padding:10px;
+  font-size: 17px;
 }
 
 #salaryTable {

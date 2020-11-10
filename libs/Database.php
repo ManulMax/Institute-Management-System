@@ -17,7 +17,7 @@ class Database
 * @return array Result of the query as an associative array.
 */
 	public function listAll($table){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
+		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
 		$sql = "select * from ".$table;
 
         $result = mysqli_query($connection,$sql);
@@ -28,7 +28,7 @@ class Database
 
 
 	public function listCurrentSchedules($select,$from,$where){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
+		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
 		$sql = "select ".$select." from ".$from." where ".$where;
 
         $result = mysqli_query($connection,$sql);
@@ -38,7 +38,7 @@ class Database
 	}
 
 	public function listWhere($select,$from,$where){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
+		$connection = mysqli_connect('localhost','root','isurika','vidarsha');
 		$sql = "select ".$select." from ".$from." where ".$where;
 
         $result = mysqli_query($connection,$sql);

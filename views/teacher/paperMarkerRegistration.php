@@ -119,13 +119,14 @@
 
 
   
-  <div class="middle" style="background-color:#F8F8FF;width: 83%;">
+  <div class="middle" style="background-color:#F8F8FF;">
 
 
 
 
 
 		<!-- data taken from generatedata.com -->
+		<div id="tableDiv">
 		<table id="data">
 		<thead>
 		  <tr>
@@ -150,13 +151,14 @@
 		  
 		</tbody>
 		</table>
+		</div>
 
 
 
 
 
 
-	<form action="<?php echo URL; ?>paperMarkerRegistration/create" method="post" style="padding-left: 20%;padding-right: 20%;padding-top: 5%;">
+	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
 		<div class="col-15">
 		  <label for="subject">Full Name :</label>
@@ -170,15 +172,15 @@
 		<div class="col-15">
 		  <label for="subject"> NIC :</label>
 		</div>
-		<div class="col-20" style="width: 25%;">
+		<div class="col-25">
 		  <input type="text" placeholder="Identity card number..." name="NIC">
 		</div>
-		<div class="col-20" style="width: 15%;">
+		<div class="col-10">
 		</div>
 		<div class="col-15">
 		  <label for="subject">DOB :</label>
 		</div>
-		<div class="col-20">
+		<div class="col-25">
 		  <input type="date" name="DOB">
 		</div>
 	  </div>
@@ -187,11 +189,11 @@
 		<div class="col-15">
 		  <label for="subject">Gender :</label>
 		</div>
-		<div class="col-20" style="width: 15%;">
+		<div class="col-15" class="genderLabel">
 		  <input type="radio" value="male" name="gender">
 		  <label for="male">Male</label>
 		</div>
-		<div class="col-20" style="width: 15%;">
+		<div class="col-15" class="genderLabel">
 		  <input type="radio" value="female" name="gender">
 		  <label for="female">Female</label>
 		</div>
@@ -219,7 +221,7 @@
 		<div class="col-15">
 		  <label for="subject">Mobile No. :</label>
 		</div>
-		<div class="col-20">
+		<div class="col-25">
 		  <input type="text" placeholder="Mobile number..." name="tel">
 		</div>
 	  </div>
