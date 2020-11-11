@@ -41,22 +41,38 @@
         <div class="grid">
             <div class="col">
                 <h3>No Of Students</h3>
-                <p>500</p>
+                <?php
+                    while($row = mysqli_fetch_assoc($this->stuCount1)){
+                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
+                }
+                ?>
                 
             </div>
             <div class="col">
                 <h3>No Of Classes</h3>
-                <p>16</p>
+                <?php
+                    while($row = mysqli_fetch_assoc($this->classCount)){
+                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
+                }
+                ?>
                 
             </div>
             <div class="col">
                 <h3>No Of Teachers</h3>
-                <p>8</p>
+                <?php
+                    while($row = mysqli_fetch_assoc($this->tecCount)){
+                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
+                }
+                ?>
                 
             </div>
             <div class="col">
-                <h3>No Of Students In</h3>
-                <p>0</p>
+                <h3>No Of Paied Students</h3>
+                <?php
+                    while($row = mysqli_fetch_assoc($this->stuCount2)){
+                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
+                }
+                ?>
                 
             </div>
         </div>
