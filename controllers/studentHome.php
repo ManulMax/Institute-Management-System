@@ -7,6 +7,7 @@ class studentHome extends Controller{
     }
 
     function index(){
-      $this->view->render('student/studentHome');
+    	$this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+      	$this->view->render('student/studentHome');
     }
 }
