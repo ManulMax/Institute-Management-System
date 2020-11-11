@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentHomeStylesheet">
 
-
 </head>
 
 
@@ -58,7 +57,148 @@
 
   <div class="middle" style="background-color:white;">
 
+    <table class="midTable" cellpadding="10px;" border="0">
+      <tr>
+        <td width="40%">
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Combined Maths 2021 A/L</b></h3></div>
+             <div class="containerCard">
+            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Physics 2021 A/L</b></h3></div>
+             <div class="containerCard">
+            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Chemistry 2021 A/L</b></h3></div>
+             <div class="containerCard">
+            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
+            </div>
+          </div>
+          <br />
+        </td>
 
+        <td width="60%">
+          <div style="position: relative;margin-left: 10%;">
+            <canvas id="myChart1"></canvas>
+            <script>
+            var ctx = document.getElementById('myChart1').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+                    datasets: [{
+                        label: 'Weekly Attendance',
+                        data: [12, 19, 3, 5],
+                        backgroundColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="marks">
+            <h3>Exam results</h3>
+            <br />
+            <h4>Subject 1</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+
+            <h4>Subject 2</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+
+            <h4>Subject 3</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+          </div>
+        </td>
+        <td>
+          <div style="position: relative;margin-left: 10%;">
+            <canvas id="myChart2"></canvas>
+            <script>
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+                    datasets: [{
+                        label: 'Weekly Attendance',
+                        data: [12, 19, 3, 5],
+                        backgroundColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+          </div>
+
+        </td>
+      </tr>
+    </table>
+
+      
+
+      
   	
 
 </div>
