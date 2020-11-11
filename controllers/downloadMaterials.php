@@ -7,6 +7,7 @@ class downloadMaterials extends Controller{
     }
 
     function index(){
+    	$this->view->classList = $this->model->listClasses($_SESSION["userid"]);
     	$this->view->materialList = $this->model->listMaterials();
     	$this->view->render('student/downloadMaterials');
     }

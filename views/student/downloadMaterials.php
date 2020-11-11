@@ -23,16 +23,20 @@
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
 	<ul>
-	  <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li>
+    <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    <li>
         <button class="dropdown-btn"><i class="fas fa-download"></i>Download Materials
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl1" onclick="getMaterials('cl1')"><?php echo date("Y"); ?> A/L</a>
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl2" onclick="getMaterials('cl2')">><?php echo date("Y")+1; ?> A/L</a>
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl3" onclick="getMaterials('cl3')">><?php echo date("Y")+2; ?> A/L</a>
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl4" onclick="getMaterials('cl4')">>Revision</a>
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
     <li>
@@ -40,13 +44,14 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuiz"><?php echo date("Y"); ?> A/L</a>
-          <a href="<?php echo URL; ?>participateQuiz"><?php echo date("Y")+1; ?> A/L</a>
-          <a href="<?php echo URL; ?>participateQuiz"><?php echo date("Y")+2; ?> A/L</a>
-          <a href="<?php echo URL; ?>participateQuiz">Revision</a>
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
-	</ul>	
+  </ul> 	
 	
   </div>
 
