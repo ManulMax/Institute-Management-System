@@ -41,7 +41,7 @@
       <tr>
         <td>Class</td>
         <td><select>
-      <option value="0">Select Batch:</option>
+      <option value="0">Select Class:</option>
       <option value="1">2021 A/L</option>
       <option value="2">2022 A/L</option>
       <option value="3">2023 A/L</option>
@@ -50,10 +50,10 @@
       <td>Exam</td>
         <td><select>
       <option value="0">Select Exam:</option>
-      <option value="1">Chemistry</option>
-      <option value="2"> PhysicsL</option>
-      <option value="3"> MathsL</option>
-      <option value="4">Revision</option>
+      <option value="1">Encapsulation</option>
+      <option value="2"> Abstraction</option>
+      <option value="3"> Inheritance</option>
+      <option value="4">Exception handling</option>
       </select></td>
       </tr>
 
@@ -71,7 +71,7 @@
     <input type="file" name="uploadFile" class="btn">
     <br>
 
-    <input type="submit" value="Uload" name="uplaod" class="btn2">
+    <input type="submit" value="Upload" name="uplaod" class="btn2">
 
 	</div>
   </div>

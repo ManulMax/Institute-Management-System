@@ -1,6 +1,6 @@
 <?php
 
-class participateQuiz_Model extends Model{
+class participateQuizLandingPage_Model extends Model{
 
     public function __construct(){
      	parent::__construct();
