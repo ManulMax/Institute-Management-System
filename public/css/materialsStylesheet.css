@@ -4,6 +4,11 @@
 
 
 /* ----------------------------- right content ----------------------------- */
+.className {
+  text-align: center;
+  color: #00b359;
+}
+
 input[type=text], select {
   width: 100%;
   padding: 12px;
