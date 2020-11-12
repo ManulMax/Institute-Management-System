@@ -50,7 +50,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -58,6 +58,7 @@
     <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
   </ul> 
   
   </div>
@@ -77,6 +78,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+
       <?php
 
             while($row = mysqli_fetch_assoc($this->userDetails)){  
@@ -117,7 +119,8 @@
                 <div class='col-50-detail'>
                   <h3 class='detail'>".$row['DOB']."</h3>
                 </div>
-              </div>";
+              </div>
+              <h4 id='psw'><a href='<?php echo URL; ?>login/renderPasswordChange'><i class='fas fa-key'></i>change password</a></h4>";
             }
           ?>
 

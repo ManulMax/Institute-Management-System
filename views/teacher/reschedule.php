@@ -62,7 +62,7 @@ $(function(){
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -70,6 +70,7 @@ $(function(){
     <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
   </ul>
   
   
