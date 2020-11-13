@@ -4,15 +4,6 @@ const container = document.querySelector(".container");
 
 
 
-
-
-function myFunction() {
-alert("mmmmmmm");
-	container.classList.add("sign-up-mode");
-
-}
-
-
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
 });

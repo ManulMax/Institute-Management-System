@@ -34,7 +34,7 @@
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+                <a href="<?php echo URL; ?>materials/renderDownloadMaterials/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
