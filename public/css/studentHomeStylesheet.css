@@ -92,3 +92,75 @@ button {
 }
 
 
+.midTable {
+    width: 100%;
+    margin-top: 0;
+}
+
+.midTable td{
+    border: none;
+}
+
+
+
+.card {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  height: 150px;
+  background-color: #2E8B57;
+  color: #e6fff5;
+  margin-right: 7%;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.4);
+}
+
+.containerCard {
+  padding-left: 27%;
+  margin-top: 25px;
+}
+
+.containerCard h5 {
+  text-indent: center;
+}
+
+.quarter-circle-top-left{
+    width: 70px;
+    height: 70px;
+    background: #66CDAA;
+    border-radius: 0 0 100px 0;
+    -moz-border-radius: 0 0 100px 0;
+    -webkit-border-radius: 0 0 100px 0;
+    margin-right: 0;
+}
+
+#icon1, #icon2, #icon3, #icon4{
+  color: #2E8B57;
+}
+
+.marks {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 0;
+    height: 500px;
+    background-color: #a8e4a0;
+    padding-top: 10px;
+    color: #2E8B57;
+}
+
+.marks h3 {
+    text-align: center;
+}
+
+.marks h4{
+    padding-left: 3em;
+
+}
+
+.marks p {
+    padding-left: 5em;
+}

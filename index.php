@@ -1,7 +1,7 @@
 <?php
 
 require 'config/paths.php';
-//require 'config/database.php';
+require 'config/database.php';
 //require 'config/constants.php';
 //require 'util/authenticate.php';
 

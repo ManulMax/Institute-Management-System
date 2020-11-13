@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Teacher Home</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-
-<link rel="stylesheet" href="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/css/mobiscroll.javascript.min.css">
-<script src="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
-
-<script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherHomeStylesheet">
-
-<link href='https://fonts.googleapis.com/css?family=Homemade Apple' rel='stylesheet'>
+  <title>Teacher Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
+  <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
+  <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherHomeStylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Homemade Apple' rel='stylesheet'>
 
 
 </head>
@@ -40,7 +35,7 @@
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
         </div>
@@ -53,14 +48,15 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
-    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>Classes"><i class="fas fa-users"></i>New Class</a></li>
     <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
   </ul> 
   
   </div>
@@ -80,9 +76,14 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <div class='row' style='background-color:white;text-align: center;'>
+         <button id='psw-btn'><a href='<?php echo URL; ?>login/renderPasswordChange'  id='psw'><i class='fas fa-key'></i>change password</a></button>
+       </div>
+
       <?php
 
-            while($row = mysqli_fetch_assoc($this->userDetails)){  
+            while($row = mysqli_fetch_assoc($this->userDetails)){ 
+
 
                echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
                echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
@@ -120,7 +121,10 @@
                 <div class='col-50-detail'>
                   <h3 class='detail'>".$row['DOB']."</h3>
                 </div>
-              </div>";
+                <br />
+              </div>
+              <br />";
+             
             }
           ?>
 

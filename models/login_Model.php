@@ -14,8 +14,8 @@ class login_Model extends Model{
     		foreach ($users as $user) {
                 
            // if(password_verify($_POST['password'], $user['password'])){     
-
-            if($_POST['password'] == $user['password']){
+            $pass = $_POST['password'];
+            if(md5($pass) == $user['password']){
                 Session::init();
                 Session::set('loggedIn',true);
                 Session::set('userid',$user['id']);
@@ -88,11 +88,42 @@ class login_Model extends Model{
         }else{
             header('location: '.URL.'login?status=new&msg=Incorrect current password');
         }
-        exit;
-        
-                
+        exit;           
 
+    }
+
+
+    public function pwChangeAfterLogin(){
+        if($_POST['current_passwd'] == $_SESSION['password']){
+            if ($_POST['new_passwd'] == $_POST['confirm_passwd']) {
+
+                $users = $this->db->update("user","password='".$_POST['new_passwd']."',flag=1","id=".$_SESSION['userid']);
+
+                if(Session::get('userType')=='Admin'){
+                    header('location: '.URL.'adminDashboard');
+
+                } else if(Session::get('userType')=='Teacher'){
+                    header('location: '.URL.'teacherHome');
+
+                } else if(Session::get('userType')=='Student'){
+                    header('location: '.URL.'studentHome');
+
+                } else if(Session::get('userType')=='Staff'){
+                    header('location: '.URL.'staffDashboard');
+
+                }else if(Session::get('userType')=='Paper Marker'){
+                    header('location: '.URL.'teacherHome');
+                }
+            }else{
+                header('location: '.URL.'login/renderPasswordChange?msg=Password mismatch');
+            }
+            exit;
+        }else{
+            header('location: '.URL.'login/renderPasswordChange?msg=Incorrect current password');
         }
+        exit;           
+
+    }
     
 
 }

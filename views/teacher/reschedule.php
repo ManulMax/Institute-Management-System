@@ -49,7 +49,7 @@ $(function(){
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
         </div>
@@ -62,14 +62,15 @@ $(function(){
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
-    <li><a href="<?php echo URL; ?>addNewClass"><i class="fas fa-users"></i>New Class</a></li>
+    <li><a href="<?php echo URL; ?>Classes"><i class="fas fa-users"></i>New Class</a></li>
     <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
   </ul>
   
   
@@ -77,9 +78,8 @@ $(function(){
   <div class="headerClass">
     <h2><i class="far fa-calendar-alt"></i>Re-schedule</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
-    <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
-
 
 
 
@@ -89,9 +89,14 @@ $(function(){
     <div class="modal-content">
       <span class="close">&times;</span>
       <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <div class='row' style='background-color:white;text-align: center;'>
+         <button id='psw-btn'><a href='<?php echo URL; ?>login/renderPasswordChange'  id='psw'><i class='fas fa-key'></i>change password</a></button>
+       </div>
+
       <?php
 
-            while($row = mysqli_fetch_assoc($this->userDetails)){  
+            while($row = mysqli_fetch_assoc($this->userDetails)){ 
+
 
                echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
                echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
@@ -129,14 +134,16 @@ $(function(){
                 <div class='col-50-detail'>
                   <h3 class='detail'>".$row['DOB']."</h3>
                 </div>
-              </div>";
+                <br />
+              </div>
+              <br />";
+             
             }
           ?>
 
     </div>
 
   </div>
-
 
 
   
@@ -448,6 +455,37 @@ function closeAllSelect(elmnt) {
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
 </script>

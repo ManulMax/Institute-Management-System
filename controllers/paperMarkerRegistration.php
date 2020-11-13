@@ -8,6 +8,7 @@ class paperMarkerRegistration extends Controller{
 
     function index(){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->pmList = $this->model->listPaperMarkers();
         
         $this->view->render('teacher/paperMarkerRegistration');

@@ -11,6 +11,7 @@ class login extends Controller{
     	$this->view->render('login');
     }
 
+
     function loginUser(){
 
         $this->model->loginUser();
@@ -25,5 +26,14 @@ class login extends Controller{
 
         Session::destroy();
         header('location: '.URL.'login');
+    }
+
+    function renderPasswordChange(){
+        $this->view->render('changePassword');
+    }
+
+    function pwChangeAfterLogin(){
+
+        $this->model->pwChangeAfterLogin();
     }
 }

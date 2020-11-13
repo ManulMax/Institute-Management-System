@@ -7,6 +7,6 @@ class studentHome extends Controller{
     }
 
     function index(){
-      $this->view->render('student/studentHome');
+      	$this->view->render('student/studentHome');
     }
 }

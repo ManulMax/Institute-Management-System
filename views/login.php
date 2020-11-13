@@ -92,19 +92,11 @@
         <div class="panel left-panel">
           <div class="content">
             <div class="popup">
-              <h3 class="info-img">New here ?</h3>
-              <img src="<?php echo URL; ?>public/img/info.png" alt="infomation" class="info-img" width="20px" height="20px" >
-              <span class="popuptext" id="myPopup" >Only Teachers and Staff are allowd to Sign Up to the System
-                Students can Sign In using their admission no and ID number
-              </span>
+              <h3 class="info-img"></h3>
+
             </div>
             <p>
-              Click the info button before you sign up to the Vidarsha Online Education 
-              System
             </p>
-            <button class="btn transparent" id="sign-up-btn" style="font-size: 0.7rem;">
-              Change Password
-            </button>
           </div>
           <img src="<?php echo URL; ?>public/img/logosvg.svg" class="image" alt="" />
         </div>

@@ -1,10 +1,11 @@
 <?php
-
 class Database
 {
-	public function __construct()
+
+	public function __construct($host,$db,$user,$password)
 	{
-		//$connection = mysqli_connect('localhost','root','isurika','vidarsha') or die("DB connection failed");
+		$this->connection = mysqli_connect($host,$user,$password,$db) or die("DB connection failed");
+		
 	}
 
 /**
@@ -17,10 +18,9 @@ class Database
 * @return array Result of the query as an associative array.
 */
 	public function listAll($table){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
 		$sql = "select * from ".$table;
 
-        $result = mysqli_query($connection,$sql);
+        $result = mysqli_query($this->connection,$sql);
 
         return $result;
 
@@ -28,20 +28,19 @@ class Database
 
 
 	public function listCurrentSchedules($select,$from,$where){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
 		$sql = "select ".$select." from ".$from." where ".$where;
 
-        $result = mysqli_query($connection,$sql);
+        $result = mysqli_query($this->connection,$sql);
 
         return $result;
 
 	}
 
 	public function listWhere($select,$from,$where){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
+	
 		$sql = "select ".$select." from ".$from." where ".$where;
 
-        $result = mysqli_query($connection,$sql);
+        $result = mysqli_query($this->connection,$sql);
 
         
 
@@ -58,12 +57,11 @@ class Database
 * @param string $data Data need to be inserted to the database as an associative array.
 */
 	public function insert($table,$fields,$values){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
 
 		$sql = "insert into ".$table."".$fields." values".$values;
 		//$stmt = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
  
-        $result = mysqli_query($connection,$sql);
+        $result = mysqli_query($this->connection,$sql);
         //mysqli_close($connection);
 
 	}
@@ -79,9 +77,8 @@ class Database
 */
 
 	public function update($table,$data,$where){
-		$connection = mysqli_connect('localhost','root','','vidarsha');
 		$sql = "update ".$table." SET ".$data." where ".$where;
-		$result = mysqli_query($connection,$sql);
+		$result = mysqli_query($this->connection,$sql);
 	}
 
 /**

@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentHomeStylesheet">
 
-
 </head>
 
 
@@ -29,9 +28,14 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>downloadMaterials">Class 1</a>
-          <a href="<?php echo URL; ?>downloadMaterials">Class 2</a>
-          <a href="<?php echo URL; ?>downloadMaterials">Class 3</a>
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/renderDownloadMaterials/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
     <li>
@@ -39,9 +43,11 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuiz">Class 1</a>
-          <a href="<?php echo URL; ?>participateQuiz">Class 2</a>
-          <a href="<?php echo URL; ?>participateQuiz">Class 3</a>
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
 	</ul>	
@@ -50,15 +56,162 @@
 
 
   <div class="headerClass">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-	 <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Student ;-)</div>
+    <h2><i class="fas fa-home"></i>Dashboard</h2>
+    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
 
   <div class="middle" style="background-color:white;">
 
+    <table class="midTable" cellpadding="10px;" border="0">
+      <tr>
+        <td width="40%">
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Combined Maths 2021 A/L</b></h3></div>
+             <div class="containerCard">
+            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Physics 2021 A/L</b></h3></div>
+             <div class="containerCard">
+            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Chemistry 2021 A/L</b></h3></div>
+             <div class="containerCard">
+            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
+            </div>
+          </div>
+          <br />
+        </td>
 
+        <td width="60%">
+          <div style="position: relative;margin-left: 10%;">
+            <canvas id="myChart1"></canvas>
+            <script>
+            var ctx = document.getElementById('myChart1').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+                    datasets: [{
+                        label: 'Weekly Attendance',
+                        data: [12, 19, 3, 5],
+                        backgroundColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="marks">
+            <h3>Exam results</h3>
+            <br />
+            <h4>Subject 1</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+
+            <h4>Subject 2</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+
+            <h4>Subject 3</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+
+            <h4>Subject 3</h4>
+            <p>Exam 1</p>
+            <p>Exam 2</p>
+            <p>Exam 3</p>
+            <br />
+          </div>
+        </td>
+        <td>
+          <div style="position: relative;margin-left: 10%;">
+            <canvas id="myChart2"></canvas>
+            <script>
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+                    datasets: [{
+                        label: 'Weekly Attendance',
+                        data: [12, 19, 3, 5],
+                        backgroundColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+          </div>
+
+        </td>
+      </tr>
+    </table>
+
+      
+
+      
   	
 
 </div>

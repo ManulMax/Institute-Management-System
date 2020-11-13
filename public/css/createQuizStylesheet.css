@@ -1,5 +1,10 @@
 /* ----------------------------- middle content ----------------------------- */
 
+.className {
+  text-align: center;
+  color: #00b359;
+}
+
 
 #regForm {
   background-color: #F0FFF0;
