@@ -53,9 +53,9 @@
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
   </ul>
-
-  
   </div>
+
+
   <div class="headerClass">
     <h2><i class="fas fa-upload"></i>Upload Materials</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>

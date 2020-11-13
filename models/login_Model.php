@@ -61,10 +61,13 @@ class login_Model extends Model{
 
 
     public function passwordChange(){
-        if($_POST['current_passwd'] == $_SESSION['password']){
+        $pwd = $_POST['current_passwd'];
+        if(md5($pwd) == $_SESSION['password']){
             if ($_POST['new_passwd'] == $_POST['confirm_passwd']) {
 
-                $users = $this->db->update("user","password='".$_POST['new_passwd']."',flag=1","id=".$_SESSION['userid']);
+                $new = $_POST['new_passwd'];
+
+                $users = $this->db->update("user","password='".md5($new)."',flag=1","id=".$_SESSION['userid']);
 
                 if(Session::get('userType')=='Admin'){
                     header('location: '.URL.'adminDashboard');
@@ -94,10 +97,13 @@ class login_Model extends Model{
 
 
     public function pwChangeAfterLogin(){
-        if($_POST['current_passwd'] == $_SESSION['password']){
+        $pwd = $_POST['current_passwd'];
+        if(md5($pwd) == $_SESSION['password']){
             if ($_POST['new_passwd'] == $_POST['confirm_passwd']) {
 
-                $users = $this->db->update("user","password='".$_POST['new_passwd']."',flag=1","id=".$_SESSION['userid']);
+                $new = $_POST['new_passwd'];
+
+                $users = $this->db->update("user","password='".md5($new)."',flag=1","id=".$_SESSION['userid']);
 
                 if(Session::get('userType')=='Admin'){
                     header('location: '.URL.'adminDashboard');

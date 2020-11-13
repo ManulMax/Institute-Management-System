@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
     <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/login.css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/changePassword.css" />
     <title>Sign in & Sign up Form</title>
   </head>
   <body oncontextmenu="return  true;">
@@ -59,9 +59,6 @@
       </div>
 
       <div class="panels-container">
-        <div class="panel left-panel">
-          <img src="<?php echo URL; ?>public/img/logosvg.svg" class="image" alt="" />
-        </div>
         <div class="panel right-panel">
           <img src="<?php echo URL; ?>public/img/logosvg.svg" class="image" alt="" />
         </div>
