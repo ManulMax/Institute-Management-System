@@ -1,4 +1,5 @@
-<? php
+<?php
+
 class addSubject extends Controller{
     function __construct()
     {
@@ -6,6 +7,9 @@ class addSubject extends Controller{
     }
 
     function index(){
+
+        
+
     	$this->view->render('admin/addSubject');
     }
 }
