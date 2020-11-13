@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
-<title>Staff Dashboard</title>
+ <link rel="icon" href="<?php echo URL; ?>public/img/logo.png"> 
+<title>PaperMarker Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -12,8 +12,10 @@
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavBar">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffDashboard">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerDashboard">
+
+<link href='https://fonts.googleapis.com/css?family=Homemade Apple' rel='stylesheet'>
 
 
 </head>
@@ -22,37 +24,43 @@
 <body>
 
 <div class="row">
-  <div class="leftNav">
 
-    <button class="drop-btn">
-          <i class="fas fa-list fa-lg"></i>
+
+  <div class="leftNav">
+  <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
+  <ul>
+    <li><a href="<?php echo URL; ?>paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+     <li><a href="prepareResultSheet"><i class="fa fa-user-o"></i>Prepare Result Sheet</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
+          <i class="fa fa-caret-down"></i>
         </button>
-        <div class="drop-container">
-                <a href="#">blaa</a>
-                <a href="#">blaa</a>
-                <a href="#">blaa</a>
+        <div class="dropdown-container">
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
 
         </div>
-
-  <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
-  <ul>
-       <li><a href="<?php echo URL; ?>staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-      <li><a href="<?php echo URL; ?>studentRegistration"><i class="fa fa-user-o"></i>Register Student</a></li>
-      <li><a href="<?php echo URL; ?>viewStudent"><i class="fas fa-user-edit"></i>View Student</a></li>
-      <li><a href="<?php echo URL; ?>enrollStudent"><i class="fa fa-user-o"></i>Enroll Student</a></li>
-      <li><a href="<?php echo URL; ?>attendanceLandingPage"><i class="fas fa-users"></i>Mark Attendance</a></li>
-      <li><a href="<?php echo URL; ?>classFeesLandingPage"><i class="fa fa-money"></i>Collect fees</a></li>
-      <li><a href="<?php echo URL; ?>staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-     </ul> 
+    </li>
+   
+    
+  </ul> 
   
   </div>
 
 
   <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Dashboard</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
-   <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+    <h2><i class="fas fa-home"></i>Dashboard</h2>
+    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
+
+
 
   <div id="myModal" class="modal">
 
@@ -64,9 +72,10 @@
 
             while($row = mysqli_fetch_assoc($this->userDetails)){  
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
-               echo "<h4 id='name'>Staff</h4><br />";
-               /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
+               echo "<h2 id='name'>".$row['name']."</h2>";
+               echo "<h4 id='name'>Paper Marker-Chemistry</h4><br />";
+               echo "<h4 id='name'>Teacher (Mr.Mathugame)</h4><br />";
+               echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
 
                echo "<div class='row'>
                 <div class='col-50-topic'>
@@ -109,10 +118,11 @@
   </div>
 
 
-  <div class="middle" style="background-color:#F8F8FF;">
+
+  <div class="middle" style="background-color: #F8F8FF;">
 
 
-     <table width="100%"  height="200px">
+    <table width="100%"  height="200px">
       <tr>
 
         <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
@@ -177,98 +187,29 @@
            <div class="containerCard">
           <h4><b>Revision</b></h4>  
           </div>
-        
-        
-      </td>
+        </div>
+        </td>
+
       </tr>
-      <td style="border: none;"></td>
-        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
-          <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
-          <?php
-
-            while($row = mysqli_fetch_assoc($this->stuCount5)){  
-
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
-
-            }
-          ?>
-           <div class="containerCard">
-          <h4><b>Overall</b></h4>  
-          </div>
-        </td>
-
-        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
-          <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
-          <?php
-
-            while($row = mysqli_fetch_assoc($this->stuCount5)){  
-
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
-
-            }
-          ?>
-           <div class="containerCard">
-          <h4><b>Attended</b></h4>  
-          </div>
-        </td>
-      <tr>
-
     </table>
 
 
 
-
-    <div style="position: relative;width: 40%;height: 400px;margin-top: 5%;">
+    <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
       <canvas id="myChart"></canvas>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
-        datasets: [{
-            label: 'Weekly Attendance',
-            data: [12, 19, 3, 5],
-            backgroundColor: [
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F'
-            ],
-            borderColor: [
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
+
     </div>
 
 
-<div class="container">
+<div class="container" >
 
 
 <!-- data taken from generatedata.com -->
 <table id="data">
-  <caption>Today's shedule</caption>
 <thead>
   <tr>
     <th>Class</th>
+    <th>Day</th>
     <th>Time</th>
     <th>Hall</th>
   </tr>
@@ -277,7 +218,7 @@ var myChart = new Chart(ctx, {
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
 
       }
   ?>
@@ -295,6 +236,7 @@ var myChart = new Chart(ctx, {
 <div class="footer">
   <p>Footer</p>
 </div>
+
 
 
 <script>
@@ -348,6 +290,7 @@ window.onclick = function(event) {
 
 
 </script>
+
 
 
 </body>

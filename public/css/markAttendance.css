@@ -12,25 +12,27 @@
     width: 50%;
 }
 
-.qr{
+/*.qr{
     
     width: 250px;
     height: 250px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     
-  }
+  }*/
 
   .container {
     padding-top:50px;
-    padding-left:100px ;
+    padding-left:50px ;
 }
 
 .qr-scan {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 75%;
+    width: 100%;
     align-content: center;
+    float:left;
+    margin-left:200px;
   }
   
  input[type=text] {
@@ -41,17 +43,19 @@
   outline: 0;
   border-bottom: 1px solid #228B22;
   background-color: #F8F8FF;
+
   }
 
-  
-
+.regNo{
+  width:100%;
+}
   .search{
     background-color: #4CAF50;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 250px
+    width: 100%;
 
     }
     
@@ -61,6 +65,7 @@
   
   .qr-scan td {
     padding: 20px; 
+    width:100%;
   }
 
   .qr-scan tr {

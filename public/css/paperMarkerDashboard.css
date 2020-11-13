@@ -1,0 +1,98 @@
+button {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #5185a8;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, verdana, sans-serif;
+    font-size: 14px;
+}
+.demo-non-form {
+    color: initial;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-family: arial, verdana, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+
+.external-container button.external-button {
+    font-weight: 400;
+    padding: 10px;
+    margin: 6px 0 13px 0;
+    width: 100%;
+}
+
+
+
+#data {
+    border-collapse: collapse;
+    margin-left: 20%;
+    margin-top: -300px;
+    width: 50%;
+    font-size: 15px;
+}
+#data th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#data th {
+    background-color: #66CDAA;
+    padding: 10px;
+
+}
+
+/* form styles */
+.table-filters input, select {
+    font: inherit;
+    margin: 0;
+    padding: 4px;
+}
+.table-filters .input-text {
+    min-width: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.table-filters select {
+    min-width: 150px;
+}
+.table-filters label {
+    margin: 0 4px 0 8px;
+}
+
+
+
+/* Filtable styles */
+#data tr.hidden {
+    display: none;
+}
+
+}
+#data tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+#data tr:hover {
+    background-color: #ddd;
+}
+
+
+.large-table {
+    width: 100%;
+}
+.large-table td {
+    font-size: 12px;
+}
+
+
+
+
+
+

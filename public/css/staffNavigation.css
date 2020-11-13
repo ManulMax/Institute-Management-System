@@ -357,7 +357,8 @@ label {
   clear: both;
 }
 
-
-
+.drop-btn, .drop-container {
+  display: none;
+}
 
 

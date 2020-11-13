@@ -6,7 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavBar">
+<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/markAttendance">
 </head>
 
@@ -38,11 +39,29 @@
  
 
 <!-----------------------------middle content------------------------------------->        
-<div class="middle" style="background-color:white;">    
+<div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-        <table class="qr-scan">
-            <tr><td><div class="qr"></div></td></tr>
+       
+          
+             <video id="preview" style="width:200%;height:200%;"></video>
+                <script type="text/javascript">
+                  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+                  scanner.addListener('scan', function (content) {
+                    console.log(content);
+                  });
+                  Instascan.Camera.getCameras().then(function (cameras) {
+                    if (cameras.length > 0) {
+                      scanner.start(cameras[0]);
+                    } else {
+                      console.error('No cameras found.');
+                    }
+                  }).catch(function (e) {
+                    console.error(e);
+                  });
+                </script>
+           
+             <table class="qr-scan">
             <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
             <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
         </table>

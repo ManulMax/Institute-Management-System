@@ -12,7 +12,9 @@
 
 /* Add padding to containers */
 .container {
-	padding:30px;
+	margin-left:10%;
+  margin-top: 5%;
+  
 }
 
 tr{
@@ -84,5 +86,7 @@ cursor: pointer;
 width: 100%;
 opacity: 0.9;
 }
+
+
 
 
