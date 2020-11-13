@@ -6,8 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavBar">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentRegistration">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/stuRegistration">
 </head>
 
 
@@ -15,6 +15,12 @@
 <!-------------------------Navigation Bar------------------->
 <div class="row">
   <div class="leftNav">
+
+  		
+
+
+
+
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
 	<ul>
 	  <li><a href="<?php echo URL; ?>staffDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
@@ -48,8 +54,8 @@
 			<tr>
 				<td>First Name</td>
 				<td><input type="text" placeholder="Enter Name" name="fname" id="name" required></td>
-				<td>Middle Name</td>
-				<td><input type="text" placeholder="Enter Name" name="mname" id="name" required></td>
+				<!--<td>Middle Name</td>
+				<td><input type="text" placeholder="Enter Name" name="mname" id="name" required></td>-->
 				<td>Last Name</td>
 				<td><input type="text" placeholder="Enter Name" name="lname" id="name" required></td>
 			</tr>

@@ -18,7 +18,6 @@ class Database
 * @return array Result of the query as an associative array.
 */
 	public function listAll($table){
-
 		$sql = "select * from ".$table;
 
         $result = mysqli_query($this->connection,$sql);
@@ -29,7 +28,6 @@ class Database
 
 
 	public function listCurrentSchedules($select,$from,$where){
-
 		$sql = "select ".$select." from ".$from." where ".$where;
 
         $result = mysqli_query($this->connection,$sql);
@@ -79,7 +77,6 @@ class Database
 */
 
 	public function update($table,$data,$where){
-
 		$sql = "update ".$table." SET ".$data." where ".$where;
 		$result = mysqli_query($this->connection,$sql);
 	}

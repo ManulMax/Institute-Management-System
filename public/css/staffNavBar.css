@@ -4,13 +4,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo{
-  font-family: 'Homemade Apple';
-  font-size: 40px;
-  color: #66CDAA;
-  margin-top: 20px;
-  margin-left: 20%;
-}
 
 .headerClass {
   background-color: #063811;
@@ -19,6 +12,13 @@
   font-size: 16px;
   height: 60px;
   color: rgba(244,244,244,0.7);
+}
+
+.headerClass h2 {
+  text-indent:10px;
+  margin-top:8px;
+  margin-left:18%;
+  position:absolute;
 }
 
 
@@ -31,6 +31,12 @@
   width: 17%;
   font-size: 16px;
   
+}
+
+.logo{
+  height: 100px;
+  width: 50%;
+  margin-left: 25%;
 }
 
 .leftNav ul {
@@ -64,7 +70,9 @@ i{
   padding:10px;
 }
 
-
+.drop-btn, .drop-container {
+  display: none;
+}
 
 
 
@@ -195,7 +203,14 @@ i{
   border-radius: 25px;
   font-weight: bold;
   color: #063811;
+  margin-top:10px;
+  float: right;
+  margin-right: 30px;
 }
+
+.userDiv i {
+    font-size: 20px;
+  }
 
 .userDiv:hover {
   width: 225px;
@@ -203,51 +218,19 @@ i{
   border-radius: 25px;
   padding: 0 10px 0 10px;
 }
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-/* Modal Content */
-.modal-content {
-  background-color: white;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
+.logout {
+  margin-top:6px;
   float: right;
+  margin-right: 40px;
+}
+
+.logout i {
   font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 
-#name {
-  width: 100%;
-  text-align: center;
-  color: #2E8B57;
-}
+
 
 
 /* The Modal (background) */
@@ -356,6 +339,11 @@ label {
   display: table;
   clear: both;
 }
+
+.drop-btn, .drop-container {
+  display: none;
+}
+
 
 
 

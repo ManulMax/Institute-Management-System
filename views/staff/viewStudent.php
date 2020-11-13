@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavBar">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/viewStudent">
 
 <script src= 
@@ -59,7 +59,7 @@ $(function(){
   
 
   <!------------------------------middle content-------------------------->
-  <div class="middle" style="background-color:white;">
+  <div class="middle" style="background-color:#F8F8FF;">
 		<div class="title">
 			<h3>Edit/Delete student records</h3>
 		</div>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
 <title>Prepare result sheet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavBar">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/prepareResultSheet">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/prepareSheet">
 </head>
 
 
@@ -16,9 +17,24 @@
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
 	<ul>
-	  <li><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
+	  <li><a href="paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
       <li><a href="#"><i class="fa fa-user-o"></i>Prepare Result Sheet</a></li>
-      <li><a href="#"><i class="fas fa-upload"></i>Uplaod material</a></li>
+      <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/index/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
+        </div>
+      </li>
       
 	</ul>
 	
@@ -27,11 +43,11 @@
  <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-user-edit"></i>Prepare Result Sheet</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello PaperMarker ;-)</div>
+   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello  <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
   
   <!----------------------------------Middle contet------------------------------------>
-  <div class="middle" style="background-color:white;">
+  <div class="middle" style="background-color:#F8F8FF;">
 	<div class="container">
     <table>
       <tr>
