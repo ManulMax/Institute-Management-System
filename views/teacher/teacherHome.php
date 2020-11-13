@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
-  <link rel="stylesheet" href="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/css/mobiscroll.javascript.min.css">
-  <script src="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
@@ -78,10 +76,14 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <div class='row' style='background-color:white;text-align: center;'>
+         <button id='psw-btn'><a href='<?php echo URL; ?>login/renderPasswordChange'  id='psw'><i class='fas fa-key'></i>change password</a></button>
+       </div>
 
       <?php
 
-            while($row = mysqli_fetch_assoc($this->userDetails)){  
+            while($row = mysqli_fetch_assoc($this->userDetails)){ 
+
 
                echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
                echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
@@ -119,8 +121,10 @@
                 <div class='col-50-detail'>
                   <h3 class='detail'>".$row['DOB']."</h3>
                 </div>
+                <br />
               </div>
-              <h4 id='psw'><a href='<?php echo URL; ?>login/renderPasswordChange'><i class='fas fa-key'></i>change password</a></h4>";
+              <br />";
+             
             }
           ?>
 

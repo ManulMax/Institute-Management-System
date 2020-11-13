@@ -57,7 +57,71 @@
  <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fa fa-upload"></i>Uplaod Result Sheet</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello taecher ;-)</div>
+   <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+  </div>
+
+
+
+  <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <div class='row' style='background-color:white;text-align: center;'>
+         <button id='psw-btn'><a href='<?php echo URL; ?>login/renderPasswordChange'  id='psw'><i class='fas fa-key'></i>change password</a></button>
+       </div>
+
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->userDetails)){ 
+
+
+               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
+               echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
+
+               echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Telephone no.</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Email address</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['tel_no']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['email']."</h3>
+                </div>
+              </div>";
+
+              echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>NIC</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>DOB</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['NIC']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['DOB']."</h3>
+                </div>
+                <br />
+              </div>
+              <br />";
+             
+            }
+          ?>
+
+    </div>
+
   </div>
   
   <!----------------------------------Middle contet------------------------------------>
@@ -130,6 +194,35 @@ for (i = 0; i < dropdown.length; i++) {
   dropdownContent.style.display = "block";
   }
   });
+}
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
 </script>

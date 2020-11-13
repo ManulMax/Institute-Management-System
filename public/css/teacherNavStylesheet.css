@@ -220,10 +220,19 @@ i{
   padding: 0 10px 0 10px;
 }
 
-#psw {
-  float: right;
+#psw-btn {
+  background-color: #4CAF50;
+  border: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 25px;
+  
+}
+
+#psw{
   text-decoration: none;
-  color: #063811;
+  color: white;
+
 }
 
 .logout {

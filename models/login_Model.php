@@ -14,8 +14,8 @@ class login_Model extends Model{
     		foreach ($users as $user) {
                 
            // if(password_verify($_POST['password'], $user['password'])){     
-
-            if($_POST['password'] == $user['password']){
+            $pass = $_POST['password'];
+            if(md5($pass) == $user['password']){
                 Session::init();
                 Session::set('loggedIn',true);
                 Session::set('userid',$user['id']);

@@ -6,6 +6,12 @@ class Classes_Model extends Model{
      	parent::__construct();
     }
 
+    public function listDetails($userid){
+
+        return $this->db->listWhere("*","teacher","user_id=$userid");
+    
+
+    }
 
     public function listClasses($userid){
 

@@ -29,7 +29,6 @@ class login extends Controller{
     }
 
     function renderPasswordChange(){
-        
         $this->view->render('changePassword');
     }
 

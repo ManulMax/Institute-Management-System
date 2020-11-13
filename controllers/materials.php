@@ -8,6 +8,7 @@ class materials extends Controller{
 
     function index($classID,$batch){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->materialList = $this->model->listMaterials($classID);
         $this->view->batch = $batch;
         $this->view->render('teacher/materials');
