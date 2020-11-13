@@ -4,206 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/admin.css" />
     <title>Income Data</title>
     <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
     <style>
 
-* {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .header {
-            background-color: #212121;
-            padding: 1px;
-            margin: 0;
-            font-size: 16px;
-            height: 50px;
-            color: #3e7737;
-        }
-
-        .chip {
-            float: right;
-            /* display: inline-block; */
-            padding: 0 25px;
-            height: 40px;
-            font-size: 16px;
-            line-height: 40px;
-            border-radius: 25px;
-            background-color: #f1f1f1;
-            color: black;
-            margin-top: 3px;
-            margin-right: 10px;
-        }
-
-        .chip img {
-            float: left;
-            margin: 0 10px 0 -25px;
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-        }
-
-
-        .leftNav {
-            background-color: #212121;
-            float: left;
-            padding: 10px;
-            height: 1000px;
-            width: 17%;
-
-        }
-
-        .leftNav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 20px;
-            width: 100%;
-            background-color: #212121;
-            margin-bottom: 250px;
-        }
-
-        .leftNav ul li a {
-            display: block;
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-        }
-
-        /* Change the link color on hover */
-        .leftNav ul li a:hover {
-            background-color: #306B76;
-            color: white;
-        }
-
-        i {
-            padding: 10px;
-        }
-        /* botoom logout btn*/
-        .Log-out a{
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px 15px 50px;
-            cursor: pointer;
-            border-radius: 10%;
-        }
-
-        .Log-out a:hover{
-            background-color: #28882b;
-        }
-        /* -------------------------------footer----------------------------------------- */
-
-        footer {
-            background-color: #212121;
-            color: rgba(255, 255, 255, 0.5);
-            padding: 2rem 0 2rem 0 ;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 100%; 
-            text-align: center;
-        }
-        /* ----------------------------------chart---------------------------------------- */
-        .top-mid{
-            display: flex;
-        }
-        .top-mid .chart{
-            flex: 1;
-            padding-top: 40px;
-            padding-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ----------------------------------table-------------------------------------------- */
-       .mid-table{
-           display: flex;
-       }
-       .mid-table .purpleHorizon{
-           flex: 1;
-           margin-top: 20px;
-       }
-       
-        table.purpleHorizon {
-  background-color: #2c2c2c;
-  width: 75%;
-  height: 50%;
-  text-align: left;
-  border-collapse: collapse;
-}
-table.purpleHorizon td, table.purpleHorizon th {
-  padding: 8px 8px;
-}
-table.purpleHorizon tbody td {
-  font-size: 13px;
-  color: #FFFFFF;
-}
-table.purpleHorizon tr:nth-child(even) {
-  background: #969696;
-}
-table.purpleHorizon thead {
-  background: #555555;
-  border-bottom: 4px solid #555555;
-}
-table.purpleHorizon thead th {
-  font-size: 19px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: left;
-  border-left: 2px solid #555555;
-}
-table.purpleHorizon thead th:first-child {
-  border-left: none;
-}
-
-table.purpleHorizon tfoot td {
-  font-size: 13px;
-}
-table.purpleHorizon tfoot .links {
-  text-align: left;
-}
-table.purpleHorizon tfoot .links a{
-  display: inline-block;
-  background: #555555;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}        
+        
     </style>
 </head>
 <body>
       <!-------------------------Navigation Bar------------------->
 <div class="row">
     <div class="leftNav">
-        <img src="<?php echo URL; ?>public/img/logo.png" width="50%" height="100px" style="margin-left: 25%">
+        <img src="<?php echo URL; ?>public/img/logo2.png" class="img1" width="100%" height="12%" >
         <ul>
-            <li><a href="<?php echo URL; ?>adminDashBoard"><i class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="Teacher registration.html"><i class="fa fa-graduation-cap"></i>Register Teacher</a></li>
-            <li><a href="Staff registration.html"><i class="fa fa-user-circle-o"></i>Register Staff</a></li>
-            <li><a href="update teacher.html"><i class="fa fa-user-o"></i>Update Teacher</a></li>
-            <li><a href="update staff.html"><i class="fa fa-user-o"></i>Update Staff</a></li>
-            <li><a href="subject.html"><i class="fa fa-book"></i>Edit Subject</a></li>
-            <li><a href="#"><i class="fas fa-money-bill-wave"></i>Salary Payment</a></li>
-            <li><a href="#"><i class="fas fa-money-bill-wave"></i>Income</a></li>
-        </ul>
-        <div class="Log-out"><a href="####">Logout</a></div> 
+            <li><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="<?php echo URL; ?>teacherRegistration"><i class="fa fa-graduation-cap"></i>Register Teacher</a></li>
+            <li><a href="<?php echo URL; ?>staffRegistration"><i class="fa fa-user-circle-o"></i>Register Staff</a></li>
+            <li><a href="<?php echo URL; ?>updateTeacher"><i class="fa fa-user-o"></i>Update Teacher</a></li>
+            <li><a href="<?php echo URL; ?>UpdateStaff"><i class="fa fa-user-o"></i>Update Staff</a></li>
+            <li><a href="<?php echo URL; ?>addSubject"><i class="fa fa-book"></i>Add Subject</a></li>
+            <li><a href="<?php echo URL; ?>salaryPay"><i class="fas fa-money-bill-wave"></i>Salary Payment</a></li>
+            <li><a href="<?php echo URL; ?>adminIncome"><i class="fas fa-money-bill-wave"></i>Income</a></li>
+        </ul>        
     </div>
+
+    
     <div class="header">
-        <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i
-                class="fa fa-user-circle-o"></i>Income Details</h2>
-        <div class="chip"><img src="<?php echo URL; ?>public/icons/School Director_30px.png" alt="Person" width="96" height="96">Admin Name
-        </div>
+        <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i></i>Admin Dashboard</h2>
+        <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+        <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>  
     </div>
 
     <!-------------------Middle contet---------------------------------->
