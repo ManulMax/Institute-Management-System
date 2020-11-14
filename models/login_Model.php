@@ -82,7 +82,7 @@ class login_Model extends Model{
                     header('location: '.URL.'staffDashboard');
 
                 }else if(Session::get('userType')=='Paper Marker'){
-                    header('location: '.URL.'teacherHome');
+                    header('location: '.URL.'paperMarkerDashboard');
                 }
             }else{
                 header('location: '.URL.'login?status=new&msg=Password mismatch');

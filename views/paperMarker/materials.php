@@ -1,22 +1,13 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="icon" href="<?php echo URL; ?>public/img/logo.png"> 
-<title>PaperMarker Home</title>
+<title>Study Materials</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-
-<link rel="stylesheet" href="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/css/mobiscroll.javascript.min.css">
-<script src="<?php echo URL; ?>public/libraries/calendar-datepickerdemo/js/mobiscroll.javascript.min.js"></script>
-
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerDashboard">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/materialsStylesheet">
 
-<link href='https://fonts.googleapis.com/css?family=Homemade Apple' rel='stylesheet'>
-
+<link rel="stylesheet" href="<?php echo URL; ?>public/libraries/file-upload-with-preview-master/dist/file-upload-with-preview.min.css">
 
 </head>
 
@@ -24,13 +15,11 @@
 <body>
 
 <div class="row">
-
-
   <div class="leftNav">
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
   <ul>
     <li><a href="<?php echo URL; ?>paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-     <li><a href="prepareResultSheet"><i class="fa fa-user-o"></i>Prepare Result Sheet</a></li>
+     <li><a href="<?php echo URL; ?>prepareResultSheet"><i class="fa fa-user-o"></i>Prepare Result Sheet</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
           <i class="fa fa-caret-down"></i>
@@ -42,6 +31,7 @@
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){ ?>
+
                 <a href="<?php echo URL; ?>materials/renderPmMaterials/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
@@ -55,7 +45,7 @@
 
 
   <div class="headerClass">
-    <h2><i class="fas fa-home"></i>Dashboard</h2>
+    <h2><i class="fas fa-upload"></i>Upload Materials</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
@@ -117,129 +107,107 @@
 
   </div>
 
+  
+  
+  
+  
+  <div class="middle" style="background-color:#F8F8FF;width:53%;padding-left: 40px;padding-right: 40px;">
 
+      <h2 class="className"><?php echo $this->batch ?>/L Class</h2>
+      
+        <?php
 
-  <div class="middle" style="background-color: #F8F8FF;">
-
-
-    <table width="100%"  height="200px">
-      <tr>
-
-        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
-          <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
-            <?php
-
-            while($row = mysqli_fetch_assoc($this->stuCount1)){  
-
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
-
-            }
-          ?>
-           <div class="containerCard">
-          <h4><b>2020 A/L</b></h4>  
-          </div>
-        </div>
-        </td>
-        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
-          <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon2" class="fas fa-users fa-2x"></i></div>
-          <?php
-
-            while($row = mysqli_fetch_assoc($this->stuCount2)){  
-
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
-
-            }
-          ?>
-           <div class="containerCard">
-          <h4><b>2021 A/L</b></h4>  
-          </div>
-        </div>
-        </td>
-      <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
-          <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon3" class="fas fa-users fa-2x"></i></div>
-          <?php
-
-            while($row = mysqli_fetch_assoc($this->stuCount3)){  
-
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
-
-            }
-          ?>
-           <div class="containerCard">
-          <h4><b>2022 A/L</b></h4>  
-          </div>
-        </div>
-        </td>
-        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
-          <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
-          <?php
-
-            while($row = mysqli_fetch_assoc($this->stuCount4)){  
-
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
-
-            }
-          ?>
-           <div class="containerCard">
-          <h4><b>Revision</b></h4>  
-          </div>
-        </div>
-        </td>
-
-      </tr>
-    </table>
-
-
-
-    <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
-      <canvas id="myChart"></canvas>
-
+        $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
+       
+         while($row = mysqli_fetch_assoc($this->materialList)){ 
+          ?>  <br />
+             <h3 style="color: #228B22;"><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
+             <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
+             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
+             <br /><hr />
+        <?php  } ?>
+  
+  </div>
+  
+  
+  
+  <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;">
+  
+ <!-- ------ form ------ --> 
+ <h2 class="topHeading"><i class="fas fa-upload"></i>Upload New Material</h2>
+    <form id="regForm" method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create" style="padding: 20px;">
+    <div class="row">
+      <div class="col-25">
+      <label for="fname">Heading</label>
+      </div>
+      <div class="col-75">
+      <input type="text" name="heading">
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-25">
+      <label for="subject">Description</label>
+      </div>
+      <div class="col-75">
+      <textarea placeholder="Write something.." style="height:150px" name="description"></textarea>
+      </div>
     </div>
 
+      <div class="custom-file-container" data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;margin:auto;justify-content:center;">
 
-<div class="container" >
+        <label>Upload File </label>   
+        <label class="custom-file-container__custom-file" >
+          <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+          <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" name="file">
+          <span class="custom-file-container__custom-file__custom-file-control"></span>
+        </label>
+        <a  id="removeLink" href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">Remove</a>
 
-
-<!-- data taken from generatedata.com -->
-<table id="data">
-<thead>
-  <tr>
-    <th>Class</th>
-    <th>Day</th>
-    <th>Time</th>
-    <th>Hall</th>
-  </tr>
-</thead>
-<tbody>
-  <?php
-
-      while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
-
-      }
-  ?>
-</tbody>
-</table>
+        <div class="previewContainer">
+        <div class="custom-file-container__image-preview"></div>
+        </div>      
+        <input type="submit" class="upload-info-button" name="submit" value="Upload File">
+      </div>      
+        
+    </form>
+    
+  </div>
 </div>
 
 
-</div>
+</body>
+<script src="<?php echo URL; ?>public/libraries/file-upload-with-preview-master/dist/file-upload-with-preview.min.js"></script>
+<script language="JavaScript">
+  var myUpload = new FileUploadWithPreview('myUploader');
+  
+  var myUploadInfoButton = document.querySelector('.upload-info-button');
+myUploadInfoButton.addEventListener('click', function(){
+  console.log('Upload:', myUpload, myUpload.cachedFile);
+})
+
+var myUpload = new FileUploadWithPreview('myUploader',{
+    showDeleteButtonOnImages: true,
+    text: { 
+      chooseFile: 'Choose file...',
+      browse: 'Browse',
+      selectedCount: 'files selected'
+    },
+    maxFileCount: 0,
+    images: {
+      baseImage: '',
+      backgroundImage: '',
+      successFileAltImage: '',
+      successPdfImage: '',
+      //successVideoImage
+    },
+    presetFiles: [] //  an array of preset images
+})
 
 
+</script>
 
-
-
-<div class="footer">
-  <p>Footer</p>
-</div>
-
-
-
-<script>
+<script type="text/javascript">
+  
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
@@ -255,6 +223,7 @@ for (i = 0; i < dropdown.length; i++) {
   }
   });
 }
+
 
 
 
@@ -285,15 +254,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-
-
-
+  
 </script>
-
-
-
-</body>
-
 
 </html>
