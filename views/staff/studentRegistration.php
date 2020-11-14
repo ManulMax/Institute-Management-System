@@ -53,11 +53,11 @@
 
 			<tr>
 				<td>First Name</td>
-				<td><input type="text" placeholder="Enter Name" name="fname" id="name" required></td>
-				<!--<td>Middle Name</td>
-				<td><input type="text" placeholder="Enter Name" name="mname" id="name" required></td>-->
+				<td><input type="text" placeholder="Enter Name" name="fname" id="fnm" required></td>
+				<td>Middle Name</td>
+				<td><input type="text" placeholder="Enter Name" name="mname" id="mnm" required></td>
 				<td>Last Name</td>
-				<td><input type="text" placeholder="Enter Name" name="lname" id="name" required></td>
+				<td><input type="text" placeholder="Enter Name" name="lname" id="lnm" required></td>
 			</tr>
 			
 			<tr>
