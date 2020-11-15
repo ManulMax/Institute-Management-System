@@ -53,7 +53,7 @@ class paperMarkerRegistration_Model extends Model{
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
  
-        $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',$_SESSION['userid'],".$num['id'].")");
+        $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].")");
 
     }
 

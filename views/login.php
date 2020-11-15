@@ -24,11 +24,15 @@
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Password" />
-              
+              <input type="password" name="password" placeholder="Password" />          
             </div>
             <?php if(isset($_GET['msg'])){ ?>
            <div><p style="color: red;">*<?php echo $_GET['msg']; ?></p></div>  <?php } ?>
+
+           <a id="forgotBtn" href="<?php echo URL; ?>login/renderForgotPw">Forgot password?</a>
+
+
+
             <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Follow Vidarsha In Social Networks</p>
             <div class="social-media">
@@ -125,6 +129,11 @@
   container.classList.add("sign-up-mode");
   document.getElementById('usernm').value = nm;
 }
+
+
+
+
 </script>
+
   </body>
 </html>

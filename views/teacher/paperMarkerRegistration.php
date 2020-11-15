@@ -53,7 +53,6 @@
 	  <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
 	</ul>
 	
-	
   </div>
   <div class="headerClass">
 	  <h2><i class="fas fa-home"></i>Papermarker Registration</h2>
@@ -128,7 +127,6 @@
 
   
   <div class="middle" style="background-color:#F8F8FF;">
-
 
 
 

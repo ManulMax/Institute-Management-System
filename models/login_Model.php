@@ -9,10 +9,8 @@ class login_Model extends Model{
     public function loginUser(){
 
     	$users = $this->db->listWhere("*","user","username='".$_POST['username']."'");
-
     	if($users){
-    		foreach ($users as $user) {
-                
+    		foreach ($users as $user) {              
            // if(password_verify($_POST['password'], $user['password'])){     
             $pass = $_POST['password'];
             if(md5($pass) == $user['password']){
@@ -130,6 +128,38 @@ class login_Model extends Model{
         exit;           
 
     }
+
+
+
+
+
+    public function checkAccountExist($username){
+        if ($this->db->listWhere("*","user", "username='$username'") == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    function createRecord($username, $token){
+        $this->db->insert("password_reset","(username,token)","('".$username."','".$token."')");
+    }
+
+
+    function checkToken($username, $token){
+        if ($this->db->listWhere("username","password_reset", "username='$username' AND token='$token'") == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function updatePassword($data){
+        $username = $data['username'];
+        $this->db->update('user', "password='".$data['password']."'","username='$username'");
+    }
+
     
 
 }

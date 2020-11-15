@@ -11,4 +11,5 @@ class salaryDetails extends Controller{
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
     	$this->view->render('teacher/salaryDetails');
     }
+        
 }
