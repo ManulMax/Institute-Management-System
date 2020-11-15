@@ -12,14 +12,14 @@
     width: 50%;
 }
 
-.qr{
+/*.qr{
     
     width: 250px;
     height: 250px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     
-  }
+  }*/
 
   .container {
     padding-top:50px;
@@ -31,6 +31,8 @@
     border-collapse: collapse;
     width: 75%;
     align-content: center;
+    float:left;
+    margin-left:10px;
   }
   
  input[type=text],  input[type=date]   {
@@ -40,7 +42,7 @@
   border: 0;
   outline: 0;
   border-bottom: 1px solid #228B22;
-  background-color: #F8F8FF;
+  background-color: #F5F5F5;
   }
 
   
@@ -51,7 +53,7 @@
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 250px
+    width: 100%;
 
     }
     
@@ -73,7 +75,8 @@
   }
   
   .image-detail td {
-    padding: 20px; 
+    padding: 20px;
+    width: 100%; 
    
   }
 

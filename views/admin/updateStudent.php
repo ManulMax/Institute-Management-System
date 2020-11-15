@@ -56,8 +56,8 @@
   
   <div class="middle" style="background-color:#F8F8FF;padding-top: 5%;">
   
-    
-    <div class="table-filters">
+  
+  <div class="table-filters">
   <div class="row" style="margin-left: 15%;">
     <div class="col-10" style="width: 7%;">
       <label for="filter-reg">Reg No :</label>

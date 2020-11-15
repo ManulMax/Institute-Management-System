@@ -62,7 +62,7 @@
                 </script>
            
              <table class="qr-scan">
-            <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
+            <tr><td><input type="text" name="regNo" class="regNo" style="background-color:#F8F8FF;" placeholder="Reg No"></td></tr>
             <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
         </table>
     </div>   
