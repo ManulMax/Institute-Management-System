@@ -106,11 +106,32 @@
       </tr>
     </thead>
     <tbody>
-    <?php
+      <tr>
+        <td>Kamal</td>
+        <td>Chemistry</td>
+        <td>2021 A/L</td>
+        <td>60</td>
+        <td>50000.00</td>
+      </tr>
+      <tr>
+        <td>Nimal</td>
+        <td>Combined Maths</td>
+        <td>2022 A/L</td>
+        <td>100</td>
+        <td>85000.00</td>
+      </tr>
+      <tr>
+        <td>Amal</td>
+        <td>Physics</td>
+        <td>2021 A/L</td>
+        <td>60</td>
+        <td>50000.00</td>
+      </tr>
+      <?php
 
-    while($row = mysqli_fetch_assoc($this->pmList)){  
-      echo "<tr><td>".$row['name']."</td><td>" .$row['subject']."</td><td>".$row['batch']."</td><td>".$row['count']."</td><td>".$row['income']."</td></tr>";
-    }
+// while($row = mysqli_fetch_assoc($this->pmList)){  
+//   echo "<tr><td>".$row['name']."</td><td>" .$row['subject']."</td><td>".$row['batch']."</td><td>".$row['count']."</td><td>".$row['income']."</td></tr>";
+// }
 ?>    
 
     </tbody>

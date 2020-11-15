@@ -40,7 +40,7 @@
   <!-------------------Middle contet---------------------------------->
 <div class="middle" style="background-color:#F8F8FF;">
 	
-	<form id="regForm" action="#" method="post">
+	<form id="regForm" action="<?php echo URL; ?>teacherRegistration/create" method="post">
     <div class="row">
     <div class="col-15">
       <label for="subject">Full Name :</label>
@@ -124,11 +124,15 @@
     <div class="col-75">
       <div style="width:250px;">
       <select>
-      <option value="0">Select Subject:</option>
-      <option value="1">sub1</option>
-      <option value="2">sub2</option>
-      <option value="3">sub3</option>
-      <option value="4">sub4</option>
+      <option value="">Select Subject:</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->subList)){  
+
+               echo "<option value='".$row['id']."'>".$row['name']."</option>";
+
+            }
+      ?>
       </select>
     </div>
     </div>

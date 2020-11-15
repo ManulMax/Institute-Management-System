@@ -117,6 +117,14 @@
                   <figcaption>
                     <h6 class="heading">Today Classes</h6>
                     <p>Today Class TimeTable</p>
+                    <p>		  
+                    <?php
+
+                      while($row = mysqli_fetch_assoc($this->classList)){  
+                      echo $row['name']
+                    }
+                    ?>
+                    </p>
                   </figcaption>
                 </figure>
               </li>              

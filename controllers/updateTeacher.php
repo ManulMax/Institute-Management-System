@@ -6,7 +6,9 @@ class updateTeacher extends Controller{
         parent::__construct();
     }
 
-    function index(){
-    	$this->view->render('admin/updateTeacher');
+    function index(){        
+        $this->view->tecList = $this->model->listTeacher();
+
+        $this->view->render('admin/updateTeacher');
     }
 }
