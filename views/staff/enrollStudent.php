@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/enrollStu">
 </head>
@@ -39,6 +40,23 @@
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
+      <video id="preview" style="width:200%;height:200%;"></video>
+                <script type="text/javascript">
+                  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+                  scanner.addListener('scan', function (content) {
+                    console.log(content);
+                  });
+                  Instascan.Camera.getCameras().then(function (cameras) {
+                    if (cameras.length > 0) {
+                      scanner.start(cameras[0]);
+                    } else {
+                      console.error('No cameras found.');
+                    }
+                  }).catch(function (e) {
+                    console.error(e);
+                  });
+                </script>
+
         <table class="qr-scan">
             <tr><td><div class="qr"></div></td></tr>
             <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
@@ -85,27 +103,27 @@
         
         <table id="allocations">
   <tr>
-    <th>Class</th>
-    <th>Maximum no of students</th>
-    <th>Current no of studnets</th>
-    <th></th>
+    <th style="background-color: #66CDAA;">Class</th>
+    <th style="background-color: #66CDAA;">Maximum no of students</th>
+    <th style="background-color: #66CDAA;">Current no of students</th>
+    <th style="background-color: #66CDAA;"></th>
   </tr>
   <tr>
-    <td>1</td>
-    <td>100</td>
-    <td>50</td>
+    <td style="color:black;">1</td>
+    <td style="color:black;">100</td>
+    <td style="color:black;">50</td>
     <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
   </tr>
   <tr>
-    <td>2</td>
-    <td>100</td>
-    <td>50</td>
-    <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
+    <td style="color:black;">2</td>
+    <td style="color:black;">100</td>
+    <td style="color:black;">50</td>
+    <td style="color:black;"><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
   </tr>
   <tr>
-    <td>3</td>
-    <td>100</td>
-    <td>50</td>
+    <td style="color:black;">3</td>
+    <td style="color:black;">100</td>
+    <td style="color:black;">50</td>
     <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
   </tr>
 </table>

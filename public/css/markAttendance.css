@@ -32,7 +32,7 @@
     width: 100%;
     align-content: center;
     float:left;
-    margin-left:200px;
+    margin-left:10px;
   }
   
  input[type=text] {
@@ -42,7 +42,7 @@
   border: 0;
   outline: 0;
   border-bottom: 1px solid #228B22;
-  background-color: #F8F8FF;
+  background-color: #F5F5F5;
 
   }
 

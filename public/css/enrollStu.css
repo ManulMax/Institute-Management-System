@@ -6,20 +6,20 @@
 }
 
 .right {
-  float: left;
+    float: left;
     padding: 10px;
     height: 950px;
     width: 50%;
 }
 
-.qr{
+/*.qr{
     
     width: 250px;
     height: 250px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     
-  }
+  }*/
 
   .container {
     padding-top:50px;
@@ -31,6 +31,8 @@
     border-collapse: collapse;
     width: 75%;
     align-content: center;
+    float:left;
+    margin-left:10px;
   }
   
  input[type=text]{
@@ -45,7 +47,7 @@ input[type=text],input[type=date],input[type=time], select, textarea {
   border: 0;
   outline: 0;
    border-bottom: 1px solid #228B22;
-  background-color: #F8F8FF;
+  background-color: #F5F5F5;
   
   }
 
@@ -55,7 +57,7 @@ input[type=text],input[type=date],input[type=time], select, textarea {
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 250px
+    width: 100%;
 
     }
     
@@ -65,6 +67,7 @@ input[type=text],input[type=date],input[type=time], select, textarea {
   
   .qr-scan td {
     padding: 20px; 
+    width:100%;
   }
 
   .qr-scan tr {
@@ -154,6 +157,6 @@ input[type=text],input[type=date],input[type=time], select, textarea {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #9fa9a3;
+  background-color: #66CDAA;
   color: white;
 }
