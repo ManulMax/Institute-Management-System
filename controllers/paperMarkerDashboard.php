@@ -7,8 +7,8 @@ class paperMarkerDashboard extends Controller{
     }
 
     function index(){
-        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
-        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->classList = $this->model->listTeacherClasses($_SESSION["userid"]);
+        $this->view->userDetails = $this->model->listPmDetails($_SESSION["userid"]);
         // $batch=(date("Y")+1)." A/L";
         $this->view->stuCount1 = $this->model->listStudentCount($_SESSION["userid"],"2020 A/L");
         $this->view->stuCount2 = $this->model->listStudentCount($_SESSION["userid"],"2021 A/L");

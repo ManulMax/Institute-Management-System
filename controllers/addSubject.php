@@ -8,8 +8,6 @@ class addSubject extends Controller{
 
     function index(){
 
-        
-
     	$this->view->render('admin/addSubject');
     }
 }

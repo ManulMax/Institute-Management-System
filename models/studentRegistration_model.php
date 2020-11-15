@@ -27,7 +27,7 @@ class studentRegistration_Model extends Model{
     }
 
     public function create($data){
-        $this->db->insert("user","(username,type)","('".$data['email']."','student')");
+        $this->db->insert("user","(username,password,type,flag)","('".$data['email']."','".md5($data['NIC'])."','Student',0)");
 
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
@@ -43,11 +43,11 @@ class studentRegistration_Model extends Model{
 
         $this->db->insert('parent',"(name,tel_no,stu_reg_no)","('".$data['name']."','".$data['tel']."',".$reg['reg_no'].")");
 
-$this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
+        $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
 
-
-      
-
+        $stuName = $data['fname']." ".$data['mname']." ".$data['lname'];
+        Session::set('studentRegNo',$reg);
+        Session::set('studentName',$stuName);
 
     }
  

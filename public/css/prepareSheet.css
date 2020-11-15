@@ -1,22 +1,18 @@
 
-.middle {
-  float: left;
-  padding: 10px;
-  height: 950px;
-  width: 80%;
-  overflow: scroll;
-}
-
 /* ----------------------------- middle content ----------------------------- */
-
-* {box-sizing: border-box}
 
 /* Add padding to containers */
 .container {
-	padding:30px;
+	padding-top:5%;
+  margin-top: 5%;
+  width: 60%;
+  height: 60%;
+  margin-left: 15%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 table{
-	margin-left: 10%;
+	margin-left: 0%;
 }
 tr{
 	
@@ -37,7 +33,7 @@ input[type=text], select {
 
 padding: 15px;
 width:100%;
-margin: 5px 0 22px 0;
+margin: 5px 0 45px 0;
 display: inline-block;
 border: none;
   resize: vertical;
@@ -48,30 +44,29 @@ border: none;
 
 }
 
-input[type=file]{
-padding: 15px;
-width:25%;
-margin: 100px 0 22px 0;
-display: inline-block;
-border: none;
+input[type="file"]{
+  display: none;
 
-  resize: vertical;
-  border: 0;
-  outline: 0;
-  border-bottom: 1px solid #228B22;
-  background-color: #F8F8FF;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-left: 0;
+    cursor: pointer;
 }
 
 
 .btn, .btn2 {
 background-color: #4CAF50;
-color: white;
-padding: 16px 20px;
-margin: 8px 0;
-border: none;
-cursor: pointer;
-width: 25%;
-opacity: 0.9;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  border-radius: 17px;
 }
 
 .btn, .btn2:hover {

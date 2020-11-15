@@ -5,9 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
-
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 </head>
 
 <body>
@@ -163,15 +164,16 @@
 
 
 
-
-
 	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
 		<div class="col-15">
-		  <label for="subject">Full Name :</label>
+		  <label>Full Name :</label>
 		</div>
 		<div class="col-75">
-		  <input type="text" placeholder="Full name..." name="name">
+			<div class="popup">
+				<input type="text" id="fullname" placeholder="Full name..." name="name" onfocusout="validateName()">
+			  <span class="popuptext" id="name-popup"></span>
+			</div>
 		</div>
 	  </div>
 	  
@@ -180,7 +182,10 @@
 		  <label for="subject"> NIC :</label>
 		</div>
 		<div class="col-25">
-		  <input type="text" placeholder="Identity card number..." name="NIC">
+		  <div class="popup">
+		  	<input type="text" placeholder="Identity card number..." id="NIC" name="NIC" onfocusout="validateNIC()">
+		  	<span class="popuptext" id="NIC-popup"></span>
+		  </div>
 		</div>
 		<div class="col-10">
 		</div>
@@ -211,7 +216,10 @@
 		  <label for="subject">Email :</label>
 		</div>
 		<div class="col-75" style="width: 60%">
-		  <input type="email" placeholder="Email address..." name="email">
+		<div class="popup">
+		  <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
+		  <span class="popuptext" id="email-popup"></span>
+		  </div>
 		</div>
 	  </div>
 	  
@@ -229,7 +237,10 @@
 		  <label for="subject">Mobile No. :</label>
 		</div>
 		<div class="col-25">
-		  <input type="text" placeholder="Mobile number..." name="tel">
+		<div class="popup">
+		  <input type="tel" placeholder="Mobile number..." id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		  <span class="popuptext" id="phone-popup"></span>
+		</div>
 		</div>
 	  </div>
 	  
@@ -307,8 +318,44 @@ window.onclick = function(event) {
   }
 }
 
+
+
+
+function setInvalid(field, message) {
+  field.style.borderColor = red;
+  field.nextElementSibling.innerHTML = message;
+  field.nextElementSibling.style.color = red;
+}
+function setValid(field) {
+  field.style.borderColor = green;
+  field.nextElementSibling.innerHTML = '';
+  //field.nextElementSibling.style.color = green;
+}
+
+
+function checkIfOnlyLetters() {
+  var field = document.forms["myForm"]["fullname"];
+  if (/^[a-zA-Z ]+$/.test(field.value)) {
+    setValid(field);
+    return true;
+  } else {
+    setInvalid(field, `${field.dataset.helper} must contain only letters`);
+    return false;
+  }
+}
+
+
+
 </script>
 
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 
 </body>
 </html>

@@ -6,7 +6,7 @@ class paperMarkerDashboard_Model extends Model{
      	parent::__construct();
     }
 
-    public function listDetails($userid){
+    public function listPmDetails($userid){
 
         return $this->db->listWhere("*","paper_marker","user_id=$userid");
     
@@ -17,6 +17,12 @@ class paperMarkerDashboard_Model extends Model{
 
         return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
     
+
+    }
+
+    public function listTeacherClasses($userid){
+
+        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t,paper_marker p","p.user_id=u.id and p.teacher_id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
 
     }
 

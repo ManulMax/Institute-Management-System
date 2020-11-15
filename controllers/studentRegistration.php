@@ -40,6 +40,6 @@ class studentRegistration extends Controller{
        
 
         $this->model->create($data);
-        header('location: '.URL.'studentRegistration');
+        $this->view->render('staff/enrollStudent');
     }
 }
