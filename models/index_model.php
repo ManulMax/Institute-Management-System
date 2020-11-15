@@ -6,4 +6,12 @@ class index_model extends Model{
      	parent::__construct();
     }
 
+    public function listTodayClass(){
+
+        return $this->db->listCol("fname, mname, lname","teacher");
+        
+
+    }
+
+
 }
