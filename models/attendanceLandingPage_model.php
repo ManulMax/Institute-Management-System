@@ -13,6 +13,13 @@ class attendanceLandingPage_Model extends Model{
 
     }
 
+    public function listDetails($userid){
+
+        return $this->db->listWhere("*","staff","user_id=$userid");
+    
+
+    }
+
     public function listSubjects(){
 
         return $this->db->listAll("subject");

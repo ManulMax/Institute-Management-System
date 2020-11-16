@@ -8,7 +8,7 @@
 .right {
   float: left;
     padding: 10px;
-    height: 1100px;
+    height: 1000px;
     width: 50%;
 }
 
@@ -47,7 +47,7 @@
   }
 
 .regNo{
-  width:100%;
+  width:75%;
 }
   .search{
     background-color: #4CAF50;
@@ -55,7 +55,7 @@
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 75%;
 
     }
     

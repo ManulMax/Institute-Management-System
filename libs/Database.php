@@ -26,6 +26,14 @@ class Database
 
 	}
 
+	public function listCol($select,$table){
+		$sql = "select ".$select." from ".$table;
+
+        $result = mysqli_query($this->connection,$sql);
+
+        return $result;
+
+	}
 
 	public function listCurrentSchedules($select,$from,$where){
 		$sql = "select ".$select." from ".$from." where ".$where;
