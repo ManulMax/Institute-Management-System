@@ -83,7 +83,7 @@
     </div>
   </div>
   </form>
-  <form action="https://sandbox.payhere.lk/pay/of3fcdd76" method="get"><input name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:200px;" value="Pay Now"></form>
+  <form action="https://sandbox.payhere.lk/pay/of3fcdd76" method="get"><input id="btn" name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:200px;" value="Pay Now"></form>
   </div>    	
 </div>
     

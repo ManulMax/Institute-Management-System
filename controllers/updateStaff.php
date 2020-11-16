@@ -7,6 +7,8 @@ class updateStaff extends Controller{
     }
 
     function index(){
+        $this->view->staffList = $this->model->listStaff();
+
     	$this->view->render('admin/updateStaff');
     }
 }

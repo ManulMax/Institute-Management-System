@@ -6,4 +6,9 @@ class updateStaff_model extends Model{
      	parent::__construct();
     }
 
+    public function listStaff(){
+
+        return $this->db->listAll("staff");
+    
+    }
 }
