@@ -40,7 +40,7 @@
   <!-------------------Middle contet---------------------------------->
 <div class="middle" style="background-color:#F8F8FF;">
 	
-	<form id="regForm" action="#" method="post">
+	<form id="regForm" action="<?php echo URL; ?>teacherRegistration/create" method="post">
     <div class="row">
     <div class="col-15">
       <label for="subject">Full Name :</label>

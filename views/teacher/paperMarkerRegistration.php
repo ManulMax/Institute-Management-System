@@ -8,6 +8,7 @@
 <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
+<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
 <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 </head>
 
@@ -151,7 +152,16 @@
 		  <?php
 
 		      while($row = mysqli_fetch_assoc($this->pmList)){  
-		         echo "<tr><td>".$row['name']."</td><td>" .$row['NIC']."</td><td>".$row['DOB']."</td><td>".$row['gender']."</td><td>".$row['email']."</td><td>".$row['address']."</td><td>".$row['tel_no']."</td><td>".$row['qualifications']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+		         echo "<tr><td>".$row['name']."</td>
+		         <td>".$row['NIC']."</td>
+		         <td>".$row['DOB']."</td>
+		         <td>".$row['gender']."</td>
+		         <td>".$row['email']."</td>
+		         <td>".$row['address']."</td>
+		         <td>".$row['tel_no']."</td>
+		         <td>".$row['qualifications']."</td>
+		         <td><input type='submit' value='Edit' class='open-button' onclick='openForm()' style='padding: 5px 15px 5px 15px;'></td>
+		         <td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
 
 		      }
 		  ?>
@@ -164,7 +174,8 @@
 
 
 
-	
+
+
 	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
 		<div class="col-15">
@@ -239,7 +250,7 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="tel" placeholder="Mobile number..." id="phone" name="tel">
+		  <input type="text" placeholder="Mobile number..." id="phone" name="tel">
 		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>
@@ -255,10 +266,11 @@
 	  </div>
 	  
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
-		<input type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
+		<input id="formSubmit" type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
 	  </div>
 	  
 	</form>
+
 
   </div>
  

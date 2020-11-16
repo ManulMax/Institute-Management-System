@@ -92,37 +92,123 @@
       <tr>
         <th>Reg. No</th>
         <th>Name</th>
-        <th>NIC</th>
+        <th>Tep No</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>10</td>
-        <td>Kamal</td>
-        <td>123456789V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>Nimal</td>
-        <td>123456789V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Kamal</td>
-        <td>123456789V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      
+    <?php
+      while($row = mysqli_fetch_assoc($this->staffList)){  
+      echo "<tr><td>".$row['reg_no']."</td>
+      <td>" .$row['fname']."</td>
+      <td>".$row['tel_no']."</td>
+      <td><input type='submit' value='Edit' class='open-button' onclick='openForm()' style='padding: 5px 15px 5px 15px;'></td>
+      <td><input type='submit' value='Delete' onclick='alertFunc()' style='padding: 5px;background-color:#555555;'></td></tr>";
+                        
+    }
+    ?>      
     </tbody>
     </table>
     </div>
+
+    <div class="form-popup" id="myForm">
+               <form action="/action_page.php" class="form-container">
+                  <div class="row">
+                     <div class="col-75">
+                        <h3 style="margin-right: 20%;float: right;">Edit Paper Marker Details</h3>
+                     </div>
+                     <div class="col-25">
+                        <button type="button" class="btn cancel" onclick="closeForm()"><i class="fas fa-times fa-lg"></i></button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label>Full Name :</label>
+                     </div>
+                     <div class="col-75">
+                        <div class="popup">
+                           <input type="text" id="fullname" placeholder="Full name..." name="name" onfocusout="validateName()">
+                           <span class="popuptext" id="name-popup"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label for="subject"> NIC :</label>
+                     </div>
+                     <div class="col-25">
+                        <div class="popup">
+                           <input type="text" placeholder="Identity card number..." id="NIC" name="NIC" onfocusout="validateNIC()">
+                           <span class="popuptext" id="NIC-popup"></span>
+                        </div>
+                     </div>
+                     <div class="col-10">
+                     </div>
+                     <div class="col-15">
+                        <label for="subject">DOB :</label>
+                     </div>
+                     <div class="col-25">
+                        <input type="date" name="DOB">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label for="subject">Gender :</label>
+                     </div>
+                     <div class="col-15" class="genderLabel">
+                        <input type="radio" value="male" name="gender">
+                        <label for="male">Male</label>
+                     </div>
+                     <div class="col-15" class="genderLabel">
+                        <input type="radio" value="female" name="gender">
+                        <label for="female">Female</label>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label for="subject">Email :</label>
+                     </div>
+                     <div class="col-75" style="width: 60%">
+                        <div class="popup">
+                           <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
+                           <span class="popuptext" id="email-popup"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label for="subject">Address :</label>
+                     </div>
+                     <div class="col-75">
+                        <textarea rows="4" cols="90" placeholder="Address..." name="address"></textarea>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label for="subject">Mobile No. :</label>
+                     </div>
+                     <div class="col-25">
+                        <div class="popup">
+                           <input type="text" placeholder="Mobile number..." id="phone" name="tel">
+                           <span class="popuptext" id="phone-popup"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-15">
+                        <label for="subject">Qualifications :</label>
+                     </div>
+                     <div class="col-75">
+                        <textarea rows="4" cols="90" name="qualifications"></textarea>
+                     </div>
+                     <div class="row">
+                     </div>
+                  </div>
+                  <button type="submit" class="btn" >Update</button>
+                  <br />
+               </form>
+            </div>
 
   </div>
   
@@ -131,6 +217,18 @@
 <div class="footer">
   <p>Footer</p>
 </div>
-
+<script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+         
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+         
+        function alertFunc() {
+          alert("Are You Sure Want to Proceed ?");
+        }
+</script>
 </body>
 </html>

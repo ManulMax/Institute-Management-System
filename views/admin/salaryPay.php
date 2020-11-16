@@ -51,7 +51,7 @@
       <label for="subject">Email :</label>
     </div>
     <div class="col-75" style="width: 60%">
-      <input type="email" placeholder="Email address..." name="email">
+      <input type="email" placeholder="Email address..." name="email" disabled="">
     </div>
     </div>
     
@@ -60,13 +60,30 @@
       <label for="subject">Mobile No. :</label>
     </div>
     <div class="col-25">
-      <input type="text" placeholder="Mobile number..." name="tel">
+      <input type="text" placeholder="Mobile number..." name="tel" disabled="">
     </div>
     </div>
 
+    <div class="row">
+    <div class="col-15">
+      <label for="subject">Account No. :</label>
+    </div>
+    <div class="col-25">
+      <input type="text" placeholder="Account number..." name="tel" disabled="">
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-15">
+      <label for="subject">Branch Name. :</label>
+    </div>
+    <div class="col-25">
+      <input type="text" placeholder="Branch Name..." name="tel" disabled="">
+    </div>
+    </div>
   </div>
   </form>
-  <form action="https://sandbox.payhere.lk/pay/of3fcdd76" method="get"><input name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:200px;" value="Pay Now"></form>
+  <form action="https://sandbox.payhere.lk/pay/of3fcdd76" method="get"><input id="btn" name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:200px;" value="Pay Now"></form>
   </div>    	
 </div>
     

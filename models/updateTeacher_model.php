@@ -12,5 +12,4 @@ class updateTeacher_model extends Model{
     
 
     }
-
 }

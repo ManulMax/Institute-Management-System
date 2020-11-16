@@ -211,8 +211,8 @@
 
 
     <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
-      <canvas id="myChart"></canvas>
-<script>
+    <canvas id="myChart"></canvas>
+    <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
