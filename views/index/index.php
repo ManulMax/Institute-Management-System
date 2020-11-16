@@ -102,7 +102,7 @@
                     <h6 class="heading">Teachers Crew</h6>
                     <p>Has The Best Qualified Teaching Crew In Galle District</p>
                     <?php
-                      while($row = mysqli_fetch_assoc($this->classList)){ 
+                      while($row = mysqli_fetch_assoc($this->teacherList)){ 
 
                       echo "<p id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</p>";
                       echo "work3";
@@ -116,13 +116,7 @@
                   <figcaption>
                     <h6 class="heading">Subjects Taught</h6>
                     <p>Main Subject You Can Follow In VIdarsha</p>
-                    <?php
-                      while($row = mysqli_fetch_assoc($this->userDetails)){ 
-
-                      echo "<p id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</p>";
-                      echo "work2";
-                      }
-                    ?>
+                    
                   </figcaption>
                 </figure>
               </li>
@@ -131,13 +125,7 @@
                   <figcaption>
                     <h6 class="heading">Today Classes</h6>
                     <p>Today Class TimeTable</p>  
-                    <?php
-
-                    //   while($row = mysqli_fetch_assoc($this->classList)){  
-                    //     echo "<p id='name'>".$row['fname']."</p><br />";
-                    //     echo "work";
-                    // }
-                    ?>
+  
                   </figcaption>
                 </figure>
               </li>              

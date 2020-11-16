@@ -199,8 +199,3 @@ function validatePhoneNumber() {
      }
 }
 
-
-function editField(){
-  var editPopup = document.getElementById("edit-popup");
-  editPopup.classList.add("show");
-}

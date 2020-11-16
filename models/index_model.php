@@ -1,14 +1,14 @@
 <?php
 
-class index_model extends Model{
+class index_Model extends Model{
 
     public function __construct(){
      	parent::__construct();
     }
 
-    public function listTodayClass(){
+    public function listAllTeachers(){
 
-        return $this->db->listCol("fname, mname, lname","teacher");
+        return $this->db->listCol("fname,mname,lname","teacher");
         
 
     }
