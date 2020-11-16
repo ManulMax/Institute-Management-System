@@ -105,7 +105,7 @@
                       while($row = mysqli_fetch_assoc($this->teacherList)){ 
 
                       echo "<p id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</p>";
-                      echo "work3";
+                      // echo "work3";
                       }
                     ?>
                   </figcaption>

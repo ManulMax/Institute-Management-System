@@ -11,7 +11,7 @@ class index_Model extends Model{
         return $this->db->listCol("fname,mname,lname","teacher");
         
 
-    }
+    // }
 
 
 }
