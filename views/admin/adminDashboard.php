@@ -42,46 +42,78 @@
 
 
     <!-------------------Middle contet---------------------------------->
-    <div class="mid-pane">
-        <div class="grid">
-            <div class="col">
-                <h3>No Of Students</h3>
-                <?php
-                    while($row = mysqli_fetch_assoc($this->stuCount1)){
-                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
-                }
-                ?>
-                
-            </div>
-            <div class="col">
-                <h3>No Of Classes</h3>
-                <?php
-                    while($row = mysqli_fetch_assoc($this->classCount)){
-                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
-                }
-                ?>
-                
-            </div>
-            <div class="col">
-                <h3>No Of Teachers</h3>
-                <?php
-                    while($row = mysqli_fetch_assoc($this->tecCount)){
-                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
-                }
-                ?>
-                
-            </div>
-            <div class="col">
-                <h3>No Of Paied Students</h3>
-                <?php
-                    while($row = mysqli_fetch_assoc($this->stuCount2)){
-                    echo "<div style='margin-left: 37%;margin-top: -35px;'><p><b>".$row['count1']." Students</b></p></div>";
-                }
-                ?>
-                
-            </div>
+    <div class="middle">
+    <table width="100%"  height="200px">
+      <tr>
+
+        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <?php
+
+            while($row = mysqli_fetch_assoc($this->stuCount1)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
+           <div class="containerCard">
+          <h4><b>Total Students</b></h4>  
+          </div>
         </div>
-    </div>
+        </td>
+        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+          <div class="card">
+          <div class="quarter-circle-top-left"><i id="icon2" class="fas fa-users fa-2x"></i></div>
+          <?php
+
+            while($row = mysqli_fetch_assoc($this->classCount)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
+           <div class="containerCard">
+          <h4><b>Total Classes</b></h4>  
+          </div>
+        </div>
+        </td>
+      <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+          <div class="card">
+          <div class="quarter-circle-top-left"><i id="icon3" class="fas fa-users fa-2x"></i></div>
+          <?php
+
+            while($row = mysqli_fetch_assoc($this->subCount)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
+           <div class="containerCard">
+          <h4><b>Total Subjects</b></h4>  
+          </div>
+        </div>
+        </td>
+        <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
+          <div class="card">
+          <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
+          <?php
+
+            while($row = mysqli_fetch_assoc($this->stuCount2)){  
+
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+
+            }
+          ?>
+           <div class="containerCard">
+          <h4><b>No of Paid Stu.</b></h4>  
+          </div>
+        </div>
+        </td>
+
+      </tr>
+    </table>
+    
     <!-- -----------------------------chart pane------------------------ -->
     <div class="chart-panel">
         <div class="chart-set1">
@@ -135,7 +167,7 @@
             </div>
         </div>
     </div>
-   
+</div>   
 
   </div>
 </body>

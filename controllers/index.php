@@ -1,6 +1,6 @@
 <?php
 
-class Index extends Controller{
+class index extends Controller{
     function __construct()
     {
         parent::__construct();
@@ -8,8 +8,8 @@ class Index extends Controller{
 
     function index(){
         $this->view->title = 'Home | Vidarsha';
-        // $this->view->classList = $this->model->listTodayClass();
-        // $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->classList = $this->model->listTodayClass();
+        
     	$this->view->render('index/index');
     }
 }
