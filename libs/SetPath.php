@@ -37,7 +37,9 @@ class SetPath{
     private function _loadDefaultController(){
             require 'controllers/index.php';
             $this->_controller = new Index();
+            $this->_controller->loadModel('index');
             $this->_controller->index();
+         //   header('location: ./index');
     }
 
      private function _loadExistingController(){
@@ -88,9 +90,9 @@ class SetPath{
 
 
     private function _error($msg){
-       // require 'controllers/error.php';
-        //        $this->_controller = new ErrorE();
-        //        $this->_controller->index($msg);
+        require 'controllers/error.php';
+                $this->_controller = new ErrorE();
+                $this->_controller->index($msg);
                 exit;
     }
 

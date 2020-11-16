@@ -1,4 +1,91 @@
+/* ----------------------------- middle content ----------------------------- */
+ .card {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  width: 100%;
+  height: 150px;
+  background-color: #2E8B57;
+  color: white;
+}
 
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.4);
+}
+
+.containerCard {
+  padding-left: 40%;
+  margin-top: 25px;
+}
+
+.quarter-circle-top-left{
+    width: 70px;
+    height: 70px;
+    background: #66CDAA;
+    border-radius: 0 0 100px 0;
+    -moz-border-radius: 0 0 100px 0;
+    -webkit-border-radius: 0 0 100px 0;
+    margin-right: 0;
+}
+
+#icon1, #icon2, #icon3, #icon4{
+  color: #2E8B57;
+}
+
+
+.grid {
+    display: flex;
+    position: relative;
+    margin-left: 20%;
+    margin-right: auto;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: lighter;
+    color: rgb(24, 31, 31);
+}
+
+.grid .col {
+    flex: 1;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: black;
+    background-color:rgb(24, 31, 31)2d;
+    margin: 20px 40px 30px 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    -webkit-animation:colorchange 20s infinite alternate;
+}
+@-webkit-keyframes colorchange {
+    0% {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+    
+    10% {color: rgb(24, 31, 31)}
+    
+    20% { box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+    
+    30% {color: rgb(24, 31, 31)}
+    
+    40% {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+    
+    50% { color: rgb(24, 31, 31);}
+    
+    60% {box-shadow: 0 4px 8px 0 rgba(0, 0, 0,  0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+    
+    70% {color: rgb(24, 31, 31);}
+
+    80% {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+    
+    90% {color: rgb(24, 31, 31);}
+    
+    100% {box-shadow: 0 4px 8px 0 rgba(0, 0, 0,  0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+}
+/* .grid .col:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+} */
+
+.grid .col p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #65344F;
+}
 
 /* ---------------------------chart pane------------------------------------- */
 .chart-panel .chart-set1{
@@ -25,13 +112,7 @@
 
 /* _____________________________________________________________________________________________________________________________________________ */
 /* _____________________________________________________________add Subject . php ______________________________________________________________ */
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  font-family: 'Roboto', sans-serif;
-}
+
 
 
 .title h3{
@@ -108,16 +189,23 @@ label{
 /* _____________________________________________________________teacher registration . php___________________________________________________________________________ */
 
 .middle {
-    float: right;
-  padding: 10px;
+  float: right;
+  padding-right: 30px;
+  padding-left: 30px;
   height: 950px;
-  width: 63%;
+  width: 83%;
   overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.middle::-webkit-scrollbar{
+  display: none;
 }
 
 .right {
     float: right;
-  padding: 10px;
+
   height: 950px;
   width: 20%;
 }
