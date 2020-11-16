@@ -8,7 +8,9 @@ class index extends Controller{
 
     function index(){
         $this->view->teacherList = $this->model->listAllTeachers();
-        // $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->subjectList = $this->model->listAllSubject();
+        $this->view->classList = $this->model->listAllClass();
+
     	$this->view->render('index/index');
     }
 }

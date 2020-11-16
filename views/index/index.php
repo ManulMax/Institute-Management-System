@@ -99,13 +99,12 @@
               <li class="block-set">
                 <figure><a href="#"><img src="<?php echo URL; ?>public/img/block1.jpg" alt=""></a>
                   <figcaption>
-                    <h6 class="heading">Teachers Crew</h6>
-                    <p>Has The Best Qualified Teaching Crew In Galle District</p>
+                    <h6 class="heading">Teachers Crew</h6>                    
                     <?php
                       while($row = mysqli_fetch_assoc($this->teacherList)){ 
 
-                      echo "<p id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</p>";
-                      // echo "work3";
+                      echo "<p id='name'><b>".$row['fname']." ".$row['mname']." ".$row['lname']."</b></p>";
+                      
                       }
                     ?>
                   </figcaption>
@@ -115,8 +114,13 @@
                 <figure><a href="#"><img src="<?php echo URL; ?>public/img/block2.jpg" alt=""></a>
                   <figcaption>
                     <h6 class="heading">Subjects Taught</h6>
-                    <p>Main Subject You Can Follow In VIdarsha</p>
-                    
+                    <?php
+                      while($row = mysqli_fetch_assoc($this->subjectList)){ 
+
+                      echo "<p id='name'><b>".$row['name']."</b></p>";
+                      
+                      }
+                    ?>
                   </figcaption>
                 </figure>
               </li>
@@ -124,8 +128,13 @@
                 <figure><a href="#"><img src="<?php echo URL; ?>public/img/block3.jpg" alt=""></a>
                   <figcaption>
                     <h6 class="heading">Today Classes</h6>
-                    <p>Today Class TimeTable</p>  
-  
+                    <?php
+                      while($row = mysqli_fetch_assoc($this->classList)){ 
+
+                      echo "<p id='name'><b>".$row['name']."</b></p>";
+                      
+                      }
+                    ?>
                   </figcaption>
                 </figure>
               </li>              
