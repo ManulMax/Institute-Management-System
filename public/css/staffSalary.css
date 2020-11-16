@@ -24,6 +24,10 @@
   padding:10px;
 }
 
+p{
+  padding-bottom: 25px;
+}
+
 
 input[type=text],input[type=date],input[type=time], select, textarea {
   width: 100%;
