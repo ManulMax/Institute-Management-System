@@ -142,17 +142,6 @@
   </div>
 
 
-
-  <script type="text/javascript">
-  var val = "<?php echo $_GET['status']; ?>";
-  var rg = "<?php echo $_SESSION['studentRegNo']; ?>";
-  var nm = "<?php echo $_SESSION['studentName']; ?>";
-  if(rg != "" && nm != ""){
-    document.getElementById('regNo').value = rg;
-    document.getElementById('name').value = nm;
-}
-</script>
-
   
   </body>
   </html>

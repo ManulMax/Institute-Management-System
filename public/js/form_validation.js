@@ -184,7 +184,7 @@ function validatePhoneNumber() {
   var phone = document.getElementById("phone");
   var phonePopup = document.getElementById("phone-popup");
 
-  var lettersPhone = /^\d{10}$/;
+  var lettersPhone = /^[0-9]{10}$/;
    if(email.value.match(lettersPhone)){
     
       phone.style.borderColor = '#228B22';
@@ -197,4 +197,10 @@ function validatePhoneNumber() {
   phonePopup.classList.add("show");
      return false;
      }
+}
+
+
+function editField(){
+  var editPopup = document.getElementById("edit-popup");
+  editPopup.classList.add("show");
 }

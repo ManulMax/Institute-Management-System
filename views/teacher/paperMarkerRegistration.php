@@ -11,6 +11,7 @@
 <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 </head>
 
+
 <body>
 
 <div class="row">
@@ -150,13 +151,133 @@
 		  <?php
 
 		      while($row = mysqli_fetch_assoc($this->pmList)){  
-		         echo "<tr><td>".$row['name']."</td><td>" .$row['NIC']."</td><td>".$row['DOB']."</td><td>".$row['gender']."</td><td>".$row['email']."</td><td>".$row['address']."</td><td>".$row['tel_no']."</td><td>".$row['qualifications']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+		         echo "<tr><td>".$row['name']."</td>
+		         <td>" .$row['NIC']."</td>
+		         <td>".$row['DOB']."</td>
+		         <td>".$row['gender']."</td>
+		         <td>".$row['email']."</td>
+		         <td>".$row['address']."</td>
+		         <td>".$row['tel_no']."</td>
+		         <td>".$row['qualifications']."</td>
+		         <td><input type='submit' value='Edit' class='open-button' onclick='openForm()' style='padding: 5px 15px 5px 15px;'></td>
+		         <td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
 
 		      }
 		  ?>
 		  
 		</tbody>
 		</table>
+		</div>
+
+
+
+
+
+		<div class="form-popup" id="myForm">
+		  <form action="/action_page.php" class="form-container">
+		  	
+		  <div class="row">
+		  	<div class="col-75">
+		  		<h3 style="margin-right: 20%;float: right;">Edit Paper Marker Details</h3>
+		  	</div>
+		  	<div class="col-25">
+		  		<button type="button" class="btn cancel" onclick="closeForm()"><i class="fas fa-times fa-lg"></i></button>
+		  	</div>
+		  </div>
+		    <div class="row">
+		<div class="col-15">
+		  <label>Full Name :</label>
+		</div>
+		<div class="col-75">
+			<div class="popup">
+				<input type="text" id="fullname" placeholder="Full name..." name="name" onfocusout="validateName()">
+			  <span class="popuptext" id="name-popup"></span>
+			</div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject"> NIC :</label>
+		</div>
+		<div class="col-25">
+		  <div class="popup">
+		  	<input type="text" placeholder="Identity card number..." id="NIC" name="NIC" onfocusout="validateNIC()">
+		  	<span class="popuptext" id="NIC-popup"></span>
+		  </div>
+		</div>
+		<div class="col-10">
+		</div>
+		<div class="col-15">
+		  <label for="subject">DOB :</label>
+		</div>
+		<div class="col-25">
+		  <input type="date" name="DOB">
+		</div>
+	  </div>
+
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Gender :</label>
+		</div>
+		<div class="col-15" class="genderLabel">
+		  <input type="radio" value="male" name="gender">
+		  <label for="male">Male</label>
+		</div>
+		<div class="col-15" class="genderLabel">
+		  <input type="radio" value="female" name="gender">
+		  <label for="female">Female</label>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Email :</label>
+		</div>
+		<div class="col-75" style="width: 60%">
+		<div class="popup">
+		  <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
+		  <span class="popuptext" id="email-popup"></span>
+		  </div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Address :</label>
+		</div>
+		<div class="col-75">
+		  <textarea rows="4" cols="90" placeholder="Address..." name="address"></textarea>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Mobile No. :</label>
+		</div>
+		<div class="col-25">
+		<div class="popup">
+		  <input type="text" placeholder="Mobile number..." id="phone" name="tel">
+		  <span class="popuptext" id="phone-popup"></span>
+		</div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Qualifications :</label>
+		</div>
+		<div class="col-75">
+		  <textarea rows="4" cols="90" name="qualifications"></textarea>
+		</div>
+		<div class="row">
+		</div>
+	  </div>
+
+		    <button type="submit" class="btn">Update</button>
+		    <br />
+		    
+		  </form>
 		</div>
 
 
@@ -236,7 +357,7 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="tel" placeholder="Mobile number..." id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		  <input type="text" placeholder="Mobile number..." id="phone" name="tel">
 		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>
@@ -252,10 +373,21 @@
 	  </div>
 	  
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
-		<input type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
+		<input id="formSubmit" type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
 	  </div>
 	  
 	</form>
+
+<script type="text/javascript">
+	$("#regForm").submit(function(event){
+  if (validateName() && validateNIC() && validateEmail()) {
+      loginForm.submit();
+    }else{
+      event.preventDefault();
+    }
+});
+</script>
+
 
   </div>
  
@@ -317,42 +449,19 @@ window.onclick = function(event) {
 }
 
 
-
-
-function setInvalid(field, message) {
-  field.style.borderColor = red;
-  field.nextElementSibling.innerHTML = message;
-  field.nextElementSibling.style.color = red;
-}
-function setValid(field) {
-  field.style.borderColor = green;
-  field.nextElementSibling.innerHTML = '';
-  //field.nextElementSibling.style.color = green;
-}
-
-
-function checkIfOnlyLetters() {
-  var field = document.forms["myForm"]["fullname"];
-  if (/^[a-zA-Z ]+$/.test(field.value)) {
-    setValid(field);
-    return true;
-  } else {
-    setInvalid(field, `${field.dataset.helper} must contain only letters`);
-    return false;
-  }
-}
-
-
-
 </script>
 
 
 <script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
+
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
 </script>
 
 </body>
