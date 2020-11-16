@@ -11,6 +11,7 @@
 <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 </head>
 
+
 <body>
 
 <div class="row">
@@ -162,6 +163,8 @@
 
 
 
+
+	
 	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
 		<div class="col-15">
@@ -236,7 +239,7 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="tel" placeholder="Mobile number..." id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		  <input type="tel" placeholder="Mobile number..." id="phone" name="tel">
 		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>
@@ -262,8 +265,11 @@
 
 
 <div class="footer">
-  <p>Footer</p>
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
 </div>
+
 </div>
 
 
@@ -317,42 +323,6 @@ window.onclick = function(event) {
 }
 
 
-
-
-function setInvalid(field, message) {
-  field.style.borderColor = red;
-  field.nextElementSibling.innerHTML = message;
-  field.nextElementSibling.style.color = red;
-}
-function setValid(field) {
-  field.style.borderColor = green;
-  field.nextElementSibling.innerHTML = '';
-  //field.nextElementSibling.style.color = green;
-}
-
-
-function checkIfOnlyLetters() {
-  var field = document.forms["myForm"]["fullname"];
-  if (/^[a-zA-Z ]+$/.test(field.value)) {
-    setValid(field);
-    return true;
-  } else {
-    setInvalid(field, `${field.dataset.helper} must contain only letters`);
-    return false;
-  }
-}
-
-
-
-</script>
-
-
-<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
 </script>
 
 </body>

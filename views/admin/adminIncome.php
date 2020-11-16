@@ -106,13 +106,7 @@
       </tr>
     </thead>
     <tbody>
-    <?php
-
-    while($row = mysqli_fetch_assoc($this->pmList)){  
-      echo "<tr><td>".$row['name']."</td><td>" .$row['subject']."</td><td>".$row['batch']."</td><td>".$row['count']."</td><td>".$row['income']."</td></tr>";
-    }
-?>    
-
+    
     </tbody>
     </table>
 

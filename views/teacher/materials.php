@@ -191,7 +191,17 @@
     </form>
     
   </div>
+
+<div class="footer">
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
+  
 </div>
+
+
+
+
 
 
 </body>

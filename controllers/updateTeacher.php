@@ -7,6 +7,7 @@ class updateTeacher extends Controller{
     }
 
     function index(){
+    	$this->view->tecList = $this->model->listTeacher();
     	$this->view->render('admin/updateTeacher');
     }
 }

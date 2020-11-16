@@ -125,10 +125,14 @@
       <div style="width:250px;">
       <select>
       <option value="0">Select Subject:</option>
-      <option value="1">sub1</option>
-      <option value="2">sub2</option>
-      <option value="3">sub3</option>
-      <option value="4">sub4</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->subList)){  
+
+               echo "<option value='".$row['id']."'>".$row['name']."</option>";
+
+            }
+      ?>
       </select>
     </div>
     </div>

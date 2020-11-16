@@ -59,354 +59,178 @@
 
 
    <div class="middle" style="background-color:#F8F8FF;">
-  <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
-    <h1>"Quiz Name"</h1>
-    <div class="topSection">Quiz Title:
-    <br />
-    <br />
-    <p class="head" style="width: 60%;">Encapsulation</p><br />
-    Time Limit:
-  <br />
-  <br />
-    <p class="head" style="width: 20%;">30 minutes</p><br />
-    </div>
-    <p id="demo"></p>
 
 
-   <div class="quizContainer container-fluid well well-lg">
-        <div id="quiz1" class="text-center">
-           
-            
-            <h4 style="color:#FF0000;position:absolute;left:80%;top:40%;" align="center" ><span id="iTimeShow">Time Remaining: </span><br/><span id='timer' style="font-size:25px;"></span></h4>
-            
-        </div>
-        
-        <div class="question"></div>
-            <ol class="choiceList"></ol>
-        <div class="quizMessage"></div>
-        <div class="result"></div>
-        <button class="preButton" style="margin-top: 50px; margin-left: 60%;">Previous Question</button>
-        <button class="nextButton">Next Question</button>
-    </div>
-    
-  </form>
-  </div>
+   <h1>Quiz on Important Facts</h1>
+<div class="quiz-container">
+  <div id="quizz"></div>
+</div>
+<button id="previous">Previous Question</button>
+<button id="nxt">Next Question</button>
+<button id="sub">Submit Quiz</button>
+<div id="res"></div>
+</div>
+
   
   
-
+<script type="text/javascript">
     
 
+(function(){
+  // Functions
+  function buildQuiz(){
+    // variable to store the HTML output
+    const output = [];
 
-    <script>
-        var questions = [{
-    question: "1. How do you write 'Hello World' in an alert box?",
-    choices: ["msg('Hello World')", "msgBox('Hello World');", "alertBox('Hello World');", "alert('Hello World');"],
-    correctAnswer: 3
-}, {
-    question: "2. How to empty an array in JavaScript?",
-    choices: ["arrayList[]", "arrayList(0)", "arrayList.length=0", "arrayList.len(0)"],
-    correctAnswer: 2
-}, {
-    question: "3. What function to add an element at the begining of an array and one at the end?",
-    choices: ["push,unshift", "unshift,push", "first,push", "unshift,last"],
-    correctAnswer: 1
-}, {
-    question: "4. What will this output? var a = [1, 2, 3]; console.log(a[6]);",
-    choices: ["undefined", "0", "prints nothing", "Syntax error"],
-    correctAnswer: 0
-}, {
-    question: "5. What would following code return? console.log(typeof typeof 1);",
-    choices: ["string", "number", "Syntax error", "undefined"],
-    correctAnswer: 0
-},{
-    question: "6. Which software company developed JavaScript?",
-    choices: ["Mozilla", "Netscape", "Sun Microsystems", "Oracle"],
-    correctAnswer: 1
-},{
-    question: "7. What would be the result of 3+2+'7'?",
-    choices: ["327", "12", "14", "57"],
-    correctAnswer: 3
-},{
-    question: "8. Look at the following selector: $('div'). What does it select?",
-    choices: ["The first div element", "The last div element", "All div elements", "Current div element"],
-    correctAnswer: 2
-},{
-    question: "9. How can a value be appended to an array?",
-    choices: ["arr(length).value;", "arr[arr.length]=value;", "arr[]=add(value);", "None of these"],
-    correctAnswer: 1
-},{
-    question: "10. What will the code below output to the console? console.log(1 +  +'2' + '2');",
-    choices: ["'32'", "'122'", "'13'", "'14'"],
-    correctAnswer: 0
-}];
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
 
+        // variable to store the list of possible answers
+        const answers = [];
 
-var currentQuestion = 0;
-var viewingAns = 0;
-var correctAnswers = 0;
-var quizOver = false;
-var iSelectedAnswer = [];
-    var c=180;
-    var t;
-$(document).ready(function () 
-{
-    // Display the first question
-    displayCurrentQuestion();
-    $(this).find(".quizMessage").hide();
-    $(this).find(".preButton").attr('disabled', 'disabled');
-    
-    timedCount();
-    
-    $(this).find(".preButton").on("click", function () 
-    {       
-        
-        if (!quizOver) 
-        {
-            if(currentQuestion == 0) { return false; }
-    
-            if(currentQuestion == 1) {
-              $(".preButton").attr('disabled', 'disabled');
-            }
-            
-                currentQuestion--; // Since we have already displayed the first question on DOM ready
-                if (currentQuestion < questions.length) 
-                {
-                    displayCurrentQuestion();
-                    
-                }                   
-        } else {
-            if(viewingAns == 3) { return false; }
-            currentQuestion = 0; viewingAns = 3;
-            viewResults();      
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
         }
+
+        // add this question and its answers to the output
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
     });
 
-    
-    // On clicking next, display the next question
-    $(this).find(".nextButton").on("click", function () 
-    {
-        if (!quizOver) 
-        {
-            
-            var val = $("input[type='radio']:checked").val();
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
 
-            if (val == undefined) 
-            {
-                $(document).find(".quizMessage").text("Please select an answer");
-                $(document).find(".quizMessage").show();
-            } 
-            else 
-            {
-                // TODO: Remove any message -> not sure if this is efficient to call this each time....
-                $(document).find(".quizMessage").hide();
-                if (val == questions[currentQuestion].correctAnswer) 
-                {
-                    correctAnswers++;
-                }
-                iSelectedAnswer[currentQuestion] = val;
-                
-                currentQuestion++; // Since we have already displayed the first question on DOM ready
-                if(currentQuestion >= 1) {
-                      $('.preButton').prop("disabled", false);
-                }
-                if (currentQuestion < questions.length) 
-                {
-                    displayCurrentQuestion();
-                    
-                } 
-                else 
-                {
-                    displayScore();
-                    $('#iTimeShow').html('Quiz Time Completed!');
-                    $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
-                    c=185;
-                    $(document).find(".preButton").text("View Answer");
-                    $(document).find(".nextButton").text("Play Again?");
-                    quizOver = true;
-                    return false;
-                    
-                }
-            }
-                    
-        }   
-        else 
-        { // quiz is over and clicked the next button (which now displays 'Play Again?'
-            quizOver = false; $('#iTimeShow').html('Time Remaining:'); iSelectedAnswer = [];
-            $(document).find(".nextButton").text("Next Question");
-            $(document).find(".preButton").text("Previous Question");
-             $(".preButton").attr('disabled', 'disabled');
-            resetQuiz();
-            viewingAns = 1;
-            displayCurrentQuestion();
-            hideScore();
-        }
-    });
-});
-
-
-
-function timedCount()
-    {
-        if(c == 185) 
-        { 
-            return false; 
-        }
-        
-        var hours = parseInt( c / 3600 ) % 24;
-        var minutes = parseInt( c / 60 ) % 60;
-        var seconds = c % 60;
-        var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);            
-        $('#timer').html(result);
-        
-        if(c == 0 )
-        {
-                    displayScore();
-                    $('#iTimeShow').html('Quiz Time Completed!');
-                    $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
-                    c=185;
-                    $(document).find(".preButton").text("View Answer");
-                    $(document).find(".nextButton").text("Play Again?");
-                    quizOver = true;
-                    return false;
-                    
-        }
-        
-        /*if(c == 0 )
-        {   
-            if (!quizOver) 
-            {
-                var val = $("input[type='radio']:checked").val();
-                if (val == questions[currentQuestion].correctAnswer) 
-                {
-                    correctAnswers++;
-                }
-                currentQuestion++; // Since we have already displayed the first question on DOM ready
-                
-                if (currentQuestion < questions.length) 
-                {
-                    displayCurrentQuestion();
-                    c=15;
-                } 
-                else 
-                {
-                    displayScore();
-                    $('#timer').html('');
-                    c=16;
-                    $(document).find(".nextButton").text("Play Again?");
-                    quizOver = true;
-                    return false;
-                }
-            }
-            else 
-            { // quiz is over and clicked the next button (which now displays 'Play Again?'
-                quizOver = false;
-                $(document).find(".nextButton").text("Next Question");
-                resetQuiz();
-                displayCurrentQuestion();
-                hideScore();
-            }       
-        }   */
-        c = c - 1;
-        t = setTimeout(function()
-        {
-            timedCount()
-        },1000);
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
     }
-    
-    
-// This displays the current question AND the choices
-function displayCurrentQuestion() 
-{
-
-    if(c == 185) { c = 180; timedCount(); }
-    //console.log("In display current Question");
-    var question = questions[currentQuestion].question;
-    var questionClass = $(document).find(".quizContainer > .question");
-    var choiceList = $(document).find(".quizContainer > .choiceList");
-    var numChoices = questions[currentQuestion].choices.length;
-    // Set the questionClass text to the current question
-    $(questionClass).text(question);
-    // Remove all current <li> elements (if any)
-    $(choiceList).find("li").remove();
-    var choice;
-    
-    
-    for (i = 0; i < numChoices; i++) 
-    {
-        choice = questions[currentQuestion].choices[i];
-        
-        if(iSelectedAnswer[currentQuestion] == i) {
-            $('<li><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-        } else {
-            $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-        }
+    else{
+      previousButton.style.display = 'inline-block';
     }
-}
-
-function resetQuiz()
-{
-    currentQuestion = 0;
-    correctAnswers = 0;
-    hideScore();
-}
-
-function displayScore()
-{
-    $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
-    $(document).find(".quizContainer > .result").show();
-}
-
-function hideScore() 
-{
-    $(document).find(".result").hide();
-}
-
-// This displays the current question AND the choices
-function viewResults() 
-{
-
-    if(currentQuestion == 10) { currentQuestion = 0;return false; }
-    if(viewingAns == 1) { return false; }
-
-    hideScore();
-    var question = questions[currentQuestion].question;
-    var questionClass = $(document).find(".quizContainer > .question");
-    var choiceList = $(document).find(".quizContainer > .choiceList");
-    var numChoices = questions[currentQuestion].choices.length;
-    // Set the questionClass text to the current question
-    $(questionClass).text(question);
-    // Remove all current <li> elements (if any)
-    $(choiceList).find("li").remove();
-    var choice;
-    
-    
-    for (i = 0; i < numChoices; i++) 
-    {
-        choice = questions[currentQuestion].choices[i];
-        
-        if(iSelectedAnswer[currentQuestion] == i) {
-            if(questions[currentQuestion].correctAnswer == i) {
-                $('<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-            } else {
-                $('<li style="border:2px solid red;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-            }
-        } else {
-            if(questions[currentQuestion].correctAnswer == i) {
-                $('<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-            } else {
-                $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' +  ' ' + choice  + '</li>').appendTo(choiceList);
-            }
-        }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
     }
-    
-    currentQuestion++;
-    
-    setTimeout(function()
-        {
-            viewResults();
-        },3000);
-}
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
 
-    </script>    
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Variables
+  const quizContainer = document.getElementById('quizz');
+  const resultsContainer = document.getElementById('res');
+  const submitButton = document.getElementById('sub');
+  const myQuestions = [
+    {
+      question: "Who invented JavaScript?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Which one of these is a JavaScript package manager?",
+      answers: {
+        a: "Node.js",
+        b: "TypeScript",
+        c: "npm"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Which tool can you use to ensure code quality?",
+      answers: {
+        a: "Angular",
+        b: "jQuery",
+        c: "RequireJS",
+        d: "ESLint"
+      },
+      correctAnswer: "d"
+    }
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Pagination
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("nxt");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+ </script>   
 </body>
   </html>

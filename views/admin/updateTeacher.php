@@ -91,33 +91,24 @@
         <th>Reg. No</th>
         <th>Name</th>
         <th>NIC</th>
+        <th>Address</th>
+        <th>email</th>
+        <th>Qualifications</th>
+        <th>Tel No</th>
+        <th>Account No</th>
+        <th>Bank Name</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>10</td>
-        <td>Kamal</td>
-        <td>123456789V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>Nimal</td>
-        <td>123456789V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Kamal</td>
-        <td>123456789V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      
+      <?php
+
+    while($row = mysqli_fetch_assoc($this->tecList)){  
+    echo "<tr><td>".$row['reg_no']."</td><td>" .$row['fname']."</td><td>".$row['NIC']."</td><td>".$row['address']."</td><td>".$row['email']."</td><td>".$row['qualifications']."</td><td>".$row['tel_no']."</td><td>".$row['acc_no']."</td><td>".$row['bank_name']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+
+    }
+?>
     </tbody>
     </table>
     </div>

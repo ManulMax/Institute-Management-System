@@ -6,4 +6,11 @@ class updateTeacher_model extends Model{
      	parent::__construct();
     }
 
+    public function listTeacher(){
+
+        return $this->db->listAll("teacher");
+    
+
+    }
+
 }

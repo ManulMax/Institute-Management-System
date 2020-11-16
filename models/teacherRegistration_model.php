@@ -6,4 +6,9 @@ class teacherRegistration_model extends Model{
      	parent::__construct();
     }
 
+    public function listSubject(){
+
+        return $this->db->listAll("subject");
+    }
+
 }
