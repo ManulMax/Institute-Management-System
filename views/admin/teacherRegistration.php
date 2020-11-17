@@ -45,8 +45,18 @@
     <div class="col-15">
       <label for="subject">Full Name :</label>
     </div>
-    <div class="col-75">
-      <input type="text" placeholder="Full name..." name="name">
+    <div class="col-20">
+      <input type="text" placeholder="First name..." name="fname">
+    </div>
+    <div class="col-10">
+    </div>
+    <div class="col-20">
+      <input type="text" placeholder="Middle name..." name="mname">
+    </div>
+    <div class="col-10">
+    </div>
+    <div class="col-20">
+      <input type="text" placeholder="Last name..." name="lname">
     </div>
     </div>
     
@@ -106,6 +116,41 @@
     <div class="col-25">
       <input type="text" placeholder="Mobile number..." name="tel">
     </div>
+    <div class="col-10">
+    </div>
+    <div class="col-15">
+      <label for="subject">Reg Date :</label>
+    </div>
+    <div class="col-25">
+      <input type="date" name="today">
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-15">
+      <label for="subject">Account No. :</label>
+    </div>
+    <div class="col-25">
+      <input type="text" placeholder="Account number..." name="accNo">
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-15">
+      <label for="subject">Bank Name :</label>
+    </div>
+    <div class="col-25">
+      <input type="text" placeholder="Bank Name..." name="bank">
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-15">
+      <label for="subject">Branch Name :</label>
+    </div>
+    <div class="col-25">
+      <input type="text" placeholder="Branch Name..." name="branch">
+    </div>
     </div>
     
     <div class="row">
@@ -123,7 +168,7 @@
     </div>
     <div class="col-75">
       <div style="width:250px;">
-      <select>
+      <select name="id">
       <option value="0">Select Subject:</option>
       <?php
 
