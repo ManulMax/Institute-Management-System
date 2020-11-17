@@ -73,11 +73,6 @@ i{
   display: none;
 }
 
-
-
-
-
-
 .dropdown-btn {
   padding: 8px 0px 8px 0px;
   text-decoration: none;
@@ -108,13 +103,6 @@ i{
   float: right;
   padding-right: 8px;
 }
-
-
-
-
-
-
-
 
 .middle {
   float: left;
@@ -158,8 +146,6 @@ i{
   float: left;
 
 }
-
-
 
 /* ----------------------------- middle content ----------------------------- */
 .card {
