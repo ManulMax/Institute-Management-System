@@ -29,14 +29,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <?php
-             $classes = []; //create array
-              while($class=mysqli_fetch_assoc($this->classList)) {
-                  $classes[] = $class; //assign whole values to array
-              }
-             foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>materials/renderDownloadMaterials/<?php echo $row['id']; ?>"><?php echo $row['batch']; ?></a>
-          <?php  } ?>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
         </div>
     </li>
     <li>
@@ -44,11 +40,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <?php
-       
-         foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz"><?php echo $row['batch']; ?></a>
-          <?php  } ?>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
         </div>
     </li>
   </ul> 	

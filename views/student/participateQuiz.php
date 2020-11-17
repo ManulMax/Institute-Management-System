@@ -26,10 +26,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl1" onclick="getMaterials('cl1')"><?php echo date("Y"); ?> A/L</a>
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl2" onclick="getMaterials('cl2')"><?php echo date("Y")+1; ?> A/L</a>
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl3" onclick="getMaterials('cl3')"><?php echo date("Y")+2; ?> A/L</a>
-          <a href="<?php echo URL; ?>downloadMaterials" id="cl4" onclick="getMaterials('cl4')">Revision</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
         </div>
     </li>
     <li>
@@ -37,10 +37,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuiz"><?php echo date("Y"); ?> A/L</a>
-          <a href="<?php echo URL; ?>participateQuiz"><?php echo date("Y")+1; ?> A/L</a>
-          <a href="<?php echo URL; ?>participateQuiz"><?php echo date("Y")+2; ?> A/L</a>
-          <a href="<?php echo URL; ?>participateQuiz">Revision</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
         </div>
     </li>
   </ul> 
@@ -231,6 +231,26 @@
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
 })();
- </script>   
+ </script> 
+
+
+
+ <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>  
 </body>
   </html>

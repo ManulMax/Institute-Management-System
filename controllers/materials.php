@@ -14,10 +14,9 @@ class materials extends Controller{
         $this->view->render('teacher/materials');
     }
 
-    function renderDownloadMaterials($id){
+    function renderDownloadMaterials(){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
-        $this->view->materialList = $this->model->listMaterials($id);
-        $this->view->batch = $batch;
+        $this->view->materialList = $this->model->listMaterials();
         $this->view->render('student/downloadMaterials');
     }
 
