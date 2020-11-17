@@ -46,7 +46,7 @@ class login extends Controller{
         $subject = 'Reset Password';
         $header = "From: 2018is055@stu.ucsc.cmb.ac.lk\r\nContent-Type: text/html;";
         if(mail($to, $subject, $emailBody, $header)){
-            echo 'mail sent';
+            echo "<h1 style='text-align:center;margin-top:100px;'>Email sent with reset link !</h1>";
         } else{ echo 'false';}
     }
 
@@ -67,7 +67,8 @@ class login extends Controller{
 
         $this->model->updatePassword($data);
 
-        echo 'password updated';
+         echo "<h1 style='text-align:center;margin-top:100px;'>Password Updated!</h1>";
+         echo '<a href="'.URL.'login" style="margin-left:48%;text-decoration:none;background-color:green;color:white;padding:20px;">Login</a>';
 
     }
 

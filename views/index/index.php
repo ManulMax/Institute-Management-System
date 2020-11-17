@@ -30,12 +30,12 @@
     </div>
     <nav class="top_nav clear">
         <ul class="ul clear">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a class="drop" href="#">Galary</a>
-                <ul>
+            <li class="active"><a href="#pageintro">Home</a></li>
+            <li><a class="drop" href="<?php echo URL; ?>/gallery">Gallery</a>
+                <!-- <ul>
                     <li><a href="<?php echo URL; ?>/gallery.html">Life At Vidarsha</a></li>
                     <li><a href="<?php echo URL; ?>/full-width.html">Top Results</a></li>
-                </ul>
+                </ul> -->
             </li>
             <li><a href="#details">Teachers  Crew</a></li>
             <li><a href="#map">Find  Vidarsha</a></li>            
@@ -55,7 +55,7 @@
           <article>
             <h3 class="heading">The only source of knowledge is experience</h3>  
             <p>-Albert Einstein-</p>            
-            <img src="<?php echo URL; ?>public/img/logo2.png" alt="">            
+            <img class="logo" src="<?php echo URL; ?>public/img/logo2.png" alt="">            
             <footer><a id="login-btn" class="btn" href="<?php echo URL; ?>login">SignIn or SignUp</a></footer>
           </article>          
         </div>
@@ -81,7 +81,7 @@
               <h6 class="heading">සිසුන් සඳහා විශේෂ උපදෙස්</h6>
               <p>වඩා හොඳ පරිශීලක අත්දැකීමක් සඳහා පහත උපදෙස් අනුගමනය කරන්න</p>
               <p class="data">
-			  සිසුන්ට ඔවුන්ගේ ඇතුළත් කිරීමේ අංකය පරිශීලක නාමය ලෙසත් ලියාපදිංචි කිරීමේදී ලබා දී ඇති විශේෂ අංකය මුරපදය ලෙසත් භාවිතා කළ හැකිය. <br>
+			  සිසුන්ට ඔවුන්ගේ ඇතුළත් වීමේදී ලබාදෙන අංකය පරිශීලක නාමය ලෙසත් ලියාපදිංචි කිරීමේදී ලබා දී ඇති විශේෂ අංකය මුරපදය ලෙසත් භාවිතා කළ හැකිය. <br>
 			  පන්ති වේලාවන් සහ වැඩි විස්තර සඳහා ඉහත දුරකථන අංකය භාවිතා කරන්න. <br>
 			  ඔබේ පන්ති කාඩ්පත වෙනත් අයෙකුට ලබාදීමෙන් වලකින්න. <br>
 			  ආයතනය තුල සහ ඉන් පිටත ඔබගේ විනය පවත්වාගන්න. <br>
@@ -170,17 +170,17 @@
             <ul class="ulist">
               <li><i class="fa fa-map-marker"></i>
                 <address>
-                    Vidarsha Institute,Havelock Road, Gall
+                    Vidarsha Institute,Havelock Road, Galle
                 </address>
               </li>
               <li><i class="fa fa-phone"></i> +9471565778</li>
               <li><i class="far fa-envelope"></i> vidarshaedu@gmail.com</li>
             </ul>
             <ul class="icons clear">
-              <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a class="messanger" href="#"><i class="fab fa-facebook-messenger"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a class="facebook" href="https://m.facebook.com/vidarshaedu/photos/?ref=page_internal&mt_nav=0"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="twitter" href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="messanger" href="https://www.messenger.com/"><i class="fab fa-facebook-messenger"></i></a></li>
+              <li><a class="linkedin" href="https://lk.linkedin.com/"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
           </div>
           <div class="right-block">

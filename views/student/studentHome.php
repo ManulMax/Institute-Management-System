@@ -41,23 +41,27 @@ $(function(){
 	<ul>
 	  <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
 	  <li>
-        <select name="grade" style="background-color: #F8F8FF;">
-            <option value="0">Select Batch:</option>
-            <option value="1">2020 A/L</option>
-            <option value="2">2021 A/L</option>
-            <option value="3">2022 A/L</option>
-            <option value="4">Revision</option>
-            </select>
+        <button class="dropdown-btn"><i class="fas fa-download"></i>Download Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
+        </div>
     </li>
 
     <li>
-        <select name="grade" style="background-color: #F8F8FF;">
-            <option value="0">Select Batch:</option>
-            <option value="1">2020 A/L</option>
-            <option value="2">2021 A/L</option>
-            <option value="3">2022 A/L</option>
-            <option value="4">Revision</option>
-            </select>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
+        </div>
     </li>
 
 	</ul>	

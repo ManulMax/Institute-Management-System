@@ -32,9 +32,9 @@ class materials_Model extends Model{
 
     }
 
-    public function listMaterials($id){
+    public function listMaterials(){
 
-        return $this->db->listWhere("*","study_material","class_id=$id");
+        return $this->db->listAll("study_material");
     
 
     }
