@@ -118,7 +118,7 @@
     </div>
 
     <div class="row">
-    <div class="col-20" style="width: 25%;">
+    <div class="col-15" >
       <label for="subject">Subject :</label>
     </div>
     <div class="col-75">
