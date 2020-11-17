@@ -25,8 +25,12 @@ html, body{margin:0; padding:0; font-size:14px; line-height:1.6em;}
     float:left;
 }
 .head .top_left h1{
-    margin-top:8px;
-    font-size:24px;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 .head .top_left p{
     margin-top:-2px;
@@ -256,7 +260,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 .group, .group::after{clear:both;}
 
 .overview > li{margin-bottom:30px;}
-.overview > li:nth-last-child(-n+3){margin-bottom:0;}/
+.overview > li:nth-last-child(-n+3){margin-bottom:0;}
 .overview > li:nth-child(3n+1){margin-left:0; clear:left;}
 .overview > li figure{position:relative; max-width:320px;}
 .overview > li figure a::after{position:absolute; top:0; right:0; bottom:0; left:0; content:"";}
@@ -487,7 +491,79 @@ h1, h2, h3, h4, h5, h6, .heading{
 
 /* _____________________________________Media Queries____________________________ */
 @-ms-viewport{width:device-width;}
-@media screen and (min-width:978px){
+/* @media screen and (min-width:978px){
 	.hoc{max-width:978px;}
+} */
+
+@media screen and (max-width:450px){
+    
+    .head{text-align:center;}
+
+    .head .top_left{display:block; float:none;}
+    .head .top_left h1{margin:0 0 30px auto;}
+    .head .top_left p{display: none;}
+    .head .top_right{display:block; float:none;}
+    .top_nav{display: none;}
+    .back-img{display: block; margin-left: auto; height: 40%;}
+    .back-img .logo{float: center; width: 70%; height: 70%;}
+    .footer .right-block{display: none;}
+    #map{display: none;}
+
+    /* only working with some devides(pixel2, pixel2 pro, iphonex, ipad, ipad pro) */
 }
 
+
+
+
+/* _____________________________________________________________________________________________________________ */
+/* ___________________________________________gallery css_______________________________________________________ */
+/* _____________________________________________________________________________________________________________ */
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.header h1:hover, .header p:hover {
+    font-size: x-large;
+    color: rgba(157,5,82,.5);
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; 
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
