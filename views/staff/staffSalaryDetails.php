@@ -105,29 +105,24 @@
     <form class="wrapper">
       <div class="title" style="text-align: center;">
         <h3>Salary payment details</h3>
+      </div>
       
     <div class="details">
         <p>Payment date :</p>
         <p>Salary details of Month :</p>
         <p>Total Salary :</p>
-
-        
-
-      <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;"" value="Download Report">
+      <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;" value="Download Report">
     
-  </div>
-
-
-
-</form>
-
-  </div>
+    </div>
+    </form>
+</div>
+  
 
 
 <div class="footer">
   <p>Footer</p>
 </div>
-</div>
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

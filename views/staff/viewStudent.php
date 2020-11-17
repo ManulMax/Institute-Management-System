@@ -15,6 +15,7 @@
 
 
 
+
 <!-- filter table -->
 
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/style2.css">
@@ -122,7 +123,7 @@ $(function(){
 			<h3>Edit/Delete student records</h3>
 		</div>
 	
-<div class="container" style="margin: 30px;margin-top: 0px;">
+<div class="container" style="margin-left:10% ;margin-top: 0px;">
 
 
 <div class="table-filters">

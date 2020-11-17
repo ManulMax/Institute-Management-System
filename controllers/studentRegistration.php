@@ -15,8 +15,8 @@ class studentRegistration extends Controller{
 
         $data = array();
         $data['fname'] = $_POST['fname'];
-        $data['mname'] = $_POST['mname'];
-        $data['lname'] = $_POST['lname'];
+        /*$data['mname'] = $_POST['mname'];
+        $data['lname'] = $_POST['lname'];*/
         $data['tel_no'] = $_POST['tel'];
         $data['address'] = $_POST['address'];
         $data['NIC'] = $_POST['nic'];
