@@ -55,7 +55,7 @@
           <article>
             <h3 class="heading">The only source of knowledge is experience</h3>  
             <p>-Albert Einstein-</p>            
-            <img src="<?php echo URL; ?>public/img/logo2.png" alt="">            
+            <img class="logo" src="<?php echo URL; ?>public/img/logo2.png" alt="">            
             <footer><a id="login-btn" class="btn" href="<?php echo URL; ?>login">SignIn or SignUp</a></footer>
           </article>          
         </div>
