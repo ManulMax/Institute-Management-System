@@ -221,7 +221,7 @@ $(function(){
         </td>
       </tr>
       <tr>
-        <td>
+        <td style="padding:0;">
           <div class="marks">
             <h3>Exam results</h3>
             <br />
@@ -260,17 +260,21 @@ $(function(){
           </div>
         </td>
 
-        <td>
+        <td style="padding:0;">
 
-          <table class="filterShedule">
+          <table style="padding:0;" class="filterShedule">
             <tr>
-              <td><label for="filter-city">Teacher</label></td>
-     <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
+              <td ><label for="filter-city">Teacher</label></td>
+     <td colspan=3><select style="width:100%;" id="filter-city" data-filter-col="2" style="min-width:60px">
        <option value="">- All -</option>
-      <option value="1">Chemistry</option>
-      <option value="2">Physics</option>
-      <option value="3">Combined Maths</option>
-      <option value="4">ICT</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->teacherList)){  
+
+               echo "<option value='".$row['fname']."'>".$row['fname']."</option>";
+
+            }
+      ?>
      </select></td>
             </tr>
  <tr>
@@ -286,10 +290,14 @@ $(function(){
      <td><label for="filter-city">Class</label></td>
      <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
        <option value="">- All -</option>
-      <option value="1">Chemistry</option>
-      <option value="2">Physics</option>
-      <option value="3">Combined Maths</option>
-      <option value="4">ICT</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
+
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
      </select></td>
  </tr>
 </table>
@@ -306,7 +314,7 @@ $(function(){
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+         echo "<tr><td>".$row['fname']."</td><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
 
       }
   ?>

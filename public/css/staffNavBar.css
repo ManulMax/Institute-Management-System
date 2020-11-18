@@ -206,6 +206,7 @@ i{
   margin-top:10px;
   float: right;
   margin-right: 30px;
+  font-size:10px;
 }
 
 .userDiv i {
@@ -213,10 +214,11 @@ i{
   }
 
 .userDiv:hover {
-  width: 225px;
+  width: 425px;
   height: 35px;
   border-radius: 25px;
   padding: 0 10px 0 10px;
+  font-size:16px;
 }
 
 .logout {
