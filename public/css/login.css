@@ -11,7 +11,7 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-/* The Modal (background) */
+/*________________________________The Modal (background)_____________________________________________________ */
 .modal {
   display: none; /* Hidden by default */
   position: absolute; /* Stay in place */
@@ -151,7 +151,7 @@ form.sign-in-form {
 
 
 .input-field input::placeholder {
-  color: #aaa;
+  color: rgba(170, 170, 170, 0);
   font-weight: 500;
 }
 
@@ -186,6 +186,8 @@ form.sign-in-form {
 }
 
 .btn {
+  justify-content: center;
+  display: flex;
   width: 150px;
   background-color: #063811;
   border: none;
@@ -195,7 +197,7 @@ form.sign-in-form {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
-  margin: 10px 0;
+  margin: 10px 10px;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -308,7 +310,8 @@ form.sign-in-form {
 }
 
 .btn.transparent {
-  margin: 0;
+  padding: 10px;
+  margin: 0 auto;
   background: none;
   border: 2px solid #fff;
   width: 130px;
@@ -320,7 +323,6 @@ form.sign-in-form {
 .btn.transparent:hover{
   width:150px ;
 }
-
 .right-panel .image,
 .right-panel .content {
   transform: translateX(800px);

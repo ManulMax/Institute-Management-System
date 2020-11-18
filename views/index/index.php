@@ -42,9 +42,9 @@
             <li><a href="#details">Classes  Today </a></li>
             <li><a href="#instruction">Instruction For Student</a></li>
 			  <div class="popup">
-			      <li><a href="#login-btn" >Login/Signup</a>
-			    <span class="popuptext" id="myPopup" >To login click the signup/signin button below <br>
-			පුරනය වීමට පහත signup/signin බොත්තම ක්ලික් කරන්න. පහත උපදෙස් අනුගමනය කරන්න.
+			      <li><a href="#login-btn" >Click To Login</a>
+			    <span class="popuptext" id="myPopup" >To login click the signin button below <br>
+			පුරනය වීමට පහත signin බොත්තම ක්ලික් කරන්න. පහත උපදෙස් අනුගමනය කරන්න.
           </span>
 			    </li>
 			  </div>
@@ -56,7 +56,7 @@
             <h3 class="heading">The only source of knowledge is experience</h3>  
             <p>-Albert Einstein-</p>            
             <img class="logo" src="<?php echo URL; ?>public/img/logo2.png" alt="">            
-            <footer><a id="login-btn" class="btn" href="<?php echo URL; ?>login">SignIn or SignUp</a></footer>
+            <footer><a id="login-btn" class="btn" href="<?php echo URL; ?>login">SignIn Here</a></footer>
           </article>          
         </div>
     </div>
@@ -66,7 +66,7 @@
               <h6 class="heading">Special Instruction For Students</h6>
               <p>Follow the below instruction for better user experience</p>
               <p class="data">
-                Students can use their admission number as username and the special 
+                Students can use their e-mail provided when registering as username and the special 
                 number that given in registration as password. <br>
                 Use the above telephone number for inquiries about class times and 
                 more details. <br>
@@ -81,7 +81,7 @@
               <h6 class="heading">සිසුන් සඳහා විශේෂ උපදෙස්</h6>
               <p>වඩා හොඳ පරිශීලක අත්දැකීමක් සඳහා පහත උපදෙස් අනුගමනය කරන්න</p>
               <p class="data">
-			  සිසුන්ට ඔවුන්ගේ ඇතුළත් වීමේදී ලබාදෙන අංකය පරිශීලක නාමය ලෙසත් ලියාපදිංචි කිරීමේදී ලබා දී ඇති විශේෂ අංකය මුරපදය ලෙසත් භාවිතා කළ හැකිය. <br>
+			  සිසුන්ට ඔවුන් ඇතුළත් වීමේදී ලබාදෙන විද්‍යුත් තැපැල් ලිපිනය (e-mail) පරිශීලක නාමය ලෙසත් ලියාපදිංචි කිරීමේදී ලබා දී ඇති විශේෂ අංකය මුරපදය ලෙසත් භාවිතා කළ හැකිය. <br>
 			  පන්ති වේලාවන් සහ වැඩි විස්තර සඳහා ඉහත දුරකථන අංකය භාවිතා කරන්න. <br>
 			  ඔබේ පන්ති කාඩ්පත වෙනත් අයෙකුට ලබාදීමෙන් වලකින්න. <br>
 			  ආයතනය තුල සහ ඉන් පිටත ඔබගේ විනය පවත්වාගන්න. <br>
