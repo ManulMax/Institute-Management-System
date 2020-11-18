@@ -35,7 +35,7 @@
 .middle button{
   font-family: 'Work Sans', sans-serif;
   font-size: 22px;
-  background-color: #279;
+  background-color: #4CAF50;
   color: #fff;
   border: 0px;
   border-radius: 3px;
@@ -45,7 +45,7 @@
   margin-top: 100px;
 }
 .middle button:hover{
-  background-color: #38a;
+  opacity:0.9; 
 }
 
 
@@ -110,3 +110,14 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+a{
+  text-decoration: none;
+  color:white;
+}
+
+.attemptQuiz{
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+   
+  transform: translateX(-15%);
+}

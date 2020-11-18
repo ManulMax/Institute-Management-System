@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <link rel="icon" href="<?php echo URL; ?>public/img/logo.png"> 
 <title>Download Materials</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -29,9 +30,9 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics</a>
           <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
         </div>
     </li>
@@ -40,9 +41,9 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics</a>
           <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
         </div>
     </li>
@@ -50,13 +51,70 @@
 	
   </div>
 
+  <div id="myModal" class="modal">
 
-  <div class="headerClass">
-	  <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Download Materials</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-	 <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Student ;-)</div>
+  <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <div class='row' style='background-color:white;text-align: center;'>
+         <button id='psw-btn'><a href='<?php echo URL; ?>login/renderPasswordChange'  id='psw'><i class='fas fa-key'></i>change password</a></button>
+       </div>
+
+     <?php
+
+            while($row = mysqli_fetch_assoc($this->userDetails)){  
+
+               echo "<h2 id='name'>".$row['fname']." </h2>";
+               echo "<h4 id='name'>Student</h4><br />";
+               /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
+
+               echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Telephone no.</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Email address</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['tel_no']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['email']."</h3>
+                </div>
+              </div>";
+
+              echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>NIC</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>DOB</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['NIC']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['DOB']."</h3>
+                </div>
+              </div>";
+            }
+          ?>
+
+    </div>
+
   </div>
 
+
+  <div class="headerClass">
+    <h2><i class="fas fa-download"></i>Download Materials</h2>
+    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+  </div>
 
   <div class="middle" style="background-color:white;">
 <script>
@@ -86,8 +144,10 @@
 
 
 <div class="footer">
-  <p>Footer</p>
-</div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
@@ -105,6 +165,40 @@ for (i = 0; i < dropdown.length; i++) {
   }
   });
 }
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
 </script>
 
 </body>

@@ -186,8 +186,7 @@ $(function(){
 <thead>
   <tr>
     <th>Reg No</th>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Full Name</th>
     <th>Batch</th>
     <th>NIC</th>
     <th>email</th>
@@ -200,7 +199,7 @@ $(function(){
       <?php
 
           while($row = mysqli_fetch_assoc($this->stuList)){  
-             echo "<tr><td>".$row['reg_no']."</td><td>" .$row['fname']."</td><td>".$row['lname']."</td><td>".$row['grade']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px; background-color:#4CAF50'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+             echo "<tr><td>".$row['reg_no']."</td><td>" .$row['fname']."</td><td>".$row['grade']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px; background-color:#4CAF50'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
 
           }
       ?>
@@ -231,8 +230,11 @@ $(function(){
   
 <!----------------------Footer----------------------->
 <div class="footer">
-  <p>Footer</p>
-</div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

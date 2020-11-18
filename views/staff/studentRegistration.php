@@ -218,9 +218,9 @@
 		<div class="col-75">
 		  <select name="grade" style="background:#F8F8FF;">
 			      <option value="0">Select Batch:</option>
-			      <option value="1"><?php echo date("Y"); ?> A/L</option>
-			      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
-			      <option value="3"><?php echo date("Y")+2; ?> A/L</option>
+			      <option value="2020 A/L"><?php echo date("Y"); ?> A/L</option>
+			      <option value="2021 A/L"><?php echo date("Y")+1; ?> A/L</option>
+			      <option value="2022 A/l"><?php echo date("Y")+2; ?> A/L</option>
 			      <option value="4">Revision</option>
       			</select>
       		</div>
@@ -278,8 +278,10 @@
 <!---------------------------------------Footer-------------------------------------->  
 
 <div class="footer">
-  <p>Footer</p>
-</div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
 
 
 

@@ -27,6 +27,13 @@ class participateQuizLandingPage_Model extends Model{
 
     }
 
+    public function listDetails($userid){
+
+        return $this->db->listWhere("*","student","user_id=$userid");
+    
+
+    }
+
 
     public function getUser($id){
 

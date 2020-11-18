@@ -18,6 +18,16 @@
 
 <div class="row">
   <div class="leftNav">
+     <button class="drop-btn">
+          <i class="fas fa-list fa-lg"></i>
+        </button>
+        <div class="drop-container">
+                <a href="#">blaa</a>
+                <a href="#">blaa</a>
+                <a href="#">blaa</a>
+
+        </div>
+
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
   <ul>
     <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
@@ -26,9 +36,9 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics</a>
           <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
         </div>
     </li>
@@ -37,9 +47,9 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics</a>
           <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
         </div>
     </li>
@@ -48,20 +58,92 @@
   </div>
 
 
-  <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Participate Quiz</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Student ;-)</div>
+   <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
+      <div class='row' style='background-color:white;text-align: center;'>
+         <button id='psw-btn'><a href='<?php echo URL; ?>login/renderPasswordChange'  id='psw'><i class='fas fa-key'></i>change password</a></button>
+       </div>
+
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->userDetails)){  
+
+               echo "<h2 id='name'>".$row['fname']." </h2>";
+               echo "<h4 id='name'>Student</h4><br />";
+               /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
+
+               echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Telephone no.</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Email address</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['tel_no']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['email']."</h3>
+                </div>
+              </div>";
+
+              echo "<div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>NIC</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>DOB</h3>
+                </div>
+              </div>";
+              echo "<div class='row'>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['NIC']."</h3>
+                </div>
+                <div class='col-50-detail'>
+                  <h3 class='detail'>".$row['DOB']."</h3>
+                </div>
+              </div>";
+            }
+          ?>
+
+    </div>
+
+  </div>
+
+
+
+
+
+ <div class="headerClass">
+    <h2><i class="fas fa-question"></i>Participate Quiz</h2>
+    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
   
-
-
-
+  
    <div class="middle" style="background-color:#F8F8FF;">
+  <form id="regForm" method="post" action="">
+    <h1 style="color:black; text-align:center;"><Strong>"Quiz Name"</Strong></h1>
+    <div class="topSection">Quiz Title:
+    <br />
+    <br />
+    <p class="head" style="width: 60%; padding-left:30px;">Encapsulation</p><br />
+    Time Limit:
+  <br />
+  <br />
+  <div style="float:right;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
+    <p class="head" style="width: 20%; padding-left:30px;">30 minutes</p><br />
+    
+    </div>
 
 
-   <h1>Quiz on Important Facts</h1>
 <div class="quiz-container">
   <div id="quizz"></div>
 </div>
@@ -71,7 +153,13 @@
 <div id="res"></div>
 </div>
 
-  
+ <div class="footer">
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div> 
+
+
   
 <script type="text/javascript">
     
@@ -233,9 +321,34 @@
 })();
  </script> 
 
-
-
  <script>
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 30,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+ </script>
+
+
+
+<script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
@@ -251,6 +364,41 @@ for (i = 0; i < dropdown.length; i++) {
   }
   });
 }
-</script>  
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+</script>
+
 </body>
   </html>
