@@ -58,17 +58,19 @@
   
   
   <div class="table-filters">
-  <div class="row" style="margin-left: 15%;">
-    <div class="col-10" style="width: 7%;">
-      <label for="filter-reg">Reg No :</label>
+    <div class="row" style="margin-left: 9%;">
+    <div class="col-10" style="width: 11%">
+    <label for="filter-reg">Reg No :</label>
     </div>
+
     <div class="col-10">
       <input type="text" class="input-text" id="filter-reg" data-filter-col="0">
     </div>
     <div class="col-5">
     </div>
-
-    <div class="col-10" style="width: 7%;">
+    <div class="col-5">
+    </div>
+    <div class="col-10">
       <label for="filter-name">Name :</label>
     </div>
     <div class="col-20">
@@ -77,13 +79,13 @@
     <div class="col-5">
     </div>
 
-    <div class="col-10" style="width: 7%;">
+    <div class="col-10">
       <label for="filter-nic">NIC :</label>
     </div>
     <div class="col-10">
       <input type="text" class="input-text" id="filter-nic" data-filter-col="2">
     </div>
-  </div>
+    </div>
   </div>
 
   <div id="tableDiv">

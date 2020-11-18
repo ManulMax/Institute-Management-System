@@ -9,7 +9,7 @@ class materials extends Controller{
     function index($classID,$batch){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
-        $this->view->materialList = $this->model->listMaterials($classID);
+        $this->view->materialList = $this->model->listClassMaterials($classID);
         $this->view->batch = $batch;
         $this->view->render('teacher/materials');
     }
@@ -24,7 +24,7 @@ class materials extends Controller{
     function renderPmMaterials($id,$batch){
         $this->view->classList = $this->model->listTeacherClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listPmDetails($_SESSION["userid"]);
-        $this->view->materialList = $this->model->listMaterials($id);
+        $this->view->materialList = $this->model->listClassMaterials($id);
         $this->view->batch = $batch;
         $this->view->render('paperMarker/materials');
     }
@@ -41,6 +41,6 @@ class materials extends Controller{
 
 
         $this->model->create($data);
-        header('location: '.URL.'materials');
+        header('location: '.URL.'materials/index/1/2021 A/L');
     }
 }

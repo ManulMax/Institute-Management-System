@@ -172,10 +172,6 @@
 
 
 
-
-
-
-
 	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
 		<div class="col-15">

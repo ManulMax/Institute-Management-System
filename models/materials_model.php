@@ -46,6 +46,14 @@ public function liststuDetails($userid){
 
     }
 
+
+    public function listClassMaterials($id){
+
+        return $this->db->listWhere("*","study_material","class_id=$id");
+    
+
+    }
+
     public function listSubjects(){
 
         return $this->db->listAll("subject");

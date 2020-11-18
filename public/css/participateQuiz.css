@@ -16,8 +16,8 @@
   margin: 0px;
   padding: 10px;
   font-size: 20px;
-  background-color: #444;
-  color: #fff;
+  background-color: #ACE1AF;
+  color: #000;
 }
 .middle .question{
   font-size: 30px;
@@ -34,18 +34,18 @@
 }
 .middle button{
   font-family: 'Work Sans', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   background-color: #4CAF50;
   color: #fff;
   border: 0px;
   border-radius: 3px;
-  padding: 20px;
+  padding: 15px;
   cursor: pointer;
   margin-bottom: 20px;
   margin-top: 100px;
 }
 .middle button:hover{
-  opacity:0.9; 
+  background-color: #45a049;
 }
 
 
@@ -69,6 +69,7 @@
   position: relative;
   height: 200px;
   margin-top: 40px;
+
 }
 
 

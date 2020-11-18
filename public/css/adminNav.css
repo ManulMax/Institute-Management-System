@@ -25,7 +25,7 @@
 .leftNav {
   background-color: #063811;
   float: left;
- top: 0;
+  top: 0;
   padding: 20px;
   height: 1000px;
   width: 17%;
@@ -40,7 +40,7 @@
 
 .leftNav ul {
   list-style: none;
-margin-top: 20px;
+  margin-top: 20px;
   padding: 0;
   background-color: #063811;
   color: white;
@@ -162,8 +162,13 @@ i{
 }
 
 .containerCard {
-  padding-left: 40%;
+  padding-left: 10%;
   margin-top: 25px;
+  margin-left: -60px;
+}
+
+.containerCard h4{
+  text-align: center;
 }
 
 .quarter-circle-top-left{
@@ -199,7 +204,7 @@ i{
   }
 
 .userDiv:hover {
-  width: 225px;
+  width: 375px;
   height: 35px;
   border-radius: 25px;
   padding: 0 10px 0 10px;

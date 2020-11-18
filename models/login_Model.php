@@ -158,8 +158,7 @@ class login_Model extends Model{
     function updatePassword($data){
         $username = $data['username'];
         $this->db->update('user', "password='".$data['password']."'","username='$username'");
+        
     }
-
-    
 
 }

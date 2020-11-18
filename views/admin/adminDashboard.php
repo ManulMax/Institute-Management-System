@@ -52,9 +52,9 @@
             <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
             <?php
 
-            while($row = mysqli_fetch_assoc($this->stuCount1)){  
+            while($row = mysqli_fetch_assoc($this->stuCount)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 53%;margin-top: -35px;'><h4><b>".$row['stuCount']." </b></h4></div>";
 
             }
           ?>
@@ -70,7 +70,7 @@
 
             while($row = mysqli_fetch_assoc($this->classCount)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 53%;margin-top: -35px;'><h4><b>".$row['classCount']." </b></h4></div>";
 
             }
           ?>
@@ -86,7 +86,7 @@
 
             while($row = mysqli_fetch_assoc($this->subCount)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 53%;margin-top: -35px;'><h4><b>".$row['subCount']." </b></h4></div>";
 
             }
           ?>
@@ -100,11 +100,11 @@
           <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
           <?php
             while($row = mysqli_fetch_assoc($this->tecCount)){  
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 53%;margin-top: -35px;'><h4><b>".$row['tecCount']." </b></h4></div>";
             }
           ?>
            <div class="containerCard">
-          <h4><b>Revision</b></h4>  
+          <h4><b>Total Teachers</b></h4>  
           </div>
         </div>
         </td>
