@@ -170,7 +170,7 @@
 		</table>
 		</div>
 
-<!-- ____________________________________________reg form__________________________________________________________________________ -->
+
 
 	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
