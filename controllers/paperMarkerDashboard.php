@@ -15,7 +15,7 @@ class paperMarkerDashboard extends Controller{
         $this->view->stuCount3 = $this->model->listStudentCount($_SESSION["userid"],"2022 A/L");
         $this->view->stuCount4 = $this->model->listStudentCount($_SESSION["userid"],"Revision");
 
-        $this->view->schedules = $this->model->listSchedules($_SESSION["userid"]);
+        $this->view->schedules = $this->model->listAllSchedules();
         $this->view->render('paperMarker/paperMarkerDashboard');
     }
 
