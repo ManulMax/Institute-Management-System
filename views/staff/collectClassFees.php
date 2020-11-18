@@ -122,7 +122,7 @@
     </div>
 
 
-      <video id="preview" style="width:200%;height:200%;"></video>
+      <video id="preview" style="width:150%;height:100%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {

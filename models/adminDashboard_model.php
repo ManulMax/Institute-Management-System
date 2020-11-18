@@ -7,27 +7,27 @@ class adminDashboard_model extends Model{
     }
 
 
-    public function listStudentCount($userid,$batch){
+    public function listStudentCount(){
 
-        return $this->db->listWhere("count(e.stu_reg_no) as count1","enrollment e,class c,teacher t","e.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid and c.batch='".$batch."'");
-
-}
-
-    public function listPaidCount($userid,$batch){
-
-        return $this->db->listWhere("count(e.stu_reg_no) as count1","enrollment e,class c,teacher t","e.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid and c.batch='".$batch."'");
+        return $this->db->listCol("count(reg_no) as stuCount","student");
 
 }
 
-    public function listClassCount($userid,$batch){
+    public function listClassCount(){
 
-        return $this->db->listWhere("count(e.stu_reg_no) as count1","enrollment e,class c,teacher t","e.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid and c.batch='".$batch."'");
+        return $this->db->listCol("count(id) as classCount","class");
 
 }
 
-    public function listTecCount($userid,$batch){
+    public function listSubCount(){
 
-        return $this->db->listWhere("count(e.stu_reg_no) as count1","enrollment e,class c,teacher t","e.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid and c.batch='".$batch."'");
+        return $this->db->listCol("count(id) as subCount","subject");
+
+}
+
+    public function listTecCount(){
+
+        return $this->db->listCol("count(reg_no) as tecCount","teacher");
 
 }
 }

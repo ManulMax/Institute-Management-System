@@ -104,117 +104,184 @@
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
 	
-	<form enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" >
-	<div class="container">
-   
-    <table >
+	<form id="regForm" enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" >
+	  <div class="row">
+		<div class="col-15">
+		  <label>Full Name :</label>
+		</div>
+		<div class="col-75">
+			<div class="popup">
+				<input type="text" placeholder="Enter full name..." name="fname" id="fnm" required>
+			  
+			</div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject"> NIC :</label>
+		</div>
+		<div class="col-25">
+		  <div class="popup">
+		  	<input type="text" placeholder="Enter NIC" name="nic" id="nic" required>
+		  	
+		  </div>
+		</div>
+		<div class="col-10">
+		</div>
+		<div class="col-15">
+		  <label for="subject">DOB :</label>
+		</div>
+		<div class="col-25">
+		  <input type="date" name="dob" id="dob" required>
+		</div>
+	  </div>
 
-			<tr>
-				<td>First Name</td>
-				<td><input type="text" placeholder="Enter Name" name="fname" id="fnm" required></td>
-				<td>Middle Name</td>
-				<td><input type="text" placeholder="Enter Name" name="mname" id="mnm" required></td>
-				<td>Last Name</td>
-				<td><input type="text" placeholder="Enter Name" name="lname" id="lnm" required></td>
-			</tr>
-			
-			<tr>
-				<td>NIC</td>
-				<td colspan=2><input type="text" placeholder="Enter NIC" name="nic" id="nic" required></td>
-				<td>DOB</td>
-				<td><input type="date" placeholder="Select DOB" name="dob" id="dob" required></td>
-				<td></td>
-			</tr>
-			
-			<tr>
-				<td>E-mail</td>
-				<td colspan=2><input type="text" placeholder="Enter E-mail" name="email" id="e-mail" required></td>
-				<td>Tel No</td>
-				<td><input type="tel" placeholder="Tel " name="tel" id="tel" required></td>
-			</tr>
-			
-			<tr>
-				<td>Gender</td>
-				<td>Male <input type="radio" id="male" name="gender" value="male" rquired></td>
-				<td>Female <input type="radio" id="female" name="gender" value="female" required></td>
-			</tr>
-				
-			<tr>
-				<td>Address</td>
-				<td colspan=5><input type="text" placeholder="Address" name="address" id="address" required></td>
-			</tr>
-			
-			<tr></tr>
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Gender :</label>
+		</div>
+		<div class="col-15" class="genderLabel">
+		  <input type="radio" value="male" name="gender">
+		  <label for="male">Male</label>
+		</div>
+		<div class="col-15" class="genderLabel">
+		  <input type="radio" value="female" name="gender">
+		  <label for="female">Female</label>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Email :</label>
+		</div>
+		<div class="col-75" style="width: 60%">
+		<div class="popup">
+		  <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
+		  
+		  </div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Address :</label>
+		</div>
+		<div class="col-75">
+		  <textarea rows="4" cols="90" placeholder="Address..." name="address"></textarea>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Mobile No. :</label>
+		</div>
+		<div class="col-25">
+		<div class="popup">
+		  <input type="text" placeholder="Mobile number..." id="phone" name="tel">
+		  
+		</div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Parent name :</label>
+		</div>
+		<div class="col-75">
+		  <input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" required>
+		</div>
+	  </div>
 
-			<tr>
-				<td>Parent/Gardian Name</td>
-				<td colspan=5><input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" required></td>
-				
-			</tr>
-			
-			<tr>
-				<td>Tel No</td>
-				<td><input type="tel" placeholder="Parent/Gardian Tel " name="parent_tel" id="parent_tel" required></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			
-			<tr></tr>
-		
-			<tr>
-				<td>School</td>
-				<td colspan=5><input type="text" placeholder="Enter School" name="school" id="school" required></td>
-				
-			</tr>
-			
-			<tr>
-				<td>Grade</td>
-				<td colspan=2><select name="grade" id="filter-city" data-filter-col="2" style="min-width:60px">
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Parent tel :</label>
+		</div>
+		<div class="col-75">
+		  <input type="tel" placeholder="Parent/Gardian Tel " name="parent_tel" id="parent_tel" required>
+		</div>
+	  </div>
+
+	   <div class="row">
+		<div class="col-15">
+		  <label for="subject">School :</label>
+		</div>
+		<div class="col-75">
+		  <input type="text" placeholder="Enter School" name="school" id="school" required>
+		</div>
+	  </div>
+
+	   <div class="row">
+		<div class="col-15">
+		  <label for="subject">Class :</label>
+		</div>
+		<div class="col-75">
+		  <select name="grade" style="background:#F8F8FF;">
 			      <option value="0">Select Batch:</option>
 			      <option value="1"><?php echo date("Y"); ?> A/L</option>
 			      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
 			      <option value="3"><?php echo date("Y")+2; ?> A/L</option>
 			      <option value="4">Revision</option>
-      			</select></td>
-				<td>Stream</td>
-				<td><input type="tel" placeholder="Stream " name="stream" id="stream" required></td>
-			</tr>
-			
-			<tr>
-				<td>Subjects</td>
-				<td><input type="text" placeholder="Subject 1 " name="subject1" id="subject1" required></td>
-				<td><input type="text" placeholder="Subject 2 " name="subject2" id="subject2" required></td>
-				<td><input type="text" placeholder="Subject 3 " name="subject3" id="subject3" required></td>
-				
-			</tr>
+      			</select>
+      		</div>
+		</div>
 
-			<!--<tr>
-				<td></td>
-			
-				<td><a href="enrollStudent"><button type="submit" class="registerbtn" name="enroll">Enroll to class</button></a></td></tr>-->
-			
-			<tr></tr>
-			<tr>
-				<td>Photo</td>
-				<td colspan=5><input type="file" placeholder="Upload photo " name="img" id="photo" required></td>
-			</tr>
-			
-			<tr>
-				<td></td>
-				<td colspan=6><button type="submit" class="registerbtn" name="submit">Register</button></td>
-			</tr>	
-			
-		</table>
-	</div>  
+
+		<div class="row">
+		<div class="col-15">
+		  <label for="subject">Stream :</label>
+		</div>
+		<div class="col-75">
+		  <input type="tel" placeholder="Stream " name="stream" id="stream" required>
+		</div>
+	  </div>
+
+
+	  <div class="row">
+		<div class="col-15">
+		  <label for="subject">Subjects :</label>
+		</div>
+		<div class="col-75">
+		  <input type="text" placeholder="Subject 1 " name="subject1" id="subject1" required>
+		  <input type="text" placeholder="Subject 2 " name="subject2" id="subject2" required>
+		  <input type="text" placeholder="Subject 3 " name="subject3" id="subject3" required>
+		</div>
+	  </div>
+
+
+
+
+
+	   <div class="row">
+		<div class="col-15">
+		  <label for="subject">Photo :</label>
+		</div>
+		<div class="col-75">
+		 <input type="file" placeholder="Upload photo " name="img" id="photo" required>
+		</div>
+	  </div>
+
+
+	 
+	  
+
+	  <div class="row" style="margin-top:30px;margin-right:10%;">
+		<input id="formSubmit" type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
+	  </div>
+	  
 	</form>
+
+
   </div>
+
   
 <!---------------------------------------Footer-------------------------------------->  
 
 <div class="footer">
   <p>Footer</p>
 </div>
+
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

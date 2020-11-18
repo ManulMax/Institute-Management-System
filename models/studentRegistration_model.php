@@ -43,7 +43,7 @@ class studentRegistration_Model extends Model{
 
 
         
-        $this->db->insert('student',"(fname,mname,lname,tel_no,address,NIC,DOB,gender,email,school,grade,stream,image,user_id)","('".$data['fname']."','".$data['mname']."','".$data['lname']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['school']."','".$data['grade']."','".$data['stream']."','".$data['imagename']."',".$num['id'].")");
+        $this->db->insert('student',"(fname,tel_no,address,NIC,DOB,gender,email,school,grade,stream,image,user_id)","('".$data['fname']."','".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['school']."','".$data['grade']."','".$data['stream']."','".$data['imagename']."',".$num['id'].")");
 
         $reg_no = $this->db->listWhere("reg_no","student","NIC='".$data['NIC']."'");
         $reg = mysqli_fetch_assoc($reg_no);
@@ -52,9 +52,9 @@ class studentRegistration_Model extends Model{
 
         $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
 
-        $stuName = $data['fname']." ".$data['mname']." ".$data['lname'];
+      /*  $stuName = $data['fname']." ".$data['mname']." ".$data['lname'];
         Session::set('studentRegNo',$reg);
-        Session::set('studentName',$stuName);
+        Session::set('studentName',$stuName);*/
 
     }
  

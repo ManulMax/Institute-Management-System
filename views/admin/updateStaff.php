@@ -57,18 +57,20 @@
   <div class="middle" style="background-color:#F8F8FF;padding-top: 5%;">
   
     
-    <div class="table-filters">
-  <div class="row" style="margin-left: 15%;">
-    <div class="col-10" style="width: 7%;">
-      <label for="filter-reg">Reg No :</label>
+  <div class="table-filters">
+    <div class="row" style="margin-left: 9%;">
+    <div class="col-10" style="width: 11%">
+    <label for="filter-reg">Reg No :</label>
     </div>
+
     <div class="col-10">
       <input type="text" class="input-text" id="filter-reg" data-filter-col="0">
     </div>
     <div class="col-5">
     </div>
-
-    <div class="col-10" style="width: 7%;">
+    <div class="col-5">
+    </div>
+    <div class="col-10">
       <label for="filter-name">Name :</label>
     </div>
     <div class="col-20">
@@ -77,13 +79,13 @@
     <div class="col-5">
     </div>
 
-    <div class="col-10" style="width: 7%;">
+    <div class="col-10">
       <label for="filter-nic">NIC :</label>
     </div>
     <div class="col-10">
       <input type="text" class="input-text" id="filter-nic" data-filter-col="2">
     </div>
-  </div>
+    </div>
   </div>
 
   <div id="tableDiv">
@@ -92,7 +94,7 @@
       <tr>
         <th>Reg. No</th>
         <th>Name</th>
-        <th>Tep No</th>
+        <th>Tel No</th>
         <th></th>
         <th></th>
       </tr>
@@ -111,104 +113,6 @@
     </tbody>
     </table>
     </div>
-
-    <div class="form-popup" id="myForm">
-               <form action="/action_page.php" class="form-container">
-                  <div class="row">
-                     <div class="col-75">
-                        <h3 style="margin-right: 20%;float: right;">Edit Paper Marker Details</h3>
-                     </div>
-                     <div class="col-25">
-                        <button type="button" class="btn cancel" onclick="closeForm()"><i class="fas fa-times fa-lg"></i></button>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label>Full Name :</label>
-                     </div>
-                     <div class="col-75">
-                        <div class="popup">
-                           <input type="text" id="fullname" placeholder="Full name..." name="name" onfocusout="validateName()">
-                           <span class="popuptext" id="name-popup"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label for="subject"> NIC :</label>
-                     </div>
-                     <div class="col-25">
-                        <div class="popup">
-                           <input type="text" placeholder="Identity card number..." id="NIC" name="NIC" onfocusout="validateNIC()">
-                           <span class="popuptext" id="NIC-popup"></span>
-                        </div>
-                     </div>
-                     <div class="col-10">
-                     </div>
-                     <div class="col-15">
-                        <label for="subject">DOB :</label>
-                     </div>
-                     <div class="col-25">
-                        <input type="date" name="DOB">
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label for="subject">Gender :</label>
-                     </div>
-                     <div class="col-15" class="genderLabel">
-                        <input type="radio" value="male" name="gender">
-                        <label for="male">Male</label>
-                     </div>
-                     <div class="col-15" class="genderLabel">
-                        <input type="radio" value="female" name="gender">
-                        <label for="female">Female</label>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label for="subject">Email :</label>
-                     </div>
-                     <div class="col-75" style="width: 60%">
-                        <div class="popup">
-                           <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
-                           <span class="popuptext" id="email-popup"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label for="subject">Address :</label>
-                     </div>
-                     <div class="col-75">
-                        <textarea rows="4" cols="90" placeholder="Address..." name="address"></textarea>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label for="subject">Mobile No. :</label>
-                     </div>
-                     <div class="col-25">
-                        <div class="popup">
-                           <input type="text" placeholder="Mobile number..." id="phone" name="tel">
-                           <span class="popuptext" id="phone-popup"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-15">
-                        <label for="subject">Qualifications :</label>
-                     </div>
-                     <div class="col-75">
-                        <textarea rows="4" cols="90" name="qualifications"></textarea>
-                     </div>
-                     <div class="row">
-                     </div>
-                  </div>
-                  <button type="submit" class="btn" >Update</button>
-                  <br />
-               </form>
-            </div>
 
   </div>
   

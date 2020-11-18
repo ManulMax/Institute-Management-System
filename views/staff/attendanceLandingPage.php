@@ -160,8 +160,7 @@ $(function(){
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td></tr>";
-
+         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
       }
   ?>
 </tbody>

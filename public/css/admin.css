@@ -168,9 +168,9 @@ label{
   padding-right: 30px;
   padding-left: 30px;
   height: 950px;
-  width: 83%;
+  width: 80%;
   overflow: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none;  
   scrollbar-width: none;
 }
 

@@ -27,7 +27,6 @@
       <li><a href="<?php echo URL; ?>collectClassFees"><i class="fa fa-money"></i>Collect fees</a></li>
       <li><a href="<?php echo URL; ?>staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     </ul>
-    
   </div>
 
    <div id="myModal" class="modal">
@@ -98,7 +97,7 @@
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-      <video id="preview" style="width:200%;height:200%;"></video>
+      <video id="preview" style="width:150%;height:100%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {
@@ -189,7 +188,7 @@
     </div>
  
 </div>
-</div>
+
 
 
 
@@ -217,7 +216,33 @@ for (i = 0; i < dropdown.length; i++) {
 }
 
 
+// Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
   
   </body>
   </html>

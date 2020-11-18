@@ -56,17 +56,19 @@
 	
 		
     <div class="table-filters">
-	  <div class="row" style="margin-left: 15%;">
-    <div class="col-10" style="width: 7%;">
-      <label for="filter-reg">Reg No :</label>
+	  <div class="row" style="margin-left: 9%;">
+    <div class="col-10" style="width: 11%">
+    <label for="filter-reg">Reg No :</label>
     </div>
+
     <div class="col-10">
       <input type="text" class="input-text" id="filter-reg" data-filter-col="0">
     </div>
     <div class="col-5">
     </div>
-
-    <div class="col-10" style="width: 7%;">
+    <div class="col-5">
+    </div>
+    <div class="col-10">
       <label for="filter-name">Name :</label>
     </div>
     <div class="col-20">
@@ -75,7 +77,7 @@
     <div class="col-5">
     </div>
 
-    <div class="col-10" style="width: 7%;">
+    <div class="col-10">
       <label for="filter-nic">NIC :</label>
     </div>
     <div class="col-10">
@@ -91,12 +93,8 @@
         <th>Reg. No</th>
         <th>Name</th>
         <th>NIC</th>
-        <th>Address</th>
         <th>email</th>
-        <th>Qualifications</th>
         <th>Tel No</th>
-        <th>Account No</th>
-        <th>Bank Name</th>
         <th></th>
         <th></th>
       </tr>
@@ -105,7 +103,7 @@
       <?php
 
     while($row = mysqli_fetch_assoc($this->tecList)){  
-    echo "<tr><td>".$row['reg_no']."</td><td>" .$row['fname']."</td><td>".$row['NIC']."</td><td>".$row['address']."</td><td>".$row['email']."</td><td>".$row['qualifications']."</td><td>".$row['tel_no']."</td><td>".$row['acc_no']."</td><td>".$row['bank_name']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+    echo "<tr><td>".$row['reg_no']."</td><td>" .$row['fname']." ".$row['mname']." ".$row['lname']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td>".$row['tel_no']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
 
     }
 ?>

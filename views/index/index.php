@@ -14,7 +14,7 @@
     <div class="wrapper-1">
         <header class="head clear">
             <div class="top_left">
-                <h1><a href="index.html">Vidarsha Higher Education Center <br> Galle</a></h1>
+                <h1><a href="#">Vidarsha Higher Education Center <br> Galle</a></h1>
                 <p>Key to the future</p>
             </div>
             <div class="top_right">
