@@ -30,23 +30,32 @@
     
     
   <div class="headerClass">
-    <h2><i class="fas fa-upload"></i>Add Subject</h2>
+    <h2><i class="fa fa-book"></i>Add Subject</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
-
+  <div class="footer">
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
+</div>
     <!-------------------Middle contet---------------------------------->
   
   
   <div class="middle" style="background-color:#F8F8FF;padding-top: 5%;">
   
   <div class="row" style="margin-left: 30%;">
-    <div class="col-15">
+    <div class="col-25">
       <label for="filter-reg">New Subject :</label>
     </div>
+
     <div class="col-25">
       <input type="text" placeholder="subject name...">
     </div>
+    <div class="col-25">
+    <input type='submit' value='ADD'>
+    </div>
+    
   </div>
     
 
@@ -64,7 +73,7 @@
       <tr>
         <td>1</td>
         <td>Physics</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
+        <td style="width: 5px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
         <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
       </tr>
       <tr>
@@ -87,10 +96,6 @@
   </div>
 
 
-</div>
-
-<div class="footer">
-  <p>Footer</p>
 </div>
 
 </body>

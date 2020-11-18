@@ -31,7 +31,7 @@
     
     
   <div class="headerClass">
-    <h2><i class="fas fa-upload"></i>Register Staff</h2>
+    <h2><i class="fa fa-user-circle-o"></i>Register Staff</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
@@ -126,8 +126,10 @@
 
 
 
-<div class="footer">
-  <p>Footer</p>
+  <div class="footer">
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
 </div>
 </div>
 </body>

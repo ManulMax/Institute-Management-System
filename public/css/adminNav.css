@@ -137,15 +137,29 @@ i{
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
   padding: 10px;
   text-align: center;
   width: 100%;
   position: absolute;
-  margin-top: 950px;
+  margin-top: 940px;
   float: left;
 
 }
+
+.footer , .footer a{
+        color:#AAAAAA; 
+        background-color:#000000;
+        }
+        #copyright{padding:20px 0;}
+        #copyright *{margin:0; padding:0;}
+        #copyright p{margin-left: 40px;}
+.footer .cpy{
+        display:block; margin:0 0 auto 0;
+        }
+.clear{display:block;}
+.clear::before, .clear::after{display:table; content:"";}
+.clear, .clear::after{clear:both;}
+
 
 /* ----------------------------- middle content ----------------------------- */
 .card {

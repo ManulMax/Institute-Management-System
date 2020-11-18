@@ -31,12 +31,16 @@
     
     
   <div class="headerClass">
-    <h2><i class="fas fa-upload"></i>Register Teacher</h2>
+    <h2><i class="fa fa-graduation-cap"></i>Register Teacher</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
-   
+  <div class="footer">
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
+</div>
   <!-------------------Middle contet---------------------------------->
 <div class="middle" style="background-color:#F8F8FF;">
 	
@@ -188,22 +192,9 @@
     </div>
     
   </form>
-  </div>
   
+  </div>
+
 
 </body>
 </html>
-
-<!--.wrapper{
-  position: relative;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 800px;
-  max-height:5000px;
-  background: rgba(0,0,0,0.8);
-  padding: 30px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}

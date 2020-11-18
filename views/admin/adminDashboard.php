@@ -34,11 +34,15 @@
     
     
   <div class="headerClass">
-    <h2><i class="fas fa-upload"></i>Admin Dashboard</h2>
+    <h2><i class="fas fa-home"></i>Admin Dashboard</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
-
+  <div class="footer">
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
+</div>
 
 
     <!-------------------Middle contet---------------------------------->
@@ -49,7 +53,7 @@
 
         <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-user-graduate fa-2x"></i></div>
             <?php
 
             while($row = mysqli_fetch_assoc($this->stuCount)){  
@@ -65,7 +69,7 @@
         </td>
         <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon2" class="fas fa-users fa-2x"></i></div>
+          <div class="quarter-circle-top-left"><i id="icon2" class="fas fa-chalkboard-teacher fa-2x"></i></div>
           <?php
 
             while($row = mysqli_fetch_assoc($this->classCount)){  
@@ -81,7 +85,7 @@
         </td>
       <td style="padding-top:10px;padding-left:20px;padding-right:20px;border: 0px;">
           <div class="card">
-          <div class="quarter-circle-top-left"><i id="icon3" class="fas fa-users fa-2x"></i></div>
+          <div class="quarter-circle-top-left"><i id="icon3" class="fas fa-book fa-2x"></i></div>
           <?php
 
             while($row = mysqli_fetch_assoc($this->subCount)){  
@@ -128,7 +132,7 @@
                                     label: 'New Registering Student Per Month',
                                     backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                     borderColor: '#14870f',
-                                    data: [0, 10, 5, 2, 20, 30, 45, 12, 8, 10, 32, 46]
+                                    data: [0, 10, 5, 2, 20, 30, 45, 12, 8, 10, 0, 0]
                                 }]
                             },
     

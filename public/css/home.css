@@ -348,14 +348,14 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
     padding:0; 
     line-height:1.6;
 }
-/*.footer .left-block .ulist li i{
+.footer .left-block .ulist li i{
     display:block; 
-    position:absolute; 
+    /* position:absolute;  */
     top:0; left:0; 
     width:30px; 
     font-size:16px; 
     text-align:center;
-}*/
+}
 .footer .left-block .ulist li:last-child{
     margin:0; 
     padding:0; 
