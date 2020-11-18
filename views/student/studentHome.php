@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
 <title>Student Dashboard</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -45,18 +46,21 @@ $(function(){
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L ICT</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L Physics</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision 2021 A/L</a>
         </div>
     </li>
-
     <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L ICT</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L Physics</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision 2021 A/L</a>
         </div>
     </li>
 
@@ -136,15 +140,15 @@ $(function(){
       <tr>
         <td width="40%">
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
-            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Combined Maths 2021 A/L</b></h3></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>ICT 2021 A/L</b></h3></div>
              <div class="containerCard">
             <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
             </div>
           </div>
           <br />
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Physics 2021 A/L</b></h3></div>
              <div class="containerCard">
             <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
@@ -152,7 +156,7 @@ $(function(){
           </div>
           <br />
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fas fa-users fa-2x"></i></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Chemistry 2021 A/L</b></h3></div>
              <div class="containerCard">
             <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
@@ -169,17 +173,30 @@ $(function(){
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+                    labels: ['Janu', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
                     datasets: [{
-                        label: 'Weekly Attendance',
-                        data: [12, 19, 3, 5],
+                        label: 'Monthly Attendance',
+                        data: [4, 3, 4, 4, 3, 2, 1, 4, 3, 3 ],
                         backgroundColor: [
                             '#8FBC8F',
                             '#8FBC8F',
                             '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
                             '#8FBC8F'
+
                         ],
                         borderColor: [
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
+                            '#8FBC8F',
                             '#8FBC8F',
                             '#8FBC8F',
                             '#8FBC8F',
@@ -208,51 +225,92 @@ $(function(){
           <div class="marks">
             <h3>Exam results</h3>
             <br />
-            <h4>Subject 1</h4>
+            <h4>ICT</h4>
             <p>Exam 1</p>
             <p>Exam 2</p>
             <p>Exam 3</p>
             <br />
 
-            <h4>Subject 2</h4>
+            <h4>Chemistry</h4>
             <p>Exam 1</p>
             <p>Exam 2</p>
             <p>Exam 3</p>
             <br />
 
-            <h4>Subject 3</h4>
+            <h4>Physics</h4>
             <p>Exam 1</p>
             <p>Exam 2</p>
             <p>Exam 3</p>
             <br />
+            <br />
 
-            <h4>Subject 3</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
+            <h3>Quiz results</h3>
+            <br />
+            <h4>ICT</h4>
+            <p>Quiz 1</p>
+            <p>Quiz 2</p>
+            <p>Quiz 3</p>
+            <br />
+
+            <h4>Chemistry</h4>
+            <p>Quiz 1</p>
+            <p>Quiz 2</p>
+            <p>Quiz 3</p>
             <br />
           </div>
         </td>
 
         <td>
-          <table id="data">
- 
-<thead>
+
+          <table class="filterShedule">
+            <tr>
+              <td><label for="filter-city">Teacher</label></td>
+     <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
+       <option value="">- All -</option>
+      <option value="1">Chemistry</option>
+      <option value="2">Physics</option>
+      <option value="3">Combined Maths</option>
+      <option value="4">ICT</option>
+     </select></td>
+            </tr>
+ <tr>
+  <td><label for="filter-city">Batch</label></td>
+     <td><select id="filter-city" data-filter-col="3" style="min-width:60px">
+       <option value="">- All -</option>
+      <option value="1"><?php echo date("Y");?> A/L</option>
+      <option value="2"><?php echo date("Y")+1;?> A/L</option>
+      <option value="3"><?php echo date("Y")+2;?> A/L</option>
+      <option value="4">Revision</option>
+     </select></td>
+
+     <td><label for="filter-city">Class</label></td>
+     <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
+       <option value="">- All -</option>
+      <option value="1">Chemistry</option>
+      <option value="2">Physics</option>
+      <option value="3">Combined Maths</option>
+      <option value="4">ICT</option>
+     </select></td>
+ </tr>
+</table>
+<table id="data">
   <tr>
+    <th>Teacher</th>
     <th>Class</th>
+    <th>Batch</th>
     <th>Time</th>
     <th>Hall</th>
   </tr>
-</thead>
-<tbody>
+
+
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+         echo "<tr><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
 
       }
   ?>
-</tbody>
+
 </table>
         </td>
         
@@ -266,8 +324,10 @@ $(function(){
 
 
 <div class="footer">
-  <p>Footer</p>
-</div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

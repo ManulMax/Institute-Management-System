@@ -143,7 +143,19 @@
                         </select>
                     </div>
                 </td>
-                
+
+                 <td><label style="color:black">Class</label>
+                    <div class="box">
+                        <select id="subject">
+                            <option value="sub1">2020 A/L</option>
+                              <option value="sub2">2021 A/L</option>
+                              <option value="sub3">2022 A/L</option>
+                              <option value="def" selected>Select Class</option>
+                        </select>
+                    </div>
+                </td>
+                </tr>
+                <tr>
                 <td><label style="color:black">Teacher</label>
                     <div class="box">
                         <select id="teacher">
@@ -195,8 +207,11 @@
 
 <!-------------------------------footer------------------------------------------>
 <div class="footer">
-    <p>Footer</p>
-  </div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

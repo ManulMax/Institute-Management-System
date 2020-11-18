@@ -20,10 +20,19 @@ class participateQuiz_Model extends Model{
 
     }
 
+    
+
     public function listSubjects(){
 
         return $this->db->listAll("subject");
         
+
+    }
+
+    public function listDetails($userid){
+
+        return $this->db->listWhere("*","student","user_id=$userid");
+    
 
     }
 

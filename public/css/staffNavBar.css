@@ -27,7 +27,7 @@
   float: left;
  top: 0;
   padding: 20px;
-  height: 1000px;
+  height: 1050px;
   width: 17%;
   font-size: 16px;
   
@@ -371,4 +371,16 @@ label {
 }
 
 
-
+ .footer , .footer a{
+        color:#AAAAAA; 
+        background-color:#000000;
+        }
+        #copyright{padding:20px 0;}
+        #copyright *{margin:0; padding:0;}
+        #copyright p{margin-left: 40px;}
+        .footer .cpy{
+        display:block; margin:0 0 auto 0;
+        }
+        .clear{display:block;}
+        .clear::before, .clear::after{display:table; content:"";}
+        .clear, .clear::after{clear:both;}

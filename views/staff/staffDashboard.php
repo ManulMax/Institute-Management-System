@@ -296,9 +296,11 @@ var myChart = new Chart(ctx, {
 
 
 
-<div class="footer">
-  <p>Footer</p>
-</div>
+ <div class="footer">
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
 
 
 <script>
@@ -352,7 +354,6 @@ window.onclick = function(event) {
 
 
 </script>
-
 
 </body>
 

@@ -111,3 +111,14 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+a{
+  text-decoration: none;
+  color:white;
+}
+
+.attemptQuiz{
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+   
+  transform: translateX(-15%);
+}

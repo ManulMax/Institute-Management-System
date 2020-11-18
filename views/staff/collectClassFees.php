@@ -182,8 +182,11 @@
 
 <!-------------------------------footer------------------------------------------>
 <div class="footer">
-    <p>Footer</p>
-  </div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
+
   
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

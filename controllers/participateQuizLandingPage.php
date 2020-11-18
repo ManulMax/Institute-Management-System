@@ -7,6 +7,7 @@ class participateQuizLandingPage extends Controller{
     }
 
     function index(){
+    	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
     	$this->view->render('student/participateQuizLandingPage');
     }
 }
