@@ -33,19 +33,22 @@
 
 
 
+
             <input type="submit" value="Login" class="btn solid" />
+
+
             <p class="social-text">Follow Vidarsha In Social Networks</p>
             <div class="social-media">
               <a href="https://m.facebook.com/vidarshaedu/photos/?ref=page_internal&mt_nav=0" class="social-icon" target="_blank">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-icon" target="_blank">
+              <a href="https://mail.google.com/mail/u/0/#inbox" class="social-icon" target="_blank">
                 <i class="fab fa-google"></i>
               </a>
-              <a href="#" class="social-icon" target="_blank">
+              <a href="https://www.youtube.com/" class="social-icon" target="_blank">
                 <i class="fab fa-youtube"></i>
               </a>
-              <a href="#" class="social-icon" target="_blank">
+              <a href="https://lk.linkedin.com/" class="social-icon" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -95,14 +98,14 @@
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
-            <div class="popup">
-              <h3 class="info-img"></h3>
-
-            </div>
-            <p>
-            </p>
-          </div>
           <img src="<?php echo URL; ?>public/img/logosvg.svg" class="image" alt="" />
+
+            <div class="content">
+            <button class="btn transparent" id="sign-up-btn" onclick="window.location='<?php echo URL; ?>index';">
+              Home
+            </button>
+          </div>
+          </div>
         </div>
         <div class="panel right-panel">
           <div class="content">

@@ -139,13 +139,7 @@
       <option value="4">Revision</option>
       </select></td>
       <td>Exam</td>
-        <td><select>
-      <option value="0">Select Exam:</option>
-      <option value="1">Encapsulation</option>
-      <option value="2"> Abstraction</option>
-      <option value="3"> Inheritance</option>
-      <option value="4">Exception handling</option>
-      </select></td>
+        <td><input type="text" name="exam"></td>
       </tr>
 
      </table>

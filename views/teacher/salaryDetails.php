@@ -137,9 +137,8 @@
         <h3>Salary payment details</h3>
       
     <div class="details">
-        <p>Payment date :</p>
-        <p>Salary details of Month :</p>
-        <p>Total Salary :</p>
+        <p>Payment date : 2020-10-31</p><br />
+        <p>Total Salary : Rs. 51500.00</p>
 
         <p style="color: grey;font-weight:bold;margin-top:30px;">Class-wise salary :</p>
 
@@ -157,21 +156,21 @@
           </tr>
           <tr>
             <td><?php echo date("Y")+1; ?> A/L</td>
-            <td>12000.00</td>
+            <td>13500.00</td>
           </tr>
           <tr>
             <td><?php echo date("Y")+2; ?> A/L</td>
-            <td>12000.00</td>
+            <td>11000.00</td>
           </tr>
           <tr>
             <td>Revision</td>
-            <td>12000.00</td>
+            <td>15000.00</td>
           </tr>
         </tbody>
 
 
     </table>
-    <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%;" value=" Download Report">
+    <input type="submit" name="" style="margin-right: 25%;margin-bottom: 15%;" value=" Download Report">
   </div>
          
     
