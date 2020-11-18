@@ -20,7 +20,7 @@
             <h2 class="title">Change Password</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input id="usernm" name="uname" type="text" placeholder="Username" disable="disabled" />
+              <input id="usernm" name="uname" type="text" placeholder="Username" disabled>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>

@@ -124,7 +124,7 @@ function validateName() {
   var x = document.getElementById("fullname");
   var popup = document.getElementById("name-popup");
 
-  var letters = /^[A-Za-z]+$/;
+  var letters = /^[a-zA-Z][a-zA-Z\s]*$/;
    if(x.value.match(letters)){
     
       x.style.borderColor = '#228B22';

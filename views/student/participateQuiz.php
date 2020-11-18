@@ -26,10 +26,8 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L ICT</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L Physics</a>
         </div>
     </li>
     <li>
@@ -37,10 +35,8 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L ICT</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L Physics</a>
         </div>
     </li>
   </ul> 
@@ -51,7 +47,7 @@
   <div class="headerClass">
     <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Participate Quiz</h2>
     <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Student ;-)</div>
+   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Student ;-)</div>
   </div>
 
   
@@ -59,17 +55,19 @@
 
 
    <div class="middle" style="background-color:#F8F8FF;">
-
-
-   <h1>Quiz on Important Facts</h1>
-<div class="quiz-container">
-  <div id="quizz"></div>
+<div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
+  <h1>Quiz on Javascript</h1>
+  <div class="quiz-container">
+    <div id="quizz"></div>
+  </div>
+  <button id="previous">Previous Question</button>
+  <button id="nxt">Next Question</button>
+  <button id="sub">Submit Quiz</button>
+  <div id="res"></div>
+  </div>
 </div>
-<button id="previous">Previous Question</button>
-<button id="nxt">Next Question</button>
-<button id="sub">Submit Quiz</button>
-<div id="res"></div>
-</div>
+
+   
 
   
   

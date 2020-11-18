@@ -25,10 +25,8 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2022 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2023 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L ICT</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">2021 A/L Physics</a>
         </div>
     </li>
     <li>
@@ -36,10 +34,8 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2022 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">2023 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L ICT</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">2021 A/L Physics</a>
         </div>
     </li>
   </ul> 

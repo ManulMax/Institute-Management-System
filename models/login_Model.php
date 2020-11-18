@@ -157,14 +157,8 @@ class login_Model extends Model{
 
     function updatePassword($data){
         $username = $data['username'];
-        if ($data['password'] == $data['confpasswd']) {
-            $this->db->update('user', "password='".$data['password']."'","username='$username'");
-        }else{
-                header('location: '.URL.'login/renderPasswordChange?msg=Password mismatch');
-        }
-        exit;
+        $this->db->update('user', "password='".$data['password']."'","username='$username'");
+        
     }
-
-    
 
 }

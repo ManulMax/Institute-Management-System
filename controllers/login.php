@@ -64,7 +64,6 @@ class login extends Controller{
         $data = array();
         $data['username'] = $_POST['username'];
         $data['password'] = md5($_POST['new_passwd']);
-        $data['confpassword'] = md5($_POST['confirm_passwd']);
 
         $this->model->updatePassword($data);
 
