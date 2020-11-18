@@ -220,7 +220,7 @@
 			      <option value="0">Select Batch:</option>
 			      <option value="2020 A/L"><?php echo date("Y"); ?> A/L</option>
 			      <option value="2021 A/L"><?php echo date("Y")+1; ?> A/L</option>
-			      <option value="2022 A/l"><?php echo date("Y")+2; ?> A/L</option>
+			      <option value="2022 A/L"><?php echo date("Y")+2; ?> A/L</option>
 			      <option value="4">Revision</option>
       			</select>
       		</div>

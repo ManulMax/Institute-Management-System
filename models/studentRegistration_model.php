@@ -41,7 +41,6 @@ class studentRegistration_Model extends Model{
 
         move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\img\studentImages\\".$data['imagename']);
 
-
         
         $this->db->insert('student',"(fname,tel_no,address,NIC,DOB,gender,email,school,grade,stream,image,user_id)","('".$data['fname']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['school']."','".$data['grade']."','".$data['stream']."','".$data['imagename']."',".$num['id'].")");
 
