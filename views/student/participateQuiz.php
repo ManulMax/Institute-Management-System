@@ -36,10 +36,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision 2021 A/L</a>
         </div>
     </li>
     <li>
@@ -47,23 +47,15 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision 2021 A/L</a>
         </div>
     </li>
   </ul> 
   
   </div>
-
-
-  <div class="headerClass">
-    <h2 style="text-indent:10px;margin-top:8px;margin-left:18%;position:absolute;"><i class="fas fa-home"></i>Participate Quiz</h2>
-    <div style="margin-top:7px;float: right;margin-right: 40px;"><i class="fas fa-sign-out-alt fa-2x"></i></div>
-   <div class="userDiv" style="margin-top:10px;float: right;margin-right: 40px;"><i class="fas fa-user fa-2x"></i>Hello Student ;-)</div>
-  </div>
-
 
 
 
@@ -77,6 +69,7 @@
   
   
    <div class="middle" style="background-color:#F8F8FF;">
+    <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
 <div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
   <h1>Quiz on Javascript</h1>
   <div class="quiz-container">
@@ -90,7 +83,11 @@
 </div>
 
    
-
+<div class="footer">
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
   
   
 <script type="text/javascript">

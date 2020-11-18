@@ -35,10 +35,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics 2021 A/L</a>
+          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision 2021 A/L</a>
         </div>
     </li>
     <li>
@@ -46,10 +46,10 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT/a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics 2021 A/L</a>
+          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision 2021 A/L</a>
         </div>
     </li>
   </ul> 
@@ -138,7 +138,7 @@
     </div>
 
 
-    <button style="margin-left:30%;"class="attemptQuiz"><a href="<?php echo URL; ?>participateQuiz">Particapte Quiz</a></button>
+    <button class="attemptQuiz"><a href="<?php echo URL; ?>participateQuiz">Particapte Quiz</a></button>
     
   </form>
   </div>
@@ -155,6 +155,8 @@
 
 
 </body>
+
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

@@ -213,10 +213,12 @@
 
             }
           ?>
+
            <div class="containerCard">
           <h4><b>Attended</b></h4>  
           </div>
         </td>
+        
       <tr>
 
     </table>

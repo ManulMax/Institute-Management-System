@@ -117,8 +117,5 @@ a{
 }
 
 .attemptQuiz{
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-   
-  transform: translateX(-15%);
+ margin-left:40%;
 }
