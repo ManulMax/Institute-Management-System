@@ -51,45 +51,49 @@
     
     
   <div class="headerClass">
-    <h2><i class="fas fa-upload"></i>Income</h2>
+    <h2><i class="fas fa-money-bill-wave"></i>Income</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
-
+  <div class="footer">
+  <div id="copyright" class="cpy clear">           
+    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  </div>
+  </div>
     <!-------------------Middle contet---------------------------------->
     
   <div class="middle" style="background-color:#F8F8FF;padding-top: 3%;">
        
 
   <div class="table-filters">
-  <div class="row" style="margin-left: 10%;">
-    <div class="col-10" style="width: 7%;">
-      <label for="filter-name">Name :</label>
+    <div class="row" style="margin-left: 9%;">
+    <div class="col-10" style="width: 11%">
+    <label for="filter-reg">Name:</label>
+    </div>
+
+    <div class="col-10">
+      <input type="text" class="input-text" id="filter-reg" data-filter-col="0">
+    </div>
+    <div class="col-5">
+    </div>
+    <div class="col-5">
+    </div>
+    <div class="col-10">
+      <label for="filter-name">Subject :</label>
     </div>
     <div class="col-20">
-      <input type="text" class="input-text" id="filter-name" data-filter-col="0">
+      <input type="text" class="input-text" id="filter-name" data-filter-col="1">
     </div>
     <div class="col-5">
     </div>
 
-    <div class="col-10" style="width: 7%;">
-      <label for="filter-sub">Subject :</label>
+    <div class="col-10">
+      <label for="filter-nic">Batch :</label>
     </div>
     <div class="col-10">
-      <input type="text" class="input-text" id="filter-sub" data-filter-col="1">
-    </div>
-    <div class="col-5">
-    </div>
-
-    <div class="col-10" style="width: 7%;">
-      <label for="filter-batch">Batch :</label>
-    </div>
-    <div class="col-10">
-      <input type="text" class="input-text" id="filter-batch" data-filter-col="1">
+      <input type="text" class="input-text" id="filter-nic" data-filter-col="2">
     </div>
     </div>
-
-    
   </div>
 
 
@@ -107,27 +111,33 @@
     </thead>
     <tbody>
       <tr>
-        <td>Kamal</td>
+        <td>Vinuri Samalka Piyathilake </td>
         <td>Chemistry</td>
         <td>2021 A/L</td>
         <td>60</td>
         <td>50000.00</td>
       </tr>
       <tr>
-        <td>Nimal</td>
+        <td>Nadeera Siriwardana</td>
         <td>Combined Maths</td>
         <td>2022 A/L</td>
         <td>100</td>
         <td>85000.00</td>
       </tr>
       <tr>
-        <td>Amal</td>
+        <td>Padmika Godakanda</td>
         <td>Physics</td>
         <td>2021 A/L</td>
         <td>60</td>
         <td>50000.00</td>
       </tr>
-
+      <tr>
+        <td>Deneth Viduranga Gamage</td>
+        <td>SFT</td>
+        <td>2021 A/L</td>
+        <td>20</td>
+        <td>30000.00</td>
+      </tr>
 
     </tbody>
     </table>
@@ -155,12 +165,12 @@
 
                     // The data for our dataset
                     data: {
-                        labels: ['Physics', 'Chemistry', 'Applied', 'Pure', 'ICT', 'Bio-Tec', 'Eng-Tec'],
+                        labels: ['Physics', 'Combine Maths', 'SFT', 'Chemistry', 'ICT'],
                         datasets: [{
                             label: 'New Registering Student Per Month',
                             backgroundColor: '#0d7377',
                             borderColor: 'rgb(255, 99, 132)',
-                            data: [0, 10, 5, 2, 20, 30, 45]
+                            data: [60, 100, 20, 60, 0]
                         }]
                     },
 
@@ -181,12 +191,12 @@
 
                     // The data for our dataset
                     data: {
-                        labels: ['Physics', 'Chemistry', 'Applied', 'Pure', 'ICT', 'Bio-Tec', 'Eng-Tec'],
+                        labels: ['Physics', 'Combine Maths', 'SFT', 'Chemistry', 'ICT'],
                         datasets: [{
                             label: 'New Registering Student Per Month',
-                            backgroundColor: '#de425b',
+                            backgroundColor: '#14870f',
                             borderColor: '#7e8a97',
-                            data: [0, 10, 5, 2, 20, 30, 45]
+                            data: [45, 100, 50, 20, 18]
                         }]
                     },
 
@@ -200,12 +210,8 @@
 
         </div>
     </div>
-    <!----------------------------Calender- removed------------------------>
-  </div>
 
-<footer>
-    <i class="far fa-copyright">Vidarsha Edu 2020</i>
-</footer>
+  </div>
 
 </body>
 </html>
