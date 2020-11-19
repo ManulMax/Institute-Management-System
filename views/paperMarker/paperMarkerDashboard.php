@@ -132,7 +132,7 @@
 
             while($row = mysqli_fetch_assoc($this->stuCount1)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>2 Students</b></h4></div>";
 
             }
           ?>
@@ -148,7 +148,7 @@
 
             while($row = mysqli_fetch_assoc($this->stuCount2)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>3 Students</b></h4></div>";
 
             }
           ?>
@@ -164,7 +164,7 @@
 
             while($row = mysqli_fetch_assoc($this->stuCount3)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>2 Students</b></h4></div>";
 
             }
           ?>
@@ -180,7 +180,7 @@
 
             while($row = mysqli_fetch_assoc($this->stuCount4)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>4 Students</b></h4></div>";
 
             }
           ?>

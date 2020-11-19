@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Prepare result sheet</title>
+  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
+<title>Upload result sheet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
@@ -56,7 +57,7 @@
   </div>
 
  <div class="headerClass">
-    <h2><i class="fas fa-home"></i>Exam Results</h2>
+    <h2><i class="fas fa-file-signature"></i>Exam Results</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
