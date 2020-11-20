@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
 <title>New Class</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">

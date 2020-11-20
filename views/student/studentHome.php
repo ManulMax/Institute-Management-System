@@ -140,7 +140,7 @@ $(function(){
       <tr>
         <td width="40%">
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap"></i></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>ICT 2021 A/L</b></h3></div>
              <div class="containerCard">
             <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
@@ -148,7 +148,7 @@ $(function(){
           </div>
           <br />
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap"></i></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Physics 2021 A/L</b></h3></div>
              <div class="containerCard">
             <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
@@ -156,7 +156,7 @@ $(function(){
           </div>
           <br />
           <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap"></i></div>
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Chemistry 2021 A/L</b></h3></div>
              <div class="containerCard">
             <h5><b>Teacher : Vinuri Piyathilake</b></h5>  

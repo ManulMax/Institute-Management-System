@@ -150,8 +150,8 @@ form.sign-in-form {
 }
 
 
-.input-field input::placeholder {
-  color: rgba(170, 170, 170, 0);
+.sign-in-form .input-field input::placeholder {
+  color: #aaa;
   font-weight: 500;
 }
 
