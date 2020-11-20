@@ -106,22 +106,22 @@
     <tbody>
       <tr>
         <td>10</td>
-        <td>Kamal</td>
-        <td>123456789V</td>
+        <td>Supun Nanayakkara</td>
+        <td>995624311V</td>
         <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
         <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
       </tr>
       <tr>
         <td>11</td>
-        <td>Nimal</td>
-        <td>123456789V</td>
+        <td>Uthpala Ruwanara</td>
+        <td>993764188V</td>
         <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
         <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
       </tr>
       <tr>
         <td>12</td>
-        <td>Kamal</td>
-        <td>123456789V</td>
+        <td>Isuri Perera</td>
+        <td>984601254</td>
         <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
         <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
       </tr>
