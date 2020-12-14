@@ -43,6 +43,15 @@ class Database
 
 	}
 
+	public function getLastRow($select,$from){
+		$sql = "select ".$select." from ".$from." ORDER BY id DESC LIMIT 1";
+
+        $result = mysqli_query($this->connection,$sql);
+
+        return $result;
+
+	}
+
 	public function listWhere($select,$from,$where){
 	
 		$sql = "select ".$select." from ".$from." where ".$where;

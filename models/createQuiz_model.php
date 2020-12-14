@@ -40,14 +40,16 @@ class createQuiz_Model extends Model{
         return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
     }
 
-    public function create($data){
+    public function saveQuiz($topic,$timeLimit){
 
-        $this->db->insert("quiz","(topic,time_limit,class_id)","('".$data['topic']."','".$data['time_limit']."',1)");
+        $this->db->insert("quiz","(topic,time_limit,class_id)","('".$topic."','".$timeLimit."',".$_SESSION['classid'].")");
+        
+    }
 
-        $quizID = $this->db->listWhere("id","quiz","topic='".$data['topic']."'");
+    public function saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5){
+        $quizID = $this->db->listWhere("id","quiz","topic='".$topic."'");
         $num = mysqli_fetch_assoc($quizID);
- 
-        $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","(1,".$num['id'].",'".$data['ques']."','".$data['ans1']."','".$data['ans2']."','".$data['ans3']."','".$data['ans4']."','".$data['ans5']."',1)");
+        $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","($qno,".$num['id'].",'".$question."','".$ans1."','".$ans2."','".$ans3."','".$ans4."','".$ans5."',1)");
     }
 
     public function update($data){

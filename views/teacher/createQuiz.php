@@ -9,26 +9,22 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/createQuizStylesheet">
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 
 </head>
 
 
 <body>
+  <div class="row">
+    <div class="leftNav">
 
-<div class="row">
-
-
-
-  <div class="leftNav">
-
-<button class="drop-btn">
+        <button class="drop-btn">
           <i class="fas fa-list fa-lg"></i>
         </button>
         <div class="drop-container">
                 <a href="#">blaa</a>
                 <a href="#">blaa</a>
                 <a href="#">blaa</a>
-
         </div>
 
 
@@ -59,7 +55,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['batch']; ?>"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -150,7 +146,7 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
 
-    <h2 class="className"><?php echo $this->batch ?>/L Class</h2>
+    <h2 class="className"><?php echo $_SESSION['batch']; ?>/L Class</h2>
 
   <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
     <h1>Create Quiz:</h1>
@@ -160,30 +156,30 @@
     <p style="width: 20%;"><input style="background-color: #ACE1AF;" type="text" name="time"></p><br />
     </div>
     <!-- One "tab" for each step in the form: -->
-    <div class="tab" id="qlist">Question:
-    <p><textarea rows="4" cols="90" name="ques"></textarea></p>
+    <div class="tab" id="qlist1">Question:
+    <p><textarea rows="4" cols="90" name="ques[]"></textarea></p>
     
     <table border="0" width="100%" cellpadding="10px">
       <tbody>
         <tr>
-          <td><input type="text" placeholder="Choice 1..." oninput="this.className = ''" name="ans1"></td>
-          <td class="radioBtn"><input type="radio"</td>
+          <td><input type="text" placeholder="Choice 1..." name="ans1[]" class="ans1"></td>
+          <td class="radioBtn"><input type="radio" name="choice[]" class="radio1"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 2..." oninput="this.className = ''" name="ans2"></td>
-          <td class="radioBtn"><input type="radio"</td>
+          <td><input type="text" placeholder="Choice 2..." name="ans2[]" class="ans2"></td>
+          <td class="radioBtn"><input type="radio" name="choice[]" class="radio2"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 3..." oninput="this.className = ''" name="ans3"></td>
-          <td class="radioBtn"><input type="radio"</td>
+          <td><input type="text" placeholder="Choice 3..." name="ans3[]" class="ans3"></td>
+          <td class="radioBtn"><input type="radio" name="choice[]" class="radio3"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 4..." oninput="this.className = ''" name="ans4"></td>
-          <td class="radioBtn"><input type="radio"</td>
+          <td><input type="text" placeholder="Choice 4..." name="ans4[]" class="ans4"></td>
+          <td class="radioBtn"><input type="radio" name="choice[]" class="radio4"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 5..." oninput="this.className = ''" name="ans5"></td>
-          <td class="radioBtn"><input type="radio"</td>
+          <td><input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5"></td>
+          <td class="radioBtn"><input type="radio" name="choice[]" class="radio5"></td>
         </tr>
       </tbody>
     </table>
@@ -193,19 +189,16 @@
 
     <div style="overflow:auto;">
     <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      <input type="submit" name="Submit" value="Submit">
       <button type="button" id="next" onclick="myFunction()">New Question</button>
     </div>
     </div>
-    <!-- Circles which indicates the steps of the form: -->
-    <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    </div>
+
+
   </form>
+
+
+
   </div>
   
   <div class="footer">
@@ -220,16 +213,37 @@
 
 <script>
 var count = 0;
+var i= 2;
 function myFunction(){
   if(count == 0){
-    var itm = document.getElementById("qlist");
+    var itm = document.getElementById("qlist1");
+    var cln = itm.cloneNode(true);
+    cln.id = "qlist".i;
+    cln.querySelector(".ans1").value = '';
+    cln.querySelector(".ans2").value = '';
+    cln.querySelector(".ans3").value = '';
+    cln.querySelector(".ans4").value = '';
+    cln.querySelector(".ans5").value = '';
+    cln.querySelector("textarea").value = '';
+    document.getElementById("qlist1").appendChild(cln);
+    count++;
+    i++;
   }else{
-    var itm = document.getElementById("qlist").lastChild;
+    var prevID = i-1;
+    var itm = document.getElementById("qlist1").lastChild;
+    var cln = itm.cloneNode(true);
+    cln.id = "qlist".i;
+    cln.querySelector(".ans1").value = '';
+    cln.querySelector(".ans2").value = '';
+    cln.querySelector(".ans3").value = '';
+    cln.querySelector(".ans4").value = '';
+    cln.querySelector(".ans5").value = '';
+    cln.querySelector("textarea").value = '';
+    document.getElementById("qlist1").appendChild(cln);
+    count++;
+    i++;
   }
   
-  var cln = itm.cloneNode(true);
-  document.getElementById("qlist").appendChild(cln);
-  count++;
 }
 
 
@@ -273,11 +287,6 @@ for (i = 0; i < drop.length; i++) {
 
 
 
-
-
-
-
-
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -300,46 +309,9 @@ function showTab(n) {
   fixStepIndicator(n)
 }
 
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
 
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
+
+
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...

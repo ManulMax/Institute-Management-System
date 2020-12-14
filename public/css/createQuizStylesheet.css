@@ -70,17 +70,38 @@ input[type=radio] {
 }
 
 #regForm button {
-  background-color: #4CAF50;
+  background-color: #063811;
   color: #ffffff;
   padding: 10px 20px;
-  font-size: 17px;
   cursor: pointer;
   border: none;
-  border-radius: 20px;
+  outline: 0;
+  height: 40px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  transition: 0.5s;
 }
 
+
 button:hover {
-  opacity: 0.8;
+  background-color: #4CAF50;
+}
+
+input[type=submit]{
+  background-color: #063811;
+  color: #ffffff;
+  padding: 10px 30px;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  height: 40px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+input[type=submit]{
+  background-color: #4CAF50;
 }
 
 #prevBtn {
