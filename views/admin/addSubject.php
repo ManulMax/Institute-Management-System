@@ -50,7 +50,7 @@
     </div>
 
     <div class="col-25">
-      <input type="text" placeholder="subject name...">
+      <input type="text" placeholder="subject name..." name="subject">
     </div>
     <div class="col-25">
     <input type='submit' value='ADD'>
@@ -59,7 +59,7 @@
   </div>
     
 
-  <div id="tableDiv" style="width: 50%;">
+  <div id="tableDiv" style="width: 40%;">
     <table id="data">
     <thead>
       <tr>
@@ -70,25 +70,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Physics</td>
-        <td style="width: 5px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Combined Maths</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Chemistry</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      
+    <?php
+
+while($row = mysqli_fetch_assoc($this->subList)){  
+echo "<tr><td>".$row['id']."</td><td>" .$row['name']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+
+}
+?>
     </tbody>
     </table>
     </div>
