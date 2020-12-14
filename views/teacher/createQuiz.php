@@ -239,6 +239,7 @@ function myFunction(){
     cln.querySelector(".ans4").value = '';
     cln.querySelector(".ans5").value = '';
     cln.querySelector("textarea").value = '';
+      
     document.getElementById("qlist1").appendChild(cln);
     count++;
     i++;
