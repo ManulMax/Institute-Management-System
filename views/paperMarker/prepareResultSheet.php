@@ -133,8 +133,9 @@
 
      </table>
 
-      
-        <input type="submit" value="Generate student list" name="listGenerationButton" class="btn">
+      <form method="post" action="<?php echo URL; ?>prepareResultSheet/export" align="center">  
+           <input type="submit" name="export" value="CSV Export" class="btn" />  
+      </form>
      
 
     

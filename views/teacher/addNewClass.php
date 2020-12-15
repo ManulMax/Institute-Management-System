@@ -22,7 +22,6 @@
 <script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
 <script>
 $(function(){
-  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
   $('#data').filtable({ controlPanel: $('.table-filters')});
 });
 </script>
@@ -213,11 +212,12 @@ $(function(){
     <select id="filter-hall" name="hall" data-filter-col="2" style="min-width:60px">
       <option value="">- All -</option>
       <?php
-
-            while($row = mysqli_fetch_assoc($this->hallList)){  
-
-               echo "<option value='".$row['id']."'>".$row['name']."</option>";
-
+             $halls = [];
+              while($hall=mysqli_fetch_assoc($this->hallList)) {
+                  $halls[] = $hall;
+              }
+             foreach($halls as $row){
+                echo "<option value='".$row['id']."'>".$row['name']."</option>";
             }
       ?>
     </select>

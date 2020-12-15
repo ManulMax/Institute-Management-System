@@ -21,14 +21,9 @@
 <script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
 <script>
 $(function(){
-  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
   $('#data').filtable({ controlPanel: $('.table-filters')});
 });
 </script>
-<style>
-  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
-  .container { margin: 150px auto; max-width: 960px; }
-  </style>
 </head>
 
 
@@ -183,18 +178,18 @@ $(function(){
   -->  
 <div class="middle" style="background-color:#F8F8FF;">
 
-<form id="regForm" method="post">
+<form id="regForm" action="<?php echo URL; ?>Classes/sendRescheduleEmail" method="post">
 
 <div class="row">
     <div class="col-40" style="margin: 0;">
       <label class="containerRadio">Temporary Re-schedule
-        <input type="radio" checked="checked" name="radio">
+        <input type="radio" value="T" checked="checked" name="radio">
         <span class="checkmark"></span>
       </label>
     </div>
     <div class="col-40" style="margin: 0;">
       <label class="containerRadio">Permanant Re-schedule
-        <input type="radio" name="radio">
+        <input type="radio" value="P" name="radio">
         <span class="checkmark"></span>
       </label>
     </div>    
@@ -208,7 +203,7 @@ $(function(){
     </div>
     <div class="col-75">
       <div style="width:250px;">
-      <select>
+      <select name="batch">
       <option value="0">Select Batch:</option>
       <option value="1"><?php echo date("Y"); ?> A/L</option>
       <option value="2"><?php echo date("Y")+1; ?> A/L</option>
@@ -224,7 +219,7 @@ $(function(){
       <label for="subject">No. of Students :</label>
     </div>
     <div class="col-30">
-      <input type="text">
+      <input type="text" name="stu-count">
     </div>
   </div>
 
@@ -237,7 +232,7 @@ $(function(){
 <div class="table-filters">
    <div class="col-30">
     <label for="filter-day">Day:</label>
-    <select id="filter-day" data-filter-col="0" style="min-width:60px">
+    <select id="filter-day" data-filter-col="0" style="min-width:60px" name="day">
       <option value="Monday">Monday</option>
       <option value="Tuesday">Tuesday</option>
       <option value="Wednesday">Wednesday</option>
@@ -250,13 +245,13 @@ $(function(){
 <div class="col-20"></div>
   <div class="col-30">
     <label for="filter-hall">Hall:</label>
-    <select id="filter-hall" data-filter-col="2" style="min-width:60px">
+    <select id="filter-hall" data-filter-col="2" style="min-width:60px" name="hall">
       <option value="">- All -</option>
       <?php
 
             while($row = mysqli_fetch_assoc($this->hallList)){  
 
-               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+               echo "<option value='".$row['id']."'>".$row['name']."</option>";
 
             }
       ?>
@@ -268,7 +263,6 @@ $(function(){
 </div>
 <br />
 <label style="color: grey;font-weight:bold;margin-top:30px;">Current Hall Allocations :</label>
-<!-- data taken from generatedata.com -->
 <table id="data" style="width: 100%;margin-right: 0;">
 <thead>
   <tr>
@@ -293,21 +287,6 @@ $(function(){
 </tbody>
 </table>
 </div>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
 
 
 <label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
@@ -317,7 +296,7 @@ $(function(){
       <label for="subject"> Start Time :</label>
     </div>
     <div class="col-30">
-      <input type="time">
+      <input type="time" name="start-time">
     </div>
   <div class="col-20" style="width: 10%;">
     </div>
@@ -325,7 +304,7 @@ $(function(){
       <label for="subject">End Time :</label>
     </div>
     <div class="col-30">
-      <input type="time">
+      <input type="time" name="end-time">
     </div>
   </div>
 
@@ -334,7 +313,7 @@ $(function(){
       <label>Start Date :</label>
     </div>
     <div class="col-30">
-      <input type="date">
+      <input type="date" name="start-date">
     </div>
   </div>
   <div class="row" style="margin-top:30px;">

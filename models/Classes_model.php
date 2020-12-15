@@ -44,5 +44,14 @@ class Classes_Model extends Model{
        $this->db->insert("schedule","(class_id,hall_id,day,start_time,end_time,type,staff_reg_no)","(".$classDetails['id'].",".$data['hall'].",'".$data['day']."','".$data['startTime']."','".$data['endTime']."','P',1)");
     }
 
+    public function saveReschedule($data){
+        $teacher = $this->db->listWhere("reg_no,subject_id","teacher","user_id=1");
+        $teacherDetails = mysqli_fetch_assoc($teacher);
+        $class= $this->db->listWhere("id","class","batch='".$data['batchname']."' and teacher_reg_no=".$teacherDetails['reg_no']);
+        $classDetails = mysqli_fetch_assoc($class);
+
+       $this->db->update("schedule","hall_id=".$data['hall'].",day='".$data['day']."',start_time='".$data['startTime']."',end_time='".$data['endTime']."'","class_id=".$classDetails['id']);
+    }
+
 
 }

@@ -33,6 +33,12 @@ class prepareResultSheet_Model extends Model{
 
     }
 
+    public function listStudents($userid){
+
+        return $this->db->listCol("reg_no,fname","student");
+
+    }
+
     public function listSubjects(){
 
         return $this->db->listAll("subject");
