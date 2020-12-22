@@ -49,7 +49,7 @@ class studentRegistration_Model extends Model{
 
         $this->db->insert('parent',"(name,tel_no,stu_reg_no)","('".$data['name']."','".$data['tel']."',".$reg['reg_no'].")");
 
-       // $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
+        $this->db->insert('studentSubject',"(subject1,subject2,subject3,stu_reg_no)","('".$data['subject1']."','".$data['subject2']."','".$data['subject3']."',".$reg['reg_no'].")"); 
 
         $stuName = $data['fname'];
         Session::set('studentRegNo',$reg);

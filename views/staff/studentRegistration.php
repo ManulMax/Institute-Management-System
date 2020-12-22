@@ -216,13 +216,7 @@
 		  <label for="subject">Class :</label>
 		</div>
 		<div class="col-75">
-		  <select name="grade" style="background:#F8F8FF;">
-			      <option value="0">Select Batch:</option>
-			      <option value="1"><?php echo date("Y"); ?> A/L</option>
-			      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
-			      <option value="3"><?php echo date("Y")+2; ?> A/L</option>
-			      <option value="4">Revision</option>
-      			</select>
+		  <input type="text" name="grade" id="grade" required>
       		</div>
 		</div>
 
