@@ -27,7 +27,6 @@ class createQuiz extends Controller{
         $topic=$_POST['topic'];
         $timeLimit=$_POST['time'];
 
-
         $this->model->saveQuiz($topic,$timeLimit);
 
         for($i=0;$i<$itemCount;$i++) {
@@ -37,9 +36,10 @@ class createQuiz extends Controller{
             $ans3=$_POST['ans3'][$i];
             $ans4=$_POST['ans4'][$i];
             $ans5=$_POST['ans5'][$i];
+            $choice=$_POST['choice'][$i];
             $qno = $i + 1;
           //  $correctAns=$_POST['choice'][$i];
-            $this->model->saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5);
+            $this->model->saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5,$choice);
         }
 
         header('location: '.URL.'createQuiz/renderQuizPage');

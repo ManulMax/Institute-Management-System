@@ -45,7 +45,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['batch']; ?>"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -161,8 +161,8 @@
 		         <td>".$row['address']."</td>
 		         <td>".$row['tel_no']."</td>
 		         <td>".$row['qualifications']."</td>
-		         <td><input type='submit' value='Edit' class='open-button' onclick='openForm()' style='padding: 5px 15px 5px 15px;'></td>
-		         <td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+		         <td><input type='submit' value='Edit' class='open-button' onclick='openForm()' style='padding: 5px 15px 5px 15px;width: 80px'></td>
+		         <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;'></td></tr>";
 
 		      }
 		  ?>
@@ -171,7 +171,113 @@
 		</table>
 		</div>
 
+		<!-- Pop Up -->
+		<div class="form-popup" id="myForm">
+		  <form action="" class="form-container">
+		  	
+				 <div class="row">
+				  	<div class="col-75">
+				  		<h3 style="margin-right: 20%;float: right;">Edit Paper Marker Details</h3>
+				  	</div>
+				  	<div class="col-25">
+				  		<button type="button" class="btn cancel" onclick="closeForm()"><i class="fas fa-times fa-lg"></i></button>
+				  	</div>
+				  </div>
+				    <div class="row">
+				<div class="col-15">
+				  <label>Full Name :</label>
+				</div>
+				<div class="col-75">
+					<div class="popup">
+						<input type="text" id="fullname-update" placeholder="Full name..." name="name-update" onfocusout="validateName()" disabled>
+					  <span class="popuptext" id="name-popup-update"></span>
+					</div>
+				</div>
+			  </div>
+			  
+			  <div class="row">
+				<div class="col-15">
+				  <label for="subject"> NIC :</label>
+				</div>
+				<div class="col-25">
+				  <div class="popup">
+				  	<input type="text" placeholder="Identity card number..." id="NIC-update" name="NIC-update" onfocusout="validateNIC()" disabled>
+				  	<span class="popuptext" id="NIC-popup-update"></span>
+				  </div>
+				</div>
+				<div class="col-10">
+				</div>
+				<div class="col-15">
+				  <label for="subject">DOB :</label>
+				</div>
+				<div class="col-25">
+				  <input type="date" name="DOB-update" disabled>
+				</div>
+			  </div>
 
+			  <div class="row">
+				<div class="col-15">
+				  <label for="subject">Gender :</label>
+				</div>
+				<div class="col-15" class="genderLabel">
+				  <input type="radio" value="male" name="gender-update" disabled>
+				  <label for="male">Male</label>
+				</div>
+				<div class="col-15" class="genderLabel">
+				  <input type="radio" value="female" name="gender-update" disabled>
+				  <label for="female">Female</label>
+				</div>
+			  </div>
+			  
+			  <div class="row">
+				<div class="col-15">
+				  <label for="subject">Email :</label>
+				</div>
+				<div class="col-75" style="width: 60%">
+				<div class="popup">
+				  <input type="email" placeholder="Email address..." id="email-update" name="email-update" onfocusout="validateEmail()">
+				  <span class="popuptext" id="email-popup-update"></span>
+				  </div>
+				</div>
+			  </div>
+			  
+			  <div class="row">
+				<div class="col-15">
+				  <label for="subject">Address :</label>
+				</div>
+				<div class="col-75">
+				  <textarea rows="4" cols="90" placeholder="Address..." name="address-update"></textarea>
+				</div>
+			  </div>
+			  
+			  <div class="row">
+				<div class="col-15">
+				  <label for="subject">Mobile No. :</label>
+				</div>
+				<div class="col-25">
+				<div class="popup">
+				  <input type="text" placeholder="Mobile number..." id="phone-update" name="tel-update">
+				  <span class="popuptext" id="phone-popup-update"></span>
+				</div>
+				</div>
+			  </div>
+			  
+			  <div class="row">
+				<div class="col-15">
+				  <label for="subject">Qualifications :</label>
+				</div>
+				<div class="col-75">
+				  <textarea rows="4" cols="90" name="qualifications-update"></textarea>
+				</div>
+				<div class="row">
+				</div>
+			  </div>
+		    <button type="submit" class="btn">Update</button>
+		    <br />		    
+		  </form>
+		</div>
+
+<!-- registration form -->
 
 	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
 	  <div class="row">
@@ -263,7 +369,7 @@
 	  </div>
 	  
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
-		<input id="formSubmit" type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
+		<input id="formSubmit" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
 	  </div>
 	  
 	</form>
@@ -329,6 +435,18 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+
+
+
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }
 
 

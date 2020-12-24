@@ -46,10 +46,10 @@ class createQuiz_Model extends Model{
         
     }
 
-    public function saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5){
+    public function saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5,$choice){
         $quizID = $this->db->listWhere("id","quiz","topic='".$topic."'");
         $num = mysqli_fetch_assoc($quizID);
-        $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","($qno,".$num['id'].",'".$question."','".$ans1."','".$ans2."','".$ans3."','".$ans4."','".$ans5."',1)");
+        $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","($qno,".$num['id'].",'".$question."','".$ans1."','".$ans2."','".$ans3."','".$ans4."','".$ans5."',".$choice.")");
     }
 
     public function update($data){

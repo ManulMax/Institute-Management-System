@@ -163,23 +163,21 @@
       <tbody>
         <tr>
           <td><input type="text" placeholder="Choice 1..." name="ans1[]" class="ans1"></td>
-          <td class="radioBtn"><input type="radio" name="choice[]" class="radio1"></td>
         </tr>
         <tr>
           <td><input type="text" placeholder="Choice 2..." name="ans2[]" class="ans2"></td>
-          <td class="radioBtn"><input type="radio" name="choice[]" class="radio2"></td>
         </tr>
         <tr>
           <td><input type="text" placeholder="Choice 3..." name="ans3[]" class="ans3"></td>
-          <td class="radioBtn"><input type="radio" name="choice[]" class="radio3"></td>
         </tr>
         <tr>
           <td><input type="text" placeholder="Choice 4..." name="ans4[]" class="ans4"></td>
-          <td class="radioBtn"><input type="radio" name="choice[]" class="radio4"></td>
         </tr>
         <tr>
           <td><input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5"></td>
-          <td class="radioBtn"><input type="radio" name="choice[]" class="radio5"></td>
+        </tr>
+        <tr>
+          <td><input type="number" class="choice" name="choice[]" min="1" max="5"></td>
         </tr>
       </tbody>
     </table>
@@ -224,6 +222,8 @@ function myFunction(){
     cln.querySelector(".ans3").value = '';
     cln.querySelector(".ans4").value = '';
     cln.querySelector(".ans5").value = '';
+    cln.querySelector(".choice").value = '';
+
     cln.querySelector("textarea").value = '';
     document.getElementById("qlist1").appendChild(cln);
     count++;
@@ -238,6 +238,8 @@ function myFunction(){
     cln.querySelector(".ans3").value = '';
     cln.querySelector(".ans4").value = '';
     cln.querySelector(".ans5").value = '';
+    cln.querySelector(".choice").value = '';
+
     cln.querySelector("textarea").value = '';
       
     document.getElementById("qlist1").appendChild(cln);
