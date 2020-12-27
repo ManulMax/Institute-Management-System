@@ -9,9 +9,8 @@ class paperMarkerRegistration_Model extends Model{
     public function listDetails($userid){
 
         return $this->db->listWhere("*","teacher","user_id=$userid");
-    
-
     }
+
 
     public function listClasses($userid){
 
@@ -25,6 +24,12 @@ class paperMarkerRegistration_Model extends Model{
     
 
     }
+
+    public function listPmDetails($userid){
+
+        return $this->db->listWhere("*","paper_marker","user_id=$userid");
+    }
+
 
     public function listHalls(){
 
@@ -40,11 +45,6 @@ class paperMarkerRegistration_Model extends Model{
 
     }
 
-
-    public function getUser($id){
-
-        return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
-    }
 
     public function create($data){
        // $password=password_hash($data['NIC'], PASSWORD_DEFAULT);
