@@ -42,13 +42,12 @@
   padding: 12px 20px;
   border-color: white;
   cursor: pointer;
-  width: 10%;
   margin-bottom:10px;
-  margin-left: 45%;
   opacity: 0.8;
   border: none;
   border-radius: 20px;
   font-size: 17px;
+  text-decoration: none;
 }
 
 .form-container .cancel {
@@ -112,6 +111,12 @@ label {
   margin-top: 20px;
 }
 
+.col-35 {
+  float: left;
+  width: 35%;
+  margin-top: 30px;
+}
+
 .col-50 {
   float: left;
   width: 50%;
@@ -152,7 +157,18 @@ input[type=submit]:hover{
   background-color: #4CAF50;
 }
 
-
+tbody a {
+  background-color: #063811;
+  color: #ffffff;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  border-radius: 20px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  text-decoration: none;
+}
 
 .popup {
   width: 100%;

@@ -153,7 +153,7 @@
 		  <?php
 
 		      while($row = mysqli_fetch_assoc($this->pmList)){ 
-		      Session::set('pmid',$row['user_id']);
+		      
 		         echo "<tr><td>".$row['name']."</td>
 		         <td>".$row['NIC']."</td>
 		         <td>".$row['DOB']."</td>
@@ -162,7 +162,7 @@
 		         <td>".$row['address']."</td>
 		         <td>".$row['tel_no']."</td>
 		         <td>".$row['qualifications']."</td>
-		         <td><input type='submit' value='Edit' id='editBtn' style='padding: 5px 15px 5px 15px;background-color:#555555;'></td>
+		         <td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
 		         <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;'></td></tr>";
 
 		      }
@@ -171,126 +171,6 @@
 		</tbody>
 		</table>
 		</div>
-
-
-		<!-- Pop Up -->
-		<div id="popupModal" class="mod">
-
-  <!-- Modal content -->
-    <div class="mod-content">
-
-
-      <?php
-
-      	while($row = mysqli_fetch_assoc($this->pmDetails)){ 
-
-              echo "<form action='' class='form-container'>";
-		  	
-				 echo "<div class='row'>
-				  	<div class='col-75'>
-				  		<h3 style='margin-right: 20%;float: right;'>Edit Paper Marker Details</h3>
-				  	</div>
-				  	<div class='col-25'>
-				  	</div>
-				  </div>";
-				    echo "<div class='row'>
-				<div class='col-15'>
-				  <label>Full Name :</label>
-				</div>
-				<div class='col-75'>
-					<div class='popup'>
-						<input type='text' id='fullname-update' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()' disabled>
-					  <span class='popuptext' id='name-popup-update'></span>
-					</div>
-				</div>
-			  </div>";
-			  
-			  echo "<div class='row'>
-				<div class='col-15'>
-				  <label for='subject'> NIC :</label>
-				</div>
-				<div class='col-25'>
-				  <div class='popup'>
-				  	<input type='text' placeholder='Identity card number...' id='NIC-update' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()' disabled>
-				  	<span class='popuptext' id='NIC-popup-update'></span>
-				  </div>
-				</div>
-				<div class='col-10'>
-				</div>
-				<div class='col-15'>
-				  <label for='subject'>DOB :</label>
-				</div>
-				<div class='col-25'>
-				  <input type='date' name='DOB-update' value='".$row['DOB']."' disabled>
-				</div>
-			  </div>";
-
-			  echo "<div class='row'>
-				<div class='col-15'>
-				  <label for='subject'>Gender :</label>
-				</div>
-				<div class='col-15' class='genderLabel'>
-				  <input type='radio' value='male' name='gender-update' disabled>
-				  <label for='male'>Male</label>
-				</div>
-				<div class='col-15' class='genderLabel'>
-				  <input type='radio' value='female' name='gender-update' disabled>
-				  <label for='female'>Female</label>
-				</div>
-			  </div>";
-			  
-			  echo "<div class='row'>
-				<div class='col-15'>
-				  <label for='subject'>Email :</label>
-				</div>
-				<div class='col-75' style='width: 60%'>
-				<div class='popup'>
-				  <input type='email' placeholder='Email address...' id='email-update' name='email-update' value='".$row['email']."' onfocusout='validateEmail()'>
-				  <span class='popuptext' id='email-popup-update'></span>
-				  </div>
-				</div>
-			  </div>";
-			  
-			  echo "<div class='row'>
-				<div class='col-15'>
-				  <label for='subject'>Address :</label>
-				</div>
-				<div class='col-75'>
-				  <textarea rows='4' cols='90' placeholder='Address...' name='address-update'>".$row['address']."</textarea>
-				</div>
-			  </div>";
-			  
-			  echo "<div class='row'>
-				<div class='col-15'>
-				  <label for='subject'>Mobile No. :</label>
-				</div>
-				<div class='col-25'>
-				<div class='popup'>
-				  <input type='text' placeholder='Mobile number...' id='phone-update' name='tel-update' value='".$row['tel_no']."'>
-				  <span class='popuptext' id='phone-popup-update'></span>
-				</div>
-				</div>
-			  </div>";
-			  
-			  echo "<div class='row'>
-				<div class='col-15'>
-				  <label for='subject'>Qualifications :</label>
-				</div>
-				<div class='col-75'>
-				  <textarea rows='4' cols='90' name='qualifications-update'>".$row['qualifications']."</textarea>
-				</div>
-				<div class='row'>
-				</div>
-			  </div>
-		    <button type='submit' class='btn'>Update</button>
-		    <br />		    
-		  </form>";
-		}
-          ?>
-
-    </div>
-
-  </div>
 
 
 
@@ -406,7 +286,6 @@
 </div>
 
 
-
 <script type="text/javascript">
 	/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -457,34 +336,10 @@ window.onclick = function(event) {
 
 
 
-// Get the modal
-var mod = document.getElementById("popupModal");
-
-// Get the button that opens the modal
-var editbtn = document.getElementById("editBtn");
-
-// Get the <span> element that closes the modal
-var sp = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-editbtn.onclick = function() {
-  mod.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-sp.onclick = function() {
-  mod.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == mod) {
-    mod.style.display = "none";
-  }
-}
-
 
 </script>
 
+
 </body>
 </html>
+

@@ -9,7 +9,6 @@ class paperMarkerRegistration extends Controller{
     function index(){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
-        $this->view->pmDetails = $this->model->listPmDetails(42);
         $this->view->pmList = $this->model->listPaperMarkers();
         
         $this->view->render('teacher/paperMarkerRegistration');
@@ -32,9 +31,9 @@ class paperMarkerRegistration extends Controller{
         header('location: '.URL.'paperMarkerRegistration');
     }
 
-    function search($id){
-        $this->view->pmDetails = $this->model->listPmDetails($id);
-        header('location: '.URL.'paperMarkerRegistration');
+    function renderPmUpdate($userPm){
+        $this->view->pmDetails = $this->model->listPmDetails($userPm);
+        $this->view->render('teacher/input');
     }
 
     
