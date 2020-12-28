@@ -36,5 +36,22 @@ class paperMarkerRegistration extends Controller{
         $this->view->render('teacher/input');
     }
 
+    function update(){
+
+        $data = array();
+        $data['name'] = $_POST['name-update'];
+        $data['tel_no'] = $_POST['tel-update'];
+        $data['address'] = $_POST['address-update'];
+        $data['NIC'] = $_POST['NIC-update'];
+       // $data['gender'] = $_POST['gender-update'];
+        $data['DOB'] = $_POST['DOB-update'];
+        $data['email'] = $_POST['email-update'];
+        $data['qualifications'] = $_POST['qualifications-update'];
+
+
+        $this->model->update($data);
+        header('location: '.URL.'paperMarkerRegistration');
+    }
+
     
 }

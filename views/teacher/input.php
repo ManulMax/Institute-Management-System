@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
-<title>Papermarker Registration</title>
+<title>Update Papermarker</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
-<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
-<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+
 </head>
 
 
@@ -29,7 +28,7 @@
 
         while($row = mysqli_fetch_assoc($this->pmDetails)){ 
 
-              echo "<form action='' class='form-container'>";
+              echo "<form method='post' action='".URL."paperMarkerRegistration/update' class='form-container'>";
         
          echo "<div class='row'>
             <div class='col-75'>
@@ -44,7 +43,7 @@
         </div>
         <div class='col-75'>
           <div class='popup'>
-            <input type='text' id='fullname-update' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()' disabled>
+            <input type='text' id='fullname-update' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()'>
             <span class='popuptext' id='name-popup-update'></span>
           </div>
         </div>
@@ -56,7 +55,7 @@
         </div>
         <div class='col-25'>
           <div class='popup'>
-            <input type='text' placeholder='Identity card number...' id='NIC-update' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()' disabled>
+            <input type='text' placeholder='Identity card number...' id='NIC-update' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()'>
             <span class='popuptext' id='NIC-popup-update'></span>
           </div>
         </div>
@@ -66,7 +65,7 @@
           <label for='subject'>DOB :</label>
         </div>
         <div class='col-25'>
-          <input type='date' name='DOB-update' value='".$row['DOB']."' disabled>
+          <input type='date' name='DOB-update' value='".$row['DOB']."'>
         </div>
         </div>";
 
@@ -132,7 +131,7 @@
           <a href='".URL."paperMarkerRegistration' class='btn'>Back</a>
         </div>
         <div class='col-15'>
-          <a href='' class='btn'>Update</a>
+          <input type='submit' class='btn' value='Update'>
         </div>
         </div>
         </div>            

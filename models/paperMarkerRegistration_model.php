@@ -58,19 +58,11 @@ class paperMarkerRegistration_Model extends Model{
     }
 
     public function update($data){
-
-        $this->db->update('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['email'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']),"nic = '{$data['nic']}'");
+ 
+        $this->db->update('paper_marker',"tel_no=".$data['tel_no'].",address='".$data['address']."'","email='".$data['email']."'");
 
     }
+
 
     public function delete($id){
         $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");

@@ -15,7 +15,7 @@
 
 
 <body>
-
+	<?php echo "booooo"; ?>
 <div class="row">
   <div class="leftNav">
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">

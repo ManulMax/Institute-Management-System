@@ -39,14 +39,15 @@
 .form-container .btn {
   background-color: #4CAF50;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 20px !important;
   border-color: white;
   cursor: pointer;
-  margin-bottom:10px;
-  opacity: 0.8;
-  border: none;
-  border-radius: 20px;
-  font-size: 17px;
+  opacity: 0.8 !important;
+  border: none !important;
+  border-radius: 20px !important;
+  font-size: 17px !important;
+  height: 40px;
+  margin-top: 0 !important;
   text-decoration: none;
 }
 
@@ -149,7 +150,6 @@ input[type=submit]{
   outline: 0;
   height: 30px;
   border-radius: 30px;
-  text-transform: uppercase;
   transition: 0.5s;
 }
 
