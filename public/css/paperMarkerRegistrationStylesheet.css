@@ -39,7 +39,7 @@
 .form-container .btn {
   background-color: #4CAF50;
   color: white;
-  padding: 12px 20px !important;
+  padding: 12px 20px;
   border-color: white;
   cursor: pointer;
   opacity: 0.8 !important;

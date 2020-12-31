@@ -59,7 +59,7 @@ class paperMarkerRegistration_Model extends Model{
 
     public function update($data){
  
-        $this->db->update('paper_marker',"tel_no=".$data['tel_no'].",address='".$data['address']."'","email='".$data['email']."'");
+        $this->db->update('paper_marker',"email='".$data['email']."',tel_no=".$data['tel_no'].",address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
 
     }
 

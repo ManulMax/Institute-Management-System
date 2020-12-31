@@ -33,7 +33,7 @@ class paperMarkerRegistration extends Controller{
 
     function renderPmUpdate($userPm){
         $this->view->pmDetails = $this->model->listPmDetails($userPm);
-        $this->view->render('teacher/input');
+        $this->view->render('teacher/updatePaperMarker');
     }
 
     function update(){

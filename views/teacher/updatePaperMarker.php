@@ -43,7 +43,7 @@
         </div>
         <div class='col-75'>
           <div class='popup'>
-            <input type='text' id='fullname-update' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()'>
+            <input type='text' id='fullname-update' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()' readonly>
             <span class='popuptext' id='name-popup-update'></span>
           </div>
         </div>
@@ -55,7 +55,7 @@
         </div>
         <div class='col-25'>
           <div class='popup'>
-            <input type='text' placeholder='Identity card number...' id='NIC-update' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()'>
+            <input type='text' placeholder='Identity card number...' id='NIC-update' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()' readonly>
             <span class='popuptext' id='NIC-popup-update'></span>
           </div>
         </div>
@@ -65,7 +65,7 @@
           <label for='subject'>DOB :</label>
         </div>
         <div class='col-25'>
-          <input type='date' name='DOB-update' value='".$row['DOB']."'>
+          <input type='date' name='DOB-update' value='".$row['DOB']."' readonly>
         </div>
         </div>";
 
@@ -74,11 +74,11 @@
           <label for='subject'>Gender :</label>
         </div>
         <div class='col-15' class='genderLabel'>
-          <input type='radio' value='male' name='gender-update' disabled>
+          <input type='radio' value='male' name='gender-update' readonly>
           <label for='male'>Male</label>
         </div>
         <div class='col-15' class='genderLabel'>
-          <input type='radio' value='female' name='gender-update' disabled>
+          <input type='radio' value='female' name='gender-update' readonly>
           <label for='female'>Female</label>
         </div>
         </div>";
@@ -127,11 +127,11 @@
         <div class='row'>
         <div class='col-35'>
         </div>
-        <div class='col-15'>
-          <a href='".URL."paperMarkerRegistration' class='btn'>Back</a>
+        <div class='col-15' style='margin-top:30px;'>
+          <a href='".URL."paperMarkerRegistration' class='btn' style='background-color:#333;padding: 12px 35px;'>Back</a>
         </div>
         <div class='col-15'>
-          <input type='submit' class='btn' value='Update'>
+          <input type='submit' class='btn' value='Update' style='padding: 12px 35px;'>
         </div>
         </div>
         </div>            
