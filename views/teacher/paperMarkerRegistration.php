@@ -15,7 +15,6 @@
 
 
 <body>
-	<?php echo "booooo"; ?>
 <div class="row">
   <div class="leftNav">
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
@@ -163,7 +162,7 @@
 		         <td>".$row['tel_no']."</td>
 		         <td>".$row['qualifications']."</td>
 		         <td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
-		         <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;'></td></tr>";
+		         <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'></td></tr>";
 
 		      }
 		  ?>

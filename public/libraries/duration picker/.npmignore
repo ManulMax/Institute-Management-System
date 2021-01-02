@@ -1,0 +1,16 @@
+src/*
+spec/*
+webpack.config.js
+index.html
+CONTRIBUTING.md
+DOCUMENTATION.md
+.gitignore
+.eslintignore
+.editorconfig
+.eslintrc.json
+screenshots/*
+.github
+_config.yml
+.all-contributorsrc
+.gitattributes
+.prettierrc.yaml

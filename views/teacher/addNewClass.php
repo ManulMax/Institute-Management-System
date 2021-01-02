@@ -15,10 +15,7 @@
 
   
 <!-- filter table -->
-
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/styles.css">
-<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
 <script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
 <script>
 $(function(){
@@ -36,12 +33,7 @@ $(function(){
 <button class="drop-btn">
           <i class="fas fa-list fa-lg"></i>
         </button>
-        <div class="drop-container">
-                <a href="#">blaa</a>
-                <a href="#">blaa</a>
-                <a href="#">blaa</a>
-
-        </div>
+        
     
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
   <ul>

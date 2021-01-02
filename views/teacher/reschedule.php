@@ -178,7 +178,7 @@ $(function(){
   -->  
 <div class="middle" style="background-color:#F8F8FF;">
 
-<form id="regForm" action="<?php echo URL; ?>Classes/sendRescheduleEmail" method="post">
+<form id="regForm" action="<?php echo URL; ?>reschedule/sendRescheduleEmail" method="post">
 
 <div class="row">
     <div class="col-40" style="margin: 0;">

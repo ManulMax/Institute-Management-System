@@ -30,6 +30,12 @@ input[type=text],input[type=date],input[type=time], select {
 
 }
 
+input[type=number]{
+  opacity: 1;
+  width: 120px;
+  height: 30px;
+}
+
 textarea {
   padding: 10px;
   width: 100%;

@@ -177,7 +177,7 @@
           <td><input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5"></td>
         </tr>
         <tr>
-          <td><input type="number" class="choice" name="choice[]" min="1" max="5"></td>
+          <td style="float: right;"><p>Correct Answer :</p><input type="number" class="choice" name="choice[]" min="1" max="5"></td>
         </tr>
       </tbody>
     </table>
