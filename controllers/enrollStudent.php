@@ -11,5 +11,19 @@ class enrollStudent extends Controller{
     	$this->view->render('staff/enrollStudent');
     }
 
-    
+    function create(){
+
+        $data = array();
+        $data['reg_no'] = $_POST['reg_no'];
+        $data['fname'] = $_POST['fname'];
+        
+
+
+        $this->model->create($data);
+        header('location: '.URL.'enrollStudent');
+    }
+
+    function search(){
+    	$this->view->stuDet = $this->model->liststuDetails($_POST['regNo']);
+    }
 }

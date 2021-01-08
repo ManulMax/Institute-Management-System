@@ -27,6 +27,18 @@ class viewStudent_Model extends Model{
 
     }
 
+     public function listStuDetails($userid){
+
+        return $this->db->listWhere("s.fname,s.tel_no,s.address,s.NIC,s.DOB,s.gender,s.email,s.school,s.grade,s.stream,p.name,p.tel_no,sb.subject1,sb.subject2,sb.subject3","student s, parent p, studentsubject sb","user_id=$userid and p.stu_reg_no=s.reg_no and sb.stu_reg_no=s.reg_no");
+    
+
+    }
+
+     /*public function listStuDetails($userid){
+
+        return $this->db->listAll("s.fname,s.tel_no,s.address,s.NIC,s.DOB,s.gender,s.email,s.school,s.grade,s.stream,p.name,p.tel_no,sb.subject1,sb.subject2,sb.subject3","student s, parent p, studentsubject sb","user_id=$userid and p.stu_reg_no=s.reg_no and sb.stu_reg_no=s.reg_no");
+    }  */  
+
     public function listCurrentSchedules($hallName,$daySelected){
 
         return $this->db->listAll("s.start_time,s.end_time,t.fname,t.mname,t.lname,sub.name,c.batch","schedule s,teacher t,subject sub,class c","s.class_id=c.id and c.teacher_reg_no=t.reg_no and c.subject_id=sub.id and s.hall_id=(select id from hall where name='$hallName') and s.day='$daySelected'");
