@@ -8,6 +8,7 @@ class staffSalaryDetails extends Controller{
 
     function index(){
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+    	$this->view->salaryDetails = $this->model->listSalaryDetails($_SESSION["userid"]);
     	$this->view->render('staff/staffSalaryDetails');
     }
 

@@ -11,7 +11,7 @@ class enrollStudent_Model extends Model{
     	return $this->db->listAll("hall");
         
 
-    }
+    } 
 
     public function listSubjects(){
 
@@ -26,6 +26,27 @@ class enrollStudent_Model extends Model{
     
 
     }
+
+
+
+
+
+
+
+     public function listStuDetails($reg){
+
+        return $this->db->liststuDetails("fname","student","reg_no=$reg");
+    
+
+    }
+
+
+
+
+
+
+
+
 
     public function listCurrentSchedules($hallName,$daySelected){
 

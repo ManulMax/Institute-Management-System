@@ -86,7 +86,7 @@
                 </div>
               </div>";
             }
-          ?>
+          ?> 
 
     </div>
 
@@ -107,6 +107,17 @@
         <h3>Salary payment details</h3>
       </div>
       
+
+<?php
+
+          while($row = mysqli_fetch_assoc($this->salaryDetails)){  
+             echo "<p>Payement date :".$row['Payment_date']."</p><p>Salary details of the month" .$row['Amount']."</p><p>".$row['Amount']."</p>";
+
+
+          }
+      ?>
+      
+
     <div class="details">
         <p>Payment date :</p>
         <p>Salary details of Month :</p>

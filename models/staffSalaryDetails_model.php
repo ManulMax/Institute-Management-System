@@ -20,20 +20,29 @@ class staffSalaryDetails_Model extends Model{
 
     }
 
-
+ 
     public function listSubjects(){
 
         return $this->db->listAll("subject");
         
 
-    }
+    } 
 
-    public function listCurrentSchedules($hallName,$daySelected){
+    public function listSalaryDetails($userid){
 
-        return $this->db->listAll("s.start_time,s.end_time,t.fname,t.mname,t.lname,sub.name,c.batch","schedule s,teacher t,subject sub,class c","s.class_id=c.id and c.teacher_reg_no=t.reg_no and c.subject_id=sub.id and s.hall_id=(select id from hall where name='$hallName') and s.day='$daySelected'");
+        return $this->db->listAll("st.Payment_date,st.Amount","staff_salary st,staff s","$userid=s.user_id and st.staff_reg_no=s.reg_no ");
         
 
     }
+
+     public function listFullSalaryDetails($userid){
+
+        return $this->db->listAll("st.Payment_date,st.Amount","staff_salary st,staff s","$userid=s.user_id and st.staff_reg_no=s.reg_no and st.Payment_date LIKE %DATE('Y') ");
+        
+
+    }
+
+
 
     public function getUser($id){
 
