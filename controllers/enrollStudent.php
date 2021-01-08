@@ -11,6 +11,12 @@ class enrollStudent extends Controller{
     	$this->view->render('staff/enrollStudent');
     }
 
+    function renderEnrollStudent($reg,$name){
+        $this->view->stuName = $name;
+        $this->view->stuReg = $reg;
+        $this->view->render('staff/enrollStudent');
+    }
+
     function create(){
 
         $data = array();
@@ -24,6 +30,9 @@ class enrollStudent extends Controller{
     }
 
     function search(){
-    	$this->view->stuDet = $this->model->liststuDetails($_POST['regNo']);
+        $reg = $_POST['regNo'];
+    	$stuDet = $this->model->liststuDetails($reg);
+        $row = mysqli_fetch_assoc($stuDet);
+        $this->renderEnrollStudent($reg,$row['fname']);
     }
 }

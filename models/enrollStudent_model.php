@@ -28,23 +28,12 @@ class enrollStudent_Model extends Model{
     }
 
 
-
-
-
-
-
      public function listStuDetails($reg){
 
-        return $this->db->liststuDetails("fname","student","reg_no=$reg");
+        return $this->db->listWhere("fname","student","reg_no=$reg");
     
 
     }
-
-
-
-
-
-
 
 
 
