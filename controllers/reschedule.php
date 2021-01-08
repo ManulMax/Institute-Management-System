@@ -6,12 +6,19 @@ class reschedule extends Controller{
         parent::__construct();
     }
 
-    function index(){
+    function index($id,$batch){
     	$this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
     	$this->view->hallList = $this->model->listHalls();
         $this->view->scheduleList = $this->model->listSchedules();
+        $this->view->schedule = $this->model->currentSchedule($id,$_SESSION["userid"]);
+        $this->view->classid = $id;
+        $this->view->batch = $batch;
     	$this->view->render('teacher/reschedule');
+    }
+
+    function search($batch){
+
     }
 
     function sendRescheduleEmail(){

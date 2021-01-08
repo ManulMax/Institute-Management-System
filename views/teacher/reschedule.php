@@ -63,7 +63,18 @@ $(function(){
         </div>
     </li>
     <li><a href="<?php echo URL; ?>Classes"><i class="fas fa-users"></i>New Class</a></li>
-    <li><a href="<?php echo URL; ?>reschedule"><i class="far fa-calendar-alt"></i>Re-schedule</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="far fa-calendar-alt"></i>Re-schedule
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>reschedule/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
@@ -180,6 +191,8 @@ $(function(){
 
 <form id="regForm" action="<?php echo URL; ?>reschedule/sendRescheduleEmail" method="post">
 
+  <?php $sch = mysqli_fetch_assoc($this->schedule); ?>
+
 <div class="row">
     <div class="col-40" style="margin: 0;">
       <label class="containerRadio">Temporary Re-schedule
@@ -204,22 +217,22 @@ $(function(){
     <div class="col-75">
       <div style="width:250px;">
       <select name="batch">
-      <option value="0">Select Batch:</option>
-      <option value="1"><?php echo date("Y"); ?> A/L</option>
-      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
-      <option value="3"><?php echo date("Y")+2; ?> A/L</option>
-      <option value="4">Revision</option>
+      <option value="1" <?php if($this->batch == date("Y")){ echo "selected='selected'"; } ?> ><?php echo date("Y"); ?> A/L</option>
+      <option value="2" <?php if($this->batch == date("Y")+1){ echo "selected='selected'"; } ?> ><?php echo date("Y")+1; ?> A/L</option>
+      <option value="3" <?php if($this->batch == date("Y")+2){ echo "selected='selected'"; } ?> ><?php echo date("Y")+2; ?> A/L</option>
+      <option value="4" <?php if($this->batch == "Revision"){ echo "selected='selected'"; } ?> >Revision</option>
       </select>
     </div>
     </div>
   </div>
+
   
   <div class="row">
     <div class="col-20">
       <label for="subject">No. of Students :</label>
     </div>
     <div class="col-30">
-      <input type="text" name="stu-count">
+      <input type="text" name="stu-count" value="<?php echo $sch['size']; ?>">
     </div>
   </div>
 
@@ -249,9 +262,12 @@ $(function(){
       <option value="">- All -</option>
       <?php
 
-            while($row = mysqli_fetch_assoc($this->hallList)){  
-
-               echo "<option value='".$row['id']."'>".$row['name']."</option>";
+            while($row = mysqli_fetch_assoc($this->hallList)){ 
+              if ($row['name'] == $sch['hallName']) {
+                 echo "<option value='".$row['id']."' selected='selected'>".$row['name']."</option>";
+               } else{
+                  echo "<option value='".$row['id']."'>".$row['name']."</option>";
+               }
 
             }
       ?>
@@ -296,7 +312,7 @@ $(function(){
       <label for="subject"> Start Time :</label>
     </div>
     <div class="col-30">
-      <input type="time" name="start-time">
+      <input type="time" name="start-time" value="<?php echo $sch['start_time']; ?>">
     </div>
   <div class="col-20" style="width: 10%;">
     </div>
@@ -304,7 +320,7 @@ $(function(){
       <label for="subject">End Time :</label>
     </div>
     <div class="col-30">
-      <input type="time" name="end-time">
+      <input type="time" name="end-time" value="<?php echo $sch['end_time']; ?>">
     </div>
   </div>
 

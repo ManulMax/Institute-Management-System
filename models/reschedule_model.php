@@ -35,6 +35,13 @@ class reschedule_Model extends Model{
 
     }
 
+    public function currentSchedule($id,$userid){
+
+        return $this->db->listWhere("s.day,s.start_time,s.end_time,h.id as hallId,h.name as hallName,c.size","schedule s,teacher t,class c,hall h","s.class_id=$id and s.class_id=c.id and s.hall_id=h.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid");
+    
+
+    }
+
 
     public function getUser($id){
 
