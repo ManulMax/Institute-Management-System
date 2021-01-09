@@ -139,11 +139,15 @@
                   });
                 </script>
 
+        <form action="<?php echo URL; ?>collectClassFees/search" method="POST">        
         <table class="qr-scan">
             <tr><td><div class="qr"></div></td></tr>
-            <tr><td><input type="text" name="regNo" style="background-color:#F8F8FF;" class="regNo" placeholder="Reg No"></td></tr>
+            <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
             <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
+
+            
         </table>
+      </form>
     </div>   
 </div>   
 
@@ -151,9 +155,9 @@
 <div class="right" style="background-color:#F5F5F5;">
     <div class="container">
         <table class="image-detail">
-            <tr><td><img src="<?php echo URL; ?>public/img/placeholder.png" ></td>
-                <td><label style="color:black">Reg No</label></br><input type="text"  name="regNo" class="input" ></br></br>
-                    <label style="color:black">Name</label></br><input type="text" name="name" class="input">
+            <tr><td><img src='<?php echo URL; ?>public/img/placeholder.png' ></td>
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNo' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
 
