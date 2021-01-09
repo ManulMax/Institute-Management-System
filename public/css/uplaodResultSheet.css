@@ -47,6 +47,23 @@ border: none;
   background-color: #F8F8FF;
 }
 
+input[type=submit]{
+  background-color: #063811;
+  color: #ffffff;
+  padding: 10px 30px;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  height: 40px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+input[type=submit]:hover{
+  background-color: #4CAF50;
+}
+
 input[type=file]{
 height:50px;
 width:25%;

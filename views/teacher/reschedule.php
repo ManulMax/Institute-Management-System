@@ -189,6 +189,8 @@ $(function(){
   -->  
 <div class="middle" style="background-color:#F8F8FF;">
 
+  <h2 class="className"><?php echo $this->batch; ?>/L Class</h2>
+
 <form id="regForm" action="<?php echo URL; ?>reschedule/sendRescheduleEmail" method="post">
 
   <?php $sch = mysqli_fetch_assoc($this->schedule); ?>
@@ -207,24 +209,6 @@ $(function(){
       </label>
     </div>    
     </div>
-
-
-  
-  <div class="row">
-    <div class="col-20">
-      <label for="subject">Batch :</label>
-    </div>
-    <div class="col-75">
-      <div style="width:250px;">
-      <select name="batch">
-      <option value="1" <?php if($this->batch == date("Y")){ echo "selected='selected'"; } ?> ><?php echo date("Y"); ?> A/L</option>
-      <option value="2" <?php if($this->batch == date("Y")+1){ echo "selected='selected'"; } ?> ><?php echo date("Y")+1; ?> A/L</option>
-      <option value="3" <?php if($this->batch == date("Y")+2){ echo "selected='selected'"; } ?> ><?php echo date("Y")+2; ?> A/L</option>
-      <option value="4" <?php if($this->batch == "Revision"){ echo "selected='selected'"; } ?> >Revision</option>
-      </select>
-    </div>
-    </div>
-  </div>
 
   
   <div class="row">
@@ -246,13 +230,13 @@ $(function(){
    <div class="col-30">
     <label for="filter-day">Day:</label>
     <select id="filter-day" data-filter-col="0" style="min-width:60px" name="day">
-      <option value="Monday">Monday</option>
-      <option value="Tuesday">Tuesday</option>
-      <option value="Wednesday">Wednesday</option>
-      <option value="Thursday">Thursday</option>
-      <option value="Friday">Friday</option>
-      <option value="Saturday">Saturday</option>
-      <option value="Sunday">Sunday</option>
+      <option value="Monday" <?php if($sch['day'] == "Monday"){ echo "selected='selected'"; } ?> >Monday</option>
+      <option value="Tuesday" <?php if($sch['day'] == "Tuesday"){ echo "selected='selected'"; } ?> >Tuesday</option>
+      <option value="Wednesday" <?php if($sch['day'] == "Wednesday"){ echo "selected='selected'"; } ?> >Wednesday</option>
+      <option value="Thursday" <?php if($sch['day'] == "Thursday"){ echo "selected='selected'"; } ?> >Thursday</option>
+      <option value="Friday" <?php if($sch['day'] == "Friday"){ echo "selected='selected'"; } ?> >Friday</option>
+      <option value="Saturday" <?php if($sch['day'] == "Saturday"){ echo "selected='selected'"; } ?> >Saturday</option>
+      <option value="Sunday" <?php if($sch['day'] == "Sunday"){ echo "selected='selected'"; } ?> >Sunday</option>
     </select>
   </div>
 <div class="col-20"></div>

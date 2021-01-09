@@ -139,28 +139,32 @@
   
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
-	<div class="container">
-    <table>
+    <div class="container">
+    <form action="" method="post" style="border: 1px solid #333">
+      <table>
       <tr>
         <td>Class</td>
-        <td><select>
-      <option value="0">Select Class:</option>
-      <option value="1">2021 A/L</option>
-      <option value="2">2022 A/L</option>
-      <option value="3">2023 A/L</option>
-      <option value="4">Revision</option>
+        <td><select name="batch">
+          <option value="0">Select Class:</option>
+          <option value="<?php echo date('Y'); ?> A/L"><?php echo date("Y"); ?> A/L</option>
+          <option value="<?php echo date('Y')+1; ?> A/L"><?php echo date("Y")+1; ?> A/L</option>
+          <option value="<?php echo date('Y')+2; ?> A/L"><?php echo date("Y")+2; ?> A/L</option>
+          <option value="Revision">Revision</option>
       </select></td>
       <td>Exam</td>
         <td><input type="text" name="exam"></td>
       </tr>
-
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <input type="submit" name="Save" style="margin-left: 50%;">
+        </td>
+      </tr>
      </table>
-
-      
-        
      
-
-    
+    </form>
 
     <br>
 
