@@ -147,10 +147,12 @@
     <form class="wrapper">
       <div class="title" style="text-align: center;">
         <h3>Salary payment details</h3>
+
+    <?php $sal = mysqli_fetch_assoc($this->salary); ?>
       
     <div class="details">
-        <p>Payment date : 2020-10-31</p><br />
-        <p>Total Salary : Rs. 51500.00</p>
+        <p>Payment date : <?php echo $sal['date'] ?></p><br />
+        <p>Total Salary : <?php echo $sal['amount'] ?></p>
 
         <p style="color: grey;font-weight:bold;margin-top:30px;">Class-wise salary :</p>
 
