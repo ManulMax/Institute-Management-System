@@ -11,6 +11,8 @@ class materials extends Controller{
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->materialList = $this->model->listClassMaterials($classID);
         $this->view->batch = $batch;
+        $this->view->classid = $classID;
+       // Session::set('userid',$user['id']);
         $this->view->render('teacher/materials');
     }
 
@@ -29,7 +31,7 @@ class materials extends Controller{
         $this->view->render('paperMarker/materials');
     }
 
-    function create(){
+    function create($classID,$batch){
 
         $data = array();
 
@@ -40,7 +42,7 @@ class materials extends Controller{
         $data['temp']=$_FILES['file']['tmp_name'];
 
 
-        $this->model->create($data);
-        header('location: '.URL.'materials/index/1/2021 A/L');
+        $this->model->create($data,$classID,$_SESSION["userid"]);
+        header('location: '.URL.'materials/index/'.$classID.'/'.$batch);
     }
 }
