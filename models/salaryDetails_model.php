@@ -10,7 +10,11 @@ class salaryDetails_Model extends Model{
 
         return $this->db->listWhere("*","teacher","user_id=$userid");
     
+    }
 
+    public function listSalaryDetails($userid){
+        return $this->db->listWhere("s.date,s.amount","teacher_salary s,teacher t","s.teacher_reg_no=t.reg_no and t.user_id=$userid ORDER BY id DESC LIMIT 1");
+    
     }
 
     public function listClasses($userid){
@@ -23,7 +27,6 @@ class salaryDetails_Model extends Model{
     public function listHalls(){
 
     	return $this->db->listAll("hall");
-        
 
     }
 
