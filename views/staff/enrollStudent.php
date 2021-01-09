@@ -114,7 +114,7 @@
                     console.error(e);
                   });
                 </script>
-
+ 
                 
         <form action="<?php echo URL; ?>enrollStudent/search" method="POST">        
         <table class="qr-scan">
@@ -166,16 +166,7 @@
                 </td>
                 </tr>
                 <tr>
-                <td><label style="color:black">Teacher</label>
-                    <div class="box">
-                        <select id="teacher">
-                          <option value="t1">Mr.A.H.D.M.N.Kumarathunga Gamage</option>
-                          <option value="t2">Teacher2</option>
-                          <option value="t3">Teacher3</option>
-                          <option value="def" selected>Select teacher</option>
-                        </select>
-                    </div>
-                </td>
+               
                     
             </tr>   
         </table>
