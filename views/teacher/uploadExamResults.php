@@ -140,39 +140,67 @@
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
     <div class="container">
-    <form action="" method="post" style="border: 1px solid #333">
-      <table>
-      <tr>
-        <td>Class</td>
-        <td><select name="batch">
-          <option value="0">Select Class:</option>
-          <option value="<?php echo date('Y'); ?> A/L"><?php echo date("Y"); ?> A/L</option>
-          <option value="<?php echo date('Y')+1; ?> A/L"><?php echo date("Y")+1; ?> A/L</option>
-          <option value="<?php echo date('Y')+2; ?> A/L"><?php echo date("Y")+2; ?> A/L</option>
-          <option value="Revision">Revision</option>
-      </select></td>
-      <td>Exam</td>
-        <td><input type="text" name="exam"></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
+      <h3 style="color: #00b359;">Add New Exam</h3>
+    <form action="<?php echo URL; ?>uploadExamResults/addExam" method="post" style="border: 1px solid #333">
+
+      <div class="row">
+        <div class="col-10">
+          <label>Class :</label>
+        </div>
+        <div class="col-15">
+          <select name="batch">
+            <option value="0">Select Class:</option>
+            <option value="<?php echo date('Y'); ?> A/L"><?php echo date("Y"); ?> A/L</option>
+            <option value="<?php echo date('Y')+1; ?> A/L"><?php echo date("Y")+1; ?> A/L</option>
+            <option value="<?php echo date('Y')+2; ?> A/L"><?php echo date("Y")+2; ?> A/L</option>
+            <option value="Revision">Revision</option>
+          </select>
+        </div>
+      <div class="col-10">
+        <label>Exam :</label>
+      </div>
+        <div class="col-25"><input type="text" name="exam"></div>
+        <div class="col-15">
+        <label>Exam Date :</label>
+      </div>
+        <div class="col-15"><input type="date" name="date"></div>
+      </div>
+      
+      <div class="row">
           <input type="submit" name="Save" style="margin-left: 50%;">
-        </td>
-      </tr>
-     </table>
-     
+      </div>
+
     </form>
-
-    <br>
-
-    <label>Choose file</label>
-    <input type="file" name="uploadFile" class="btn">
-    <br>
-
-    <input type="submit" value="Upload" name="uplaod" class="btn2">
+    <h3 style="color: #00b359;margin-top: 60px;">Upload Resultsheet</h3>
+    <form action="" method="post" style="border: 1px solid #333;">
+      <div class="row">  
+      <div class="col-10">
+          <label>Class :</label>
+        </div>
+        <div class="col-15">
+          <select name="res-batch">
+            <option value="0">Select Class:</option>
+            <option value="<?php echo date('Y'); ?> A/L"><?php echo date("Y"); ?> A/L</option>
+            <option value="<?php echo date('Y')+1; ?> A/L"><?php echo date("Y")+1; ?> A/L</option>
+            <option value="<?php echo date('Y')+2; ?> A/L"><?php echo date("Y")+2; ?> A/L</option>
+            <option value="Revision">Revision</option>
+          </select>
+        </div>
+        <div class="col-10">
+          <label>Exam :</label>
+        </div>
+        <div class="col-25">
+          <select name="res-exam">
+            <option>exam1</option>
+          </select>
+        </div>
+      </div>
+      <div class="row"> 
+        <label style="margin-left: 40px;">Choose Resultsheet</label>
+        <input type="file" name="uploadFile" class="btn">
+        <input type="submit" value="Upload" name="uplaod">
+    </div>
+    </form>
 
 	</div>
   </div>

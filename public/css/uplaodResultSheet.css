@@ -33,7 +33,7 @@ td{
 }
 
 /* Full-width input fields */
-input[type=text], select {
+input[type=text],input[type=date], select {
 
 padding: 15px;
 width:100%;
@@ -66,35 +66,78 @@ input[type=submit]:hover{
 
 input[type=file]{
 height:50px;
-width:25%;
-margin: 100px 0 22px 0;
+width:20%;
+margin: 50px 10px 22px 0;
 display: inline-block;
 border: none;
 
 }
 
 
-.btn, .btn2 {
+.btn{
 background-color: #4CAF50;
 color: white;
 padding: 16px 20px;
 border: none;
 cursor: pointer;
-width: 25%;
 opacity: 0.9;
 
 }
 
-.btn, .btn2:hover {
+.btn:hover {
 opacity:1;
-}
-
-.btn2{
-	margin-left:41.5%;
-	margin-top:5%;
 }
 
 
 label{
+  margin-top: 10px;
 	margin-left: 35%;
+}
+
+
+.col-10 {
+  float: left;
+  width: 10%;
+  margin-top: 20px;
+}
+
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 20px;
+}
+
+.col-35 {
+  float: left;
+  width: 35%;
+  margin-top: 30px;
+}
+
+.col-50 {
+  float: left;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 20px;
+}
+
+.row {
+  padding-bottom: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
