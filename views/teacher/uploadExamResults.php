@@ -156,18 +156,7 @@
     <form action="<?php echo URL; ?>uploadExamResults/addExam/<?php echo $this->classid.'/'.$this->batch; ?>" method="post" style="border: 1px solid #333">
 
       <div class="row">
-        <div class="col-10">
-          <label>Class :</label>
-        </div>
-        <div class="col-15">
-          <select name="batch">
-            <option value="0">Select Class:</option>
-            <option value="<?php echo date('Y'); ?> A/L"><?php echo date("Y"); ?> A/L</option>
-            <option value="<?php echo date('Y')+1; ?> A/L"><?php echo date("Y")+1; ?> A/L</option>
-            <option value="<?php echo date('Y')+2; ?> A/L"><?php echo date("Y")+2; ?> A/L</option>
-            <option value="Revision">Revision</option>
-          </select>
-        </div>
+
       <div class="col-10">
         <label>Exam :</label>
       </div>
@@ -186,18 +175,6 @@
     <h3 style="color: #00b359;margin-top: 60px;">Upload Resultsheet</h3>
     <form action="<?php echo URL; ?>uploadExamResults/addResultsheet" method="post" enctype="multipart/form-data" style="border: 1px solid #333;">
       <div class="row">  
-      <div class="col-10">
-          <label>Class :</label>
-        </div>
-        <div class="col-15">
-          <select name="res-batch">
-            <option value="0">Select Class:</option>
-            <option value="<?php echo date('Y'); ?> A/L"><?php echo date("Y"); ?> A/L</option>
-            <option value="<?php echo date('Y')+1; ?> A/L"><?php echo date("Y")+1; ?> A/L</option>
-            <option value="<?php echo date('Y')+2; ?> A/L"><?php echo date("Y")+2; ?> A/L</option>
-            <option value="Revision">Revision</option>
-          </select>
-        </div>
         <div class="col-10">
           <label>Exam :</label>
         </div>
