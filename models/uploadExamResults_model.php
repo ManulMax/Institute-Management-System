@@ -26,6 +26,11 @@ class uploadExamResults_Model extends Model{
         return $this->db->listAll("subject");
     }
 
+    public function listExams($userid){
+
+        return $this->db->listWhere("e.id,e.topic","exam e,class c,teacher t","e.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid");
+    }
+
     public function create($data,$userid){
         $classIDList = $this->db->listWhere("c.id","class c,teacher t","c.teacher_reg_no=t.reg_no and t.user_id=$userid and c.batch='".$data['batch']."'");
         $classID = mysqli_fetch_assoc($classIDList);

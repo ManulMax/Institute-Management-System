@@ -172,7 +172,7 @@
 
     </form>
     <h3 style="color: #00b359;margin-top: 60px;">Upload Resultsheet</h3>
-    <form action="" method="post" style="border: 1px solid #333;">
+    <form action="<?php echo URL; ?>uploadExamResults/addResultsheet" method="post" enctype="multipart/form-data" style="border: 1px solid #333;">
       <div class="row">  
       <div class="col-10">
           <label>Class :</label>
@@ -191,7 +191,12 @@
         </div>
         <div class="col-25">
           <select name="res-exam">
-            <option>exam1</option>
+            <?php
+            while($row=mysqli_fetch_assoc($this->exams)){
+              echo "<option value='".$row['id']."'>".$row['topic']."</option>";
+            }
+            
+            ?>
           </select>
         </div>
       </div>

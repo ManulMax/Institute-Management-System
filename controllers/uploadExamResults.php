@@ -9,6 +9,7 @@ class uploadExamResults extends Controller{
     function index(){
     	$this->view->classList = $this->model->listClasses($_SESSION["userid"]);
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+    	$this->view->exams = $this->model->listExams($_SESSION["userid"]);
     	$this->view->render('teacher/uploadExamResults');
     }
 
@@ -20,5 +21,9 @@ class uploadExamResults extends Controller{
 
         $this->model->create($data,$_SESSION["userid"]);
         header('location: '.URL.'uploadExamResults');
+    }
+
+    function addResultsheet(){
+
     }
 }
