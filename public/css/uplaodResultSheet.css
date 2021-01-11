@@ -6,6 +6,10 @@
   width: 83%;
   overflow: scroll;
 }
+.className {
+  text-align: center;
+  color: #00b359;
+}
 
 /* ----------------------------- middle content ----------------------------- */
 
