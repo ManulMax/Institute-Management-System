@@ -6,6 +6,10 @@
   width: 83%;
   overflow: scroll;
 }
+.className {
+  text-align: center;
+  color: #00b359;
+}
 
 /* ----------------------------- middle content ----------------------------- */
 
@@ -33,7 +37,7 @@ td{
 }
 
 /* Full-width input fields */
-input[type=text], select {
+input[type=text],input[type=date], select {
 
 padding: 15px;
 width:100%;
@@ -47,37 +51,97 @@ border: none;
   background-color: #F8F8FF;
 }
 
+input[type=submit]{
+  background-color: #063811;
+  color: #ffffff;
+  padding: 10px 30px;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  height: 40px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+input[type=submit]:hover{
+  background-color: #4CAF50;
+}
+
 input[type=file]{
 height:50px;
-width:25%;
-margin: 100px 0 22px 0;
+width:20%;
+margin: 50px 10px 22px 0;
 display: inline-block;
 border: none;
 
 }
 
 
-.btn, .btn2 {
+.btn{
 background-color: #4CAF50;
 color: white;
 padding: 16px 20px;
 border: none;
 cursor: pointer;
-width: 25%;
 opacity: 0.9;
 
 }
 
-.btn, .btn2:hover {
+.btn:hover {
 opacity:1;
-}
-
-.btn2{
-	margin-left:41.5%;
-	margin-top:5%;
 }
 
 
 label{
+  margin-top: 10px;
 	margin-left: 35%;
+}
+
+
+.col-10 {
+  float: left;
+  width: 10%;
+  margin-top: 20px;
+}
+
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 20px;
+}
+
+.col-35 {
+  float: left;
+  width: 35%;
+  margin-top: 30px;
+}
+
+.col-50 {
+  float: left;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 20px;
+}
+
+.row {
+  padding-bottom: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

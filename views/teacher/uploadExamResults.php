@@ -62,7 +62,18 @@
     </li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-    <li><a href="<?php echo URL; ?>uploadExamResults"><i class="fas fa-file-signature"></i>Exam Results</a></li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>uploadExamResults/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
   </ul>
 	
   </div>
@@ -139,36 +150,51 @@
   
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
-	<div class="container">
-    <table>
-      <tr>
-        <td>Class</td>
-        <td><select>
-      <option value="0">Select Class:</option>
-      <option value="1">2021 A/L</option>
-      <option value="2">2022 A/L</option>
-      <option value="3">2023 A/L</option>
-      <option value="4">Revision</option>
-      </select></td>
-      <td>Exam</td>
-        <td><input type="text" name="exam"></td>
-      </tr>
+    <h2 class="className"><?php echo $this->batch ?>/L Class</h2>
+    <div class="container">
+      <h3 style="color: #00b359;">Add New Exam</h3>
+    <form action="<?php echo URL; ?>uploadExamResults/addExam/<?php echo $this->classid.'/'.$this->batch; ?>" method="post" style="border: 1px solid #333">
 
-     </table>
+      <div class="row">
 
+      <div class="col-10">
+        <label>Exam :</label>
+      </div>
+        <div class="col-25"><input type="text" name="exam"></div>
+        <div class="col-15">
+        <label>Exam Date :</label>
+      </div>
+        <div class="col-15"><input type="date" name="date"></div>
+      </div>
       
-        
-     
+      <div class="row">
+          <input type="submit" name="Save" style="margin-left: 50%;">
+      </div>
 
-    
-
-    <br>
-
-    <label>Choose file</label>
-    <input type="file" name="uploadFile" class="btn">
-    <br>
-
-    <input type="submit" value="Upload" name="uplaod" class="btn2">
+    </form>
+    <h3 style="color: #00b359;margin-top: 60px;">Upload Resultsheet</h3>
+    <form action="<?php echo URL; ?>uploadExamResults/addResultsheet" method="post" enctype="multipart/form-data" style="border: 1px solid #333;">
+      <div class="row">  
+        <div class="col-10">
+          <label>Exam :</label>
+        </div>
+        <div class="col-25">
+          <select name="res-exam">
+            <?php
+            while($row=mysqli_fetch_assoc($this->exams)){
+              echo "<option value='".$row['id']."'>".$row['topic']."</option>";
+            }
+            
+            ?>
+          </select>
+        </div>
+      </div>
+      <div class="row"> 
+        <label style="margin-left: 40px;">Choose Resultsheet</label>
+        <input type="file" name="uploadFile" class="btn">
+        <input type="submit" value="Upload" name="uplaod">
+    </div>
+    </form>
 
 	</div>
   </div>

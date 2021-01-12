@@ -6,9 +6,26 @@ class uploadExamResults extends Controller{
         parent::__construct();
     }
 
-    function index(){
+    function index($id,$batch){
     	$this->view->classList = $this->model->listClasses($_SESSION["userid"]);
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+    	$this->view->exams = $this->model->listExams($id,$_SESSION["userid"]);
+    	$this->view->classid = $id;
+        $this->view->batch = $batch;
     	$this->view->render('teacher/uploadExamResults');
+    }
+
+    function addExam($classID,$batch){
+    	$data = array();
+        $data['topic'] = $_POST['exam'];
+        $data['batch'] = $batch;
+        $data['date'] = $_POST['date'];
+
+        $this->model->create($data,$_SESSION["userid"]);
+        header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch);
+    }
+
+    function addResultsheet(){
+
     }
 }
