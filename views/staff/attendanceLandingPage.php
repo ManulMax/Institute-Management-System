@@ -148,8 +148,8 @@ $(function(){
 <thead>
   <tr>
     <th>Class</th>
-    <th>Batch</th>
     <th>Time</th>
+    <th>Hall</th>
     
     
 

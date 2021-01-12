@@ -27,7 +27,7 @@
       <li><a href="<?php echo URL; ?>collectClassFees"><i class="fa fa-money"></i>Collect fees</a></li>
       <li><a href="<?php echo URL; ?>staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     </ul>
-   
+    
   </div>
 
    <div id="myModal" class="modal">
@@ -117,7 +117,7 @@
                   }).catch(function (e) {
                     console.error(e);
                   });
-                </script>
+                </script> 
            
              
       <form action="<?php echo URL; ?>markAttendance/search" method="POST">        
@@ -148,12 +148,12 @@
 
             <tr>
               <td style="color:black">Last payment date</td>
-              <td><input type="text" name="payment-date" class="payment-date"></td>
+              <td><input type="text" name="payment-date" class="payment-date" value="<?php if(isset($this->stuLastPaymentDate)){echo $this->stuLastPaymentDate; }else{ echo ""; }; ?>"></td>
             </tr>
 
             <tr>
               <td style="color:black">Paid amount</td>
-              <td><input type="text" name="paid-amount" class="paid-amount"></td>
+              <td><input type="text" name="paid-amount" class="paid-amount" value="<?php if(isset($this->stuLastPaidAmount)){echo $this->stuLastPaidAmount; }else{ echo ""; }; ?>"></td>
             </tr>
     
         </table>

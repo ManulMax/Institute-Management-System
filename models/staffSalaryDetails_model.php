@@ -26,13 +26,12 @@ class staffSalaryDetails_Model extends Model{
         return $this->db->listAll("subject");
         
 
-    } 
+    }
+
 
     public function listSalaryDetails($userid){
-
-        return $this->db->listAll("st.Payment_date,st.Amount","staff_salary st,staff s","$userid=s.user_id and st.staff_reg_no=s.reg_no ");
-        
-
+        return $this->db->listWhere("st.date,st.amount","staff_salary st,staff s","st.staff-reg_no=s.reg_no and s.user_id=$userid ORDER BY id DESC LIMIT 1");
+    
     }
 
      public function listFullSalaryDetails($userid){

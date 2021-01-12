@@ -108,20 +108,12 @@
       </div>
       
 
-<?php
-
-          while($row = mysqli_fetch_assoc($this->salaryDetails)){  
-             echo "<p>Payement date :".$row['Payment_date']."</p><p>Salary details of the month" .$row['Amount']."</p><p>".$row['Amount']."</p>";
-
-
-          }
-      ?>
+ <?php $sal = mysqli_fetch_assoc($this->salary); ?>
       
-
     <div class="details">
-        <p>Payment date :</p>
-        <p>Salary details of Month :</p>
-        <p>Total Salary :</p>
+        <p>Payment date : <?php echo $sal['date'] ?></p><br />
+        <p>Total Salary : <?php echo $sal['amount'] ?></p>
+
       <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;" value="Download Report">
     
     </div>

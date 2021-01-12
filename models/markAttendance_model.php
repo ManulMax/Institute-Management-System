@@ -17,7 +17,7 @@ class markAttendance_Model extends Model{
 
         return $this->db->listWhere("*","staff","user_id=$userid");
     
-
+ 
     }
 
     public function listSubjects(){
@@ -29,7 +29,7 @@ class markAttendance_Model extends Model{
 
      public function listStuDetails($reg){
 
-        return $this->db->listWhere("fname","student","reg_no=$reg");
+        return $this->db->listWhere("s.fname,f.date,f.amount","student s, fees f","s.reg_no=$reg and f.stu_reg_no=s.reg_no and ORDER BY f.id DESC LIMIT 1");
     
 
     }
