@@ -141,7 +141,7 @@
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
-
+            
             <tr>
               <td style="color:black"><h3>Last payment<h3></td>
             </tr>

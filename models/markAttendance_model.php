@@ -34,7 +34,7 @@ class markAttendance_Model extends Model{
 
     public function listStuDetails($reg){
 
-         return $this->db->listWhere("s.fname,f.date,f.amount","student s, fees f","s.reg_no=$reg and f.stu_reg_no=s.reg_no and ORDER BY f.id DESC LIMIT 1");
+         return $this->db->listWhere("s.fname,f.date,f.amount","student s,fees f","s.reg_no=$reg and f.stu_reg_no=s.reg_no ORDER BY f.id DESC LIMIT 1");
     }
 
 

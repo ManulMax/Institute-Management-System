@@ -35,10 +35,10 @@ class markAttendance extends Controller{
 
     function search(){
         $reg = $_POST['regNo'];
-    	$stuDet = $this->model->liststuDetails($reg);
+    	$stuDet = $this->model->listStuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
         $this->renderMarkAttendance($reg,$row['fname'],$row['date'],$row['amount']);
     }
- 
+
     
 }
