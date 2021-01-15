@@ -39,6 +39,6 @@ class markAttendance extends Controller{
         $row = mysqli_fetch_assoc($stuDet);
         $this->renderMarkAttendance($reg,$row['fname'],$row['date'],$row['amount']);
     }
-
+ 
     
 }
