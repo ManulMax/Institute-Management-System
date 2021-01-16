@@ -133,6 +133,7 @@
 </div>   
 
 <!---------------------------right side bar----------------------------------->
+<form action="<?php echo URL; ?>markAttendance/create" method="POST">   
 <div class="right" style="background-color:#F5F5F5;">
     <div class="container">
         <table class="image-detail">
@@ -158,10 +159,11 @@
     
         </table>
         
-        <input type="submit" name="save-payment" value="Mark Attendance" class="search" style="margin-left:20%; margin-top:20%">
+        <input type="submit" name="save-attendance" value="Mark Attendance" class="search" style="margin-left:20%; margin-top:20%">
         
     
     </div>
+  </form>
  
 </div>
 

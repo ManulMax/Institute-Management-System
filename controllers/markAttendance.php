@@ -19,19 +19,18 @@ class markAttendance extends Controller{
         $this->view->render('staff/markAttendance');
     }
 
-   /* function create(){
+    function create(){
  
         $data = array();
-        $data['reg_no'] = $_POST['reg_no'];
-        $data['fname'] = $_POST['fname'];
-        $data['date'] = $_POST['date'];
-        $data['amount'] = $_POST['amount'];
+        $data['regNo'] = $_POST['regNo'];
+       
         
 
 
         $this->model->create($data);
-        header('location: '.URL.'markAttendance');
-    }*/
+        $this->view->render('staff/attendanceLandingPage');
+       // header('location: '.URL.'markAttendance');
+    }
 
     function search(){
         $reg = $_POST['regNo'];

@@ -37,6 +37,10 @@ class markAttendance_Model extends Model{
          return $this->db->listWhere("s.fname,f.date,f.amount","student s,fees f","s.reg_no=$reg and f.stu_reg_no=s.reg_no ORDER BY f.id DESC LIMIT 1");
     }
 
+    public function create($data){
+        $this->db->insert("attendance","(class_id,stu_reg_no,date,presence)","(1,'".($data['regNo'])."',2021-01-05,1)");
+    }
+
 
 
 
