@@ -9,6 +9,7 @@ class collectClassFees extends Controller{
     function index(){
     	
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->subjectList = $this->model->listSubjects();
     	$this->view->render('staff/collectClassFees');
     }
 
@@ -21,8 +22,8 @@ class collectClassFees extends Controller{
     function create(){
 
         $data = array();
-        $data['reg_no'] = $_POST['reg_no'];
-        $data['fname'] = $_POST['fname'];
+        $data['date'] = $_POST['date'];
+        $data['amount'] = $_POST['amount']; 
         
 
 

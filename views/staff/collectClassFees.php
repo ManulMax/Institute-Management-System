@@ -12,7 +12,7 @@
 </head>
 
 
-<body>
+<body> 
 
 <!-------------------------------------Navigation bar--------------------------------------->
 <div class="row">
@@ -104,15 +104,20 @@
       <div>
       
           <label>Subject</label>
-            <select style="background-color:#F8F8FF;">
-              <option>- All -</option>
-              <option>Chemistry</option>
-              <option>Physics</option>
-              <option>Maths</option>
-            </select>
+            <select style="background-color:#F8F8FF;" name="subject">
+      <option value="">- All -</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
+
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
+    </select>
           
             <label>Batch</label>
-            <select style="background-color:#F8F8FF;">
+            <select style="background-color:#F8F8FF;" name="batch">
               <option value="">- All -</option>
               <option value="1"><?php echo date("Y");?> A/L</option>
               <option value="2"><?php echo date("Y")+1;?> A/L</option>
@@ -153,6 +158,7 @@
 
 <!---------------------------right side bar----------------------------------->
 <div class="right" style="background-color:#F5F5F5;">
+  <form action="<?php echo URL; ?>collectClassFees/create" method="POST">
     <div class="container">
         <table class="image-detail">
             <tr><td><img src='<?php echo URL; ?>public/img/placeholder.png' ></td>
@@ -179,7 +185,7 @@
         
         <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:30%">
         
-    
+    </form>
     </div>
  
 </div>
