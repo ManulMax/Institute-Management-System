@@ -133,12 +133,12 @@
 </div>   
 
 <!---------------------------right side bar----------------------------------->
-<form action="<?php echo URL; ?>markAttendance/create" method="POST">   
+<form action="<?php echo URL; ?>markAttendance/create" method="post">   
 <div class="right" style="background-color:#F5F5F5;">
     <div class="container">
         <table class="image-detail">
            <tr><td><img src='<?php echo URL; ?>public/img/placeholder.png' ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNo' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>

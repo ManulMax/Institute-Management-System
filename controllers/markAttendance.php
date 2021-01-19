@@ -22,7 +22,7 @@ class markAttendance extends Controller{
     function create(){
  
         $data = array();
-        $data['regNo'] = $_POST['regNo'];
+        $data['regNo'] = $_POST['regNum'];
        
         
 

@@ -13,7 +13,7 @@ class collectClassFees extends Controller{
     	$this->view->render('staff/collectClassFees');
     }
 
-    function renderEnrollStudent($reg,$name){
+    function renderCollectClassFees($reg,$name){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
         $this->view->render('staff/collectClassFees');
@@ -35,7 +35,7 @@ class collectClassFees extends Controller{
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->liststuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
-        $this->renderEnrollStudent($reg,$row['fname']);
+        $this->renderCollectClassFees($reg,$row['fname']);
     }
 
     
