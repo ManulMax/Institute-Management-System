@@ -34,14 +34,15 @@ class collectClassFees_Model extends Model{
 
     }
 
-     public function create($data){
+This is the commented code
+   /*  public function create($data){
 
     $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."' ");
     $id = mysqli_fetch_assoc($classID);    
 
      $this->db->insert("fees","(date,amount,class_id,stu_reg_no,income_id)","('".$data['date']."','"($data['amount'])."','"($id['class_id'])."','"($data['regNo'])."')");
 
- }
+ }*/
 
     public function listCurrentSchedules($hallName,$daySelected){
 

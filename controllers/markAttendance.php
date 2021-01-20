@@ -22,14 +22,14 @@ class markAttendance extends Controller{
     function create(){
  
         $data = array();
-        $data['regNo'] = $_POST['regNum'];
+        $data['stu_reg_no'] = $_POST['regNum'];
        
         
 
 
         $this->model->create($data);
         $this->view->render('staff/attendanceLandingPage');
-       // header('location: '.URL.'markAttendance');
+        //header('location: '.URL.'markAttendance');
     }
 
     function search(){
@@ -40,4 +40,4 @@ class markAttendance extends Controller{
     }
 
     
-}
+} 
