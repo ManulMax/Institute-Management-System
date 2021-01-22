@@ -19,7 +19,7 @@ class collectClassFees extends Controller{
         $this->view->render('staff/collectClassFees');
     }
 
-    function create(){
+    /*function create(){
 
         $data = array();
         $data['date'] = $_POST['date'];
@@ -29,7 +29,7 @@ class collectClassFees extends Controller{
 
         $this->model->create($data);
         header('location: '.URL.'collectClassFees');
-    }
+    }*/
 
     function search(){
         $reg = $_POST['regNo'];

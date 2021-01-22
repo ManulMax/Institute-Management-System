@@ -35,14 +35,12 @@ class markAttendance_Model extends Model{
     }
 
 
-    public function create($data){
-        $this->db->insert("attendance","(class_id,stu_reg_no,date,presence)","(1,".$data['regNo'].",'2021-01-05',1)");
-    }
-
-This is the commented code
-/* public function create($data){
+   /* public function create($data){
         $this->db->insert("attendance","(class_id,stu_reg_no,date,presence)","(1,".$data['regNo'].",'2021-01-05',1)");
     }*/
+
+
+
 
 
 

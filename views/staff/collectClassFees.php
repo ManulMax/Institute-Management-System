@@ -158,7 +158,7 @@
 
 <!---------------------------right side bar----------------------------------->
 <div class="right" style="background-color:#F5F5F5;">
-  <form action="<?php echo URL; ?>collectClassFees/create" method="POST">
+  
     <div class="container">
         <table class="image-detail">
             <tr><td><img src='<?php echo URL; ?>public/img/placeholder.png' ></td>
@@ -185,7 +185,7 @@
         
         <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:30%">
         
-    </form>
+  
     </div>
  
 </div>

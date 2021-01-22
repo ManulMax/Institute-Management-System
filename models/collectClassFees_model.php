@@ -34,8 +34,8 @@ class collectClassFees_Model extends Model{
 
     }
 
-This is the commented code
-   /*  public function create($data){
+//This is the commented code
+   /*public function create($data){
 
     $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."' ");
     $id = mysqli_fetch_assoc($classID);    

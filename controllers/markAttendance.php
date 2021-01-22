@@ -19,7 +19,7 @@ class markAttendance extends Controller{
         $this->view->render('staff/markAttendance');
     }
 
-    function create(){
+   /* function create(){
  
         $data = array();
         $data['stu_reg_no'] = $_POST['regNum'];
@@ -30,7 +30,7 @@ class markAttendance extends Controller{
         $this->model->create($data);
         $this->view->render('staff/attendanceLandingPage');
         //header('location: '.URL.'markAttendance');
-    }
+    }*/
 
     function search(){
         $reg = $_POST['regNo'];

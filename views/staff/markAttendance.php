@@ -133,7 +133,7 @@
 </div>   
 
 <!---------------------------right side bar----------------------------------->
-<form action="<?php echo URL; ?>markAttendance/create" method="post">   
+  
 <div class="right" style="background-color:#F5F5F5;">
     <div class="container">
         <table class="image-detail">
@@ -163,7 +163,7 @@
         
     
     </div>
-  </form>
+ 
  
 </div>
 
