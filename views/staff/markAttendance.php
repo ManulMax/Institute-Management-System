@@ -136,6 +136,7 @@
   
 <div class="right" style="background-color:#F5F5F5;">
     <div class="container">
+      <form action="<?php echo URL; ?>markAttendance/create" method="POST"> 
         <table class="image-detail">
            <tr><td><img src='<?php echo URL; ?>public/img/placeholder.png' ></td>
                 <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
@@ -144,7 +145,7 @@
             </tr>
             
             <tr>
-              <td style="color:black"><h3>Last payment<h3></td>
+              <td style="color:black">Last payment</td>
             </tr>
 
             <tr>
@@ -161,7 +162,7 @@
         
         <input type="submit" name="save-attendance" value="Mark Attendance" class="search" style="margin-left:20%; margin-top:20%">
         
-    
+    </form>
     </div>
  
  

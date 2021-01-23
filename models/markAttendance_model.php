@@ -27,6 +27,14 @@ class markAttendance_Model extends Model{
 
     }
 
+
+    public function listSchedules(){
+
+        return $this->db->listWhere("s.day,s.start_time,s.end_time,h.name as hallName,sub.name,c.batch","schedule s,teacher t,subject sub,class c,hall h","s.class_id=c.id and s.hall_id=h.id and c.subject_id=sub.id and c.teacher_reg_no=t.reg_no");
+    
+
+    } 
+
   
 
      public function listStuDetails($reg){
@@ -35,9 +43,9 @@ class markAttendance_Model extends Model{
     }
 
 
-   /* public function create($data){
-        $this->db->insert("attendance","(class_id,stu_reg_no,date,presence)","(1,".$data['regNo'].",'2021-01-05',1)");
-    }*/
+    public function create($data){
+        $this->db->insert("attendance","(class_id,stu_reg_no,date,presence)","(1,".$data['stu_reg_no'].",'2021-01-05',1)");
+    }
 
 
 
@@ -54,23 +62,6 @@ class markAttendance_Model extends Model{
     public function getUser($id){
 
         return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
-    }
-
-    public function create($data){
-
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
-
-
     }
 
     public function update($data){
