@@ -11,9 +11,10 @@ class markAttendance extends Controller{
     	$this->view->render('staff/markAttendance');
     }
 
-     function renderMarkAttendance($reg,$name,$date,$amount){
+     function renderMarkAttendance($reg,$name,$image,$date,$amount){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
+        $this->view->image = $image;
         $this->view->stuLastPaymentDate = $date;
         $this->view->stuLastPaidAmount = $amount;
         $this->view->render('staff/markAttendance');
@@ -35,7 +36,7 @@ class markAttendance extends Controller{
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->listStuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
-        $this->renderMarkAttendance($reg,$row['fname'],$row['date'],$row['amount']);
+        $this->renderMarkAttendance($reg,$row['fname'],$row['image'],$row['date'],$row['amount']);
     }
 
     
