@@ -57,7 +57,7 @@ class reschedule_Model extends Model{
         $classDetails = mysqli_fetch_assoc($class);
 
        $this->db->update("class","size=".$data['count'],"class_id=".$classDetails['id']);
-       $this->db->update("schedule","hall_id=".$data['hall'].",day='".$data['day']."',start_time='".$data['startTime']."',end_time='".$data['endTime']."'","class_id=".$classDetails['id']);
+       $this->db->update("schedule","hall_id=".$data['hall'].",day='".$data['day']."',start_time='".$data['startTime']."',end_time='".$data['endTime']."',start_date='".$data['startDate']."'","class_id=".$classDetails['id']);
     }
 
 
