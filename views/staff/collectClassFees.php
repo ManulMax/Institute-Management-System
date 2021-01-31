@@ -101,30 +101,7 @@
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-      <div>
       
-          <label>Subject</label>
-            <select style="background-color:#F8F8FF;" name="subject">
-      <option value="">- All -</option>
-      <?php
-
-            while($row = mysqli_fetch_assoc($this->subjectList)){  
-
-               echo "<option value='".$row['name']."'>".$row['name']."</option>";
-
-            }
-      ?>
-    </select>
-          
-            <label>Batch</label>
-            <select style="background-color:#F8F8FF;" name="batch">
-              <option value="">- All -</option>
-              <option value="1"><?php echo date("Y");?> A/L</option>
-              <option value="2"><?php echo date("Y")+1;?> A/L</option>
-              <option value="3"><?php echo date("Y")+2;?> A/L</option>
-              <option value="4">Revision</option>
-            </select>
-    </div>
 
 
       <video id="preview" style="width:150%;height:100%;"></video>
@@ -155,20 +132,49 @@
       </form>
     </div>   
 </div>   
-
+ 
 <!---------------------------right side bar----------------------------------->
 <div class="right" style="background-color:#F5F5F5;">
-  
+  <form action="<?php echo URL; ?>collectClassFees/create" method="POST"> 
     <div class="container">
         <table class="image-detail">
-            <tr><td><img src='<?php echo URL; ?>public/img/placeholder.png' ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNo' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+            <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
 
             <tr>
-              <td style="color:black"><h3>Payment details<h3></td>
+              <td style="color:black">Subject</td>
+              <td> <select name="subject">
+                    <option value="">- All -</option>
+              <?php
+
+                  while($row = mysqli_fetch_assoc($this->subjectList)){  
+
+                  echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+                 }
+               ?>
+                  </select>
+                </td>
+
+            </tr> 
+
+            <tr>
+              <td style="color:black">Class</td>
+              <td><select name="batch">
+              <option value="">- All -</option>
+              <option value="1"><?php echo date("Y");?> A/L</option>
+              <option value="2"><?php echo date("Y")+1;?> A/L</option>
+              <option value="3"><?php echo date("Y")+2;?> A/L</option>
+              <option value="4">Revision</option>
+            </select></td>
+            </tr>
+
+
+            <tr>
+              <td style="color:black"><h3>Payment details</h3></td>
             </tr>
 
             <tr>
@@ -180,13 +186,17 @@
               <td style="color:black">Paid amount</td>
               <td><input type="text" name="paid-amount" class="paid-amount"></td>
             </tr>
+
+            
     
-        </table>
+       </table>
+        <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:10%">
         
-        <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:30%">
+        
         
   
     </div>
+</form>
  
 </div>
 

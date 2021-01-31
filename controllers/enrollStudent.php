@@ -11,9 +11,10 @@ class enrollStudent extends Controller{
     	$this->view->render('staff/enrollStudent');
     }
 
-    function renderEnrollStudent($reg,$name){
+    function renderEnrollStudent($reg,$name,$image){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
+         $this->view->image = $image;
         $this->view->render('staff/enrollStudent');
     }
 
@@ -33,6 +34,6 @@ class enrollStudent extends Controller{
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->liststuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
-        $this->renderEnrollStudent($reg,$row['fname']);
+        $this->renderEnrollStudent($reg,$row['fname'],$row['image']);
     }
 }

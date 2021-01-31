@@ -20,7 +20,7 @@ class collectClassFees_Model extends Model{
 
     }
 
-    public function listSubjects(){
+    public function listSubjects(){ 
 
         return $this->db->listAll("subject");
         
@@ -29,20 +29,20 @@ class collectClassFees_Model extends Model{
  
      public function listStuDetails($reg){
 
-        return $this->db->listWhere("fname","student","reg_no=$reg");
+        return $this->db->listWhere("fname,image","student","reg_no=$reg");
     
 
     }
 
-//This is the commented code
-   /*public function create($data){
+
+   public function create($data){
 
     $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."' ");
     $id = mysqli_fetch_assoc($classID);    
 
-     $this->db->insert("fees","(date,amount,class_id,stu_reg_no,income_id)","('".$data['date']."','"($data['amount'])."','"($id['class_id'])."','"($data['regNo'])."')");
+     $this->db->insert("fees","(date,amount,class_id,stu_reg_no,income_id)","('".$data['payment-date']."','"($data['paid-amount'])."','"($id['class_id'])."','"($data['regNo'])."',1)");
 
- }*/
+ }
 
     public function listCurrentSchedules($hallName,$daySelected){
 
@@ -56,20 +56,7 @@ class collectClassFees_Model extends Model{
         return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
     }
 
-    public function create($data){
-
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
-    }
+  
 
     public function update($data){
 

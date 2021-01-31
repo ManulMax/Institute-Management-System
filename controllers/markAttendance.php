@@ -40,4 +40,4 @@ class markAttendance extends Controller{
     }
 
     
-} 
+}  
