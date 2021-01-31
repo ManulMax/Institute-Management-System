@@ -166,7 +166,14 @@
         <p>Total Salary : <?php echo $sal['amount'] ?></p>
 
         <p style="color: grey;font-weight:bold;margin-top:30px;">Class-wise salary :</p>
-
+        <?php if(isset($this->classSal1)){
+          $Sal1=mysqli_fetch_assoc($this->classSal1); }
+          if(isset($this->classSal1)){
+          $Sal2=mysqli_fetch_assoc($this->classSal2); }
+          if(isset($this->classSal1)){
+          $Sal3=mysqli_fetch_assoc($this->classSal3); }
+          if(isset($this->classSal1)){
+          $Sal4=mysqli_fetch_assoc($this->classSal4); } ?>
         <table id="salaryTable">
         <thead>
           <tr>
@@ -177,19 +184,19 @@
         <tbody>
           <tr>
             <td><?php echo date("Y"); ?> A/L</td>
-            <td>12000.00</td>
+            <td><?php if(isset($Sal1['totalAmount'])){ echo $Sal1['totalAmount']; }else{ echo "0.0000"; } ?></td>
           </tr>
           <tr>
             <td><?php echo date("Y")+1; ?> A/L</td>
-            <td>13500.00</td>
+            <td><?php if(isset($Sal2['totalAmount'])){ echo $Sal2['totalAmount']; }else{ echo "0.0000"; } ?></td>
           </tr>
           <tr>
             <td><?php echo date("Y")+2; ?> A/L</td>
-            <td>11000.00</td>
+            <td><?php if(isset($Sal3['totalAmount'])){ echo $Sal3['totalAmount']; }else{ echo "0.0000"; } ?></td>
           </tr>
           <tr>
             <td>Revision</td>
-            <td>15000.00</td>
+            <td><?php if(isset($Sal4['totalAmount'])){ echo $Sal4['totalAmount']; }else{ echo "0.0000"; } ?></td>
           </tr>
         </tbody>
 
