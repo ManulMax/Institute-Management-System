@@ -17,6 +17,8 @@ class collectClassFees extends Controller{
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
         $this->view->image = $image;
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->subjectList = $this->model->listSubjects();
         $this->view->render('staff/collectClassFees');
     }
  
