@@ -8,6 +8,7 @@
   <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherHomeStylesheet">
   <link href='https://fonts.googleapis.com/css?family=Homemade Apple' rel='stylesheet'>

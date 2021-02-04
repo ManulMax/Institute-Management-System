@@ -227,7 +227,9 @@
 		  <label for="subject">DOB :</label>
 		</div>
 		<div class="col-25">
-		  <input type="date" name="DOB">
+		<div class="popup">
+		  <input type="date" name="DOB" id="DOB" onfocusout="validateDOB()">
+		  <span class="popuptext" id="DOB-popup"></span>
 		</div>
 	  </div>
 

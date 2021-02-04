@@ -185,7 +185,7 @@ function validatePhoneNumber() {
   var phonePopup = document.getElementById("phone-popup");
 
   var lettersPhone = /^[0-9]{10}$/;
-   if(email.value.match(lettersPhone)){
+   if(phone.value.match(lettersPhone)){
     
       phone.style.borderColor = '#228B22';
       phonePopup.classList.remove("show");
@@ -195,6 +195,30 @@ function validatePhoneNumber() {
       phone.style.borderColor = red;
      phonePopup.innerHTML="Invalid phone number!"; 
   phonePopup.classList.add("show");
+     return false;
+     }
+}
+
+function validateDOB() {
+  var dob = document.getElementById("DOB");
+  var dobPopup = document.getElementById("DOB-popup");
+
+  var dd = new Date();
+  var month = dd.getMonth()+1;
+var day = dd.getDay();
+var year = dd.getYear();
+
+var newdate = new Date(year,month,day);
+  var inputDate = new Date(dob);
+
+    if(newdate > inputDate){
+      dob.style.borderColor = '#228B22';
+      dobPopup.classList.remove("show");
+      return true;
+    }else{
+      dob.style.borderColor = red;
+      dobPopup.innerHTML="Invalid date of birth!"; 
+      dobPopup.classList.add("show");
      return false;
      }
 }
