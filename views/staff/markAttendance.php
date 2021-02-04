@@ -84,7 +84,7 @@
             }
           ?>
 
-    </div>
+    </div> 
 
   </div>
 
@@ -138,7 +138,7 @@
     <div class="container">
       <form action="<?php echo URL; ?>markAttendance/create" method="POST"> 
         <table class="image-detail">
-           <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/uploads/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
+           <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
                 <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>

@@ -13,29 +13,35 @@ class collectClassFees extends Controller{
     	$this->view->render('staff/collectClassFees');
     }
 
-    function renderCollectClassFees($reg,$name){
+    function renderCollectClassFees($reg,$name,$image){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
+        $this->view->image = $image;
         $this->view->render('staff/collectClassFees');
     }
+ 
+    
 
-    /*function create(){
-
+     function create(){
+ 
         $data = array();
-        $data['date'] = $_POST['date'];
-        $data['amount'] = $_POST['amount']; 
-        
-
-
+        $data['stu_reg_no'] = $_POST['regNum'];
+        $data['date'] = $_POST['payment-date'];
+        $data['amount'] = $_POST['paid-amount'];
+       
         $this->model->create($data);
+
+        //get details needed in attendance landing page.(functions called in attendanceLandingPage/index)
+
         header('location: '.URL.'collectClassFees');
-    }*/
+    }
+
 
     function search(){
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->liststuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
-        $this->renderCollectClassFees($reg,$row['fname']);
+        $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
     }
 
     

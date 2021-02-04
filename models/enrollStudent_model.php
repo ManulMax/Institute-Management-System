@@ -7,7 +7,7 @@ class enrollStudent_Model extends Model{
     }
 
     public function listHalls(){
-
+ 
     	return $this->db->listAll("hall");
         
 
@@ -30,7 +30,7 @@ class enrollStudent_Model extends Model{
 
      public function listStuDetails($reg){
 
-        return $this->db->listWhere("fname","student","reg_no=$reg");
+        return $this->db->listWhere("fname,image","student","reg_no=$reg");
     
 
     }
