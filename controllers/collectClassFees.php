@@ -20,17 +20,7 @@ class collectClassFees extends Controller{
         $this->view->render('staff/collectClassFees');
     }
  
-    /*function create(){
-
-        $data = array();
-        $data['date'] = $_POST['date'];
-        $data['amount'] = $_POST['amount']; 
-        
-
-
-        $this->model->create($data);
-        header('location: '.URL.'collectClassFees');
-    }*/
+    
 
      function create(){
  

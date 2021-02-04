@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/collectClassFees">
 </head>
 
-
+ 
 <body> 
 
 <!-------------------------------------Navigation bar--------------------------------------->
@@ -146,8 +146,8 @@
 
             <tr>
               <td style="color:black">Subject</td>
-              <td> <select name="subject">
-                    <option value="">- All -</option>
+              <td> <select name="subject" >
+                    <option value="0">- All -</option>
               <?php
 
                   while($row = mysqli_fetch_assoc($this->subjectList)){  
@@ -160,6 +160,19 @@
                 </td>
 
             </tr> 
+
+            
+
+            <!-- <tr>
+              <td style="color:black">Class</td>
+              <td><select name="subject">
+              <option value="">- All -</option>
+              <option value="1">Maths</option>
+              <option value="2">ICT</option>
+              <option value="3">A/L</option>
+              <option value="4">Revision</option>
+            </select></td>
+            </tr>-->
 
             <tr>
               <td style="color:black">Class</td>
