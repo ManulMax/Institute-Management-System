@@ -11,14 +11,6 @@ Username : vidarsha@greenline.lk
 Password : vidarsha@7531
 Date : 2020-08-28 04:34:12
 
-Thanks & Best Regards,
-Green line Support Team
-+94 75 5399 599 / +94 76 7919 599
-Technical support : technical@greenline.lk
-Marketing support : management@greenline.lk 
-
-
-
 ____________________________________________________________________________________________________________________________________
 Database
 
@@ -932,6 +924,3 @@ ALTER TABLE `teacher_salary`
   ADD CONSTRAINT `teacher_salary_ibfk_1` FOREIGN KEY (`teacher_reg_no`) REFERENCES `teacher` (`reg_no`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
