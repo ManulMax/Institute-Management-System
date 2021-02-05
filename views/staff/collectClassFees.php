@@ -144,7 +144,7 @@
                 </td>
             </tr>
 
-            <tr>
+           <!-- <tr>
               <td style="color:black">Subject</td>
               <td> <select name="subject" >
                     <option value="0">- All -</option>
@@ -159,20 +159,19 @@
                   </select>
                 </td>
 
-            </tr> 
+            </tr> -->
 
             
-
-            <!-- <tr>
-              <td style="color:black">Class</td>
+           <tr>
+              <td style="color:black">Subject</td>
               <td><select name="subject">
               <option value="">- All -</option>
-              <option value="1">Maths</option>
-              <option value="2">ICT</option>
-              <option value="3">A/L</option>
-              <option value="4">Revision</option>
+              <option value="1">Combined Maths</option>
+              <option value="2">Physics</option>
+              <option value="3">Chemistry</option>
+              <option value="4">ICT</option>
             </select></td>
-            </tr>-->
+            </tr>
 
             <tr>
               <td style="color:black">Class</td>

@@ -34,21 +34,7 @@ class collectClassFees_Model extends Model{
     $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."' ");
     $id = mysqli_fetch_assoc($classID);    
 
-     $this->db->insert("fees","(date,amount,class_id,stu_reg_no,income_id)","('".$data['payment-date']."','"($data['paid-amount'])."','"($id['class_id'])."','"($data['regNo'])."',1)");
-
+     $this->db->insert('fees',"(date,amount,class_id,stu_reg_no,income_id)","('".$data['date']."','".($data['amount'])."','".($id['class_id'])."','".($data['stu_reg_no'])."',1)");  
  }
-
-    
-    public function getUser($id){
-
-        return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
-    }
-
-  
-
-   
-  
-
-
 
 }

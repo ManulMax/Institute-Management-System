@@ -143,25 +143,43 @@
             
             <tr>
                 
+               <!-- <td><label style="color:black">Subject</label>
+                    <div class="box">
+                        
+                      <select name="subject">
+                          <option value="">- All -</option>
+                         <?php
+
+                           while($row = mysqli_fetch_assoc($this->subjectList)){  
+
+                          echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+                         }
+                      ?></select>
+                    </div>
+                </td> -->
+
                 <td><label style="color:black">Subject</label>
                     <div class="box">
-                        <select id="subject">
-                            <option value="sub1">Engineering technology</option>
-                              <option value="sub2">sub2</option>
-                              <option value="sub3">sub3</option>
-                              <option value="def" selected>Select subject</option>
-                        </select>
+                       <select name="subject">
+              <option value="">- All -</option>
+              <option value="1">Combined maths</option>
+              <option value="2">Physics</option>
+              <option value="3">Chemistry</option>
+              <option value="4">ICT</option>
+            </select>
                     </div>
                 </td>
 
                  <td><label style="color:black">Class</label>
                     <div class="box">
-                        <select id="subject">
-                            <option value="sub1">2020 A/L</option>
-                              <option value="sub2">2021 A/L</option>
-                              <option value="sub3">2022 A/L</option>
-                              <option value="def" selected>Select Class</option>
-                        </select>
+                       <select name="batch">
+              <option value="">- All -</option>
+              <option value="1"><?php echo date("Y");?> A/L</option>
+              <option value="2"><?php echo date("Y")+1;?> A/L</option>
+              <option value="3"><?php echo date("Y")+2;?> A/L</option>
+              <option value="4">Revision</option>
+            </select>
                     </div>
                 </td>
                 </tr>

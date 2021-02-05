@@ -137,7 +137,7 @@ $(function(){
                echo "<option value='".$row['name']."'>".$row['name']."</option>";
 
             }
-      ?></select>
+      ?></select></td>
 </tr>
 </table>
 </div>

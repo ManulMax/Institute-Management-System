@@ -19,7 +19,7 @@ class collectClassFees extends Controller{
         $this->view->image = $image;
         $this->view->render('staff/collectClassFees');
     }
- 
+  
     
 
      function create(){
@@ -28,6 +28,7 @@ class collectClassFees extends Controller{
         $data['stu_reg_no'] = $_POST['regNum'];
         $data['date'] = $_POST['payment-date'];
         $data['amount'] = $_POST['paid-amount'];
+        
        
         $this->model->create($data);
 
