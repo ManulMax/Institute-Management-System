@@ -12,7 +12,7 @@ Password : vidarsha@7531
 Date : 2020-08-28 04:34:12
 
 ____________________________________________________________________________________________________________________________________
-Database
+Database - Sample data must be changed
 
 
 -- phpMyAdmin SQL Dump
@@ -335,25 +335,6 @@ CREATE TABLE IF NOT EXISTS `password_reset` (
 --
 -- Dumping data for table `password_reset`
 --
-
-INSERT INTO `password_reset` (`id`, `username`, `token`) VALUES
-(1, '2018is055@stu.ucsc.cmb.ac.lk', 'tn2Ukh62Dl2tSYxJLKgxTzL3LkQwBEWsQSAJtsMoDVCYL1FFXycAdw3b3UDt6S2kdAd24YsLsA9Vyeb6fBI1FDGihKqyMtKdA'),
-(2, '2018is055@stu.ucsc.cmb.ac.lk', 'zE6If0tyrt288ETIEG7gnq2Ylwf8EG6m8pyOgv7C9U5CGEIPzbT5tb0TYQbAqXxhuWKEMxuLdLeo2IwZbP58YsM137UYenQLx'),
-(3, '2018is055@stu.ucsc.cmb.ac.lk', 'CI6qKiWgn9PdtCfE0DIkyr5ODGKODo4zDwK3dyhNZLM3AKraFCbmkKILdTowIWo6PE9Yx24O9FaI4KYeg8z6APWX7WIScO0zV'),
-(4, '2018is055@stu.ucsc.cmb.ac.lk', 'WK9kCNqqCAzksQ0Mr4xJu1OLItwcFeXoe294JAa1EjDU8KqChz9EEolq78bRXElzm55hgOkc8Llwhs63ZRvv8TYuxaO3mGYsQ'),
-(5, '2018is055@stu.ucsc.cmb.ac.lk', 'q5bTqN4KKyci8yXMymBYP5alzGhFjViSJ0xWq6WUrz4ArA0JJbt7fWx3wmbYycxQxjW9AhiB6XfRMMiiK2xp2LvTWkS9hFIee'),
-(6, '2018is055@stu.ucsc.cmb.ac.lk', 'KwdKAhnhVhPZSmUeNH4ZtnE6DZQmiMXIBo0sXH8alZO7LpMXd8jjCLDQKNT80mDmylffK2eV72b7gJolKHl2jZhjtZkLEXuLO'),
-(7, '2018is055@stu.ucsc.cmb.ac.lk', 'hwmCIzjlZa4YxWi54c7b0PA2iAFTJpcJvY7W2haV3smDz5RqmMEJVRzgDGAszaf5w0zLkMevYM7Vo8vgelCgGMnprg03kf7fy'),
-(8, '2018is055@stu.ucsc.cmb.ac.lk', 'NLN07dtuqv9DYrAMkPpdJDrukUuWKcwSmJtvF6jFcEmzLjvuW9L8Jlfolu0TQhJSPbK48975RMj6n5cagBlYIq3uJ1NuXymhj'),
-(9, '2018is055@stu.ucsc.cmb.ac.lk', 'KRo1fXCSVLvsVm2v5ybFaGWraW3ry2btfEY7Gb56mL8Oz55lfcxBEpHY1HJR9QY420I5kp0AGsobtcSRq7l565FmVWM5cH1zw'),
-(10, '2018is055@stu.ucsc.cmb.ac.lk', 'L6CJSREZPU3rPynTZpQJTrCfadjD1FI3XJF0PUM09cWUCpeoXhOSMBwkVqWEBeQDP0mCklZMEEcfqsXQ2vIOqLdd6xHZpdYOL'),
-(11, 'isurikaperera.hip@gmail.com', 'lz1l9F53yG6RE8R4WXyIJOvBxqnXgPV2z5Q9qg5aOgO1NhnK3dvoPyjLffCm2i4Q7hQryg3lCasRSh77x5p4YwhvhuF33mY3o'),
-(12, 'isurikaperera.hip@gmail.com', 'ismiDfRZSvqXQOneZfRJ43C9fsvJdaBnaluy0pJfI1MgfFQbm9cdOUyX6kHXZX1WhCQaCpuUokQqWVP9wq6QSlk0W0HseGTDs'),
-(13, 'isurikaperera.hip@gmail.com', 'GB1fdAUqOODvVZ2q6N0RHat2OOFqB7iSpo4lr9UdmmLHFOwR9VuQE1JJ6NFV0okvv0RjoO4Azp4ciVYxmHq4HYy7bXObqtkjc'),
-(14, 'isurikaperera.hip@gmail.com', 'zzmoILHhU2iSDCtPXRIAGZl4Zfbp6HaKRRczUizxyWWl2X3e0yJcAgm07ZT9qrxShCESkX4NLN4L29DGTkerSc4Ju17RnIRxn'),
-(15, 'isurikaperera.hip@gmail.com', 'fSS2k1Jh0DzPg2rAZp6OTl5wu18vUC8b9YpycrL1HsjH7HQ18DJ9w7URimQd6eA3ayFIrAosHFXUY3rijQQOLsx30xoMONRbs'),
-(16, 'isurikaperera.hip@gmail.com', 'YPro2LDSTzcaBgbImwfstG65XnTNSPsoD5Tp7o8XVqPRmmGkMisAKYRCGDVTvvnHdsgxX6SCtrEC9ZM3ILaD0Le4BfdyjCCNs');
-
 -- --------------------------------------------------------
 
 --
