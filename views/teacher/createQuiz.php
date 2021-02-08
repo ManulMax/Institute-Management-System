@@ -169,30 +169,40 @@
   <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
     <h1>Create Quiz:</h1>
     <div class="topSection">Quiz Title:
-    <p style="width: 60%;"><input style="background-color: #ACE1AF;" type="text" name="topic"></p><br />
+    <p style="width: 60%;"><input style="background-color: #ACE1AF;" type="text" name="topic"></p><br /><br />
     Time Limit:
-    <p style="width: 20%;"><input style="background-color: #ACE1AF;" type="text" name="time"></p><br />
+    <table style="margin-top: 20px;">
+      <tr>
+        <td><p>Hours:</p></td>
+        <td><p>Minutes:</p></td>
+      </tr>
+      <tr>
+        <td><input style="background-color: #ACE1AF;" type="number" name="time" min="0" max="3"></td>
+        <td><input style="background-color: #ACE1AF;" type="number" name="time" min="0" max="59"></td>
+      </tr>
+    </table>
     </div>
     <!-- One "tab" for each step in the form: -->
-    <div class="tab" id="qlist1">Question:
+    <?php $qno = 1; ?>
+    <div class="tab" id="qlist1"><p class="qnum">Question 1 :</p>
     <p><textarea rows="4" cols="90" name="ques[]"></textarea></p>
     
     <table border="0" width="100%" cellpadding="10px">
       <tbody>
         <tr>
-          <td><input type="text" placeholder="Choice 1..." name="ans1[]" class="ans1"></td>
+          <td>1.<input type="text" placeholder="Choice 1..." name="ans1[]" class="ans1"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 2..." name="ans2[]" class="ans2"></td>
+          <td>2.<input type="text" placeholder="Choice 2..." name="ans2[]" class="ans2"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 3..." name="ans3[]" class="ans3"></td>
+          <td>3.<input type="text" placeholder="Choice 3..." name="ans3[]" class="ans3"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 4..." name="ans4[]" class="ans4"></td>
+          <td>4.<input type="text" placeholder="Choice 4..." name="ans4[]" class="ans4"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5"></td>
+          <td>5.<input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5"></td>
         </tr>
         <tr>
           <td style="float: right;"><p>Correct Answer :</p><input type="number" class="choice" name="choice[]" min="1" max="5"></td>
@@ -230,11 +240,14 @@
 <script>
 var count = 0;
 var i= 2;
+var qno = 2;
 function myFunction(){
   if(count == 0){
     var itm = document.getElementById("qlist1");
     var cln = itm.cloneNode(true);
     cln.id = "qlist".i;
+    cln.querySelector(".qnum").innerHTML = 'Question '+ qno + ' :';
+    qno++;
     cln.querySelector(".ans1").value = '';
     cln.querySelector(".ans2").value = '';
     cln.querySelector(".ans3").value = '';
@@ -251,6 +264,8 @@ function myFunction(){
     var itm = document.getElementById("qlist1").lastChild;
     var cln = itm.cloneNode(true);
     cln.id = "qlist".i;
+    cln.querySelector(".qnum").innerHTML = 'Question '+ qno + ' :';
+    qno++;
     cln.querySelector(".ans1").value = '';
     cln.querySelector(".ans2").value = '';
     cln.querySelector(".ans3").value = '';
