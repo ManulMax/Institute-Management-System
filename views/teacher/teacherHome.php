@@ -112,7 +112,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2021 A/L</b></h4>  
+          <h4><b><?php echo date("Y"); ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -128,7 +128,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2022 A/L</b></h4>  
+          <h4><b><?php echo date("Y")+1; ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -144,7 +144,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2023 A/L</b></h4>  
+          <h4><b><?php echo date("Y")+2; ?> AL</b></h4>  
           </div>
         </div>
         </td>

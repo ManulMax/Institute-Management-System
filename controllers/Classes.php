@@ -17,11 +17,11 @@ class Classes extends Controller{
     function sendEmail(){
         $batch = $_POST['batch'];
         if($batch == 1){
-            $batchname = date("Y")." A/L";
+            $batchname = date("Y")." AL";
         }else if($batch == 2){
-            $batchname = date("Y")+1+" A/L";
+            $batchname = date("Y")+1+" AL";
         }else if($batch == 3){
-            $batchname = date("Y")+2+" A/L";
+            $batchname = date("Y")+2+" AL";
         }else if($batch == 4){
             $batchname = "Revision";
         }

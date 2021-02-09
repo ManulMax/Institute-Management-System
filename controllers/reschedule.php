@@ -25,13 +25,13 @@ class reschedule extends Controller{
         $type = $_POST['radio'];
         $batch = $_POST['batch'];
         if($batch == 1){
-            $batchname = date("Y")." A/L";
+            $batchname = date("Y")." AL";
         }else if($batch == 2){
             $batchname = date("Y")+1;
-            $batchname .=" A/L";
+            $batchname .=" AL";
         }else if($batch == 3){
             $batchname = date("Y")+2;
-            $batchname .=" A/L";
+            $batchname .=" AL";
         }else if($batch == 4){
             $batchname = "Revision";
         }
