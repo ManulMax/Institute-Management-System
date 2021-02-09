@@ -155,7 +155,7 @@
   
   <div class="middle" style="background-color:#F8F8FF;width:53%;padding-left: 40px;padding-right: 40px;">
 
-      <h2 class="className"><?php echo $this->batch ?>/L Class</h2>
+      <h2 class="className"><?php echo $this->batch ?> Class</h2>
       
         <?php
 

@@ -164,7 +164,7 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
 
-    <h2 class="className"><?php echo $_SESSION['batch']; ?>/L Class</h2>
+    <h2 class="className"><?php echo $_SESSION['batch']; ?> Class</h2>
 
   <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
     <h1>Create Quiz:</h1>
