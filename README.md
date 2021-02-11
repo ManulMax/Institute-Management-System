@@ -29,6 +29,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+:o: replace utf8mb4_0900_ai_ci with utf8mb4_general_ci if not working :o:
 --
 -- Database: `vidarsha`
 --
