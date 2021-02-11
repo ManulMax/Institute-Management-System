@@ -18,7 +18,7 @@ class staffDashboard_Model extends Model{
     	return $this->db->listAll("hall");
         
 
-    }
+    } 
 
 
 

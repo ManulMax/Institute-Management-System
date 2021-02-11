@@ -111,7 +111,8 @@
  <?php $sal = mysqli_fetch_assoc($this->salary); ?>
       
     <div class="details">
-        <p>Payment date : <?php echo $sal['date'] ?></p><br />
+        <p>Month : <?php echo $sal['month'] ?></p><br />
+        <!--<p>Payment date : <?php echo $sal['date'] ?></p><br />-->
         <p>Total Salary : <?php echo $sal['amount'] ?></p>
 
       <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;" value="Download Report">

@@ -172,7 +172,7 @@ $(function(){
 </div>
 
 
-<a href="markAttendance"><input type="submit" class="scan-btn" value="Scan" ></a>
+<a href="markAttendance"><input type="submit" class="scan-btn" value="Mark attendance" ></a>
 
 
  </div>

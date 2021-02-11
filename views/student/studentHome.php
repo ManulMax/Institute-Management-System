@@ -265,7 +265,7 @@ $(function(){
           <table style="padding:0;" class="filterShedule">
             <tr>
               <td ><label for="filter-city">Teacher</label></td>
-     <td colspan=3><select style="width:100%;" id="filter-city" data-filter-col="2" style="min-width:60px">
+     <td colspan=3><select style="width:100%;" id="filter-city" data-filter-col="1" style="min-width:60px">
        <option value="">- All -</option>
       <?php
 

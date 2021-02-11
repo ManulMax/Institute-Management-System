@@ -3,16 +3,18 @@
     padding: 10px;
     height: 950px;
     width: 33%;
-}
+    
 
 .right {
   float: left;
     padding: 10px;
     height: 950px;
     width: 50%;
+    overflow-x: auto;
+
 }
 
-
+ 
 
 select{
   padding:10px; 
@@ -62,6 +64,11 @@ label{
   background-color: #F5F5F5;
   }
 
+  table,th,tr {
+    border : 0px;
+  }
+
+  
   
 
   .search{
@@ -111,5 +118,7 @@ label{
     width:10%;
    
   }
+
+
 
   

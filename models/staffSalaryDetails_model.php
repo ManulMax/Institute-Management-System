@@ -30,7 +30,7 @@ class staffSalaryDetails_Model extends Model{
 
 
     public function listSalaryDetails($userid){
-        return $this->db->listWhere("st.date,st.amount","staff_salary st,staff s","st.staff_reg_no=s.reg_no and s.user_id=$userid ORDER BY id DESC LIMIT 1");
+        return $this->db->listWhere("st.month,st.amount","staff_salary st,staff s","st.staff_reg_no=s.reg_no and s.user_id=$userid ORDER BY id DESC LIMIT 1");
     
     }
 
