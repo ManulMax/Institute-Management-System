@@ -150,7 +150,7 @@
   
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
-    <h2 class="className"><?php echo $this->batch ?>/L Class</h2>
+    <h2 class="className"><?php echo $this->batch ?> Class</h2>
     <div class="container">
       <h3 style="color: #00b359;">Add New Exam</h3>
     <form action="<?php echo URL; ?>uploadExamResults/addExam/<?php echo $this->classid.'/'.$this->batch; ?>" method="post" style="border: 1px solid #333">

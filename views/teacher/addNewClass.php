@@ -183,9 +183,9 @@ $(function(){
       <div style="width:250px;">
       <select name="batch">
       <option value="0">Select Batch:</option>
-      <option value="1"><?php echo date("Y"); ?> A/L</option>
-      <option value="2"><?php echo date("Y")+1; ?> A/L</option>
-      <option value="3"><?php echo date("Y")+2; ?> A/L</option>
+      <option value="1"><?php echo date("Y"); ?> AL</option>
+      <option value="2"><?php echo date("Y")+1; ?> AL</option>
+      <option value="3"><?php echo date("Y")+2; ?> AL</option>
       <option value="4">Revision</option>
       </select>
     </div>
