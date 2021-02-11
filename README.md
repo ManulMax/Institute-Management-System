@@ -1,8 +1,8 @@
-# Group_Project-IMS-for-Vidarsha_MVC
+# Group_Project-IMS-for-Vidarsha_MVC :computer:
 Modified with MVC architecture
 
 
-Necessary Data
+Necessary Data :page_facing_up:
 SMS Gateway Account Informations
 
 Login URL : http://gateway.greenline.lk
