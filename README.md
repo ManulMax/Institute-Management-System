@@ -3,6 +3,7 @@ Modified with MVC architecture
 
 
 Necessary Data :page_facing_up:
+
 SMS Gateway Account Informations
 
 Login URL : http://gateway.greenline.lk
@@ -897,4 +898,28 @@ ALTER TABLE `teacher`
 ALTER TABLE `teacher_salary`
   ADD CONSTRAINT `teacher_salary_ibfk_1` FOREIGN KEY (`teacher_reg_no`) REFERENCES `teacher` (`reg_no`);
 COMMIT;
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+Actual data set
+
+Institute Name - Vidarsha
+No of Halls - 4(Currently)
+No of Teachers & subjects- 8(Currently)
+No of Staff - 2
+No of papermarkers -3 
+
+Teachers Name List -
+Padmika Godakanda
+P. Harison
+Deneth Viduranga
+
+
+Subject List -
+Physics
+Chemistry
+Eng. Technology
+
+Staff Name List - 
 
