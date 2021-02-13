@@ -902,24 +902,47 @@ COMMIT;
 
 ____________________________________________________________________________________________________________________________________________________________
 
-Actual data set
+## Actual data set
 
-Institute Name - Vidarsha
+**Institute Name - Vidarsha**
 No of Halls - 4(Currently)
-No of Teachers & subjects- 8(Currently)
+No of Teachers & subjects- 9(Currently)
 No of Staff - 2
 No of papermarkers -3 
 
-Teachers Name List -
+**Teachers Name List -**
 Padmika Godakanda
+Nadeera Siriwardana
+Dinusha Gamage
 P. Harison
 Deneth Viduranga
+Weedika Widurinda
+Sajith Deerasinghe
+Kasun Perera
+Sanath Kumara
 
-
-Subject List -
+**Subject List -**
 Physics
+Combine Maths - Applied
+Combine Maths - Pure
+ICT
 Chemistry
-Eng. Technology
+SFT
+ET
+BST
+General English
 
-Staff Name List - 
+**Teacher And Subject-**
+Padmika Godakanda - Physics
+Nadeera Siriwardana - Combine Maths - Pure
+Dinusha Gamage - Combine Maths - Applied
+P. Harison - Chemistry
+Deneth Viduranga - SFT
+Weedika Widurinda - ICT
+Sajith Deerasinghe - ET
+Kasun Perera - BST
+Sanath Kumara - General English
 
+**Staff Name List -**
+Sathis Sanju
+Uthpala Ruwanara
