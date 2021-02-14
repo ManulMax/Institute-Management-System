@@ -112,7 +112,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2021 A/L</b></h4>  
+          <h4><b><?php echo date("Y"); ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -128,7 +128,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2022 A/L</b></h4>  
+          <h4><b><?php echo date("Y")+1; ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -144,7 +144,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2023 A/L</b></h4>  
+          <h4><b><?php echo date("Y")+2; ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -168,7 +168,12 @@
       </tr>
     </table>
 
-
+    <?php 
+    $attendance1 = mysqli_fetch_assoc($this->sum1);
+    $attendance2 = mysqli_fetch_assoc($this->sum2);
+    $attendance3 = mysqli_fetch_assoc($this->sum3);
+    $attendance4 = mysqli_fetch_assoc($this->sum4);
+    $attendance = "'".$attendance1['sum']."','".$attendance2['sum']."','".$attendance3['sum']."','".$attendance4['sum']."'" ?>
 
     <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
     <canvas id="myChart"></canvas>
@@ -177,10 +182,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+        labels: ['2021 A/L', '2022 A/L', '2023 A/L', 'Revision'],
         datasets: [{
             label: 'Weekly Attendance',
-            data: [12, 19, 3, 5],
+            data: [<?php echo $attendance; ?>],
             backgroundColor: [
                 '#8FBC8F',
                 '#8FBC8F',

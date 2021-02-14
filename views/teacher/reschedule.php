@@ -200,7 +200,7 @@ $(function(){
   -->  
 <div class="middle" style="background-color:#F8F8FF;">
 
-  <h2 class="className"><?php echo $this->batch; ?>/L Class</h2>
+  <h2 class="className"><?php echo $this->batch; ?> Class</h2>
 
 <form id="regForm" action="<?php echo URL; ?>reschedule/sendRescheduleEmail" method="post">
 

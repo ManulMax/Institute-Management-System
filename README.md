@@ -1,8 +1,9 @@
-# Group_Project-IMS-for-Vidarsha_MVC
+# Group_Project-IMS-for-Vidarsha_MVC :computer:
 Modified with MVC architecture
 
 
-Necessary Data
+Necessary Data :page_facing_up:
+
 SMS Gateway Account Informations
 
 Login URL : http://gateway.greenline.lk
@@ -29,6 +30,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+:o: replace utf8mb4_0900_ai_ci with utf8mb4_general_ci if not working :o:
 --
 -- Database: `vidarsha`
 --
@@ -897,3 +899,50 @@ ALTER TABLE `teacher_salary`
   ADD CONSTRAINT `teacher_salary_ibfk_1` FOREIGN KEY (`teacher_reg_no`) REFERENCES `teacher` (`reg_no`);
 COMMIT;
 
+
+____________________________________________________________________________________________________________________________________________________________
+
+## Actual data set
+
+**Institute Name - Vidarsha**
+No of Halls - 4(Currently)
+No of Teachers & subjects- 9(Currently)
+No of Staff - 2
+No of papermarkers -3 
+
+**Teachers Name List -**
+Padmika Godakanda
+Nadeera Siriwardana
+Dinusha Gamage
+P. Harison
+Deneth Viduranga
+Weedika Widurinda
+Sajith Deerasinghe
+Kasun Perera
+Sanath Kumara
+
+**Subject List -**
+Physics
+Combine Maths - Applied
+Combine Maths - Pure
+ICT
+Chemistry
+SFT
+ET
+BST
+General English
+
+**Teacher And Subject-**
+Padmika Godakanda - Physics
+Nadeera Siriwardana - Combine Maths - Pure
+Dinusha Gamage - Combine Maths - Applied
+P. Harison - Chemistry
+Deneth Viduranga - SFT
+Weedika Widurinda - ICT
+Sajith Deerasinghe - ET
+Kasun Perera - BST
+Sanath Kumara - General English
+
+**Staff Name List -**
+Sathis Sanju
+Uthpala Ruwanara

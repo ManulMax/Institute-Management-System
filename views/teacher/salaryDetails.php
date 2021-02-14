@@ -183,20 +183,20 @@
         </thead>
         <tbody>
           <tr>
-            <td><?php echo date("Y"); ?> A/L</td>
-            <td><?php if(isset($Sal1['totalAmount'])){ echo $Sal1['totalAmount']; }else{ echo "0.0000"; } ?></td>
+            <td><?php echo date("Y"); ?> AL</td>
+            <td><?php if(isset($Sal1['totalAmount'])){ echo $Sal1['totalAmount']; }else{ echo "0.00"; } ?></td>
           </tr>
           <tr>
-            <td><?php echo date("Y")+1; ?> A/L</td>
-            <td><?php if(isset($Sal2['totalAmount'])){ echo $Sal2['totalAmount']; }else{ echo "0.0000"; } ?></td>
+            <td><?php echo date("Y")+1; ?> AL</td>
+            <td><?php if(isset($Sal2['totalAmount'])){ echo $Sal2['totalAmount']; }else{ echo "0.00"; } ?></td>
           </tr>
           <tr>
-            <td><?php echo date("Y")+2; ?> A/L</td>
-            <td><?php if(isset($Sal3['totalAmount'])){ echo $Sal3['totalAmount']; }else{ echo "0.0000"; } ?></td>
+            <td><?php echo date("Y")+2; ?> AL</td>
+            <td><?php if(isset($Sal3['totalAmount'])){ echo $Sal3['totalAmount']; }else{ echo "0.00"; } ?></td>
           </tr>
           <tr>
             <td>Revision</td>
-            <td><?php if(isset($Sal4['totalAmount'])){ echo $Sal4['totalAmount']; }else{ echo "0.0000"; } ?></td>
+            <td><?php if(isset($Sal4['totalAmount'])){ echo $Sal4['totalAmount']; }else{ echo "0.00"; } ?></td>
           </tr>
         </tbody>
 

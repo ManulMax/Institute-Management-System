@@ -140,7 +140,7 @@
             
 
       
-            
+             
             <tr>
                 
                <!-- <td><label style="color:black">Subject</label>
@@ -188,21 +188,22 @@
                     
             </tr>   
         </table>
+      </br>
         
         <table id="allocations">
   <tr>
-    <th style="background-color: #66CDAA;">Class</th>
+   
     <th style="background-color: #66CDAA;">Maximum no of students</th>
     <th style="background-color: #66CDAA;">Current no of students</th>
     <th style="background-color: #66CDAA;"></th>
   </tr>
   <tr>
-    <td style="color:black;">1</td>
+   
     <td style="color:black;">100</td>
     <td style="color:black;">50</td>
     <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
   </tr>
-  <tr>
+  <!--<tr>
     <td style="color:black;">2</td>
     <td style="color:black;">100</td>
     <td style="color:black;">50</td>
@@ -213,7 +214,7 @@
     <td style="color:black;">100</td>
     <td style="color:black;">50</td>
     <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
-  </tr>
+  </tr>-->
 </table>
     
     </div>

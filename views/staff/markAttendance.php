@@ -144,7 +144,7 @@
                 </td>
             </tr>
             
-            <tr>
+            <!--<tr>
               <td style="color:black">Last payment</td>
             </tr>
 
@@ -156,9 +156,11 @@
             <tr>
               <td style="color:black">Paid amount</td>
               <td><input type="text" name="paid-amount" class="paid-amount" value="<?php if(isset($this->stuLastPaidAmount)){echo $this->stuLastPaidAmount; }else{ echo ""; }; ?>"></td>
-            </tr>
+            </tr>-->
     
         </table>
+
+        <p style="color:red; margin-left: 300px;margin-top:100px;">Fees in due 1000</p>
         
         <input type="submit" name="save-attendance" value="Mark Attendance" class="search" style="margin-left:20%; margin-top:20%">
         

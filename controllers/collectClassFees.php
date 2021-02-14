@@ -10,30 +10,36 @@ class collectClassFees extends Controller{
     	
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->subjectList = $this->model->listSubjects();
+        $this->view->fees = $this->model->listFees();
+
     	$this->view->render('staff/collectClassFees');
     }
 
-    function renderCollectClassFees($reg,$name,$image){
+    function renderCollectClassFees($reg,$name,$image,$month){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
         $this->view->image = $image;
+        $this->view->stuLastPaidMonth = $month;
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->subjectList = $this->model->listSubjects();
+        $this->view->fees = $this->model->listFees();
+
         $this->view->render('staff/collectClassFees');
     }
   
-    
+      
 
      function create(){
  
         $data = array();
         $data['stu_reg_no'] = $_POST['regNum'];
-        $data['date'] = $_POST['payment-date'];
+        $data['month'] = $_POST['currentPaymentMonth'];
         $data['amount'] = $_POST['paid-amount'];
-        
+        $data['subject'] = $_POST['subject'];
+        $data['batch'] = $_POST['batch'];
        
         $this->model->create($data);
-
+ 
         //get details needed in attendance landing page.(functions called in attendanceLandingPage/index)
 
         header('location: '.URL.'collectClassFees');
@@ -44,7 +50,7 @@ class collectClassFees extends Controller{
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->liststuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
-        $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
+        $this->renderCollectClassFees($reg,$row['fname'],$row['image'],$row['month']);
     }
 
     

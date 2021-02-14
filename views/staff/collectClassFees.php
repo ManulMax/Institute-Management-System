@@ -8,8 +8,31 @@
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/collectClassFees">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/classFees">
+
+<!-- filter table -->
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/classFees.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
+<script>
+$(function(){
+  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+  $('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+  .container { margin: 150px auto; max-width: 960px; }
+  </style>
+
+ 
+
 </head>
+
+
+
 
  
 <body> 
@@ -135,83 +158,125 @@
 </div>   
  
 <!---------------------------right side bar----------------------------------->
-<div class="right" style="background-color:#F5F5F5;">
+<div class="right" style="background-color:#F5F5F5; overflow-x: auto">
   <form action="<?php echo URL; ?>collectClassFees/create" method="POST"> 
-    <div class="container">
+    <div class="container" style="margin-top:0px;">
         <table class="image-detail">
             <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
                 <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
+          </table>
 
-           <!-- <tr>
-              <td style="color:black">Subject</td>
-              <td> <select name="subject" >
-                    <option value="0">- All -</option>
-              <?php
+          <div class="table-filters">
+  
+    <table id="allocation"  style="width:100%;">
+    <tr>
+    <td style="color:black"><label for="filter-city">Subject</label>
+    <select name="subject" style="width:50%;" id="filter-city" data-filter-col="0">
+      <option value="">- All -</option>
+      <?php
 
-                  while($row = mysqli_fetch_assoc($this->subjectList)){  
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
 
-                  echo "<option value='".$row['name']."'>".$row['name']."</option>";
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
 
-                 }
-               ?>
-                  </select>
-                </td>
+            }
+      ?></select></td>
+</tr>
 
-            </tr> -->
-
-            
-           <tr>
-              <td style="color:black">Subject</td>
-              <td><select name="subject">
+ <tr>
+              <td style="color:black"><label for="filter-city">Class</label>
+              <select name="batch" style="width:50%;" id="filter-city" data-filter-col="1">
               <option value="">- All -</option>
-              <option value="1">Combined Maths</option>
-              <option value="2">Physics</option>
-              <option value="3">Chemistry</option>
-              <option value="4">ICT</option>
+              <option value="<?php echo date("Y");?> AL"><?php echo date("Y");?> AL</option>
+              <option value="<?php echo date("Y")+1;?> AL"><?php echo date("Y")+1;?> AL</option>
+              <option value="<?php echo date("Y")+2;?> AL"><?php echo date("Y")+2;?> AL</option>
+              <option value="Revision">Revision</option>
             </select></td>
             </tr>
+</table>
+</div>
 
-            <tr>
-              <td style="color:black">Class</td>
-              <td><select name="batch">
-              <option value="">- All -</option>
-              <option value="1"><?php echo date("Y");?> A/L</option>
-              <option value="2"><?php echo date("Y")+1;?> A/L</option>
-              <option value="3"><?php echo date("Y")+2;?> A/L</option>
-              <option value="4">Revision</option>
-            </select></td>
-            </tr>
 
+<!-- data taken from generatedata.com -->
+<table id="data">
+<thead>
+  <tr style="color:black">
+    <th>Subject</th>
+    <th>Batch</th>
+    <th>Fees</th>
+    
+    
+
+    
+  </tr>
+</thead>
+<tbody style="color:black" style="margin-top:25px;">
+  <?php
+
+      while($row = mysqli_fetch_assoc($this->fees)){  
+         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td>" .$row['monthly_fee']. "</td></tr>";
+      }
+  ?>
+</tbody>
+</tbody>
+
+
+</table>
+
+</div>
+
+           <table class="image-detail" style="margin-top:5px;" > 
 
             <tr>
               <td style="color:black"><h3>Payment details</h3></td>
             </tr>
 
             <tr>
-              <td style="color:black">Payment date</td>
-              <td><input type="date" name="payment-date" class="payment-date"></td>
+              <td style="color:black">Last paid month</td>
+              <td><input type="text" name="month" class="paid-month" value="<?php if(isset($this->stuLastPaidMonth)){echo $this->stuLastPaidMonth; }else{ echo ""; }; ?>"></td>
             </tr>
 
+             <tr>
+              <td style="color:black">Current payment month</td>
+              <td><select name="currentPaymentMonth">
+              <option value="">-All-</option>  
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select></td></td>
+            </tr>
+
+            
             <tr>
-              <td style="color:black">Paid amount</td>
+              <td style="color:black">Payment amount</td>
               <td><input type="text" name="paid-amount" class="paid-amount"></td>
             </tr>
 
             
     
        </table>
-        <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:10%">
+        <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:5%">
         
         
         
   
-    </div>
+   
 </form>
- 
-</div>
+
+ </div>
+
 
 <!-------------------------------footer------------------------------------------>
 <div class="footer">
