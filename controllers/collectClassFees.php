@@ -27,7 +27,7 @@ class collectClassFees extends Controller{
         $this->view->render('staff/collectClassFees');
     }
   
-     
+      
 
      function create(){
  

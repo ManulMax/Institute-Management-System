@@ -8,7 +8,7 @@
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/collectClassFees">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/classFees">
 
 <!-- filter table -->
 
@@ -213,7 +213,7 @@ $(function(){
     
   </tr>
 </thead>
-<tbody style="color:black">
+<tbody style="color:black" style="margin-top:25px;">
   <?php
 
       while($row = mysqli_fetch_assoc($this->fees)){  
@@ -228,7 +228,7 @@ $(function(){
 
 </div>
 
-           <table class="image-detail" > 
+           <table class="image-detail" style="margin-top:5px;" > 
 
             <tr>
               <td style="color:black"><h3>Payment details</h3></td>

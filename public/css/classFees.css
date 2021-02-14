@@ -1,0 +1,174 @@
+.middle {
+    float: left;
+    padding: 10px;
+    height: 950px;
+    width: 33%;
+}
+
+.right {
+    float: left;
+    padding: 10px;
+    height: 950px;
+    width: 50%;
+}
+
+.regNo{
+  background-color: #F8F8FF: 
+}
+/*.qr{
+    
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    
+  }*/
+
+  .container {
+    padding-top:50px;
+    padding-left:100px ;
+}
+
+.qr-scan {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    align-content: center;
+    float:left;
+    margin-left:10px;
+  }
+  
+ input[type=text]{
+  padding-right: 20%;
+  padding-top: 5%;
+}
+
+input[type=text],input[type=date],input[type=time], select, textarea {
+  width: 100%;
+  padding: 12px;
+  resize: vertical;
+  border: 0;
+  outline: 0;
+   border-bottom: 1px solid #228B22;
+  background-color: #F5F5F5;
+  
+  }
+
+  .search {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+
+    }
+    
+    .search:hover {
+    opacity:0.8;
+    }
+
+    .save{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    }
+  
+  .qr-scan td {
+    padding: 20px; 
+    width:100%;
+  }
+
+  .qr-scan tr {
+    width:10%;
+  }
+  
+  .image-detail td {
+    padding: 20px; 
+  }
+
+  .image-detail tr {
+    width:10%;
+  }
+  
+  .box select {
+  background-color: #f1f1f1;
+  width:100%;
+  color: black;
+  padding: 12px;
+  border-radius: none;
+  font-size: 15px;
+  outline: none;
+}
+
+.box::before {
+  font-family: FontAwesome;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+.btn2 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; 
+  padding: 5px;
+  
+  float: right;   
+}
+
+.btn2:hover {background-color: #44CF6C;}
+
+#allocations {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-top:30px;
+  float:right;
+  margin-right:5%;
+  
+ 
+}
+#allocations{
+  margin-right:10%;
+}
+
+#allocations td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+#allocations tr{background-color: #f2f2f2;}
+
+
+
+#allocations th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #66CDAA;
+  color: white;
+}
