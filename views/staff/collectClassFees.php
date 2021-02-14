@@ -174,7 +174,7 @@ $(function(){
     <table id="allocation"  style="width:100%;">
     <tr>
     <td style="color:black"><label for="filter-city">Subject</label>
-    <select style="width:50%;" id="filter-city" data-filter-col="0">
+    <select name="subject" style="width:50%;" id="filter-city" data-filter-col="0">
       <option value="">- All -</option>
       <?php
 
@@ -274,6 +274,7 @@ $(function(){
   
    
 </form>
+
  </div>
 
 

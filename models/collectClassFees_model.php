@@ -50,4 +50,4 @@ class collectClassFees_Model extends Model{
      $this->db->insert('fees',"(date,month,amount,class_id,stu_reg_no,income_id)","('".date("Y/m/d")."','".($data['month'])."','".($data['amount'])."','".($id['class_id'])."','".($data['stu_reg_no'])."',1)");  
  }
 
-} 
+}  

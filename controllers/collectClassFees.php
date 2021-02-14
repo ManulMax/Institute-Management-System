@@ -33,8 +33,7 @@ class collectClassFees extends Controller{
  
         $data = array();
         $data['stu_reg_no'] = $_POST['regNum'];
-        $data['date'] = $_POST['payment-date'];
-        $data['month'] = $_POST['month'];
+        $data['month'] = $_POST['currentPaymentMonth'];
         $data['amount'] = $_POST['paid-amount'];
         $data['subject'] = $_POST['subject'];
         $data['batch'] = $_POST['batch'];
