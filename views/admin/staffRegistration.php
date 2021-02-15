@@ -44,8 +44,18 @@
     <div class="col-15">
       <label for="subject">Full Name :</label>
     </div>
-    <div class="col-75">
-      <input type="text" placeholder="Full name..." name="name">
+    <div class="col-20">
+      <input type="text" placeholder="First name..." name="fname">
+    </div>
+    <div class="col-10">
+    </div>
+    <div class="col-20">
+      <input type="text" placeholder="Middle name..." name="mname">
+    </div>
+    <div class="col-10">
+    </div>
+    <div class="col-20">
+      <input type="text" placeholder="Last name..." name="lname">
     </div>
     </div>
     
@@ -112,7 +122,7 @@
       <label for="subject">Fixed Salary :</label>
     </div>
     <div class="col-25">
-      <input type="text" placeholder="Salary amount..." name="tel">
+      <input type="text" placeholder="Salary amount..." name="salary">
     </div>
     </div>
 
