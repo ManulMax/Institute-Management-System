@@ -221,7 +221,7 @@ $(function(){
     </div>    
     </div>
 
-  
+ <!-- 
   <div class="row">
     <div class="col-20">
       <label for="subject">No. of Students :</label>
@@ -230,7 +230,7 @@ $(function(){
       <input type="text" name="stu-count" value="<?php echo $sch['size']; ?>">
     </div>
   </div>
-
+-->
 
   
 

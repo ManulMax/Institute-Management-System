@@ -20,6 +20,7 @@ class reschedule extends Controller{
     function search($batch){
 
     }
+    
 
     function sendRescheduleEmail(){
         $type = $_POST['radio'];
