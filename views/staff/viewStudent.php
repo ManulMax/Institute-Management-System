@@ -148,6 +148,7 @@ $(function(){
     </select></td>-->
 
      <td><label for="filter-city">Batch</label></td>
+     
      <td><select id="filter-city" data-filter-col="1" style="min-width:60px">
        <option value="">- All -</option>
       <option value="1"><?php echo date("Y");?> A/L</option>
