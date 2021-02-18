@@ -3,7 +3,7 @@ Modified with MVC architecture
 
 
 Necessary Data :page_facing_up:
-
+Payment Gateway - payhere (not functioning)
 SMS Gateway Account Informations
 
 Login URL : http://gateway.greenline.lk

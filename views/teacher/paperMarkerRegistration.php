@@ -223,14 +223,15 @@
 		</div>
 		<div class="col-10">
 		</div>
-		<div class="col-15">
+		 <div class="col-15">
 		  <label for="subject">DOB :</label>
-		</div>
-		<div class="col-25">
-		<div class="popup">
-		  <input type="date" name="DOB" id="DOB" onfocusout="validateDOB()">
-		  <span class="popuptext" id="DOB-popup"></span>
-		</div>
+		 </div>
+		 <div class="col-25">
+		  <div class="popup">
+		   <input type="date" name="DOB" id="DOB" onfocusout="validateDOB()">
+		   <span class="popuptext" id="DOB-popup"></span>
+		  </div>
+	     </div>
 	  </div>
 
 	  <div class="row">
@@ -274,7 +275,7 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="text" placeholder="Mobile number..." id="phone" name="tel">
+		  <input type="text" placeholder="Mobile number..." id="phone" name="tel" onfocusout="validatePhoneNumber()">
 		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>
@@ -294,7 +295,6 @@
 	  </div>
 	  
 	</form>
-
 
   </div>
  
