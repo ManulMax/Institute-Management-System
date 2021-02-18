@@ -181,22 +181,6 @@ $(function(){
       </label>
     </div>    
     </div>
-  
-
-    <div class="row">
-    <div class="col-20">
-      <label for="subject">Class :</label>
-    </div>
-    <div class="col-75">
-      <div class="custom-select" style="width:400px;">
-        <select>
-        <option value="0">Select Class:</option>
-        <option value="1">Class 1</option>
-        <option value="2">Class 2</option>
-        </select>
-      </div>
-    </div>
-    </div>
   -->  
 <div class="middle" style="background-color:#F8F8FF;">
 
@@ -206,6 +190,7 @@ $(function(){
 
   <?php $sch = mysqli_fetch_assoc($this->schedule); ?>
 
+<!--
 <div class="row">
     <div class="col-40" style="margin: 0;">
       <label class="containerRadio">Temporary Re-schedule
@@ -219,8 +204,8 @@ $(function(){
         <span class="checkmark"></span>
       </label>
     </div>    
-    </div>
-
+</div>
+-->
  <!-- 
   <div class="row">
     <div class="col-20">
@@ -254,14 +239,14 @@ $(function(){
   <div class="col-30">
     <label for="filter-hall">Hall:</label>
     <select id="filter-hall" data-filter-col="2" style="min-width:60px" name="hall">
-      <option value="">- All -</option>
+      <option value="">(Hall - Capacity)</option>
       <?php
 
             while($row = mysqli_fetch_assoc($this->hallList)){ 
               if ($row['name'] == $sch['hallName']) {
-                 echo "<option value='".$row['id']."' selected='selected'>".$row['name']."</option>";
+                 echo "<option value='".$row['id']."' selected='selected'>".$row['name']." - ".$row['capacity']."</option>";
                } else{
-                  echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                  echo "<option value='".$row['id']."'>".$row['name']." - ".$row['capacity']."</option>";
                }
 
             }
@@ -300,7 +285,7 @@ $(function(){
 </div>
 
 
-<label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
+<label style="color: grey;font-weight:bold;margin-top:30px;">Change Class Start & End Times:</label>
 
   <div class="row">
     <div class="col-20" style="width: 15%;">
@@ -319,14 +304,15 @@ $(function(){
     </div>
   </div>
 
-  <div class="row">
+ <!-- <div class="row">
     <div class="col-20" style="width: 15%;">
       <label>Start Date :</label>
     </div>
     <div class="col-30">
-      <input type="date" name="start-date">
+      <input type="date" name="start-date" value="<?php echo $sch['end_time']; ?>">
     </div>
-  </div>
+  </div> -->
+
   <div class="row" style="margin-top:30px;">
     <input type="submit" value="Send Details">
   </div>

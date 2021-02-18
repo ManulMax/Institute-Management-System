@@ -62,7 +62,7 @@ class Classes extends Controller{
         $data['startDate'] = $startDate;
         $data['fees'] = $fees;
         $this->model->saveSchedule($data,$_SESSION["userid"]);
-        
+        header('location: '.URL.'Classes');
     }
 
 

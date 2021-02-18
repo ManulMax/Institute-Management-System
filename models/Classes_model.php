@@ -41,7 +41,7 @@ class Classes_Model extends Model{
         $this->db->insert("class","(monthly_fee,batch,subject_id,teacher_reg_no)","(".$data['fees'].",'".$data['batchname']."',".$teacherDetails['subject_id'].",".$teacherDetails['reg_no'].")");
         $class = $this->db->getLastRow("id","class");
         $classDetails = mysqli_fetch_assoc($class);
-       $this->db->insert("schedule","(class_id,hall_id,day,start_time,end_time,start_date,type,staff_reg_no)","(".$classDetails['id'].",".$data['hall'].",'".$data['day']."','".$data['startTime']."','".$data['endTime']."','".$data['startDate']."','P',1)");
+       $this->db->insert("schedule","(class_id,hall_id,day,start_time,end_time,start_date,staff_reg_no)","(".$classDetails['id'].",".$data['hall'].",'".$data['day']."','".$data['startTime']."','".$data['endTime']."','".$data['startDate']."',1)");
     }
 
     

@@ -50,14 +50,13 @@ class reschedule_Model extends Model{
 
 
 
-    public function saveReschedule($data){
-        $teacher = $this->db->listWhere("reg_no,subject_id","teacher","user_id=1");
+    public function saveReschedule($data,$userid){
+        $teacher = $this->db->listWhere("reg_no,subject_id","teacher","user_id=$userid");
         $teacherDetails = mysqli_fetch_assoc($teacher);
         $class= $this->db->listWhere("id","class","batch='".$data['batchname']."' and teacher_reg_no=".$teacherDetails['reg_no']);
         $classDetails = mysqli_fetch_assoc($class);
 
-       $this->db->update("class","size=".$data['count'],"class_id=".$classDetails['id']);
-       $this->db->update("schedule","hall_id=".$data['hall'].",day='".$data['day']."',start_time='".$data['startTime']."',end_time='".$data['endTime']."',start_date='".$data['startDate']."'","class_id=".$classDetails['id']);
+       $this->db->update("schedule","hall_id=".$data['hall'].",day='".$data['day']."',start_time='".$data['startTime']."',end_time='".$data['endTime']."'","class_id=".$classDetails['id']);
     }
 
 
