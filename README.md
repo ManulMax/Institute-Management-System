@@ -3,6 +3,7 @@ Modified with MVC architecture
 
 
 Necessary Data :page_facing_up:
+
 Payment Gateway - payhere (not functioning)
 SMS Gateway Account Informations
 
@@ -712,29 +713,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `type`, `flag`) VALUES
-(1, 'isurikaperera.hip@gmail.com', '3d2172418ce305c7d16d4b05597c6a59', 'Teacher', 1),
-(2, 'nitharshana@gmail.com', 'e2fc714c4727ee9395f324cd2e7f331f', 'Staff', 1),
-(3, 'kamal1234', '0000', 'Paper Marker', NULL),
-(4, 'isurikaaa', '1111', 'Paper Marker', 1),
-(5, 'tdvth', '3454', 'Paper Marker', NULL),
-(6, 'servg', '123456789v', 'Paper Marker', NULL),
-(7, 'siri@gmail.com', '123456009v', 'Paper Marker', NULL),
-(8, 'sirisena@gmail.com', '987654321V', 'Paper Marker', NULL),
-(9, 'garfield@gmail.com', '650000000V', 'Paper Marker', NULL),
-(10, '111', '11111111V', 'Paper Marker', NULL),
-(11, '2018is055@stu.ucsc.cmb.ac.lk', 'bcbe3365e6ac95ea2c0343a2395834dd', 'Paper Marker', 1),
-(12, 'blaaaa@gmail.com', NULL, 'Paper Marker', NULL),
-(13, '2018is055@stu.ucsc.cmb.ac', '698d51a19d8a121ce581499d7b701668', 'Paper Marker', NULL),
-(14, 'amasha', '985066345v', 'Teacher', NULL),
-(15, 'isurika@gmail.com', 'f1901d6d6423fbb9fc8dafc3127b2270', 'Student', 1),
-(16, 'cservjyjk', NULL, 'student', NULL),
-(17, '2018is055@stu.ucsc.cmb.ac.lk', 'c483f6ce851c9ecd9fb835ff7551737c', 'student', NULL),
-(18, '2018is055@stu.ucsc.cmb.ac.lk', 'c483f6ce851c9ecd9fb835ff7551737c', 'student', NULL),
-(19, '2018is055@stu.ucsc.cmb.ac.lk', 'c483f6ce851c9ecd9fb835ff7551737c', 'student', NULL),
-(20, 'nimal@gmail.com', NULL, 'Paper Marker', NULL),
-(21, 'perera@gmail.com', NULL, 'Paper Marker', NULL),
-(22, 'sevjsrdyvj@gmail.com', 'f55ac18c29ea39a1e71cdcc0bdc2caa2', 'Paper Marker', NULL),
-(23, 'sevjsrdyvj@gmail.com', 'f55ac18c29ea39a1e71cdcc0bdc2caa2', 'Paper Marker', 1),
 (24, 'pm', 'bcbe3365e6ac95ea2c0343a2395834dd', 'Paper Marker', 1),
 (25, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1),
 (26, 'admin', 'admin', 'Admin', 1),
