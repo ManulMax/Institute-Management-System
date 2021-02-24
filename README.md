@@ -364,16 +364,6 @@ CREATE TABLE IF NOT EXISTS `question` (
 
 INSERT INTO `question` (`q_no`, `quiz_id`, `ques`, `answer1`, `answer2`, `answer3`, `answer4`, `answer5`, `correct_ans`) VALUES
 (1, 5, 'question blaaaaa', 'choice 1', 'choice 2', 'choice 3', 'choice 4', 'choice 5', 1),
-(1, 6, '', '', '', '', '', '', 1),
-(2, 6, '', '', '', '', '', '', 1),
-(3, 6, 'r', 'r1', 'r2', 'r3', 'r4', 'r5', 1),
-(1, 8, 'q', 'b', 'b', 'b', 'b', 'b', 1),
-(2, 8, '2', 'b', 'b', 'b', 'b', 'b', 1),
-(1, 12, '', 'answer 1', 'answer 2', 'answer 3', 'answer 4', 'answer 5', 1),
-(2, 12, '', 'c1', 'c2', 'c3', 'c4', 'c5', 1),
-(1, 13, 'ques1', 'ch1', 'ch2', 'ch3', 'ch4', 'ch5', 1),
-(2, 13, 'ques2', 'choice1', 'choice2', 'choice3', 'choice4', 'choice5', 1),
-(1, 14, 'blaa ques', 'blaa', 'blaa', 'blaa', 'blaa', 'blaa', 1),
 (1, 17, 'q', 'q', 'q', 'q', 'q', 'q', 1),
 (1, 19, 'y', 'y', 'y', 'y', 'y', 'y', 2),
 (2, 19, 'p', 'p', 'p', 'p', 'p', 'p', 3);
@@ -404,21 +394,7 @@ INSERT INTO `quiz` (`id`, `date`, `topic`, `time_limit`, `class_id`) VALUES
 (2, NULL, 'My first quiz', '30 minutes', 1),
 (3, NULL, 'My second quiz', '30 minutes', 1),
 (4, NULL, 'My third quiz', '30 minutes', 1),
-(5, NULL, 'My  fourth quiz', '30 minutes', 1),
-(6, NULL, '', '', 1),
-(7, NULL, '', '', 1),
-(8, NULL, 'OOP quiz', '30 minutes', 1),
-(9, NULL, 'OOP quiz', '30 minutes', 1),
-(10, NULL, 'OOP quiz 2', '30 minutes', 1),
-(11, NULL, '', '', 1),
-(12, NULL, 'OOP quiz 3', '30 minutes', 1),
-(13, NULL, 'OOP quiz 4', '45 minutes', 1),
-(14, NULL, 'blaa quiz', '45 minutes', 1),
-(15, NULL, 'OOP quiz', '30 minutes', 1),
-(16, NULL, 'OOP quiz', '30 minutes', 1),
-(17, NULL, 'q', '45 minutes', 1),
-(18, NULL, '', '', 1),
-(19, NULL, 'ttt', '35 minutes', 1);
+(5, NULL, 'My  fourth quiz', '30 minutes', 1);
 
 -- --------------------------------------------------------
 
