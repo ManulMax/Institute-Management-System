@@ -713,20 +713,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `type`, `flag`) VALUES
-(24, 'pm', 'bcbe3365e6ac95ea2c0343a2395834dd', 'Paper Marker', 1),
-(25, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1),
-(26, 'admin', 'admin', 'Admin', 1),
-(27, '2018is055@stu.ucsc.cmb.ac.lk', 'c483f6ce851c9ecd9fb835ff7551737c', 'student', NULL),
-(28, 'a', NULL, 'student', NULL),
-(29, 'a', NULL, 'student', NULL),
-(30, 'b', NULL, 'student', NULL),
-(31, 'b', NULL, 'student', NULL),
-(35, '2018is055@stu.ucsc.cmb.ac.lk', 'c483f6ce851c9ecd9fb835ff7551737c', 'Student', 0),
-(39, 'vdhbx@gmail.com', 'fe7f71d0f87c199c2883338525b44567', 'Paper Marker', 0),
-(41, 'nimnaka@gmail.com', 'f55ac18c29ea39a1e71cdcc0bdc2caa2', 'Paper Marker', 0),
-(42, 'amasha@gmail.com', 'f55ac18c29ea39a1e71cdcc0bdc2caa2', 'Paper Marker', 0),
-(43, 'subadra@gmail.com', '2dd90c5d1fbd111bd9f88c159cf1110d', 'Teacher', 0),
-(44, 'dinusha@gmail.com', '3dd975ccb84597f3b969ac1577417dcf', 'Teacher', 0),
 (45, '2018is055@stu.ucsc.cmb.ac.lk', 'e700ded18d0f052a98564c3e692a00e5', 'Student', 0),
 (46, '2018is055@stu.ucsc.cmb.ac.lk', 'f57fa9a49fd42040677c08d23bbb8689', 'Student', 0),
 (47, '2018is055@stu.ucsc.cmb.ac.lk', 'f57fa9a49fd42040677c08d23bbb8689', 'Student', 0),
