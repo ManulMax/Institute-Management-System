@@ -307,19 +307,7 @@ CREATE TABLE IF NOT EXISTS `parent` (
 
 INSERT INTO `parent` (`name`, `tel_no`, `stu_reg_no`) VALUES
 ('aaaaaa', 245, 14),
-('aaaaaa', 245, 15),
-('dsgvdfb', 25, 6),
-('dvrtrfbjy', 4365, 2),
-('k', 1111, 14),
-('krrrrrr', 1111, 18),
-('parent', 1234, 3),
-('perera', 12345, 1),
-('perera', 245, 7),
-('perera', 245, 10),
-('ppppppppp', 111, 16),
-('rybffh', 245, 3),
-('rybffh', 245, 5),
-('rybffh', 245, 12);
+('aaaaaa', 245, 15);
 
 -- --------------------------------------------------------
 
@@ -540,15 +528,7 @@ INSERT INTO `student` (`reg_no`, `fname`, `mname`, `lname`, `tel_no`, `address`,
 (6, 'isurika', '', 'perera', 758, 'colombo', '12', '2020-11-06', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'sdrgv', 1, 'fbxsBf', NULL, 'download.png', 13),
 (7, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13),
 (8, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13),
-(9, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13),
-(10, 'isurika', 'isssss', 'perera', 346, 'colombo', '12345V', '2020-11-04', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'ersvh', 1, 'dvjh', NULL, 'pizza-hut-logo-symbol-food-png-favpng-0g11uiPLcBE1nV4uLQxLxN71j.jpg', 13),
-(11, 'isurika', 'isssss', 'perera', 346, 'colombo', '12345V', '2020-11-04', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'ersvh', 1, 'dvjh', NULL, 'pizza-hut-logo-symbol-food-png-favpng-0g11uiPLcBE1nV4uLQxLxN71j.jpg', 13),
-(12, 'isurika perera', NULL, NULL, 719736858, 'colombo', '980000174v', '2020-11-02', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'ersvh', 4, 'dvjh', NULL, 'duck.JPG', 11),
-(14, 'isurikaaaaaaaaaa', NULL, NULL, 719736858, 'colombo', '222222222v', '2020-12-01', 'female', NULL, NULL, NULL, NULL, NULL, NULL, 55),
-(15, 'isurikrrrrrr', NULL, NULL, 719736858, 'colombo', '33333333v', '2020-12-01', 'female', 'ipipipip@stu.ucsc.cmb.ac.lk', 'ersvh', NULL, NULL, NULL, NULL, 56),
-(16, 'w', NULL, NULL, 719736858, 'colombo', '777777777v', '2020-12-08', 'female', 'ww@stu.ucsc.cmb.ac.lk', 'zzz', 4, 'dvjh', NULL, '1607623448413.jpg', 59),
-(17, 'k', NULL, NULL, 719736858, 'colombo', '222222222v', '2020-12-22', 'female', 'k5@stu.ucsc.cmb.ac.lk', 'k', 12, 'k', NULL, '1output.JPG', 60),
-(18, 'k', NULL, NULL, 719736858, 'colombo', '909090v', '2020-12-22', 'female', 'k6@stu.ucsc.cmb.ac.lk', 'k', 12, 'k', NULL, '1output.JPG', 61);
+(9, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13);
 
 -- --------------------------------------------------------
 
