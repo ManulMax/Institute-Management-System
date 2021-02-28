@@ -521,14 +521,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 
 INSERT INTO `student` (`reg_no`, `fname`, `mname`, `lname`, `tel_no`, `address`, `NIC`, `DOB`, `gender`, `email`, `school`, `grade`, `stream`, `reg_date`, `image`, `user_id`) VALUES
 (1, 'isurika', 'isurika', 'perera', 546, 'horana', '986800174v', '2020-09-10', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'taxila', 12, 'maths', NULL, 'person.JPG', 13),
-(2, 'nitharshana', 'nitharshana', 'sathyamoorthy', 43464356, 'rdhj', '987654321v', '2020-10-13', 'female', 'cservjyjk', 'fdbj', 13, 'maths', NULL, '', 16),
-(3, 'isurika', 'perera', 'perera', 235, 'colombo', '989898987v', '2020-10-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'ersvh', 13, 'dvjh', NULL, '', 15),
-(4, 'isurika', 'perera', 'perera', 235, 'colombo', '989898987v', '2020-10-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'ersvh', 13, 'dvjh', NULL, '', 13),
-(5, 'isurika', 'perera', 'perera', 346, 'colombo', '989890087v', '2020-10-14', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'ersvh', 13, 'dvjh', NULL, 'background1.jpg', 13),
-(6, 'isurika', '', 'perera', 758, 'colombo', '12', '2020-11-06', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'sdrgv', 1, 'fbxsBf', NULL, 'download.png', 13),
-(7, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13),
-(8, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13),
-(9, 'c', 'c', 'c', 346, 'colombo', '986805555v', '2020-11-01', 'female', '2018is055@stu.ucsc.cmb.ac.lk', 'c', 4, 'c', NULL, 'download.png', 13);
+(2, 'nitharshana', 'nitharshana', 'sathyamoorthy', 43464356, 'rdhj', '987654321v', '2020-10-13', 'female', 'cservjyjk', 'fdbj', 13, 'maths', NULL, '', 16);
 
 -- --------------------------------------------------------
 
