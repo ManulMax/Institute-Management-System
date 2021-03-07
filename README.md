@@ -662,13 +662,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `type`, `flag`) VALUES
-(45, '2018is055@stu.ucsc.cmb.ac.lk', 'e700ded18d0f052a98564c3e692a00e5', 'Student', 0),
-(46, '2018is055@stu.ucsc.cmb.ac.lk', 'f57fa9a49fd42040677c08d23bbb8689', 'Student', 0),
-(47, '2018is055@stu.ucsc.cmb.ac.lk', 'f57fa9a49fd42040677c08d23bbb8689', 'Student', 0),
-(55, 'ipipip@stu.ucsc.cmb.ac.lk', 'f1db2109cd14c5285f2b125e441e60fb', 'Student', 0),
-(56, 'ipipipip@stu.ucsc.cmb.ac.lk', 'a1371f60c121df1432a991ada29ff106', 'Student', 0),
-(57, 'ipipipipip@stu.ucsc.cmb.ac.lk', 'c5c59aa8ba910c298c89e4857c4c5913', 'Student', 0),
-(58, 'pppppp@stu.ucsc.cmb.ac.lk', 'c40969f245afc04dffd870246511be53', 'Student', 0),
 (59, 'ww@stu.ucsc.cmb.ac.lk', '52b168dcc9b77f143ec22d89c576d87d', 'Student', 0),
 (60, 'k5@stu.ucsc.cmb.ac.lk', 'f1db2109cd14c5285f2b125e441e60fb', 'Student', 0),
 (61, 'k6@stu.ucsc.cmb.ac.lk', 'fb2626c8ccd867e63496475ec7c2689a', 'Student', 0);
