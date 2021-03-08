@@ -48,12 +48,13 @@ class paperMarkerRegistration_Model extends Model{
 
     public function create($data){
        // $password=password_hash($data['NIC'], PASSWORD_DEFAULT);
-        $this->db->insert("user","(username,password,type,flag)","('".$data['email']."',md5(".$data['NIC']."),'Paper Marker',0)");
+        $this->db->insert("user","(username,password,type,flag)","('".$data['email']."',md5('".$data['NIC']."'),'Paper Marker',0)");
 
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
  
-        $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].")");
+        $result = $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].")");
+        return $result;
 
     }
 

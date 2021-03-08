@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/paperMarkerRegistration.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
@@ -228,7 +229,7 @@
 		 </div>
 		 <div class="col-25">
 		  <div class="popup">
-		   <input type="date" name="DOB" id="DOB" onfocusout="validateDOB()">
+		   <input type="date" name="DOB" id="DOB">
 		   <span class="popuptext" id="DOB-popup"></span>
 		  </div>
 	     </div>
@@ -292,10 +293,18 @@
 	  
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
 		<input id="formSubmit" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
+		<script type="text/javascript">
+			if("<?php echo $_GET['alert']; ?>" =="success"){
+				alert("Saved successfully!");
+			}else if("<?php echo $_GET['alert']; ?>" =="fail"){
+				alert("Failed to save record!");
+			}
+			</script> 
+
 	  </div>
 	  
 	</form>
-
+<div id="snackbar">Some text some message..</div>
   </div>
  
 
