@@ -129,6 +129,7 @@ function validateName() {
     x.style.borderColor = red;
     popup.innerHTML="Name field cannot be empty!"; 
     popup.classList.add("show");
+    return false;
   }else if(x.value.match(letters)){
     
     x.style.borderColor = '#228B22';
@@ -153,6 +154,7 @@ function validateNIC() {
       nic.style.borderColor = red;
       nicPopup.innerHTML="NIC field cannot be empty!";
       nicPopup.classList.add("show");
+      return false;
     }else if(nic.value.match(lettersNIC)){
     
       nic.style.borderColor = '#228B22';
@@ -178,6 +180,7 @@ function validateEmail() {
       email.style.borderColor = red;
       emailPopup.innerHTML="Email field cannot be empty!"; 
       emailPopup.classList.add("show");
+      return false;
     }else if(email.value.match(lettersEmail)){
     
       email.style.borderColor = '#228B22';
@@ -202,6 +205,7 @@ function validatePhoneNumber() {
       phone.style.borderColor = red;
       phonePopup.innerHTML="Phone number field cannot be empty!"; 
       phonePopup.classList.add("show");
+      return false;
     }else if(phone.value.match(lettersPhone)){
     
       phone.style.borderColor = '#228B22';
@@ -238,5 +242,9 @@ function validateDOB() {
       dobPopup.classList.add("show");
      return false;
      }
+}
+
+function validatePaperMarker() {
+  return validateName() && validateNIC() && validateEmail() && validatePhoneNumber();
 }
 

@@ -169,7 +169,7 @@
   <form id="regForm" method="post" action="<?php echo URL; ?>createQuiz/create">
     <h1>Create Quiz:</h1>
     <div class="topSection">Quiz Title:
-    <p style="width: 60%;"><input style="background-color: #ACE1AF;" type="text" name="topic"></p><br /><br />
+    <p style="width: 60%;"><input style="background-color: #ACE1AF;" type="text" name="topic" required></p><br /><br />
     Time Limit:
     <table style="margin-top: 20px;">
       <tr>
@@ -177,35 +177,35 @@
         <td><p>Minutes:</p></td>
       </tr>
       <tr>
-        <td><input style="background-color: #ACE1AF;" type="number" name="time" min="0" max="3"></td>
-        <td><input style="background-color: #ACE1AF;" type="number" name="time" min="0" max="59"></td>
+        <td><input style="background-color: #ACE1AF;" type="number" name="time" min="0" max="3" required></td>
+        <td><input style="background-color: #ACE1AF;" type="number" name="time" min="0" max="59" required></td>
       </tr>
     </table>
     </div>
     <!-- One "tab" for each step in the form: -->
     <?php $qno = 1; ?>
     <div class="tab" id="qlist1"><p class="qnum">Question 1 :</p>
-    <p><textarea rows="4" cols="90" name="ques[]"></textarea></p>
+    <p><textarea rows="4" cols="90" name="ques[]" required></textarea></p>
     
     <table border="0" width="100%" cellpadding="10px">
       <tbody>
         <tr>
-          <td>1.<input type="text" placeholder="Choice 1..." name="ans1[]" class="ans1"></td>
+          <td>1.<input type="text" placeholder="Choice 1..." name="ans1[]" class="ans1" required></td>
         </tr>
         <tr>
-          <td>2.<input type="text" placeholder="Choice 2..." name="ans2[]" class="ans2"></td>
+          <td>2.<input type="text" placeholder="Choice 2..." name="ans2[]" class="ans2" required></td>
         </tr>
         <tr>
-          <td>3.<input type="text" placeholder="Choice 3..." name="ans3[]" class="ans3"></td>
+          <td>3.<input type="text" placeholder="Choice 3..." name="ans3[]" class="ans3" required></td>
         </tr>
         <tr>
-          <td>4.<input type="text" placeholder="Choice 4..." name="ans4[]" class="ans4"></td>
+          <td>4.<input type="text" placeholder="Choice 4..." name="ans4[]" class="ans4" required></td>
         </tr>
         <tr>
-          <td>5.<input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5"></td>
+          <td>5.<input type="text" placeholder="Choice 5..."  name="ans5[]" class="ans5" required></td>
         </tr>
         <tr>
-          <td style="float: right;"><p>Correct Answer :</p><input type="number" class="choice" name="choice[]" min="1" max="5"></td>
+          <td style="float: right;"><p>Correct Answer :</p><input type="number" class="choice" name="choice[]" min="1" max="5" required></td>
         </tr>
       </tbody>
     </table>
