@@ -199,7 +199,7 @@
 
 <!-- registration form -->
 
-	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post">
+	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post" onsubmit="return validatePaperMarker()">
 	  <div class="row">
 		<div class="col-15">
 		  <label>Full Name :</label>
