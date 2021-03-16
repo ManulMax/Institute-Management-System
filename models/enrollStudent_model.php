@@ -6,13 +6,7 @@ class enrollStudent_Model extends Model{
      	parent::__construct();
     }
 
-    public function listHalls(){
- 
-    	return $this->db->listAll("hall");
-        
-
-    } 
-
+    
     public function listSubjects(){
 
         return $this->db->listAll("subject");
@@ -35,62 +29,25 @@ class enrollStudent_Model extends Model{
 
     }
 
+     public function listClassCapacity(){
 
-
-    public function listCurrentSchedules($hallName,$daySelected){
-
-        return $this->db->listAll("s.start_time,s.end_time,t.fname,t.mname,t.lname,sub.name,c.batch","schedule s,teacher t,subject sub,class c","s.class_id=c.id and c.teacher_reg_no=t.reg_no and c.subject_id=sub.id and s.hall_id=(select id from hall where name='$hallName') and s.day='$daySelected'");
         
+        return $this->db->listWhere("s.name,c.batch, h.capacity, h.capacity-count(e.stu_reg_no) as count1","class c, subject s, hall h, schedule sh, enrollment e","c.subject_id=s.id and sh.class_id=c.id and sh.hall_id=h.id and e.class_id=c.id GROUP BY e.class_id");
 
-    }
-
-    public function getUser($id){
-
-        return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
-    }
+}
 
     public function create($data){
 
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
+    $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."' ");
+    $id = mysqli_fetch_assoc($classID);  
+
+    
 
 
-    }
+     $this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".($id['class_id'])."','".($data['stu_reg_no'])."','".date("Y/m/d")."')");  
+ }
 
-    public function update($data){
-
-        $this->db->update('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['email'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']),"nic = '{$data['nic']}'");
-
-    }
-
-    public function delete($id){
-        $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");
-
-        if($data['user_type']=='owner'){
-            return false;
-        } else{
-            $this->db->delete('user',"nic='$id'");
-        }
-
-    }
+   
 
 
 

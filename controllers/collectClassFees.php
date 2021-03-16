@@ -24,7 +24,7 @@ class collectClassFees extends Controller{
         $this->view->fees = $this->model->listFees($_POST['regNo']);
         $this->view->render('staff/collectClassFees');
     }
-  
+   
        
 
      function create(){

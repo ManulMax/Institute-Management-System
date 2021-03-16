@@ -16,6 +16,21 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-color: white;
+  cursor: pointer;
+  opacity: 0.8 !important;
+  border: none !important;
+  border-radius: 20px !important;
+  font-size: 17px !important;
+  height: 40px;
+  margin-top: 0 !important;
+  text-decoration: none;
+}
+
 
 .title h3{
   color: black;
@@ -36,20 +51,6 @@ input[type=submit]{
 
 }
 
-/*.btn, .btn2 {
-  background-color:#66CDAA ;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer; 
-}
-
-.btn2{
-	padding: 5px;
-	margin-right:35%; 
-	float: right;	
-}*/
 
 .btn,.btn2:hover {background-color: #44CF6C;}
 

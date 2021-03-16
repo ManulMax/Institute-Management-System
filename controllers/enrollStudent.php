@@ -9,23 +9,26 @@ class enrollStudent extends Controller{
     function index(){
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->subjectList = $this->model->listSubjects();
+        $this->view->classCapacity = $this->model->listClassCapacity();
     	$this->view->render('staff/enrollStudent');
     }
 
     function renderEnrollStudent($reg,$name,$image){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
-         $this->view->image = $image;
-         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->image = $image;
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->subjectList = $this->model->listSubjects();
+        $this->view->classCapacity = $this->model->listClassCapacity();
         $this->view->render('staff/enrollStudent');
     }
 
     function create(){
 
         $data = array();
-        $data['reg_no'] = $_POST['reg_no'];
-        $data['fname'] = $_POST['fname'];
+        $data['stu_reg_no'] = $_POST['regNo'];
+        $data['subject'] = $_POST['id'];
+        $data['batch'] = $_POST['batch'];
 
         $this->model->create($data);
         header('location: '.URL.'enrollStudent');
@@ -37,4 +40,4 @@ class enrollStudent extends Controller{
         $row = mysqli_fetch_assoc($stuDet);
         $this->renderEnrollStudent($reg,$row['fname'],$row['image']);
     }
-}
+}  
