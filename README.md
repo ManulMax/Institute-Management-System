@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   `presence` int DEFAULT NULL,
   PRIMARY KEY (`class_id`,`stu_reg_no`,`date`),
   KEY `stu_reg_no` (`stu_reg_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `attendance`
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `class` (
   PRIMARY KEY (`id`),
   KEY `subject_id` (`subject_id`),
   KEY `teacher_reg_no` (`teacher_reg_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `class`
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `enrollment` (
   `date` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`class_id`,`stu_reg_no`),
   KEY `stu_reg_no` (`stu_reg_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `enrollment`
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `exam` (
   PRIMARY KEY (`id`),
   KEY `class_id` (`class_id`),
   KEY `result_sheet_id` (`result_sheet_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `exam`
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `fees` (
   KEY `class_id` (`class_id`),
   KEY `stu_reg_no` (`stu_reg_no`),
   KEY `income_id` (`income_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `fees`
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `hall` (
   `name` varchar(30) DEFAULT NULL,
   `capacity` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hall`
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `income` (
   `admin_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_id` (`admin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `marks` (
   `marks` int DEFAULT NULL,
   PRIMARY KEY (`quiz_id`,`stu_reg_no`),
   KEY `stu_reg_no` (`stu_reg_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `paper_marker` (
   PRIMARY KEY (`reg_no`),
   KEY `user_id` (`user_id`),
   KEY `teacher_id` (`teacher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `paper_marker`
@@ -298,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `parent` (
   `stu_reg_no` int NOT NULL,
   PRIMARY KEY (`name`,`stu_reg_no`),
   KEY `stu_reg_no` (`stu_reg_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `parent`
@@ -330,9 +330,9 @@ DROP TABLE IF EXISTS `password_reset`;
 CREATE TABLE IF NOT EXISTS `password_reset` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(70) NOT NULL,
-  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `password_reset`
@@ -355,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `answer5` varchar(150) DEFAULT NULL,
   `correct_ans` int DEFAULT NULL,
   PRIMARY KEY (`quiz_id`,`q_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `question`
@@ -392,7 +392,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `class_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `class_id` (`class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `quiz`
@@ -434,7 +434,7 @@ CREATE TABLE IF NOT EXISTS `result_sheet` (
   PRIMARY KEY (`id`),
   KEY `teacher_reg_no` (`teacher_reg_no`),
   KEY `pm_reg_no` (`pm_reg_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -452,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `salary` (
   PRIMARY KEY (`id`),
   KEY `teacher_reg_no` (`teacher_reg_no`),
   KEY `staff_reg_no` (`staff_reg_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -476,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `schedule` (
   KEY `class_id` (`class_id`),
   KEY `hall_id` (`hall_id`),
   KEY `staff_reg_no` (`staff_reg_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `schedule`
@@ -513,7 +513,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`reg_no`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `staff`
@@ -548,7 +548,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`reg_no`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student`
@@ -590,7 +590,7 @@ CREATE TABLE IF NOT EXISTS `study_material` (
   PRIMARY KEY (`id`),
   KEY `class_id` (`class_id`),
   KEY `teacher_reg_no` (`teacher_reg_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `study_material`
@@ -617,7 +617,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subject`
@@ -656,7 +656,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   PRIMARY KEY (`reg_no`),
   KEY `subject_id` (`subject_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teacher`
@@ -680,7 +680,7 @@ CREATE TABLE IF NOT EXISTS `teacher_salary` (
   `teacher_reg_no` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `teacher_reg_no` (`teacher_reg_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teacher_salary`
@@ -705,7 +705,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `type` varchar(15) DEFAULT NULL,
   `flag` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
