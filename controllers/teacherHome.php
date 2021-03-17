@@ -30,4 +30,4 @@ class teacherHome extends Controller{
         $this->view->materialList = $this->model->listMaterials($id);
         $this->view->render('teacher/materials');
     }
-}
+} 

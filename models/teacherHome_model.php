@@ -11,7 +11,7 @@ class teacherHome_Model extends Model{
         return $this->db->listWhere("*","teacher","user_id=$userid");
     
 
-    }
+    } 
 
     public function listClasses($userid){
 
