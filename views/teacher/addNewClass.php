@@ -9,6 +9,7 @@
 
 
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/addNewClassStylesheet">
 <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
@@ -304,7 +305,10 @@ $(function(){
       <label>Monthly Fee(Rs.) :</label>
     </div>
     <div class="col-20">
-      <input type="text" name="fees" placeholder="Eg:-1000">
+      <div class="popup">
+       <input type="text" name="fees" id="num" placeholder="Eg:-1000" onfocusout="containsNumbers()">
+       <span class="popuptext" id="number-popup"></span>
+      </div>
     </div>
   </div>
   <br />

@@ -244,6 +244,30 @@ function validateDOB() {
      }
 }
 
+function containsNumbers() {
+  var num = document.getElementById("num");
+  var numPopup = document.getElementById("number-popup");
+
+  var lettersNum = /^[0-9]*$/;
+   if (isEmpty(num.value)) {
+      num.style.borderColor = red;
+      numPopup.innerHTML="field cannot be empty!"; 
+      numPopup.classList.add("show");
+      return false;
+    }else if(num.value.match(lettersNum)){
+    
+      num.style.borderColor = '#228B22';
+      numPopup.classList.remove("show");
+      return true;
+     }
+   else{
+      num.style.borderColor = red;
+      numPopup.innerHTML="Can only contain numbers!"; 
+      numPopup.classList.add("show");
+     return false;
+     }
+}
+
 function validatePaperMarker() {
   return validateName() && validateNIC() && validateEmail() && validatePhoneNumber();
 }
