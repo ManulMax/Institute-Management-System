@@ -166,7 +166,7 @@
         </td>
 
       </tr>
-    </table>
+    </table> 
 
     <?php 
     $attendance1 = mysqli_fetch_assoc($this->sum1);

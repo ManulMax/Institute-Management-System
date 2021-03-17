@@ -131,7 +131,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2020 A/L</b></h4>  
+          <h4><b><?php echo date("Y"); ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -147,7 +147,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2021 A/L</b></h4>  
+          <h4><b><?php echo date("Y")+1; ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -163,7 +163,7 @@
             }
           ?>
            <div class="containerCard">
-          <h4><b>2022 A/L</b></h4>  
+          <h4><b><?php echo date("Y")+2; ?> AL</b></h4>  
           </div>
         </div>
         </td>
@@ -207,9 +207,9 @@
           <div class="quarter-circle-top-left"><i id="icon4" class="fas fa-users fa-2x"></i></div>
           <?php
 
-            while($row = mysqli_fetch_assoc($this->stuCount5)){  
+            while($row = mysqli_fetch_assoc($this->overallAttendance)){  
 
-               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['count1']." Students</b></h4></div>";
+               echo "<div style='margin-left: 37%;margin-top: -35px;'><h4><b>".$row['sum']." Students</b></h4></div>";
 
             }
           ?>
@@ -226,6 +226,14 @@
     </table>
 
 
+    <?php 
+    $attendance1 = mysqli_fetch_assoc($this->sum1);
+    $attendance2 = mysqli_fetch_assoc($this->sum2);
+    $attendance3 = mysqli_fetch_assoc($this->sum3);
+    $attendance4 = mysqli_fetch_assoc($this->sum4);
+    $attendance = "'".$attendance1['sum']."','".$attendance2['sum']."','".$attendance3['sum']."','".$attendance4['sum']."'" ?>
+
+
 
 
     <div style="position: relative;width: 40%;height: 400px;margin-top: 5%;">
@@ -235,10 +243,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['2020 A/L', '2021 A/L', '2022 A/L', 'Revision'],
+        labels: ['2021 AL', '2022 AL', '2023 AL', 'Revision'],
         datasets: [{
             label: 'Weekly Attendance',
-            data: [12, 19, 3, 5],
+            data:  [<?php echo $attendance; ?>],
             backgroundColor: [
                 '#8FBC8F',
                 '#8FBC8F',
