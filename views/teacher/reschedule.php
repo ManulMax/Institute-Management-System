@@ -237,9 +237,8 @@ $(function(){
   </div>
 <div class="col-20"></div>
   <div class="col-30">
-    <label for="filter-hall">Hall:</label>
+    <label for="filter-hall">Hall - Capacity:</label>
     <select id="filter-hall" data-filter-col="2" style="min-width:60px" name="hall">
-      <option value="">(Hall - Capacity)</option>
       <?php
 
             while($row = mysqli_fetch_assoc($this->hallList)){ 

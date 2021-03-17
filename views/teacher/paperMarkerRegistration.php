@@ -174,7 +174,7 @@
 		<tbody>
 		  <?php
 
-		      while($row = mysqli_fetch_assoc($this->pmList)){ 
+		      while($row=mysqli_fetch_assoc($this->pmList)) {
 		      
 		         echo "<tr><td>".$row['name']."</td>
 		         <td>".$row['NIC']."</td>
@@ -185,17 +185,32 @@
 		         <td>".$row['tel_no']."</td>
 		         <td>".$row['qualifications']."</td>
 		         <td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
-		         <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'></td></tr>";
-
+		         <td><a class='btn' id='deletBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/delete/".$row['user_id']."' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
 		      }
 		  ?>
 		  
 		</tbody>
 		</table>
 		</div>
+    
 
+    <div id="deletePm" class="modal">
 
+  <!-- Modal content -->
+    <div class="modal-content">
 
+               <div class='row'>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Telephone no.</h3>
+                </div>
+                <div class='col-50-topic'>
+                  <h3 class='topic'>Email address</h3>
+                </div>
+              </div>
+
+    </div>
+
+  </div>
 
 <!-- registration form -->
 
@@ -359,14 +374,30 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
+
+
+
+
+var deletemodal = document.getElementById("deletePm");
+
+// Get the button that opens the modal
+var deletebtn = document.getElementById("deleteBtn");
+
+
+// When the user clicks the button, open the modal 
+deletebtn.onclick = function() {
+  deletemodal.style.display = "block";
+}
+
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == deletemodal) {
+    deletemodal.style.display = "none";
   }
 }
-
-
 
 
 </script>
