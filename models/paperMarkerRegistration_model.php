@@ -18,9 +18,9 @@ class paperMarkerRegistration_Model extends Model{
     
     }
 
-    public function listPaperMarkers(){
+    public function listPaperMarkers($userid){
 
-        return $this->db->listAll("paper_marker");
+        return $this->db->listWhere("*","paper_marker","teacher_id=$userid and deleted=0");
     
 
     }
@@ -53,7 +53,7 @@ class paperMarkerRegistration_Model extends Model{
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
  
-        $result = $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].")");
+        $result = $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id,deleted)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].",0)");
         return $result;
 
     }
@@ -65,14 +65,8 @@ class paperMarkerRegistration_Model extends Model{
     }
 
 
-    public function delete($id){
-        $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");
-
-        if($data['user_type']=='owner'){
-            return false;
-        } else{
-            $this->db->delete('user',"nic='$id'");
-        }
+    public function delete($userid){
+        $this->db->update('paper_marker',"deleted=1","user_id=$userid");
 
     }
 
