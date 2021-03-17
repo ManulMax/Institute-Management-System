@@ -148,6 +148,7 @@ $(function(){
     </select></td>-->
 
      <td><label for="filter-city">Batch</label></td>
+     
      <td><select id="filter-city" data-filter-col="1" style="min-width:60px">
        <option value="">- All -</option>
       <option value="1"><?php echo date("Y");?> A/L</option>
@@ -200,6 +201,7 @@ $(function(){
 
           while($row = mysqli_fetch_assoc($this->stuList)){  
              echo "<tr><td>" .$row['fname']."</td><td>".$row['grade']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/viewStudent/renderStuUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
+             
              <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'></td></tr>";
 
 

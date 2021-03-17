@@ -26,9 +26,13 @@ class paperMarkerRegistration extends Controller{
         $data['email'] = $_POST['email'];
         $data['qualifications'] = $_POST['qualifications'];
 
-
-        $this->model->create($data);
-        header('location: '.URL.'paperMarkerRegistration');
+        $result=$this->model->create($data);
+        if($result == 0){
+            header('location: '.URL.'paperMarkerRegistration?alert=success');
+        }else{
+            header('location: '.URL.'paperMarkerRegistration?alert=fail');
+        }
+        
     }
 
     function renderPmUpdate($userPm){

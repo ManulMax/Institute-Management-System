@@ -125,18 +125,22 @@ function validateName() {
   var popup = document.getElementById("name-popup");
 
   var letters = /^[a-zA-Z][a-zA-Z\s]*$/;
-   if(x.value.match(letters)){
+  if (isEmpty(x.value)) {
+    x.style.borderColor = red;
+    popup.innerHTML="Name field cannot be empty!"; 
+    popup.classList.add("show");
+    return false;
+  }else if(x.value.match(letters)){
     
-      x.style.borderColor = '#228B22';
-      popup.classList.remove("show");
-      return true;
-     }
-   else{
-      x.style.borderColor = red;
-     popup.innerHTML="Name can only contain letters!"; 
-  popup.classList.add("show");
-     return false;
-     }
+    x.style.borderColor = '#228B22';
+    popup.classList.remove("show");
+    return true;
+   }else{
+    x.style.borderColor = red;
+    popup.innerHTML="Name can only contain letters!"; 
+    popup.classList.add("show");
+    return false;
+   }
 }
 
 
@@ -145,7 +149,13 @@ function validateNIC() {
   var nicPopup = document.getElementById("NIC-popup");
 
   var lettersNIC = /[0-9]{9}[x|X|v|V]|[0-9]{12}/;
-   if(nic.value.match(lettersNIC)){
+
+   if (isEmpty(nic.value)) {
+      nic.style.borderColor = red;
+      nicPopup.innerHTML="NIC field cannot be empty!";
+      nicPopup.classList.add("show");
+      return false;
+    }else if(nic.value.match(lettersNIC)){
     
       nic.style.borderColor = '#228B22';
       nicPopup.classList.remove("show");
@@ -153,9 +163,9 @@ function validateNIC() {
      }
    else{
       nic.style.borderColor = red;
-     nicPopup.innerHTML="Invalid NIC!"; 
-  nicPopup.classList.add("show");
-     return false;
+      nicPopup.innerHTML="Invalid NIC!"; 
+      nicPopup.classList.add("show");
+      return false;
      }
 }
 
@@ -165,16 +175,22 @@ function validateEmail() {
   var emailPopup = document.getElementById("email-popup");
 
   var lettersEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-   if(email.value.match(lettersEmail)){
+
+   if (isEmpty(email.value)) {
+      email.style.borderColor = red;
+      emailPopup.innerHTML="Email field cannot be empty!"; 
+      emailPopup.classList.add("show");
+      return false;
+    }else if(email.value.match(lettersEmail)){
     
       email.style.borderColor = '#228B22';
       emailPopup.classList.remove("show");
       return true;
      }
    else{
-      email.style.borderColor = red;
+     email.style.borderColor = red;
      emailPopup.innerHTML="Invalid email address!"; 
-  emailPopup.classList.add("show");
+     emailPopup.classList.add("show");
      return false;
      }
 }
@@ -185,7 +201,12 @@ function validatePhoneNumber() {
   var phonePopup = document.getElementById("phone-popup");
 
   var lettersPhone = /^[0-9]{10}$/;
-   if(phone.value.match(lettersPhone)){
+   if (isEmpty(phone.value)) {
+      phone.style.borderColor = red;
+      phonePopup.innerHTML="Phone number field cannot be empty!"; 
+      phonePopup.classList.add("show");
+      return false;
+    }else if(phone.value.match(lettersPhone)){
     
       phone.style.borderColor = '#228B22';
       phonePopup.classList.remove("show");
@@ -193,8 +214,8 @@ function validatePhoneNumber() {
      }
    else{
       phone.style.borderColor = red;
-     phonePopup.innerHTML="Invalid phone number!"; 
-  phonePopup.classList.add("show");
+      phonePopup.innerHTML="Invalid phone number!"; 
+      phonePopup.classList.add("show");
      return false;
      }
 }
@@ -205,10 +226,10 @@ function validateDOB() {
 
   var dd = new Date();
   var month = dd.getMonth()+1;
-var day = dd.getDay();
-var year = dd.getYear();
+  var day = dd.getDay();
+  var year = dd.getYear();
 
-var newdate = new Date(year,month,day);
+  var newdate = new Date(year,month,day);
   var inputDate = new Date(dob);
 
     if(newdate > inputDate){
@@ -221,5 +242,33 @@ var newdate = new Date(year,month,day);
       dobPopup.classList.add("show");
      return false;
      }
+}
+
+function containsNumbers() {
+  var num = document.getElementById("num");
+  var numPopup = document.getElementById("number-popup");
+
+  var lettersNum = /^[0-9]*$/;
+   if (isEmpty(num.value)) {
+      num.style.borderColor = red;
+      numPopup.innerHTML="field cannot be empty!"; 
+      numPopup.classList.add("show");
+      return false;
+    }else if(num.value.match(lettersNum)){
+    
+      num.style.borderColor = '#228B22';
+      numPopup.classList.remove("show");
+      return true;
+     }
+   else{
+      num.style.borderColor = red;
+      numPopup.innerHTML="Can only contain numbers!"; 
+      numPopup.classList.add("show");
+     return false;
+     }
+}
+
+function validatePaperMarker() {
+  return validateName() && validateNIC() && validateEmail() && validatePhoneNumber();
 }
 

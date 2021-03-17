@@ -171,28 +171,29 @@ $(function(){
 
           <div class="table-filters">
   
-    <table id="allocation"  style="width:100%;">
+    <table id="allocation"  style="width:100%;margin-top:30px;">
     <tr>
-    <td style="color:black"><label for="filter-city">Subject</label>
-    <select name="subject" style="width:50%;" id="filter-city" data-filter-col="0">
+    <td style="color:black"><label for="filter-subject">Subject</label>
+    <select name="subject" style="width:50%;" id="filter-subject" data-filter-col="0" >
       <option value="">- All -</option>
       <?php
-
+          if(isset($this->subjectList)){
             while($row = mysqli_fetch_assoc($this->subjectList)){  
 
                echo "<option value='".$row['name']."'>".$row['name']."</option>";
 
             }
+          }
       ?></select></td>
-</tr>
 
- <tr>
-              <td style="color:black"><label for="filter-city">Class</label>
-              <select name="batch" style="width:50%;" id="filter-city" data-filter-col="1">
+
+
+              <td style="color:black"><label for="filter-batch">Batch</label>
+              <select name="batch" style="width:50%;" id="filter-batch" data-filter-col="1">
               <option value="">- All -</option>
-              <option value="<?php echo date("Y");?> AL"><?php echo date("Y");?> AL</option>
-              <option value="<?php echo date("Y")+1;?> AL"><?php echo date("Y")+1;?> AL</option>
-              <option value="<?php echo date("Y")+2;?> AL"><?php echo date("Y")+2;?> AL</option>
+              <option value="1"><?php echo date("Y");?> AL</option>
+              <option value="2"><?php echo date("Y")+1;?> AL</option>
+              <option value="3"><?php echo date("Y")+2;?> AL</option>
               <option value="Revision">Revision</option>
             </select></td>
             </tr>
@@ -201,7 +202,7 @@ $(function(){
 
 
 <!-- data taken from generatedata.com -->
-<table id="data">
+<table id="data" style="width:90%;margin-top:30px;">
 <thead>
   <tr style="color:black">
     <th>Subject</th>
@@ -215,16 +216,17 @@ $(function(){
 </thead>
 <tbody style="color:black" style="margin-top:25px;">
   <?php
-
+    if(isset($this->fees)){
       while($row = mysqli_fetch_assoc($this->fees)){  
          echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td>" .$row['monthly_fee']. "</td></tr>";
       }
+    }
   ?>
 </tbody>
 </tbody>
 
 
-</table>
+</table >
 
 </div>
 

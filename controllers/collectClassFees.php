@@ -9,8 +9,7 @@ class collectClassFees extends Controller{
     function index(){
     	
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
-        $this->view->subjectList = $this->model->listSubjects();
-        $this->view->fees = $this->model->listFees();
+        
 
     	$this->view->render('staff/collectClassFees');
     }
@@ -21,13 +20,12 @@ class collectClassFees extends Controller{
         $this->view->image = $image;
         $this->view->stuLastPaidMonth = $month;
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
-        $this->view->subjectList = $this->model->listSubjects();
-        $this->view->fees = $this->model->listFees();
-
+        $this->view->subjectList = $this->model->listSubjects($_POST['regNo']);
+        $this->view->fees = $this->model->listFees($_POST['regNo']);
         $this->view->render('staff/collectClassFees');
     }
-  
-      
+   
+       
 
      function create(){
  
@@ -51,6 +49,9 @@ class collectClassFees extends Controller{
     	$stuDet = $this->model->liststuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
         $this->renderCollectClassFees($reg,$row['fname'],$row['image'],$row['month']);
+        
+        
+
     }
 
     

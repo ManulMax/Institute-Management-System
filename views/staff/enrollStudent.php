@@ -9,7 +9,26 @@
   <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/enrollStu">
-</head>
+
+  <!-- filter table -->
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/classFees.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
+<script>
+$(function(){
+  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+  $('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+  .container { margin: 150px auto; max-width: 960px; }
+  </style>
+<!----------/filter table-------------->
+
+</head> 
 
 
 
@@ -27,7 +46,7 @@
       <li><a href="<?php echo URL; ?>attendanceLandingPage"><i class="fas fa-users"></i>Mark Attendance</a></li>
       <li><a href="<?php echo URL; ?>collectClassFees"><i class="fa fa-money"></i>Collect fees</a></li>
       <li><a href="<?php echo URL; ?>staffSalaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
-    </ul>
+    </ul> 
   </div>
 
    <div id="myModal" class="modal">
@@ -129,7 +148,8 @@
 </div>    
 <!---------------------------right side bar----------------------------------->
 <div class="right" style="background-color:#F5F5F5;">
-    <div class="container">
+   <form action="<?php echo URL; ?>enrollStudent/create" method="POST"> 
+    <div class="container" style="margin-top:0px;">
         <table class="image-detail">
           
              <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
@@ -137,87 +157,76 @@
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
-            
-
-      
-             
-            <tr>
-                
-               <!-- <td><label style="color:black">Subject</label>
-                    <div class="box">
-                        
-                      <select name="subject">
-                          <option value="">- All -</option>
-                         <?php
-
-                           while($row = mysqli_fetch_assoc($this->subjectList)){  
-
-                          echo "<option value='".$row['name']."'>".$row['name']."</option>";
-
-                         }
-                      ?></select>
-                    </div>
-                </td> -->
-
-                <td><label style="color:black">Subject</label>
-                    <div class="box">
-                       <select name="subject">
-              <option value="">- All -</option>
-              <option value="1">Combined maths</option>
-              <option value="2">Physics</option>
-              <option value="3">Chemistry</option>
-              <option value="4">ICT</option>
-            </select>
-                    </div>
-                </td>
-
-                 <td><label style="color:black">Class</label>
-                    <div class="box">
-                       <select name="batch">
-              <option value="">- All -</option>
-              <option value="1"><?php echo date("Y");?> A/L</option>
-              <option value="2"><?php echo date("Y")+1;?> A/L</option>
-              <option value="3"><?php echo date("Y")+2;?> A/L</option>
-              <option value="4">Revision</option>
-            </select>
-                    </div>
-                </td>
-                </tr>
-                <tr>
-               
-                    
-            </tr>   
+          
         </table>
-      </br>
-        
-        <table id="allocations">
-  <tr>
-   
-    <th style="background-color: #66CDAA;">Maximum no of students</th>
-    <th style="background-color: #66CDAA;">Current no of students</th>
-    <th style="background-color: #66CDAA;"></th>
-  </tr>
-  <tr>
-   
-    <td style="color:black;">100</td>
-    <td style="color:black;">50</td>
-    <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
-  </tr>
-  <!--<tr>
-    <td style="color:black;">2</td>
-    <td style="color:black;">100</td>
-    <td style="color:black;">50</td>
-    <td style="color:black;"><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
-  </tr>
-  <tr>
-    <td style="color:black;">3</td>
-    <td style="color:black;">100</td>
-    <td style="color:black;">50</td>
-    <td><input type="submit" class="btn2" value="Enroll" name="enroll"></td>
-  </tr>-->
+
+         <div class="table-filters">
+  
+    <table id="allocation"  style="width:100%;margin-top:30px;">
+    <tr>
+    <td style="color:black"><label for="filter-subject">Subject</label>
+    <select name="subject" style="width:50%;" id="filter-subject" data-filter-col="0" >
+      <option value="0">- All -</option>
+      <?php
+          if(isset($this->subjectList)){
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
+
+               echo "<option value='".$row['id']."'>".$row['name']."</option>";
+
+            }
+          }
+      ?></select></td>
+
+      <td></td>
+
+
+ 
+              <td style="color:black"><label for="filter-batch">Batch</label>
+              <select name="batch" style="width:50%;" id="filter-batch" data-filter-col="1">
+              <option value="0">- All -</option>
+              <option value="1"><?php echo date("Y");?> AL</option>
+              <option value="2"><?php echo date("Y")+1;?> AL</option>
+              <option value="3"><?php echo date("Y")+2;?> AL</option>
+              <option value="4">Revision</option>
+            </select></td>
+            </tr>
 </table>
+</div>
+      </br>
+
+      <table id="data" style="width:90%;margin-top:30px;">
+<thead>
+  <tr style="color:black">
+    <th>Subject</th>
+    <th>Batch</th>
+    <th>Maximum capacity</th>
+    <th>Available capacity</th>
+    <th></th>
+    
+    
+
+    
+  </tr>
+
+</thead>
+<tbody style="color:black" style="margin-top:25px;">
+  <?php
+    
+      while($row = mysqli_fetch_assoc($this->classCapacity)){  
+         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td style=text-align:center>".$row['capacity']."</td><td style=text-align:center>".$row['count1']."</td><td><input type=submit class='btn' id='enrollbtn' value=Enroll></td></tr>";
+      
+    }
+  ?>
+</tbody>
+</tbody>
+
+
+</table>
+         
+
     
     </div>
+  </form>
  
 </div>
 

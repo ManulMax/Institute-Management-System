@@ -9,6 +9,7 @@
 
 
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/addNewClassStylesheet">
 <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
@@ -192,7 +193,7 @@ $(function(){
     </div>
   </div>
   
-  <div class="row">
+ <!-- <div class="row">
     <div class="col-20" style="width: 25%;">
       <label for="subject">Expected Student Count :</label>
     </div>
@@ -200,6 +201,7 @@ $(function(){
       <input type="text" name="stu-count">
     </div>
   </div>
+-->
 <br />
 
   
@@ -222,19 +224,19 @@ $(function(){
   </div>
 <div class="col-20"></div>
   <div class="col-30">
-    <label for="filter-hall">Hall:</label>
+    <label for="filter-hall">Hall - Capacity:</label>
     <select id="filter-hall" name="hall" data-filter-col="2" style="min-width:60px">
-      <option value="">- All -</option>
       <?php
              $halls = [];
               while($hall=mysqli_fetch_assoc($this->hallList)) {
                   $halls[] = $hall;
               }
              foreach($halls as $row){
-                echo "<option value='".$row['id']."'>".$row['name']."</option>";
-            }
+                echo "<option value='".$row['id']."'>".$row['name']." - ".$row['capacity']."</option>";
+            } 
       ?>
     </select>
+    
   </div>
 
 
@@ -269,12 +271,12 @@ $(function(){
 </div>
 
 
-<br />
+
 <label style="color: grey;font-weight:bold;margin-top:30px;">New Class Duration:</label>
 
   <div class="row">
     <div class="col-20" style="width: 15%;">
-      <label for="subject"> Start Time :</label>
+      <label> Start Time :</label>
     </div>
     <div class="col-30">
       <input type="time" name="start-time">
@@ -282,7 +284,7 @@ $(function(){
   <div class="col-20" style="width: 10%;">
     </div>
   <div class="col-20" style="width: 15%;">
-      <label for="subject">End Time :</label>
+      <label>End Time :</label>
     </div>
     <div class="col-30">
       <input type="time" name="end-time">
@@ -295,6 +297,18 @@ $(function(){
     </div>
     <div class="col-30">
       <input type="date" name="start-date">
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-20" style="width: 15%;">
+      <label>Monthly Fee(Rs.) :</label>
+    </div>
+    <div class="col-20">
+      <div class="popup">
+       <input type="text" name="fees" id="num" placeholder="Eg:-1000" onfocusout="containsNumbers()">
+       <span class="popuptext" id="number-popup"></span>
+      </div>
     </div>
   </div>
   <br />
