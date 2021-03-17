@@ -14,21 +14,7 @@ class collectClassFees_Model extends Model{
 
     }
  
-   /*public function listStudentSubjects($reg){ 
-
-        return $this->db->listAll("studentsubject");
-        
-
-    } */
-
-
-    /*public function listSubjects(){ 
-
-        return $this->db->listAll("subject");
-        
-
-    }  */
-
+  
     public function listSubjects($reg){
 
         
@@ -36,22 +22,6 @@ class collectClassFees_Model extends Model{
     
     } 
 
-
-
-
-    /*public function listSubjects($reg){
-
-        return $this->db->listWhere("subject1,subject2,subject3","studentsubject","reg_no=$reg");
-    
-
-    }*/
- 
-    /* public function listStuDetails($reg){
-
-        return $this->db->listWhere("fname,image","student","reg_no=$reg");
-    
-
-    }*/
 
     public function listStuDetails($reg){
 
@@ -62,11 +32,9 @@ class collectClassFees_Model extends Model{
     public function listFees($reg){
 
         
-        return $this->db->listWhere("s.name,c.batch, s.id, c.monthly_fee","class c, subject s, enrollment e","e.stu_reg_no=$reg and e.class_id=c.id and c.subject_id=s.id");
+        return $this->db->listWhere("s.name,c.batch, c.monthly_fee","class c, subject s, enrollment e","e.stu_reg_no=$reg and e.class_id=c.id and c.subject_id=s.id");
     
     } 
-
-    
 
 
    public function create($data){
