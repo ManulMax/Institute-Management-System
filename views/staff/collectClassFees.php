@@ -191,9 +191,9 @@ $(function(){
               <td style="color:black"><label for="filter-batch">Batch</label>
               <select name="batch" style="width:50%;" id="filter-batch" data-filter-col="1">
               <option value="">- All -</option>
-              <option value="1"><?php echo date("Y");?> AL</option>
-              <option value="2"><?php echo date("Y")+1;?> AL</option>
-              <option value="3"><?php echo date("Y")+2;?> AL</option>
+              <option value="<?php echo date("Y");?>AL"><?php echo date("Y");?>AL</option>
+              <option value="<?php echo date("Y")+1;?>AL"><?php echo date("Y")+1;?>AL</option>
+              <option value="<?php echo date("Y")+2;?>AL"><?php echo date("Y")+2;?>AL</option>
               <option value="Revision">Revision</option>
             </select></td>
             </tr>

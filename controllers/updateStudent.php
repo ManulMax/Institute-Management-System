@@ -7,6 +7,7 @@ class updateStudent extends Controller{
     }
 
     function index(){
+        $this->view->stuList = $this->model->listStudent();
     	$this->view->render('admin/updateStudent');
     }
 }

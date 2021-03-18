@@ -6,4 +6,8 @@ class updateStudent_model extends Model{
      	parent::__construct();
     }
 
+    public function listStudent(){
+
+        return $this->db->listAll("Student");
+    }
 }
