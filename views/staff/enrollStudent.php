@@ -153,7 +153,7 @@ $(function(){
         <table class="image-detail">
           
              <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNo' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
@@ -171,7 +171,7 @@ $(function(){
           if(isset($this->subjectList)){
             while($row = mysqli_fetch_assoc($this->subjectList)){  
 
-               echo "<option value='".$row['id']."'>".$row['name']."</option>";
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
 
             }
           }
@@ -183,11 +183,11 @@ $(function(){
  
               <td style="color:black"><label for="filter-batch">Batch</label>
               <select name="batch" style="width:50%;" id="filter-batch" data-filter-col="1">
-              <option value="0">- All -</option>
-              <option value="1"><?php echo date("Y");?> AL</option>
-              <option value="2"><?php echo date("Y")+1;?> AL</option>
-              <option value="3"><?php echo date("Y")+2;?> AL</option>
-              <option value="4">Revision</option>
+               <option value="">- All -</option>
+              <option value="<?php echo date("Y");?>AL"><?php echo date("Y");?>AL</option>
+              <option value="<?php echo date("Y")+1;?>AL"><?php echo date("Y")+1;?>AL</option>
+              <option value="<?php echo date("Y")+2;?>AL"><?php echo date("Y")+2;?>AL</option>
+              <option value="Revision">Revision</option>
             </select></td>
             </tr>
 </table>
@@ -197,7 +197,7 @@ $(function(){
       <table id="data" style="width:90%;margin-top:30px;">
 <thead>
   <tr style="color:black">
-    <th>Subject</th>
+    <th>Subject</th> 
     <th>Batch</th>
     <th>Maximum capacity</th>
     <th>Available capacity</th>

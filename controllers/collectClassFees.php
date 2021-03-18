@@ -12,7 +12,7 @@ class collectClassFees extends Controller{
         
 
     	$this->view->render('staff/collectClassFees');
-    }
+    } 
 
     function renderCollectClassFees($reg,$name,$image,$month){
         $this->view->stuName = $name;

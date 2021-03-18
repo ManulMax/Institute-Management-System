@@ -45,6 +45,9 @@ class studentRegistration_Model extends Model{
         Session::set('studentName',$stuName);
     }
 
+
+   
+
         
    } 
 

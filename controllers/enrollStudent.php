@@ -26,8 +26,8 @@ class enrollStudent extends Controller{
     function create(){
 
         $data = array();
-        $data['stu_reg_no'] = $_POST['regNo'];
-        $data['subject'] = $_POST['id'];
+        $data['stu_reg_no'] = $_POST['regNum'];
+        $data['subject'] = $_POST['subject'];
         $data['batch'] = $_POST['batch'];
 
         $this->model->create($data);

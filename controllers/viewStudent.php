@@ -72,5 +72,10 @@ class viewStudent extends Controller{
         header('location: '.URL.'viewStudent');
     }
 
+
+     function delete($userid){
+        $this->model->delete($userid);
+        header('location: '.URL.'viewStudent');
+    }
     
 }
