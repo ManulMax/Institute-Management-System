@@ -49,13 +49,15 @@
       <label for="filter-reg">New Subject :</label>
     </div>
 
+    <form onsubmit="return confirm('Do you really want to add this subject?');"  id="addSub" action="<?php echo URL; ?>addSubject/create" method="post">
     <div class="col-25">
-      <input type="text" placeholder="subject name..." name="subject">
+      <input type="text" placeholder="subject name..." name="subject" required>
     </div>
     <div class="col-25">
     <input type='submit' value='ADD'>
+
     </div>
-    
+    </from>
   </div>
     
 
@@ -65,6 +67,7 @@
       <tr>
         <th>Subject ID</th>
         <th>Subject</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>

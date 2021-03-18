@@ -128,10 +128,10 @@ $(function(){
 
 <div class="table-filters">
   
-    <table id="allocation" >
+    <table id="allocation" style="width:50%; margin-left:5px;">
     <tr>
-    <td><label for="filter-country">NIC</label></td>
-    <td><input type="text" class="input-text" id="filter-name" data-filter-col="2"></td>
+    <td style="text-align: right;"><label for="filter-country">NIC</label></td>
+    <td><input type="text" class="input-text" id="filter-name" data-filter-col="3"></td>
  
 
     <!--<td><label for="filter-city">Subject</label></td>
@@ -147,7 +147,7 @@ $(function(){
       ?>
     </select></td>-->
 
-     <td><label for="filter-city">Batch</label></td>
+    <!-- <td><label for="filter-city">Batch</label></td>
      
      <td><select id="filter-city" data-filter-col="1" style="min-width:60px">
        <option value="">- All -</option>
@@ -155,10 +155,10 @@ $(function(){
       <option value="2"><?php echo date("Y")+1;?> A/L</option>
       <option value="3"><?php echo date("Y")+2;?> A/L</option>
       <option value="4">Revision</option>
-     </select></td>
+     </select></td>-->
  
 
-   <td><input type="button" id="btnGetCount" value="Count Rows" onclick = "CountRows()" />
+  <!-- <td><input type="button" id="btnGetCount" value="Count Rows" onclick = "CountRows()" />
 <script type="text/javascript">
     function CountRows() {
        
@@ -175,7 +175,7 @@ $(function(){
        
         alert(message);
     }
-</script></td>
+</script></td>-->
 
 </tr>
 </table>
@@ -188,9 +188,10 @@ $(function(){
   <tr>
     <!--<th>Reg No</th>-->
     <th>Full Name</th>
-    <th>Batch</th>
+    <th>Grade</th>
     <th>NIC</th>
     <th>email</th>
+    <th>Tel no</th>
     <th></th>
     <th></th>
   </tr>
@@ -200,9 +201,9 @@ $(function(){
       <?php
 
           while($row = mysqli_fetch_assoc($this->stuList)){  
-             echo "<tr><td>" .$row['fname']."</td><td>".$row['grade']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/viewStudent/renderStuUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
+             echo "<tr><td>" .$row['fname']."</td><td>".$row['grade']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td>".$row['tel_no']."</td><td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/viewStudent/renderStuUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
              
-             <td><input type='submit' value='Delete' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'></td></tr>";
+             <td><a class='btn' id='deleteBtn' href='http://localhost/IMS_Vidarsha/viewStudent/delete/".$row['user_id']."' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
 
 
           }

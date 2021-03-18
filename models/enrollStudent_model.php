@@ -11,7 +11,7 @@ class enrollStudent_Model extends Model{
 
         return $this->db->listAll("subject");
         
-
+ 
     }
 
     public function listDetails($userid){
@@ -38,13 +38,13 @@ class enrollStudent_Model extends Model{
 
     public function create($data){
 
-    $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."' ");
-    $id = mysqli_fetch_assoc($classID);  
-
-    
+    $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."'");
+    $id = mysqli_fetch_assoc($classID);
 
 
-     $this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".($id['class_id'])."','".($data['stu_reg_no'])."','".date("Y/m/d")."')");  
+     $this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".$id['id']."','".$data['stu_reg_no']."','".date("Y/m/d")."')");
+
+      
  }
 
    

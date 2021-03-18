@@ -96,35 +96,21 @@
     <table id="data">
     <thead>
       <tr>
-        <th>Reg. No</th>
         <th>Name</th>
         <th>NIC</th>
+        <th>Tel No</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>10</td>
-        <td>Supun Nanayakkara</td>
-        <td>995624311V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>Uthpala Ruwanara</td>
-        <td>993764188V</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Isuri Perera</td>
-        <td>984601254</td>
-        <td style="width: 90px;"><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-        <td style="width: 90px;"><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
-      </tr>
+    <?php
+
+while($row = mysqli_fetch_assoc($this->stuList)){  
+echo "<tr><td>" .$row['fname']." ".$row['mname']." ".$row['lname']."</td><td>".$row['NIC']."</td><td>".$row['tel_no']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+
+}
+?>
       
     </tbody>
     </table>

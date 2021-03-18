@@ -49,7 +49,8 @@ class staffDashboard_Model extends Model{
    public function OverallAttendance(){
 
         
-        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c"," c.id=a.class_id ");
+        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c"," c.id=a.class_id "
+    );
     } 
 
   
