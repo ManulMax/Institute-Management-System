@@ -141,7 +141,7 @@ label {
   clear: both;
 }
 
-input[type=submit]{
+.roundBtn{
   background-color: #063811;
   color: #ffffff;
   padding: 10px 30px;
@@ -151,6 +151,7 @@ input[type=submit]{
   height: 30px;
   border-radius: 30px;
   transition: 0.5s;
+  text-decoration: none;
 }
 
 input[type=submit]:hover{

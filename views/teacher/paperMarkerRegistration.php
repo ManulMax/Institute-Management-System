@@ -153,8 +153,32 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
 
+  		<!-- alert content -->
+  	<div id="confirmModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+      	<h3>Are you sure?</h3><br />
+      	<p>Do you really want to delete this data? This process cannot be undone.</p><br />
+      	<div class="col-25">
+      	</div>
+      	<div class="col-25">
+      		<a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
+      	</div>
+      	<div class="col-25">
+      		<a class="roundBtn"  style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+      	</div>
+      	
+       </div>
+    </div>
+</div>
 
-
+<script type="text/javascript">
+	function promptFunction(){
+		var alert = document.getElementById("confirmModal");
+		alert.style.display = "block";
+	}
+</script>
 
 		<!-- data taken from generatedata.com -->
 		<div id="tableDiv">
@@ -185,7 +209,7 @@
 		         <td>".$row['tel_no']."</td>
 		         <td>".$row['qualifications']."</td>
 		         <td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
-		         <td><a class='btn' id='deleteBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/delete/".$row['user_id']."' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
+		         <td><a class='btn' id='deleteBtn' onclick='promptFunction()' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
 		      }
 		  ?>
 		  
@@ -286,12 +310,25 @@
 		  <textarea rows="4" cols="90" name="qualifications"></textarea>
 		</div>
 	  </div>
-	  
+
+
+<!-- alert content -->
+	<div id="alertModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+      	<h3>Papermarker Saved Successfully!</h3>
+      	<img src="<?php echo URL; ?>public/img/success_icon.png" alt="Avatar" style="width:40%;">
+       </div>
+    </div>
+
+  </div>
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
-		<input id="formSubmit" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
+		<input class="roundBtn" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
 		<script type="text/javascript">
 			if("<?php echo $_GET['alert']; ?>" =="success"){
-				alert("Saved successfully!");
+				var alert=document.getElementById("alertModal");
+				alert.style.display = "block";
 			}else if("<?php echo $_GET['alert']; ?>" =="fail"){
 				alert("Failed to save record!");
 			}
@@ -300,7 +337,9 @@
 	  </div>
 	  
 	</form>
-<div id="snackbar">Some text some message..</div>
+
+	
+
   </div>
  
 
@@ -338,6 +377,8 @@ for (i = 0; i < dropdown.length; i++) {
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+var confirmmodal = document.getElementById("confirmModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -352,7 +393,14 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+  	modal.style.display = "none";
+  }else if(alertmodal.style.display == "block"){
+  	alertmodal.style.display = "none";
+  }else{
+  	confirmmodal.style.display = "none";
+  }
+  
 }
 
 
@@ -360,6 +408,10 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+  }else if (event.target == confirmmodal) {
+    confirmmodal.style.display = "none";
   }
 }
 
