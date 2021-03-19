@@ -167,9 +167,31 @@
         <div class="col-15"><input type="date" name="date"></div>
       </div>
       
+         <!-- alert content -->
+    <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="success image" style="width:40%;">
+       </div>
+      </div>
+    </div>
 
       <div class="row">
           <input type="submit" name="Save" style="margin-left: 50%;">
+          <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert1']; ?>" =="success"){    
+            document.getElementById("msg").innerHTML="Exam Added Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="Failed to Add Exam!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+        </script>
       </div>
 
     </form>
@@ -192,29 +214,22 @@
       </div>
 
 
-       <!-- alert content -->
-    <div id="alertModal" class="alert-modal">
-      <div class="alert-modal-content">
-      <span class="close">&times;</span>
-      <div class='row' style='background-color:white;text-align: center;'>
-        <h3>Resultsheet Uploaded Successfully!</h3>
-        <img src="<?php echo URL; ?>public/img/success_icon.png" alt="Avatar" style="width:40%;">
-       </div>
-    </div>
-  </div>
-
       <div class="row"> 
         <label style="margin-left: 40px;">Choose Resultsheet</label>
         <input type="file" name="uploadFile" class="btn">
         <input type="submit" value="Upload" name="uplaod">
         <script type="text/javascript">
-            if("<?php echo $_GET['alert']; ?>" =="success"){
-              var alert=document.getElementById("alertModal");
-              alert.style.display = "block";
-            }else if("<?php echo $_GET['alert']; ?>" =="fail"){
-              alert("Failed to save record!");
-            }
-          </script> 
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert2']; ?>" =="success"){    
+            document.getElementById("msg").value="Resultsheet Uploaded Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert2']; ?>" =="fail"){
+            document.getElementById("msg").value="Failed to Upload Resultsheet!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+        </script> 
     </div>
     </form>
 

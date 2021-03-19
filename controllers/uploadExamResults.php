@@ -21,8 +21,12 @@ class uploadExamResults extends Controller{
         $data['batch'] = $batch;
         $data['date'] = $_POST['date'];
 
-        $this->model->create($data,$_SESSION["userid"]);
-        header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch);
+        $result=$this->model->create($data,$_SESSION["userid"]);
+        if($result == 1){
+            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert1=success');
+        }else{
+            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert1=fail');
+        }
     }
 
     function addResultsheet($classID,$batch){
@@ -33,9 +37,9 @@ class uploadExamResults extends Controller{
         $result=$this->model->addResultsheet($data,$_SESSION["userid"]);
 
         if($result == 0){
-            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert=success');
+            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert2=success');
         }else{
-            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert=fail');
+            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert2=fail');
         }
     }
 
