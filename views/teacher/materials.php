@@ -154,7 +154,6 @@
   
   
   <div class="middle" style="background-color:#F8F8FF;width:53%;padding-left: 40px;padding-right: 40px;">
-
       <h2 class="className"><?php echo $this->batch ?> Class</h2>
       
         <?php
@@ -195,22 +194,14 @@
       </div>
     </div>
 
-      <div class="custom-file-container" data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;margin:auto;justify-content:center;">
+      <div data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;">
 
         <label>Upload File </label>   
-        <label class="custom-file-container__custom-file" >
-          <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-          <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" name="file">
-          <span class="custom-file-container__custom-file__custom-file-control"></span>
-        </label>
-        <a  id="removeLink" href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">Remove</a>
-
-        <div class="previewContainer">
-        <div class="custom-file-container__image-preview"></div>
-        </div>      
+        <input type="file" class="btn" name="file" accept="*">
+        <a id="removeLink" href="javascript:void(0)" title="Clear Image">Remove</a>
+     
         <input type="submit" class="upload-info-button" name="submit" value="Upload File">
-      </div>      
-        
+      </div>
     </form>
     
   </div>
@@ -228,35 +219,6 @@
 
 
 </body>
-<script src="<?php echo URL; ?>public/libraries/file-upload-with-preview-master/dist/file-upload-with-preview.min.js"></script>
-<script language="JavaScript">
-  var myUpload = new FileUploadWithPreview('myUploader');
-  
-  var myUploadInfoButton = document.querySelector('.upload-info-button');
-myUploadInfoButton.addEventListener('click', function(){
-  console.log('Upload:', myUpload, myUpload.cachedFile);
-})
-
-var myUpload = new FileUploadWithPreview('myUploader',{
-    showDeleteButtonOnImages: true,
-    text: { 
-      chooseFile: 'Choose file...',
-      browse: 'Browse',
-      selectedCount: 'files selected'
-    },
-    maxFileCount: 0,
-    images: {
-      baseImage: '',
-      backgroundImage: '',
-      successFileAltImage: '',
-      successPdfImage: '',
-      //successVideoImage
-    },
-    presetFiles: [] //  an array of preset images
-})
-
-
-</script>
 
 <script type="text/javascript">
   
