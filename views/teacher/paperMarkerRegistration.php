@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
-<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/paperMarkerRegistration.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
@@ -334,11 +333,8 @@
 			}
 			</script> 
 
-	  </div>
-	  
-	</form>
-
-	
+	  </div>	  
+	</form>	
 
   </div>
  
@@ -352,72 +348,7 @@
 
 </div>
 
-
-<script type="text/javascript">
-	/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
-
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-  this.classList.toggle("active");
-  var dropdownContent = this.nextElementSibling;
-  if (dropdownContent.style.display === "block") {
-  dropdownContent.style.display = "none";
-  } else {
-  dropdownContent.style.display = "block";
-  }
-  });
-}
-
-
-
-
-
-
-// Get the modal
-var modal = document.getElementById("myModal");
-var alertmodal = document.getElementById("alertModal");
-var confirmmodal = document.getElementById("confirmModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  if(modal.style.display == "block"){
-  	modal.style.display = "none";
-  }else if(alertmodal.style.display == "block"){
-  	alertmodal.style.display = "none";
-  }else{
-  	confirmmodal.style.display = "none";
-  }
-  
-}
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }else if (event.target == alertmodal) {
-    alertmodal.style.display = "none";
-  }else if (event.target == confirmmodal) {
-    confirmmodal.style.display = "none";
-  }
-}
-
-
-</script>
-
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/paperMarkerRegistration.js"></script>
 
 </body>
 </html>

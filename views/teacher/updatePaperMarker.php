@@ -17,18 +17,13 @@
 
 <div class="row">
 
-
-  
   <div class="middle" style="background-color:white;margin-left: 10%">
-
-
-
 
       <?php
 
         while($row = mysqli_fetch_assoc($this->pmDetails)){ 
 
-              echo "<form method='post' action='".URL."paperMarkerRegistration/update' class='form-container'>";
+         echo "<form method='post' action='".URL."paperMarkerRegistration/update' class='form-container'  onsubmit='return validatePaperMarker()'>";
         
          echo "<div class='row'>
             <div class='col-75'>
@@ -43,8 +38,8 @@
         </div>
         <div class='col-75'>
           <div class='popup'>
-            <input type='text' id='fullname-update' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()' readonly>
-            <span class='popuptext' id='name-popup-update'></span>
+            <input type='text' id='fullname' placeholder='Full name...' name='name-update' value='".$row['name']."' onfocusout='validateName()' readonly>
+            <span class='popuptext' id='name-popup'></span>
           </div>
         </div>
         </div>";
@@ -55,8 +50,8 @@
         </div>
         <div class='col-25'>
           <div class='popup'>
-            <input type='text' placeholder='Identity card number...' id='NIC-update' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()' readonly>
-            <span class='popuptext' id='NIC-popup-update'></span>
+            <input type='text' placeholder='Identity card number...' id='NIC' name='NIC-update' value='".$row['NIC']."' onfocusout='validateNIC()' readonly>
+            <span class='popuptext' id='NIC-popup'></span>
           </div>
         </div>
         <div class='col-10'>
@@ -89,8 +84,8 @@
         </div>
         <div class='col-75' style='width: 60%'>
         <div class='popup'>
-          <input type='email' placeholder='Email address...' id='email-update' name='email-update' value='".$row['email']."' onfocusout='validateEmail()'>
-          <span class='popuptext' id='email-popup-update'></span>
+          <input type='email' placeholder='Email address...' id='email' name='email-update' value='".$row['email']."' onfocusout='validateEmail()'>
+          <span class='popuptext' id='email-popup'></span>
           </div>
         </div>
         </div>";
@@ -110,8 +105,8 @@
         </div>
         <div class='col-25'>
         <div class='popup'>
-          <input type='text' placeholder='Mobile number...' id='phone-update' name='tel-update' value='".$row['tel_no']."'>
-          <span class='popuptext' id='phone-popup-update'></span>
+          <input type='text' placeholder='Mobile number...' id='phone' name='tel-update' value='".$row['tel_no']."' onfocusout='validatePhoneNumber()'>
+          <span class='popuptext' id='phone-popup'></span>
         </div>
         </div>
         </div>";

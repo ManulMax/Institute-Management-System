@@ -25,7 +25,18 @@ class uploadExamResults extends Controller{
         header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch);
     }
 
-    function addResultsheet(){
+    function addResultsheet($classID,$batch){
+        $data = array();
+        $data['filename']=$_FILES['uploadFile']['name'];
+        $data['temp']=$_FILES['uploadFile']['tmp_name'];
+        $data['exam']=$_POST['res-exam'];
+        $result=$this->model->addResultsheet($data,$_SESSION["userid"]);
 
+        if($result == 0){
+            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert=success');
+        }else{
+            header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert=fail');
+        }
     }
+
 }

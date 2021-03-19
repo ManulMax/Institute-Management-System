@@ -38,6 +38,18 @@ class uploadExamResults_Model extends Model{
     }
 
 
+    public function addResultsheet($data,$userid){
+
+        move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\results\\".$data['filename']);
+
+        $this->db->insert("result_sheet","(date,filename,teacher_reg_no)","('".date("Y/m/d")."','".$data['filename']."',(select reg_no from teacher where user_id=$userid))");
+
+        $result = $this->db->listWhere("id","result_sheet","filename='".$data['filename']."'");
+        $resultsheet = mysqli_fetch_assoc($result);
+
+        return $this->db->update("exam","result_sheet_id='".$resultsheet['id']."'","id='".$data['exam']."'");
+    }
+
 
 
 

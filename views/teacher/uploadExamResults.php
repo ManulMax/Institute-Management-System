@@ -167,13 +167,14 @@
         <div class="col-15"><input type="date" name="date"></div>
       </div>
       
+
       <div class="row">
           <input type="submit" name="Save" style="margin-left: 50%;">
       </div>
 
     </form>
     <h3 style="color: #00b359;margin-top: 60px;">Upload Resultsheet</h3>
-    <form action="<?php echo URL; ?>uploadExamResults/addResultsheet" method="post" enctype="multipart/form-data" style="border: 1px solid #333;">
+    <form action="<?php echo URL; ?>uploadExamResults/addResultsheet/<?php echo $this->classid.'/'.$this->batch; ?>" method="post" enctype="multipart/form-data" style="border: 1px solid #333;">
       <div class="row">  
         <div class="col-10">
           <label>Exam :</label>
@@ -189,15 +190,37 @@
           </select>
         </div>
       </div>
+
+
+       <!-- alert content -->
+    <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3>Resultsheet Uploaded Successfully!</h3>
+        <img src="<?php echo URL; ?>public/img/success_icon.png" alt="Avatar" style="width:40%;">
+       </div>
+    </div>
+  </div>
+
       <div class="row"> 
         <label style="margin-left: 40px;">Choose Resultsheet</label>
         <input type="file" name="uploadFile" class="btn">
         <input type="submit" value="Upload" name="uplaod">
+        <script type="text/javascript">
+            if("<?php echo $_GET['alert']; ?>" =="success"){
+              var alert=document.getElementById("alertModal");
+              alert.style.display = "block";
+            }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+              alert("Failed to save record!");
+            }
+          </script> 
     </div>
     </form>
 
 	</div>
   </div>
+
   
 <!---------------------------------------Footer-------------------------------------->  
 
@@ -234,14 +257,20 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
+// -------------------------------------------------------------------------
+
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[1];
+
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -250,15 +279,28 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
 }
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
   }
 }
+
 
 </script>
 

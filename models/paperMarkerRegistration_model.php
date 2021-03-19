@@ -7,47 +7,34 @@ class paperMarkerRegistration_Model extends Model{
     }
 
     public function listDetails($userid){
-
         return $this->db->listWhere("*","teacher","user_id=$userid");
     }
 
 
     public function listClasses($userid){
-
-        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
-    
+        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t","u.id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");  
     }
 
     public function listPaperMarkers($userid){
-
         return $this->db->listWhere("*","paper_marker","teacher_id=$userid and deleted=0");
-    
-
     }
 
     public function listPmDetails($userid){
-
         return $this->db->listWhere("*","paper_marker","user_id=$userid");
     }
 
 
     public function listHalls(){
-
     	return $this->db->listAll("hall");
-    
-
     }
 
     public function listSubjects(){
-
         return $this->db->listAll("subject");
-        
-
     }
 
 
     public function create($data){
-       // $password=password_hash($data['NIC'], PASSWORD_DEFAULT);
+
         $this->db->insert("user","(username,password,type,flag)","('".$data['email']."',md5('".$data['NIC']."'),'Paper Marker',0)");
 
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
@@ -59,9 +46,9 @@ class paperMarkerRegistration_Model extends Model{
     }
 
     public function update($data){
- 
-        $this->db->update('paper_marker',"email='".$data['email']."',tel_no=".$data['tel_no'].",address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
-
+        
+        $result = $this->db->update('paper_marker',"email='".$data['email']."',tel_no=".$data['tel_no'].",address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
+        return $result;
     }
 
 
