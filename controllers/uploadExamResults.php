@@ -36,7 +36,7 @@ class uploadExamResults extends Controller{
         $data['exam']=$_POST['res-exam'];
         $result=$this->model->addResultsheet($data,$_SESSION["userid"]);
 
-        if($result == 0){
+        if($result == 1){
             header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert2=success');
         }else{
             header('location: '.URL.'uploadExamResults/index/'.$classID.'/'.$batch.'?alert2=fail');

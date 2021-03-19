@@ -153,7 +153,7 @@
   <div class="middle" style="background-color:#F8F8FF;">
 
   		<!-- alert content -->
-  	<div id="confirmModal" class="alert-modal">
+  <div id="confirmModal" class="alert-modal">
     <div class="alert-modal-content">
       <span class="close">&times;</span>
       <div class='row' style='background-color:white;text-align: center;'>
@@ -313,25 +313,29 @@
 
 <!-- alert content -->
 	<div id="alertModal" class="alert-modal">
-    <div class="alert-modal-content">
+      <div class="alert-modal-content">
       <span class="close">&times;</span>
       <div class='row' style='background-color:white;text-align: center;'>
-      	<h3>Papermarker Saved Successfully!</h3>
-      	<img src="<?php echo URL; ?>public/img/success_icon.png" alt="Avatar" style="width:40%;">
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
        </div>
+      </div>
     </div>
 
-  </div>
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
 		<input class="roundBtn" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
 		<script type="text/javascript">
-			if("<?php echo $_GET['alert']; ?>" =="success"){
-				var alert=document.getElementById("alertModal");
-				alert.style.display = "block";
-			}else if("<?php echo $_GET['alert']; ?>" =="fail"){
-				alert("Failed to save record!");
-			}
-			</script> 
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Papermarker Details Saved Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Save Papermarker Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	    </script> 
 
 	  </div>	  
 	</form>	

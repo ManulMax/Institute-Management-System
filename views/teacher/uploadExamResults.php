@@ -173,7 +173,7 @@
       <span class="close">&times;</span>
       <div class='row' style='background-color:white;text-align: center;'>
         <h3 id="msg"></h3>
-        <img id="alertImg" src="" alt="success image" style="width:40%;">
+        <img id="alertImg" src="" alt="image" style="width:40%;">
        </div>
       </div>
     </div>
@@ -181,17 +181,17 @@
       <div class="row">
           <input type="submit" name="Save" style="margin-left: 50%;">
           <script type="text/javascript">
-          var alert=document.getElementById("alertModal");
-          if("<?php echo $_GET['alert1']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Exam Added Successfully!";
-            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
-            alert.style.display = "block";
-          }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
-            document.getElementById("msg").innerHTML="Failed to Add Exam!";
-            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
-            alert.style.display = "block";
-          }
-        </script>
+            var alert=document.getElementById("alertModal");
+            if("<?php echo $_GET['alert1']; ?>" =="success"){    
+              document.getElementById("msg").innerHTML="Exam Added Successfully!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+              alert.style.display = "block";
+            }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+              document.getElementById("msg").innerHTML="Failed to Add Exam!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+              alert.style.display = "block";
+            }
+          </script>
       </div>
 
     </form>
