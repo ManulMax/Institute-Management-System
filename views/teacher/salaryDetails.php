@@ -64,7 +64,7 @@
         </div>
     </li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>TeacherSalary"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results
           <i class="fa fa-caret-down"></i>
@@ -148,7 +148,6 @@
           ?>
 
     </div>
-
   </div>
 
  
@@ -157,11 +156,12 @@
 
     <form class="wrapper">
       <div class="title" style="text-align: center;">
-        <h3>Salary payment details</h3>
+        <h3>Salary Payment Details</h3>
 
     <?php $sal = mysqli_fetch_assoc($this->salary); ?>
       
     <div class="details">
+        <p>Payment month : <?php echo $sal['month'] ?></p><br />
         <p>Payment date : <?php echo $sal['date'] ?></p><br />
         <p>Total Salary : <?php echo $sal['amount'] ?></p>
 
@@ -198,11 +198,15 @@
             <td>Revision</td>
             <td><?php if(isset($Sal4['totalAmount'])){ echo $Sal4['totalAmount']; }else{ echo "0.00"; } ?></td>
           </tr>
+          <tr style="background-color: #ccc;">
+            <td><b>Total</b></td>
+            <td><?php echo $Sal1['totalAmount']+$Sal2['totalAmount']+$Sal3['totalAmount']+$Sal4['totalAmount']; ?></td>
+          </tr>
         </tbody>
 
 
     </table>
-    <input type="submit" name="" style="margin-right: 25%;margin-bottom: 15%;" value=" Download Report">
+    <input type="submit" class="roundBtn" name="" style="float: right;margin-right: 10px;" value=" Download Report">
   </div>
          
     
