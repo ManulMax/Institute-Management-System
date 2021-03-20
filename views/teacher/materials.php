@@ -154,7 +154,7 @@
   
   
   <div class="middle" style="background-color:#F8F8FF;width:53%;padding-left: 40px;padding-right: 40px;">
-      <h2 class="className"><?php echo $this->batch ?> Class</h2>
+      <h2 class="className"><?php echo $this->batch; ?> Class</h2>
       
         <?php
 
@@ -162,10 +162,12 @@
        
          while($row = mysqli_fetch_assoc($this->materialList)){ 
           ?>  <br />
+          <div class="row" style="padding-bottom: 5px;">
              <h3 style="color: #228B22;"><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
              <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
              <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
-             <br /><hr />
+             <p style="float: right;color: #777"><i class="fas fa-trash"></i>Delete</p>
+             </div><hr />
         <?php  } ?>
   
   </div>
