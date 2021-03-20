@@ -172,14 +172,14 @@
   
 
   
-  <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;">
+  <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;padding-top: 50px;">
   
  <!-- ------ form ------ --> 
  <h2 class="topHeading"><i class="fas fa-upload"></i>Upload New Material</h2>
     <form id="regForm" method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create/<?php echo $this->classid.'/'.$this->batch; ?>" style="padding: 20px;">
     <div class="row">
       <div class="col-25">
-      <label for="fname">Heading</label>
+      <label>Heading</label>
       </div>
       <div class="col-75">
       <input type="text" name="heading">
@@ -187,20 +187,49 @@
     </div>
     <div class="row">
     <div class="col-25">
-      <label for="subject">Description</label>
+      <label>Description</label>
       </div>
       <div class="col-75">
       <textarea placeholder="Write something.." style="height:150px" name="description"></textarea>
       </div>
     </div>
 
-      <div data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;">
-
-        <label>Upload File </label>   
+    <div class="row" style="padding-top: 50px;">
+      <div class="col-25">
+        <label>Upload File </label>
+      </div>
+      <div class="col-75">   
         <input type="file" class="btn" name="file" accept="*">
-        <a id="removeLink" href="javascript:void(0)" title="Clear Image">Remove</a>
-     
-        <input type="submit" class="upload-info-button" name="submit" value="Upload File">
+      </div>
+      </div>
+
+           <!-- alert content -->
+    <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
+
+
+      <div class="row">
+      <!--  <a id="removeLink" href="javascript:void(0)" title="Clear Image">Remove</a> -->
+        <input type="submit" name="submit" value="Upload File" style="float: right;">
+        <script type="text/javascript">
+            var alert=document.getElementById("alertModal");
+            if("<?php echo $_GET['alert1']; ?>" =="success"){    
+              document.getElementById("msg").innerHTML="Material Uploaded Successfully!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+              alert.style.display = "block";
+            }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+              document.getElementById("msg").innerHTML="Failed to Upload Study Material!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+              alert.style.display = "block";
+            }
+          </script>
       </div>
     </form>
     
@@ -241,16 +270,20 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-
+// -------------------------------------------------------------------------
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[1];
+
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -259,16 +292,28 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
 }
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
   }
 }
-  
+ 
 </script>
 
 </html>

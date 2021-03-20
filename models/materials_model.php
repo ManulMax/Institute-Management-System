@@ -63,7 +63,7 @@ class materials_Model extends Model{
     public function create($data,$classID,$userid){
             move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\".$data['filename']);
 
-            $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid))");
+            return $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid))");
     }
 
 

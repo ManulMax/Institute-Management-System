@@ -42,7 +42,11 @@ class materials extends Controller{
         $data['temp']=$_FILES['file']['tmp_name'];
 
 
-        $this->model->create($data,$classID,$_SESSION["userid"]);
-        header('location: '.URL.'materials/index/'.$classID.'/'.$batch);
+        $result=$this->model->create($data,$classID,$_SESSION["userid"]);
+        if($result == 1){
+            header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert1=success');
+        }else{
+            header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert1=fail');
+        }
     }
 }

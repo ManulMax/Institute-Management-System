@@ -352,7 +352,7 @@
 
 </div>
 
-<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/paperMarkerRegistration.js"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/popup.js"></script>
 
 </body>
 </html>
