@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/stuRegistration">
 </head>
@@ -104,18 +105,20 @@
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
 	
-	<form id="regForm" enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" >
+	<form id="regForm" enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" onsubmit="return validateStudent()" > 
 	  <div class="row">
 		<div class="col-15">
 		  <label>Full Name :</label>
 		</div>
 		<div class="col-75">
 			<div class="popup">
-				<input type="text" placeholder="Enter full name..." name="fname" id="fnm" required>
-			  
+				<input type="text" placeholder="Enter full name..." name="fname" id="fnm" onfocusout="validateName()">
+			   <span class="popuptext" id="name-popup"></span>
+			</div>
 			</div>
 		</div>
-	  </div>
+	  
+	  
 	  
 	  <div class="row">
 		<div class="col-15">
@@ -123,18 +126,21 @@
 		</div>
 		<div class="col-25">
 		  <div class="popup">
-		  	<input type="text" placeholder="Enter NIC" name="nic" id="nic" required>
-		  	
+		  	<input type="text" placeholder="Identity card number..." id="NIC" name="NIC" onfocusout="validateNIC()">
+		  	<span class="popuptext" id="NIC-popup"></span>
 		  </div>
 		</div>
 		<div class="col-10">
 		</div>
-		<div class="col-15">
+		 <div class="col-15">
 		  <label for="subject">DOB :</label>
-		</div>
-		<div class="col-25">
-		  <input type="date" name="dob" id="dob" required>
-		</div>
+		 </div>
+		 <div class="col-25">
+		  <div class="popup">
+		   <input type="date" name="DOB" id="DOB">
+		   <span class="popuptext" id="DOB-popup"></span>
+		  </div>
+	     </div>
 	  </div>
 
 	  <div class="row">
@@ -151,17 +157,18 @@
 		</div>
 	  </div>
 	  
-	  <div class="row">
+	 	<div class="row">
 		<div class="col-15">
 		  <label for="subject">Email :</label>
 		</div>
 		<div class="col-75" style="width: 60%">
 		<div class="popup">
-		  <input type="text" id="email" name="email">
-		  
+		  <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
+		  <span class="popuptext" id="email-popup"></span>
 		  </div>
 		</div>
 	  </div>
+	
 	  
 	  <div class="row">
 		<div class="col-15">
@@ -178,8 +185,8 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="text" placeholder="Mobile number..." id="phone" name="tel">
-		  
+		  <input type="text" placeholder="Mobile number..." id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>
 	  </div>
@@ -189,7 +196,10 @@
 		  <label for="subject">Parent name :</label>
 		</div>
 		<div class="col-75">
-		  <input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" required>
+		<div class="popup">
+		  <input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" onfocusout="validateName()">
+		  <span class="popuptext" id="name-popup"></span>
+		</div>
 		</div>
 	  </div>
 
@@ -198,7 +208,10 @@
 		  <label for="subject">Parent tel :</label>
 		</div>
 		<div class="col-75">
-		  <input type="tel" placeholder="Parent/Gardian Tel " name="parent_tel" id="parent_tel" required>
+		<div class="popup">
+		  <input type="tel" placeholder="Parent/Gardian Tel " name="parent_tel" id="parent_tel" onfocusout="validatePhoneNumber()">
+		  <span class="popuptext" id="phone-popup"></span>
+		</div>
 		</div>
 	  </div>
 
@@ -213,10 +226,13 @@
 
 	   <div class="row">
 		<div class="col-15">
-		  <label for="subject">Class :</label>
+		<div class="popup">
+		  <label for="subject">Grade :</label>
 		</div>
 		<div class="col-75">
-		  <input type="text" name="grade" id="grade" required>
+		  <input type="text" name="grade" id="grade" onfocusout="containsNumbers()">
+		 <span class="popuptext" id="number-popup"></span>
+		</div>
       		</div>
 		</div>
 

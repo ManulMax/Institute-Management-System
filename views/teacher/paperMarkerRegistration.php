@@ -35,7 +35,7 @@
                 <a href="<?php echo URL; ?>materials/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
-        </div>
+        </div> 
     </li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes

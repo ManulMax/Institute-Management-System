@@ -23,6 +23,8 @@ class enrollStudent extends Controller{
         $this->view->render('staff/enrollStudent');
     }
 
+    
+
     function create(){
 
         $data = array();

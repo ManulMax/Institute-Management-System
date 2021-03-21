@@ -266,9 +266,15 @@ function containsNumbers() {
       numPopup.classList.add("show");
      return false;
      }
+
+     /*extra*/
 }
 
 function validatePaperMarker() {
   return validateName() && validateNIC() && validateEmail() && validatePhoneNumber();
+}
+
+function validateStudent() {
+  return validateName() && validateNIC() && validateEmail() && validatePhoneNumber() && containsNumbers();
 }
 

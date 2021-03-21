@@ -19,9 +19,9 @@ class studentRegistration extends Controller{
         $data['lname'] = $_POST['lname'];*/
         $data['tel_no'] = $_POST['tel'];
         $data['address'] = $_POST['address'];
-        $data['NIC'] = $_POST['nic'];
+        $data['NIC'] = $_POST['NIC'];
         $data['gender'] = $_POST['gender'];
-        $data['DOB'] = $_POST['dob'];
+        $data['DOB'] = $_POST['DOB'];
         $data['email'] = $_POST['email'];
         $data['name'] = $_POST['parent_name'];
         $data['tel'] = $_POST['parent_tel'];
@@ -42,4 +42,4 @@ class studentRegistration extends Controller{
         $this->model->create($data);
         $this->view->render('staff/enrollStudent');
     }
-}
+} 
