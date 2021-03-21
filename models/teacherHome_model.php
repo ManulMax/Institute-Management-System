@@ -43,7 +43,7 @@ class teacherHome_Model extends Model{
 
     public function attendanceCount($userid,$batch){
 
-        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c,teacher t","t.user_id=$userid and t.reg_no=c.teacher_reg_no and c.id=a.class_id and c.batch='".$batch."'");
+        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c,teacher t","t.user_id=$userid and t.reg_no=c.teacher_reg_no and c.id=a.class_id and c.batch='".$batch."' and a.date like '".date('Y')."-".date('m')."%'");
     }
 
     
