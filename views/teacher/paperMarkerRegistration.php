@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
-<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/paperMarkerRegistration.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
@@ -63,7 +62,7 @@
         </div>
     </li>
 	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-	  <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+	  <li><a href="<?php echo URL; ?>TeacherSalary"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	  <li>
         <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results
           <i class="fa fa-caret-down"></i>
@@ -153,8 +152,32 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
 
+  		<!-- alert content -->
+  <div id="confirmModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+      	<h3>Are you sure?</h3><br />
+      	<p>Do you really want to delete this data? This process cannot be undone.</p><br />
+      	<div class="col-25">
+      	</div>
+      	<div class="col-25">
+      		<a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
+      	</div>
+      	<div class="col-25">
+      		<a class="roundBtn"  style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+      	</div>
+      	
+       </div>
+    </div>
+</div>
 
-
+<script type="text/javascript">
+	function promptFunction(){
+		var alert = document.getElementById("confirmModal");
+		alert.style.display = "block";
+	}
+</script>
 
 		<!-- data taken from generatedata.com -->
 		<div id="tableDiv">
@@ -185,7 +208,7 @@
 		         <td>".$row['tel_no']."</td>
 		         <td>".$row['qualifications']."</td>
 		         <td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
-		         <td><a class='btn' id='deleteBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/delete/".$row['user_id']."' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
+		         <td><a class='btn' id='deleteBtn' onclick='promptFunction()' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
 		      }
 		  ?>
 		  
@@ -286,21 +309,37 @@
 		  <textarea rows="4" cols="90" name="qualifications"></textarea>
 		</div>
 	  </div>
-	  
-	  <div class="row" style="margin-top:30px;margin-right:10%;">
-		<input id="formSubmit" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
-		<script type="text/javascript">
-			if("<?php echo $_GET['alert']; ?>" =="success"){
-				alert("Saved successfully!");
-			}else if("<?php echo $_GET['alert']; ?>" =="fail"){
-				alert("Failed to save record!");
-			}
-			</script> 
 
-	  </div>
-	  
-	</form>
-<div id="snackbar">Some text some message..</div>
+
+<!-- alert content -->
+	<div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
+
+	  <div class="row" style="margin-top:30px;margin-right:10%;">
+		<input class="roundBtn" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
+		<script type="text/javascript">
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Papermarker Details Saved Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Save Papermarker Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	    </script> 
+
+	  </div>	  
+	</form>	
+
   </div>
  
 
@@ -313,59 +352,7 @@
 
 </div>
 
-
-<script type="text/javascript">
-	/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
-
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-  this.classList.toggle("active");
-  var dropdownContent = this.nextElementSibling;
-  if (dropdownContent.style.display === "block") {
-  dropdownContent.style.display = "none";
-  } else {
-  dropdownContent.style.display = "block";
-  }
-  });
-}
-
-
-
-
-
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-
-</script>
-
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/popup.js"></script>
 
 </body>
 </html>

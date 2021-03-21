@@ -68,7 +68,7 @@
         </div>
     </li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>TeacherSalary"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results
           <i class="fa fa-caret-down"></i>
@@ -178,40 +178,40 @@
     <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
     <canvas id="myChart"></canvas>
     <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['2021 A/L', '2022 A/L', '2023 A/L', 'Revision'],
-        datasets: [{
-            label: 'Weekly Attendance',
-            data: [<?php echo $attendance; ?>],
-            backgroundColor: [
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F'
-            ],
-            borderColor: [
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F',
-                '#8FBC8F'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2021 A/L', '2022 A/L', '2023 A/L', 'Revision'],
+                datasets: [{
+                    label: 'Monthly Attendance',
+                    data: [<?php echo $attendance; ?>],
+                    backgroundColor: [
+                        '#8FBC8F',
+                        '#8FBC8F',
+                        '#8FBC8F',
+                        '#8FBC8F'
+                    ],
+                    borderColor: [
+                        '#8FBC8F',
+                        '#8FBC8F',
+                        '#8FBC8F',
+                        '#8FBC8F'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
                 }
-            }]
-        }
-    }
-});
-</script>
+            }
+        });
+    </script>
     </div>
 
 

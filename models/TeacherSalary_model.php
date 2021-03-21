@@ -1,6 +1,6 @@
 <?php
 
-class salaryDetails_Model extends Model{
+class TeacherSalary_Model extends Model{
 
     public function __construct(){
      	parent::__construct();
@@ -13,7 +13,7 @@ class salaryDetails_Model extends Model{
     }
 
     public function listSalaryDetails($userid){
-        return $this->db->listWhere("s.date,s.amount","teacher_salary s,teacher t","s.teacher_reg_no=t.reg_no and t.user_id=$userid ORDER BY id DESC LIMIT 1");
+        return $this->db->listWhere("s.date,s.month,s.amount","teacher_salary s,teacher t","s.teacher_reg_no=t.reg_no and t.user_id=$userid ORDER BY id DESC LIMIT 1");
     
     }
 

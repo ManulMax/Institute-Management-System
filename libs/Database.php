@@ -8,15 +8,7 @@ class Database
 		
 	}
 
-/**
-* List all the rows from the given table.
-*
-* @param string $table Name of the table.
-*
-* @param string $fields Array of fields that need be retrieved (* for all).
-*
-* @return array Result of the query as an associative array.
-*/
+
 	public function listAll($table){
 		$sql = "select * from ".$table;
 
@@ -65,13 +57,6 @@ class Database
 	}
 
 
-/**
-* Insert a record to a table.
-*
-* @param string $table Name of the table.
-*
-* @param string $data Data need to be inserted to the database as an associative array.
-*/
 	public function insert($table,$fields,$values){
 
 		$sql = "insert into ".$table."".$fields." values".$values;
@@ -79,38 +64,17 @@ class Database
  
         $result = mysqli_query($this->connection,$sql);
         //mysqli_close($connection);
-
+        return $result;
 	}
 
-/**
-* Update a record in a table.
-*
-* @param string $table Name of the table.
-*
-* @param string $data Data need to be updated to the database as an associative array.
-*
-* @param string $where WHERE condition in SQL query.
-*/
+
 
 	public function update($table,$data,$where){
 		$sql = "update ".$table." SET ".$data." where ".$where;
 		$result = mysqli_query($this->connection,$sql);
+		return $result;
 	}
 
-/**
-* Delete a record from a table.
-*
-* @param string $table Name of the table.
-*
-* @param string $where WHERE condition in SQL query.
-*/
-
-	public function delete($table,$where){
-
-		$stmt = $this->prepare("DELETE FROM $table WHERE $where");
-
-        $stmt->execute();
-	}
 
 	
 }

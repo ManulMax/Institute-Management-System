@@ -44,7 +44,7 @@ class materials_Model extends Model{
 
     public function listClassMaterials($id){
 
-        return $this->db->listWhere("*","study_material","class_id=$id");
+        return $this->db->listWhere("*","study_material","class_id=$id and deleted=0");
     }
 
 
@@ -63,7 +63,7 @@ class materials_Model extends Model{
     public function create($data,$classID,$userid){
             move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\".$data['filename']);
 
-            $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid))");
+            return $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid))");
     }
 
 
@@ -73,7 +73,7 @@ class materials_Model extends Model{
     }
 
     public function delete($id){
-
+        return $this->db->update('study_material',"deleted=1","id=$id");
 
     }
 

@@ -62,7 +62,7 @@
         </div>
     </li>
     <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
-    <li><a href="<?php echo URL; ?>salaryDetails"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
+    <li><a href="<?php echo URL; ?>TeacherSalary"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results
           <i class="fa fa-caret-down"></i>
@@ -150,12 +150,50 @@
   </div>
 
   
+          <!-- alert content -->
+  <div id="confirmModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3>Are you sure?</h3><br />
+        <p>Do you really want to delete this data? This process cannot be undone.</p><br />
+        <div class="col-25">
+        </div>
+        <div class="col-25">
+          <a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
+        </div>
+        <div class="col-25">
+          <a id="deleteBtn" class="roundBtn"  style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+        </div>
+        
+       </div>
+    </div>
+</div>
+
+             <!-- alert content -->
+    <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
   
   
   
   <div class="middle" style="background-color:#F8F8FF;width:53%;padding-left: 40px;padding-right: 40px;">
 
-      <h2 class="className"><?php echo $this->batch ?> Class</h2>
+<script type="text/javascript">
+  function promptFunction(materialId){
+    var alert = document.getElementById("confirmModal");
+    document.getElementById('deleteBtn').href="<?php echo URL; ?>materials/delete/<?php echo $this->classid.'/'.$this->batch.'/'; ?>"+materialId;
+    alert.style.display = "block";
+  }
+</script>
+
+      <h2 class="className"><?php echo $this->batch; ?> Class</h2>
       
         <?php
 
@@ -163,24 +201,39 @@
        
          while($row = mysqli_fetch_assoc($this->materialList)){ 
           ?>  <br />
+          <div class="row" style="padding-bottom: 5px;">
              <h3 style="color: #228B22;"><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
              <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
-             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
-             <br /><hr />
+             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name']; ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
+             <a style="float: right;color: #777" onclick="promptFunction(<?php echo $row['id']; ?>)"><i class="fas fa-trash"></i>Delete</a>
+             </div><hr />
         <?php  } ?>
+
+        <script type="text/javascript">
+            var alert=document.getElementById("alertModal");
+            if("<?php echo $_GET['alert2']; ?>" =="success"){    
+              document.getElementById("msg").innerHTML="Material Deleted Successfully!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+              alert.style.display = "block";
+            }else if("<?php echo $_GET['alert2']; ?>" =="fail"){
+              document.getElementById("msg").innerHTML="Failed to Delete Study Material!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+              alert.style.display = "block";
+            }
+          </script>
   
   </div>
   
 
   
-  <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;">
-  
+  <div class="right" style="background-color:#E7EBE0FF;width:30%;color: #228B22;padding-top: 50px;">
+
  <!-- ------ form ------ --> 
  <h2 class="topHeading"><i class="fas fa-upload"></i>Upload New Material</h2>
     <form id="regForm" method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create/<?php echo $this->classid.'/'.$this->batch; ?>" style="padding: 20px;">
     <div class="row">
       <div class="col-25">
-      <label for="fname">Heading</label>
+      <label>Heading</label>
       </div>
       <div class="col-75">
       <input type="text" name="heading">
@@ -188,29 +241,45 @@
     </div>
     <div class="row">
     <div class="col-25">
-      <label for="subject">Description</label>
+      <label>Description</label>
       </div>
       <div class="col-75">
       <textarea placeholder="Write something.." style="height:150px" name="description"></textarea>
       </div>
     </div>
+    <div class="row" style="padding-top: 50px;padding-bottom: 5px;">
+      <div class="col-25">
+      </div>
+      <div class="col-75">   
+         <label style="float: right;padding-bottom: 0px;">Maximum size = 2MB </label>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 0px;">
+      <div class="col-25">
+        <label>Upload File </label>
+      </div>
+      <div class="col-75">   
+        <input type="file" id="file" class="btn" name="file" accept="*">
+      </div>
+    </div>
 
-      <div class="custom-file-container" data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;margin:auto;justify-content:center;">
 
-        <label>Upload File </label>   
-        <label class="custom-file-container__custom-file" >
-          <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-          <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" name="file">
-          <span class="custom-file-container__custom-file__custom-file-control"></span>
-        </label>
-        <a  id="removeLink" href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">Remove</a>
-
-        <div class="previewContainer">
-        <div class="custom-file-container__image-preview"></div>
-        </div>      
-        <input type="submit" class="upload-info-button" name="submit" value="Upload File">
-      </div>      
-        
+      <div class="row">
+      <!--  <a id="removeLink" href="javascript:void(0)" title="Clear Image">Remove</a> -->
+        <input type="submit" name="submit" value="Upload File" style="float: right;">
+        <script type="text/javascript">
+            var alert=document.getElementById("alertModal");
+            if("<?php echo $_GET['alert1']; ?>" =="success"){    
+              document.getElementById("msg").innerHTML="Material Uploaded Successfully!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+              alert.style.display = "block";
+            }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+              document.getElementById("msg").innerHTML="Failed to Upload Study Material!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+              alert.style.display = "block";
+            }
+          </script>
+      </div>
     </form>
     
   </div>
@@ -228,35 +297,6 @@
 
 
 </body>
-<script src="<?php echo URL; ?>public/libraries/file-upload-with-preview-master/dist/file-upload-with-preview.min.js"></script>
-<script language="JavaScript">
-  var myUpload = new FileUploadWithPreview('myUploader');
-  
-  var myUploadInfoButton = document.querySelector('.upload-info-button');
-myUploadInfoButton.addEventListener('click', function(){
-  console.log('Upload:', myUpload, myUpload.cachedFile);
-})
-
-var myUpload = new FileUploadWithPreview('myUploader',{
-    showDeleteButtonOnImages: true,
-    text: { 
-      chooseFile: 'Choose file...',
-      browse: 'Browse',
-      selectedCount: 'files selected'
-    },
-    maxFileCount: 0,
-    images: {
-      baseImage: '',
-      backgroundImage: '',
-      successFileAltImage: '',
-      successPdfImage: '',
-      //successVideoImage
-    },
-    presetFiles: [] //  an array of preset images
-})
-
-
-</script>
 
 <script type="text/javascript">
   
@@ -279,16 +319,20 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-
+// -------------------------------------------------------------------------
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+var confirmmodal = document.getElementById("confirmModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[2];
+var confirmspan = document.getElementsByClassName("close")[1];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -297,16 +341,48 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
 }
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+confirmspan.onclick = function() {
+  if(confirmmodal.style.display == "block"){
+      confirmmodal.style.display = "none";
+  }  
+}
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+  }else if (event.target == confirmmodal) {
+    confirmmodal.style.display = "none";
   }
 }
-  
+
+// -----------------------------file size------------------------------------
+var uploadField = document.getElementById("file");
+
+uploadField.onchange = function() {
+    if(this.files[0].size > 2097152){
+       var alert=document.getElementById("alertModal");
+       document.getElementById("msg").innerHTML="File is too big! Maximum file size is 2MB.";
+       document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+       alert.style.display = "block";
+       this.value = "";
+    };
+};
+
 </script>
 
 </html>

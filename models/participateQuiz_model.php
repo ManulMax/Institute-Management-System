@@ -33,7 +33,10 @@ class participateQuiz_Model extends Model{
 
         return $this->db->listWhere("*","student","user_id=$userid");
     
+    }
 
+    public function listQuestions($userid){
+        return $this->db->listAll("question");
     }
 
 

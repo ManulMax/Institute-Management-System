@@ -201,34 +201,21 @@
   const resultsContainer = document.getElementById('res');
   const submitButton = document.getElementById('sub');
   const myQuestions = [
-    {
-      question: "Who invented JavaScript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which one of these is a JavaScript package manager?",
-      answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which tool can you use to ensure code quality?",
-      answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
-      },
-      correctAnswer: "d"
-    }
+      <?php 
+        while ($row = mysqli_fetch_assoc($this->questions)) { ?>
+          {
+          question: "<?php echo $row['ques']; ?>",
+          answers: {
+            1: "<?php echo $row['answer1']; ?>",
+            2: "<?php echo $row['answer2']; ?>",
+            3: "<?php echo $row['answer3']; ?>",
+            4: "<?php echo $row['answer4']; ?>",
+            5: "<?php echo $row['answer5']; ?>"
+          },
+          correctAnswer: "<?php echo $row['correct_ans']; ?>"
+        },
+       <?php } ?>
+      
   ];
 
   // Kick things off

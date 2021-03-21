@@ -27,7 +27,7 @@ class paperMarkerRegistration extends Controller{
         $data['qualifications'] = $_POST['qualifications'];
 
         $result=$this->model->create($data);
-        if($result == 0){
+        if($result == 1){
             header('location: '.URL.'paperMarkerRegistration?alert=success');
         }else{
             header('location: '.URL.'paperMarkerRegistration?alert=fail');
@@ -53,8 +53,12 @@ class paperMarkerRegistration extends Controller{
         $data['qualifications'] = $_POST['qualifications-update'];
 
 
-        $this->model->update($data);
-        header('location: '.URL.'paperMarkerRegistration');
+        $result=$this->model->update($data);
+        if($result == 1){
+            header('location: '.URL.'paperMarkerRegistration?alert=success');
+        }else{
+            header('location: '.URL.'paperMarkerRegistration?alert=fail');
+        }
     }
 
     function delete($userid){
