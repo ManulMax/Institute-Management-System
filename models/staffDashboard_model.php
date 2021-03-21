@@ -42,15 +42,14 @@ class staffDashboard_Model extends Model{
 
     public function attendanceCount($batch){
 
-        
-        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c"," c.id=a.class_id  and c.batch='".$batch."'");
+        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c","c.id=a.class_id and c.batch='".$batch."' and a.date like '".date('Y')."-".date('m')."%'");
     }
+
 
    public function OverallAttendance(){
 
         
-        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c"," c.id=a.class_id "
-    );
+        return $this->db->listWhere("count(a.stu_reg_no) as sum","attendance a,class c"," c.id=a.class_id ");
     } 
 
   

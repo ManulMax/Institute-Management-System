@@ -245,7 +245,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['2021 AL', '2022 AL', '2023 AL', 'Revision'],
         datasets: [{
-            label: 'Weekly Attendance',
+            label: 'Monthly Attendance',
             data:  [<?php echo $attendance; ?>],
             backgroundColor: [
                 '#8FBC8F',
