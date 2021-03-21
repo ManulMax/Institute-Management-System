@@ -44,7 +44,7 @@ class materials_Model extends Model{
 
     public function listClassMaterials($id){
 
-        return $this->db->listWhere("*","study_material","class_id=$id");
+        return $this->db->listWhere("*","study_material","class_id=$id and deleted=0");
     }
 
 
@@ -73,7 +73,7 @@ class materials_Model extends Model{
     }
 
     public function delete($id){
-
+        return $this->db->update('study_material',"deleted=1","id=$id");
 
     }
 

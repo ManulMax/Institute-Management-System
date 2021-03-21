@@ -49,4 +49,14 @@ class materials extends Controller{
             header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert1=fail');
         }
     }
+
+    function delete($classID,$batch,$id){
+
+        $result=$this->model->delete($id);
+        if($result == 1){
+            header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert2=success');
+        }else{
+            header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert2=fail');
+        }
+    }
 }
