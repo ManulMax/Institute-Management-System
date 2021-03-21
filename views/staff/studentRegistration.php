@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
+<script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/studentReg.js"></script>
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/stuRegistration">
 </head>
@@ -105,14 +106,14 @@
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
 	
-	<form id="regForm" enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" onsubmit="return validateStudent()" > 
+	<form id="regForm" enctype="multipart/form-data" action="<?php echo URL;?>studentRegistration/create" method="post" onsubmit="return validateStudent();validateStudentOtherDetails();" > 
 	  <div class="row">
 		<div class="col-15">
 		  <label>Full Name :</label>
 		</div>
 		<div class="col-75">
 			<div class="popup">
-				<input type="text" placeholder="Enter full name..." name="fname" id="fnm" onfocusout="validateName()">
+				<input type="text" placeholder="Enter full name..." name="fname" id="fullname" onfocusout="validateName()">
 			   <span class="popuptext" id="name-popup"></span>
 			</div>
 			</div>
@@ -197,8 +198,8 @@
 		</div>
 		<div class="col-75">
 		<div class="popup">
-		  <input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" onfocusout="validateName()">
-		  <span class="popuptext" id="name-popup"></span>
+		  <input type="text" placeholder="Enter Parent/Gardian Name" name="parent_name" id="parent_name" onfocusout="validateParentName()">
+		  <span class="popuptext" id="parentName-popup"></span>
 		</div>
 		</div>
 	  </div>
@@ -209,8 +210,8 @@
 		</div>
 		<div class="col-75">
 		<div class="popup">
-		  <input type="tel" placeholder="Parent/Gardian Tel " name="parent_tel" id="parent_tel" onfocusout="validatePhoneNumber()">
-		  <span class="popuptext" id="phone-popup"></span>
+		  <input type="tel" placeholder="Parent/Gardian Tel " name="parent_tel" id="parent_tel" onfocusout="validateParentPhoneNumber()">
+		  <span class="popuptext" id="parentTel-popup"></span>
 		</div>
 		</div>
 	  </div>
@@ -226,11 +227,11 @@
 
 	   <div class="row">
 		<div class="col-15">
-		<div class="popup">
 		  <label for="subject">Grade :</label>
 		</div>
 		<div class="col-75">
-		  <input type="text" name="grade" id="grade" onfocusout="containsNumbers()">
+		<div class="popup">
+		  <input type="text" placeholder="Enter grade" name="grade" id="grade" onfocusout="containsNumbers()">
 		 <span class="popuptext" id="number-popup"></span>
 		</div>
       		</div>
