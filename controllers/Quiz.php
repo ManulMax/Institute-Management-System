@@ -26,6 +26,7 @@ class Quiz extends Controller{
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->questions = $this->model->listQuestions($id);
+        $this->view->topic = $this->model->getTopic($id);
         $this->view->render('teacher/viewQuiz');
     }
 
@@ -52,4 +53,13 @@ class Quiz extends Controller{
 
         header('location: '.URL.'createQuiz/renderQuizPage');
     }
+
+  /*  function delete($quizId){
+        $result=$this->model->delete($quizId);
+        if($result == 1){
+            header('location: '.URL.'Quiz?alert1=success');
+        }else{
+            header('location: '.URL.'Quiz?alert1=fail');
+        }
+    } */
 }

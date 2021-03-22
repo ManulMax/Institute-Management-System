@@ -48,6 +48,12 @@ class Quiz_Model extends Model{
         return $this->db->listWhere("*","question","quiz_id=$id");
     }
 
+    public function getTopic($id){
+        $result=$this->db->listWhere("topic","quiz","id=$id");
+        $topic = mysqli_fetch_assoc($result);
+        return $topic['topic'];
+    }
+
     public function update($data){
 
         $this->db->update('user',array(
@@ -63,16 +69,9 @@ class Quiz_Model extends Model{
 
     }
 
-    public function delete($id){
-        $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");
+   /* public function delete($id){
 
-        if($data['user_type']=='owner'){
-            return false;
-        } else{
-            $this->db->delete('user',"nic='$id'");
-        }
-
-    }
+    } */
 
 
 

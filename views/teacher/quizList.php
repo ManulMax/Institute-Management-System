@@ -149,6 +149,37 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
     <h2 class="className"><?php echo $_SESSION['batch']; ?> Class</h2>
+
+        <!-- alert content -->
+  <!--      
+  <div id="confirmModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3>Are you sure?</h3><br />
+        <p>Do you really want to delete this quiz? This process cannot be undone.</p><br />
+        <div class="col-25">
+        </div>
+        <div class="col-25">
+          <a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
+        </div>
+        <div class="col-25">
+          <a class="roundBtn" id="deleteBtn" style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+        </div>
+        
+       </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  function promptFunction(quizId){
+    var alert = document.getElementById("confirmModal");
+    document.getElementById('deleteBtn').href="<?php echo URL; ?>Quiz/delete/"+quizId;
+    alert.style.display = "block";
+  }
+</script>
+-->
+
   <div id="tableDiv" style="width: 70%;margin-left: 15%;">
     <table id="data">
     <thead>
@@ -169,11 +200,15 @@
              <td><?php echo $row['time_limit']; ?></td>
              <td></td>
              <td><a class='roundBtn' id='viewBtn' href="<?php echo URL; ?>Quiz/renderViewQuiz/<?php echo $row['id']; ?>" style="padding: 5px 15px 5px 15px;">View</a></td>
-             <td><a class='roundBtn' id='deleteBtn' href="" style="padding: 5px 15px 5px 15px;background-color:#555555;">Delete</a></td></tr>
+            <!-- <td><a class='roundBtn' id='deleteBtn' onclick="promptFunction(<?php echo $row['id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;">Delete</a></td>  -->
+           </tr>
          <?php } ?>
       
     </tbody>
     </table>
+    </div>
+    <div class="row">
+      <a class='roundBtn' href="<?php echo URL; ?>Quiz/renderQuizPage" style="height:45px;padding: 5px 15px 5px 15px;float: right;margin-right: 15%;margin-top: 20px;"><i class="fas fa-plus"></i>New Quiz</a>
     </div>
   </div>
   

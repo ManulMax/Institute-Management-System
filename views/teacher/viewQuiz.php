@@ -151,7 +151,7 @@
    <div class="middle" style="background-color:#F8F8FF;">
     <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
 <div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
-  <h1>Quiz on Javascript</h1>
+  <h1 id="quizTopic"><?php echo $this->topic; ?></h1>
   <div class="quiz-container">
     <div id="quizz"></div>
   </div>
