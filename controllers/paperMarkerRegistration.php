@@ -62,8 +62,12 @@ class paperMarkerRegistration extends Controller{
     }
 
     function delete($userid){
-        $this->model->delete($userid);
-        header('location: '.URL.'paperMarkerRegistration');
+        $result=$this->model->delete($userid);
+        if($result == 1){
+            header('location: '.URL.'paperMarkerRegistration?alert2=success');
+        }else{
+            header('location: '.URL.'paperMarkerRegistration?alert2=fail');
+        }
     }
 
     
