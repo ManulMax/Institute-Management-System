@@ -8,6 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_vali  dation.js"></script>
 
 </head>
 <body>
@@ -50,7 +51,7 @@
       <label for="subject">Full Name :</label>
     </div>
     <div class="col-20">
-      <input type="text" placeholder="First name..." name="fname">
+      <input type="text" placeholder="First name..." name="fname" onfocusout="validateName()">
     </div>
     <div class="col-10">
     </div>
@@ -69,7 +70,7 @@
       <label for="subject"> NIC :</label>
     </div>
     <div class="col-25">
-      <input type="text" placeholder="Identity card number..." name="NIC">
+      <input type="text" placeholder="Identity card number..." name="NIC" onfocusout="validateNIC()">
     </div>
     <div class="col-10">
     </div>
