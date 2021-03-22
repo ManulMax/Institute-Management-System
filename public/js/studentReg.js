@@ -52,7 +52,7 @@ function validateSubject1() {
   var letters = /^[a-zA-Z][a-zA-Z\s]*$/;
   if (isEmpty(x.value)) {
     x.style.borderColor = red;
-    popup.innerHTML="Name field cannot be empty!"; 
+    popup.innerHTML="Subject field cannot be empty!"; 
     popup.classList.add("show");
     return false;
   }else if(x.value.match(letters)){
@@ -62,12 +62,57 @@ function validateSubject1() {
     return true;
    }else{ 
     x.style.borderColor = red;
-    popup.innerHTML="Name can only contain letters!"; 
+    popup.innerHTML="Subject can only contain letters!"; 
+    popup.classList.add("show");
+    return false;
+   }
+}
+
+function validateSubject2() {
+  var x = document.getElementById("subject2");
+  var popup = document.getElementById("subject2-popup");
+
+  var letters = /^[a-zA-Z][a-zA-Z\s]*$/;
+  if (isEmpty(x.value)) {
+    x.style.borderColor = red;
+    popup.innerHTML="Subject field cannot be empty!"; 
+    popup.classList.add("show");
+    return false;
+  }else if(x.value.match(letters)){
+    
+    x.style.borderColor = '#228B22';
+    popup.classList.remove("show");
+    return true;
+   }else{ 
+    x.style.borderColor = red;
+    popup.innerHTML="Subject can only contain letters!"; 
+    popup.classList.add("show");
+    return false;
+   }
+}
+function validateSubject3() {
+  var x = document.getElementById("subject3");
+  var popup = document.getElementById("subject3-popup");
+
+  var letters = /^[a-zA-Z][a-zA-Z\s]*$/;
+  if (isEmpty(x.value)) {
+    x.style.borderColor = red;
+    popup.innerHTML="Subject field cannot be empty!"; 
+    popup.classList.add("show");
+    return false;
+  }else if(x.value.match(letters)){
+    
+    x.style.borderColor = '#228B22';
+    popup.classList.remove("show");
+    return true;
+   }else{ 
+    x.style.borderColor = red;
+    popup.innerHTML="Subject can only contain letters!"; 
     popup.classList.add("show");
     return false;
    }
 }
 
 function validateStudentOtherDetails() {
-  return validateParentName() && validateParentPhoneNumber();
+  return validateParentName() && validateParentPhoneNumber() && validateSubject1() && validateSubject2() && validateSubject3();
 }

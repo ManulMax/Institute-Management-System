@@ -235,8 +235,7 @@ $(function(){
       </div>
     </div>
 
-    <div class="row" style="margin-top:30px;margin-right:10%;">
-    
+   
     <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert']; ?>" =="success"){    
@@ -250,7 +249,7 @@ $(function(){
           }
       </script> 
 
-    </div>  
+    
 
 
 

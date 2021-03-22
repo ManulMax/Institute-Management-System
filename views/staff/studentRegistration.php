@@ -253,9 +253,18 @@
 		  <label for="subject">Subjects :</label>
 		</div>
 		<div class="col-75">
-		  <input type="text" placeholder="Subject 1 " name="subject1" id="subject1" required>
-		  <input type="text" placeholder="Subject 2 " name="subject2" id="subject2" required>
-		  <input type="text" placeholder="Subject 3 " name="subject3" id="subject3" required>
+		<div class="popup">
+		  <input type="text" placeholder="Subject 1 " name="subject1" id="subject1"  onfocusout="validateSubject1()">
+		  <span class="popuptext" id="subject1-popup"></span>
+		</div>
+		<div class="popup">
+		  <input type="text" placeholder="Subject 2 " name="subject2" id="subject2"  onfocusout="validateSubject2()">
+		  <span class="popuptext" id="subject2-popup"></span>
+		</div>
+		<div class="popup">
+		  <input type="text" placeholder="Subject 3 " name="subject3" id="subject3"  onfocusout="validateSubject3()">
+		 <span class="popuptext" id="subject3-popup"></span>
+		</div> 
 		</div>
 	  </div>
 
