@@ -39,7 +39,12 @@ class studentRegistration extends Controller{
         $data['temp']=$_FILES['img']['tmp_name'];
        
 
-        $this->model->create($data);
-        $this->view->render('staff/enrollStudent');
-    }
-} 
+        
+       $result=$this->model->create($data);
+         if($result == 1){
+            header('location: '.URL.'studentRegistration?alert=success');
+        }else{
+            header('location: '.URL.'studentRegistration?alert=fail');
+        }
+}
+}

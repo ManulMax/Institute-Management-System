@@ -273,12 +273,33 @@
 	  </div>
 
 
-	 
-	  
+	  <!-- alert content -->
+	<div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
 
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
 		<input id="formSubmit" type="submit" value="Save" style="padding-right: 30px;padding-left: 30px;">
-	  </div>
+		<script type="text/javascript">
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Student Details Saved Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Save student Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	    </script> 
+
+	  </div>	
 	  
 	</form>
 
@@ -319,12 +340,16 @@ for (i = 0; i < dropdown.length; i++) {
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+var confirmmodal = document.getElementById("confirmModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[1];
+var confirmspan = document.getElementsByClassName("close")[2];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -333,13 +358,31 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
+}
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+confirmspan.onclick = function() {
+  if(confirmmodal.style.display == "block"){
+      confirmmodal.style.display = "none";
+  }  
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+  }else if (event.target == confirmmodal) {
+    confirmmodal.style.display = "none";
   }
 }
 

@@ -42,9 +42,9 @@ class enrollStudent_Model extends Model{
     $id = mysqli_fetch_assoc($classID);
 
 
-     $this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".$id['id']."','".$data['stu_reg_no']."','".date("Y/m/d")."')");
+     $result=$this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".$id['id']."','".$data['stu_reg_no']."','".date("Y/m/d")."')");
 
-      
+      return $result;
  }
 
    
