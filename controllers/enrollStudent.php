@@ -23,6 +23,8 @@ class enrollStudent extends Controller{
         $this->view->render('staff/enrollStudent');
     }
 
+    
+
     function create(){
 
         $data = array();
@@ -30,8 +32,13 @@ class enrollStudent extends Controller{
         $data['subject'] = $_POST['subject'];
         $data['batch'] = $_POST['batch'];
 
-        $this->model->create($data);
-        header('location: '.URL.'enrollStudent');
+        $result=$this->model->create($data);
+         if($result == 1){
+            header('location: '.URL.'enrollStudent?alert=success');
+        }else{
+            header('location: '.URL.'enrollStudent?alert=fail');
+        }
+        
     }
 
     function search(){

@@ -193,7 +193,7 @@
                         '#8FBC8F'
                     ],
                     borderColor: [
-                        '#8FBC8F',
+                        '#8FBC8F', 
                         '#8FBC8F',
                         '#8FBC8F',
                         '#8FBC8F'
