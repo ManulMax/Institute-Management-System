@@ -1,6 +1,6 @@
 <?php
 
-class createQuiz_Model extends Model{
+class Quiz_Model extends Model{
 
     public function __construct(){
      	parent::__construct();

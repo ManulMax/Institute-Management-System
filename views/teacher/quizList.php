@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
-<title>Salary Details</title>
+<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">    
+<title>Participate Quiz</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/salaryDetailsStylesheet">
-
-
-
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/participateQuiz">
 
 </head>
 
@@ -36,7 +34,7 @@
                 <a href="<?php echo URL; ?>materials/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
-        </div>
+        </div> 
     </li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
@@ -79,17 +77,9 @@
     </li>
   </ul>
   
-  
-  </div>
-  <div class="headerClass">
-    <h2><i class="fas fa-money-bill-wave"></i>Salary Details</h2>
-    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
-    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
-
-
-  <div id="myModal" class="modal">
+<div id="myModal" class="modal">
 
   <!-- Modal content -->
     <div class="modal-content">
@@ -101,12 +91,11 @@
 
       <?php
 
-            while($row = mysqli_fetch_assoc($this->userDetails)){ 
+            while($row = mysqli_fetch_assoc($this->userDetails)){  
 
-
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
-               echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
-               echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
+               echo "<h2 id='name'>".$row['fname']." </h2>";
+               echo "<h4 id='name'>Student</h4><br />";
+               /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
 
                echo "<div class='row'>
                 <div class='col-50-topic'>
@@ -140,96 +129,60 @@
                 <div class='col-50-detail'>
                   <h3 class='detail'>".$row['DOB']."</h3>
                 </div>
-                <br />
-              </div>
-              <br />";
-             
+              </div>";
             }
           ?>
 
     </div>
+
   </div>
 
- 
+
+  <div class="headerClass">
+    <h2><i class="fas fa-question"></i>Participate Quiz</h2>
+    <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
+    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
+  </div>
+
+  
+  
   
   <div class="middle" style="background-color:#F8F8FF;">
-
-    <form class="wrapper">
-      <div class="title" style="text-align: center;">
-        <h3>Salary Payment Details</h3>
-
-    <?php $sal = mysqli_fetch_assoc($this->salary); ?>
-      
-    <div class="details">
-        <p>Payment month : <?php echo $sal['month'] ?></p><br />
-        <p>Payment date : <?php echo $sal['date'] ?></p><br />
-        <p>Total Salary : <?php echo $sal['amount'] ?></p>
-
-        <p style="color: grey;font-weight:bold;margin-top:30px;">Class-wise salary :</p>
-        <?php if(isset($this->classSal1)){
-          $Sal1=mysqli_fetch_assoc($this->classSal1); }
-          if(isset($this->classSal1)){
-          $Sal2=mysqli_fetch_assoc($this->classSal2); }
-          if(isset($this->classSal1)){
-          $Sal3=mysqli_fetch_assoc($this->classSal3); }
-          if(isset($this->classSal1)){
-          $Sal4=mysqli_fetch_assoc($this->classSal4); } ?>
-        <table id="salaryTable">
-        <thead>
-          <tr>
-            <th>Class</th>
-            <th>Income(Rs.)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><?php echo date("Y"); ?> AL</td>
-            <td><?php if(isset($Sal1['totalAmount'])){ echo $Sal1['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr>
-            <td><?php echo date("Y")+1; ?> AL</td>
-            <td><?php if(isset($Sal2['totalAmount'])){ echo $Sal2['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr>
-            <td><?php echo date("Y")+2; ?> AL</td>
-            <td><?php if(isset($Sal3['totalAmount'])){ echo $Sal3['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr>
-            <td>Revision</td>
-            <td><?php if(isset($Sal4['totalAmount'])){ echo $Sal4['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr style="background-color: #ccc;">
-            <td><b>Total</b></td>
-            <td><?php echo $Sal1['totalAmount']+$Sal2['totalAmount']+$Sal3['totalAmount']+$Sal4['totalAmount']; ?></td>
-          </tr>
-        </tbody>
+  <form id="regForm" method="post" action="">
+    <h1 style="color:black; text-align:center;"><Strong>"Quiz Name"</Strong></h1>
+    <div class="topSection">Quiz Title:
+    <br />
+    <br />
+    <p class="head" style="width: 60%; padding-left:30px;">Encapsulation</p><br />
+    Time Limit:
+  <br />
+  <br />
+    <p class="head" style="width: 20%; padding-left:30px;">30 minutes</p><br />
+    </div>
 
 
-    </table>
-    <input type="submit" class="roundBtn" name="" style="float: right;margin-right: 10px;" value=" Download Report">
-  </div>
-         
+    <button class="attemptQuiz"><a href="<?php echo URL; ?>Quiz/renderQuizPage">New Quiz</a></button>
     
+  </form>
   </div>
-
-
-
-</form>
-
-  </div>
+  
+  
+  
 
 
 <div class="footer">
-  <div id="copyright" class="cpy clear">           
-    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
-  </div>
-</div>
+        <div id="copyright" class="cpy clear">           
+          <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+        </div>
+      </div>
+
 
 </body>
 
 
-<script type="text/javascript">
-  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 
@@ -244,7 +197,6 @@ for (i = 0; i < dropdown.length; i++) {
   }
   });
 }
-
 
 
 
@@ -275,6 +227,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
 
 </script>
 

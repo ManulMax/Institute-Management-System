@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
-<title>Salary Details</title>
+<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">    
+<title>Participate Quiz</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/salaryDetailsStylesheet">
-
-
-
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/participateQuiz">
 
 </head>
 
 
 <body>
-
 <div class="row">
   <div class="leftNav">
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
@@ -36,7 +34,7 @@
                 <a href="<?php echo URL; ?>materials/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
-        </div>
+        </div> 
     </li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
@@ -79,10 +77,9 @@
     </li>
   </ul>
   
-  
   </div>
   <div class="headerClass">
-    <h2><i class="fas fa-money-bill-wave"></i>Salary Details</h2>
+    <h2><i class="fas fa-user-edit"></i>Papermarker Registration</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
@@ -148,88 +145,208 @@
           ?>
 
     </div>
-  </div>
 
- 
+  </div>
   
-  <div class="middle" style="background-color:#F8F8FF;">
-
-    <form class="wrapper">
-      <div class="title" style="text-align: center;">
-        <h3>Salary Payment Details</h3>
-
-    <?php $sal = mysqli_fetch_assoc($this->salary); ?>
-      
-    <div class="details">
-        <p>Payment month : <?php echo $sal['month'] ?></p><br />
-        <p>Payment date : <?php echo $sal['date'] ?></p><br />
-        <p>Total Salary : <?php echo $sal['amount'] ?></p>
-
-        <p style="color: grey;font-weight:bold;margin-top:30px;">Class-wise salary :</p>
-        <?php if(isset($this->classSal1)){
-          $Sal1=mysqli_fetch_assoc($this->classSal1); }
-          if(isset($this->classSal1)){
-          $Sal2=mysqli_fetch_assoc($this->classSal2); }
-          if(isset($this->classSal1)){
-          $Sal3=mysqli_fetch_assoc($this->classSal3); }
-          if(isset($this->classSal1)){
-          $Sal4=mysqli_fetch_assoc($this->classSal4); } ?>
-        <table id="salaryTable">
-        <thead>
-          <tr>
-            <th>Class</th>
-            <th>Income(Rs.)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><?php echo date("Y"); ?> AL</td>
-            <td><?php if(isset($Sal1['totalAmount'])){ echo $Sal1['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr>
-            <td><?php echo date("Y")+1; ?> AL</td>
-            <td><?php if(isset($Sal2['totalAmount'])){ echo $Sal2['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr>
-            <td><?php echo date("Y")+2; ?> AL</td>
-            <td><?php if(isset($Sal3['totalAmount'])){ echo $Sal3['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr>
-            <td>Revision</td>
-            <td><?php if(isset($Sal4['totalAmount'])){ echo $Sal4['totalAmount']; }else{ echo "0.00"; } ?></td>
-          </tr>
-          <tr style="background-color: #ccc;">
-            <td><b>Total</b></td>
-            <td><?php echo $Sal1['totalAmount']+$Sal2['totalAmount']+$Sal3['totalAmount']+$Sal4['totalAmount']; ?></td>
-          </tr>
-        </tbody>
-
-
-    </table>
-    <input type="submit" class="roundBtn" name="" style="float: right;margin-right: 10px;" value=" Download Report">
+   <div class="middle" style="background-color:#F8F8FF;">
+    <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
+<div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
+  <h1>Quiz on Javascript</h1>
+  <div class="quiz-container">
+    <div id="quizz"></div>
   </div>
-         
-    
-  </div>
-
-
-
-</form>
-
-  </div>
-
-
-<div class="footer">
-  <div id="copyright" class="cpy clear">           
-    <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+  <button id="previous">Previous Question</button>
+  <button id="nxt">Next Question</button>
+  <button id="sub">Submit Quiz</button>
+  <div id="res"></div>
   </div>
 </div>
 
-</body>
-
-
+   
+  <div class="footer">
+    <div id="copyright" class="cpy clear">           
+      <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
+    </div>
+  </div>
+</div>
+  
+  
 <script type="text/javascript">
-  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    
+
+(function(){
+  // Functions
+  function buildQuiz(){
+    // variable to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable to store the list of possible answers
+        const answers = [];
+
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question and its answers to the output
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Variables
+  const quizContainer = document.getElementById('quizz');
+  const resultsContainer = document.getElementById('res');
+  const submitButton = document.getElementById('sub');
+  const myQuestions = [
+      <?php 
+        while ($row = mysqli_fetch_assoc($this->questions)) { ?>
+          {
+          question: "<?php echo $row['ques']; ?>",
+          answers: {
+            1: "<?php echo $row['answer1']; ?>",
+            2: "<?php echo $row['answer2']; ?>",
+            3: "<?php echo $row['answer3']; ?>",
+            4: "<?php echo $row['answer4']; ?>",
+            5: "<?php echo $row['answer5']; ?>"
+          },
+          correctAnswer: "<?php echo $row['correct_ans']; ?>"
+        },
+       <?php } ?>
+      
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Pagination
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("nxt");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+ </script> 
+
+ <script>
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 30,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+ </script>
+
+
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 
@@ -244,7 +361,6 @@ for (i = 0; i < dropdown.length; i++) {
   }
   });
 }
-
 
 
 
@@ -276,6 +392,10 @@ window.onclick = function(event) {
   }
 }
 
+
+
+
 </script>
 
-</html>
+</body>
+  </html>
