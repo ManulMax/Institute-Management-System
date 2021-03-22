@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">    
-<title>Participate Quiz</title>
+<title>View Quiz</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -317,31 +317,6 @@
   nextButton.addEventListener("click", showNextSlide);
 })();
  </script> 
-
- <script>
-  function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
-
-window.onload = function () {
-    var fiveMinutes = 60 * 30,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};
- </script>
 
 
 

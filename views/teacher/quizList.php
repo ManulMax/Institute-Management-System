@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">    
-<title>Participate Quiz</title>
+<title>All Quizzes</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/participateQuiz">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/paperMarkerRegistrationStylesheet">
 
 </head>
 
@@ -139,7 +139,7 @@
 
 
   <div class="headerClass">
-    <h2><i class="fas fa-question"></i>Participate Quiz</h2>
+    <h2><i class="fas fa-question"></i>Quizzes</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
@@ -148,22 +148,33 @@
   
   
   <div class="middle" style="background-color:#F8F8FF;">
-  <form id="regForm" method="post" action="">
-    <h1 style="color:black; text-align:center;"><Strong>"Quiz Name"</Strong></h1>
-    <div class="topSection">Quiz Title:
-    <br />
-    <br />
-    <p class="head" style="width: 60%; padding-left:30px;">Encapsulation</p><br />
-    Time Limit:
-  <br />
-  <br />
-    <p class="head" style="width: 20%; padding-left:30px;">30 minutes</p><br />
+    <h2 class="className"><?php echo $_SESSION['batch']; ?> Class</h2>
+  <div id="tableDiv" style="width: 70%;margin-left: 15%;">
+    <table id="data">
+    <thead>
+      <tr>
+        <th>Date Created</th>
+        <th>Topic</th>
+        <th>Time Limit</th>
+        <th>Attempted Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+
+          while($row=mysqli_fetch_assoc($this->qlist)) { ?>
+          
+             <tr><td><?php echo $row['date']; ?></td>
+             <td><?php echo $row['topic']; ?></td>
+             <td><?php echo $row['time_limit']; ?></td>
+             <td></td>
+             <td><a class='roundBtn' id='viewBtn' href="<?php echo URL; ?>Quiz/renderViewQuiz/<?php echo $row['id']; ?>" style="padding: 5px 15px 5px 15px;">View</a></td>
+             <td><a class='roundBtn' id='deleteBtn' href="" style="padding: 5px 15px 5px 15px;background-color:#555555;">Delete</a></td></tr>
+         <?php } ?>
+      
+    </tbody>
+    </table>
     </div>
-
-
-    <button class="attemptQuiz"><a href="<?php echo URL; ?>Quiz/renderQuizPage">New Quiz</a></button>
-    
-  </form>
   </div>
   
   

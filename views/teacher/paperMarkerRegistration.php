@@ -181,7 +181,6 @@
   }
 </script>
 
-		<!-- data taken from generatedata.com -->
 		<div id="tableDiv">
 		<table id="data">
 		<thead>
