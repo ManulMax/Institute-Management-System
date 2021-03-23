@@ -44,7 +44,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -152,6 +152,7 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
 
+
   		<!-- alert content -->
   <div id="confirmModal" class="alert-modal">
     <div class="alert-modal-content">
@@ -165,7 +166,7 @@
       		<a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
       	</div>
       	<div class="col-25">
-      		<a class="roundBtn"  style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+      		<a class="roundBtn" id="deleteBtn" style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
       	</div>
       	
        </div>
@@ -173,13 +174,13 @@
 </div>
 
 <script type="text/javascript">
-	function promptFunction(){
-		var alert = document.getElementById("confirmModal");
-		alert.style.display = "block";
-	}
+  function promptFunction(materialId){
+    var alert = document.getElementById("confirmModal");
+    document.getElementById('deleteBtn').href="<?php echo URL; ?>paperMarkerRegistration/delete/"+materialId;
+    alert.style.display = "block";
+  }
 </script>
 
-		<!-- data taken from generatedata.com -->
 		<div id="tableDiv">
 		<table id="data">
 		<thead>
@@ -197,24 +198,24 @@
 		<tbody>
 		  <?php
 
-		      while($row=mysqli_fetch_assoc($this->pmList)) {
+		      while($row=mysqli_fetch_assoc($this->pmList)) { ?>
 		      
-		         echo "<tr><td>".$row['name']."</td>
-		         <td>".$row['NIC']."</td>
-		         <td>".$row['DOB']."</td>
-		         <td>".$row['gender']."</td>
-		         <td>".$row['email']."</td>
-		         <td>".$row['address']."</td>
-		         <td>".$row['tel_no']."</td>
-		         <td>".$row['qualifications']."</td>
-		         <td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
-		         <td><a class='btn' id='deleteBtn' onclick='promptFunction()' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
-		      }
-		  ?>
+		         <tr><td><?php echo $row['name']; ?></td>
+		         <td><?php echo $row['NIC']; ?></td>
+		         <td><?php echo $row['DOB']; ?></td>
+		         <td><?php echo $row['gender']; ?></td>
+		         <td><?php echo $row['email']; ?></td>
+		         <td><?php echo $row['address']; ?></td>
+		         <td><?php echo $row['tel_no']; ?></td>
+		         <td><?php echo $row['qualifications']; ?></td>
+		         <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
+		         <td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['user_id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr>
+		     <?php } ?>
 		  
 		</tbody>
 		</table>
 		</div>
+		
 
 <!-- registration form -->
 
@@ -339,6 +340,18 @@
 
 	  </div>	  
 	</form>	
+	<script type="text/javascript">
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert2']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Papermarker Deleted Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert2']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Delete Papermarker Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	    </script>
 
   </div>
  

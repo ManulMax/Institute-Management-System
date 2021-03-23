@@ -35,7 +35,7 @@ class paperMarkerRegistration_Model extends Model{
 
     public function create($data){
 
-        $this->db->insert("user","(username,password,type,flag)","('".$data['email']."',md5('".$data['NIC']."'),'Paper Marker',0)");
+        $this->db->insert("user","(username,password,type,flag,deleted)","('".$data['email']."',md5('".$data['NIC']."'),'Paper Marker',0,0)");
 
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
@@ -47,13 +47,14 @@ class paperMarkerRegistration_Model extends Model{
 
     public function update($data){
         
-        $result = $this->db->update('pper_marker',"email='".$data['email']."',tel_no=".$data['tel_no'].",address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
+        $result = $this->db->update('paper_marker',"email='".$data['email']."',tel_no=".$data['tel_no'].",address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
         return $result;
     }
 
 
     public function delete($userid){
-        $this->db->update('paper_marker',"deleted=1","user_id=$userid");
+        $this->db->update('user',"deleted=1","id=$userid");
+        return $this->db->update('paper_marker',"deleted=1","user_id=$userid");
 
     }
 

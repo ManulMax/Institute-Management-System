@@ -46,7 +46,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>createQuiz/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -154,7 +154,7 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
 
-    <form class="wrapper">
+    <div class="wrapper">
       <div class="title" style="text-align: center;">
         <h3>Salary Payment Details</h3>
 
@@ -206,15 +206,16 @@
 
 
     </table>
-    <input type="submit" class="roundBtn" name="" style="float: right;margin-right: 10px;" value=" Download Report">
-  </div>
-         
+    
     
   </div>
+       <form method="post" action="<?php echo URL; ?>views/teacher/generatepdf?sal=<?php echo $sal['amount']; ?>">
+      <input type="submit" name="generatepdf" class="roundBtn" style="float: right;margin-right: 10px;" value="Download Report">
+    </form>  
+    
+  </div>
+</div>
 
-
-
-</form>
 
   </div>
 
