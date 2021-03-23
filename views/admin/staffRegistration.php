@@ -69,10 +69,10 @@
     <div class="col-10">
     </div>
     <div class="col-15">
-      <label for="subject">DOB :</label>
+      <label for="subject">Reg Date :</label>
     </div>
     <div class="col-25">
-      <input type="date" name="DOB">
+      <input type="date" name="DOB" value="<?php echo date('Y-m-d'); ?>" readonly/>
     </div>
     </div>
 

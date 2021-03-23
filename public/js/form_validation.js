@@ -278,3 +278,7 @@ function validateStudent() {
   return validateName() && validateNIC() && validateEmail() && validatePhoneNumber() && containsNumbers();
 }
 
+function validateTeacher() {
+  return validateName() && validateNIC() && validateEmail() && validatePhoneNumber() && containsNumbers();
+}
+
