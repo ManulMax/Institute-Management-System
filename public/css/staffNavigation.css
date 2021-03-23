@@ -243,6 +243,21 @@ i{
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+/* The Modal (background) */
+.fees-modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 999999 !important; /* Sit on top */
+  padding-top: 20%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
 /* Modal Content */
 .modal-content {
   background-color: white;
@@ -260,6 +275,14 @@ i{
   width: 30%;
 }
 
+.fees-modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%;
+}
+
 /* The Close Button */
 .close {
   color: #aaaaaa;
@@ -275,7 +298,12 @@ i{
   cursor: pointer;
 }
 
+h3,label {
+  color: black;
+  font-family: 'Homemade Apple';
+}
 
+ 
 #name {
   width: 100%;
   text-align: center;

@@ -54,10 +54,10 @@ $(function(){
     
   </div>
 
-   <div id="myModal" class="modal">
+  <div id="myModal" class="modal">
 
   <!-- Modal content -->
-    <div class="modal-content">
+   <div class="modal-content">
       <span class="close">&times;</span>
       <img src="<?php echo URL; ?>public/img/img_avatar.png" alt="Avatar" style="width:20%;border-radius: 50%;margin-left: 40%">
       <div class='row' style='background-color:white;text-align: center;'>
@@ -117,7 +117,6 @@ $(function(){
     <div style="margin-top:7px;float: right;margin-right: 40px;"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt fa-2x"></i></a></div>
    <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user fa-lg"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
-
  
   
 
@@ -231,7 +230,7 @@ $(function(){
 
 </div>
 
-           <table class="image-detail" style="margin-top:5px;" > 
+           <!--<table class="image-detail" style="margin-top:5px;" > 
 
             <tr>
               <td style="color:black"><h3>Payment details</h3></td>
@@ -269,9 +268,56 @@ $(function(){
 
             
     
-       </table>
-        <input type="submit" name="save-payment" value="Save payment" class="save" style="margin-left:20%; margin-top:5%">
+       </table>-->
         
+        
+       
+<div id="myModal2" class="modal">
+
+  <!-- Modal content -->
+   <div class="modal-content">
+      <span class="close">&times;</span>
+     <h3>Payment details</h3>
+      
+
+      <label>Last paid month</label></br>
+          <input type="text" name="month" class="paid-month" style="background-color: white;width:50%;" value="<?php if(isset($this->stuLastPaidMonth)){echo $this->stuLastPaidMonth; }else{ echo ""; }; ?>">
+        </br>
+      <label>Current payment month</label></br>
+        <select name="currentPaymentMonth" style="background-color: white;width:50%;">
+              <option value="">-All-</option>  
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </br>
+      <label>Payment amount</label>  </br>  
+                <input type="text" name="paid-amount" class="paid-amount" style="background-color: white;width:50%;">
+              </br>
+
+          <div class='row' style='background-color:white;text-align: center;'>
+         <input id="formSubmit" class="save" type="submit" value="Save payment" style="width:200px; margin-top: 20px;" >
+       </div>
+
+    </div>
+
+  </div>
+
+  
+    
+   <div id="myBtn2" class="save" style="margin-left:20%; margin-top:5%;"><h5 style="text-align: center;">View Payment details</h5> </div>
+  
+       
+     
         
         
   
@@ -312,16 +358,25 @@ for (i = 0; i < dropdown.length; i++) {
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var modal2 = document.getElementById("myModal2");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
+var btn2 = document.getElementById("myBtn2");
+
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var spanFees = document.getElementsByClassName("close")[1];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
+}
+
+btn2.onclick = function() {
+  modal2.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -329,10 +384,17 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
+spanFees.onclick = function() {
+  modal2.style.display = "none";
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+  else if (event.target == modal2) {
+    modal2.style.display = "none";
   }
 }
 
