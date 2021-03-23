@@ -42,9 +42,11 @@ class studentRegistration extends Controller{
         
        $result=$this->model->create($data);
          if($result == 1){
-            header('location: '.URL.'studentRegistration?alert=success');
+            header('location: '.URL.'enrollStudent?alert=success');
         }else{
-            header('location: '.URL.'studentRegistration?alert=fail');
+            header('location: '.URL.'enrollStudent?alert=fail');
         }
+
+        
 }
 }
