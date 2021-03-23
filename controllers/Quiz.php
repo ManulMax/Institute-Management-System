@@ -12,6 +12,7 @@ class Quiz extends Controller{
         $this->view->batch = $batch;
         Session::set('classid',$id);
         Session::set('batch',$batch);
+        $this->view->qlist = $this->model->listQuizzes($id);
         $this->view->render('teacher/quizList');
     }
 
@@ -19,6 +20,14 @@ class Quiz extends Controller{
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->render('teacher/createQuiz');
+    }
+
+    function renderViewQuiz($id){
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->questions = $this->model->listQuestions($id);
+        $this->view->quiz = $this->model->getQuiz($id);
+        $this->view->render('teacher/viewQuiz');
     }
 
     function create(){
@@ -44,4 +53,13 @@ class Quiz extends Controller{
 
         header('location: '.URL.'createQuiz/renderQuizPage');
     }
+
+  /*  function delete($quizId){
+        $result=$this->model->delete($quizId);
+        if($result == 1){
+            header('location: '.URL.'Quiz?alert1=success');
+        }else{
+            header('location: '.URL.'Quiz?alert1=fail');
+        }
+    } */
 }
