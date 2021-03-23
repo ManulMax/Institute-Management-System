@@ -214,9 +214,9 @@ input[type=text], input[type=password], input[type=date], textarea, select {
   background: #f1f1f1;
 }
 
-input[type=radio]{
+/* input[type=radio]{
     
-}
+} */
 
 input[type=text]:focus, input[type=password]:focus, input[type=date], textarea, input[type=radio], select{
   background-color: #ddd;
