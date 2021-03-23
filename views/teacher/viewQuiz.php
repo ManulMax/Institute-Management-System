@@ -149,16 +149,36 @@
   </div>
   
    <div class="middle" style="background-color:#F8F8FF;">
-    <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
-<div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
-  <h1 id="quizTopic"><?php echo $this->topic; ?></h1>
+    <?php $row = mysqli_fetch_assoc($this->quiz); ?>
+    <div id="info">
+      <div class="row">
+        <div class="col-25">
+          <h4>Quiz :</h4>
+        </div>
+        <div class="col-75">
+          <h4><?php echo $row['topic']; ?></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-40">
+          <h4>Time Limit :</h4>
+        </div>
+        <div class="col-60">
+          <h4><?php echo $row['time_limit']; ?></h4>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <a class="roundBtn" style="float: left;height: 50px;width: 100%;text-align: center;" href="<?php echo URL; ?>Quiz/index/<?php echo $_SESSION['classid'].'/'.$_SESSION['batch']; ?>"><i class="fas fa-chevron-left"></i>Back</a>
+      </div>
+    </div>
+<div style="padding-left: 10%;padding-top: 75px;width: 70%;">
+  <h1 id="quizTopic"><?php echo $row['topic']; ?></h1>
   <div class="quiz-container">
     <div id="quizz"></div>
   </div>
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
-  <button id="sub">Submit Quiz</button>
-  <div id="res"></div>
+  <button id="sub" style="background-color: inherit;"></button>
   </div>
 </div>
 
@@ -245,8 +265,6 @@
       }
     });
 
-    // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
 
   function showSlide(n) {
@@ -279,7 +297,6 @@
 
   // Variables
   const quizContainer = document.getElementById('quizz');
-  const resultsContainer = document.getElementById('res');
   const submitButton = document.getElementById('sub');
   const myQuestions = [
       <?php 

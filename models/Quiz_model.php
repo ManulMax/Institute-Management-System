@@ -48,10 +48,8 @@ class Quiz_Model extends Model{
         return $this->db->listWhere("*","question","quiz_id=$id");
     }
 
-    public function getTopic($id){
-        $result=$this->db->listWhere("topic","quiz","id=$id");
-        $topic = mysqli_fetch_assoc($result);
-        return $topic['topic'];
+    public function getQuiz($id){
+        return $this->db->listWhere("*","quiz","id=$id");
     }
 
     public function update($data){

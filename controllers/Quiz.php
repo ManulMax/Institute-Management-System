@@ -26,7 +26,7 @@ class Quiz extends Controller{
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->questions = $this->model->listQuestions($id);
-        $this->view->topic = $this->model->getTopic($id);
+        $this->view->quiz = $this->model->getQuiz($id);
         $this->view->render('teacher/viewQuiz');
     }
 
