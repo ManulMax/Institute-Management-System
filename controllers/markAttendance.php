@@ -7,6 +7,10 @@ class markAttendance extends Controller{
     }
 
     function index(){
+        $class = $_POST['class'];
+        $pieces = explode(" ",$class);
+        $this->view->subjectname = $pieces[0];
+        $this->view->batchname = $pieces[1];
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
     	$this->view->render('staff/markAttendance');
     }

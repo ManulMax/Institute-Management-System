@@ -135,6 +135,7 @@
 <!---------------------------right side bar----------------------------------->
   
 <div class="right" style="background-color:#F5F5F5;">
+  <h2 class="className"><?php echo $this->subjectname.' '.$this->batchname; ?> Class</h2>
     <div class="container">
       <form action="<?php echo URL; ?>markAttendance/create" method="POST"> 
         <table class="image-detail">
