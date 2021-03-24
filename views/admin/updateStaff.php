@@ -99,15 +99,13 @@
     </thead>
     <tbody>
     <?php
-      while($row = mysqli_fetch_assoc($this->staffList)){  
-      echo "<tr><td>".$row['fname']."</td>
-      <td>" .$row['address']."</td>
-      <td>".$row['tel_no']."</td>
-      <td><input type='submit' value='Edit' class='open-button' onclick='openForm()' style='padding: 5px 15px 5px 15px;'></td>
-      <td><input type='submit' value='Delete' onclick='alertFunc()' style='padding: 5px;background-color:#555555;'></td></tr>";
-                        
-    }
-    ?>      
+      while($row = mysqli_fetch_assoc($this->staffList)){  ?>
+        <tr><td><?php echo $row['fname']; ?></td>
+        <td><?php echo $row['address']; ?></td>
+        <td><?php echo $row['tel_no']; ?></td>
+        <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/updateStaff/renderStaffUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
+		    <td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['user_id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr>                    
+    <?php } ?>      
     </tbody>
     </table>
     </div>

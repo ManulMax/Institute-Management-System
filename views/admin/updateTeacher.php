@@ -99,7 +99,7 @@
       <?php
 
     while($row = mysqli_fetch_assoc($this->tecList)){  
-    echo "<tr><td>" .$row['fname']." ".$row['mname']." ".$row['lname']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td>".$row['tel_no']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+    echo "<tr><td>" .$row['fname']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td>".$row['tel_no']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
 
     }
 ?>

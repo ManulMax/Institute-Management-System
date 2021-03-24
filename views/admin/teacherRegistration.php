@@ -50,27 +50,13 @@
     <div class="col-15">
       <label for="subject">Full Name :</label>
     </div>
-    <div class="col-20">      
+    <div class="col-25">      
       <div class="popup">
-          <input type="text" placeholder="First name..." name="fname"  id="fullname" onfocusout="validateName()">
+          <input type="text" placeholder="Full name..." name="fname"  id="fullname" onfocusout="validateName()">
 			  <span class="popuptext" id="name-popup"></span>
 			</div>
     </div>
     <div class="col-10">
-    </div>
-    <div class="col-20">      
-      <div class="popup">
-          <input type="text" placeholder="Middle name..." name="mname" id="fullname" onfocusout="validateName()">
-			  <span class="popuptext" id="name-popup"></span>
-			</div>
-    </div>
-    <div class="col-10">
-    </div>
-    <div class="col-20">      
-      <div class="popup">
-          <input type="text" placeholder="Last name..." name="lname"  id="fullname" onfocusout="validateName()">
-			  <span class="popuptext" id="name-popup"></span>
-			</div>
     </div>
     </div>
     
