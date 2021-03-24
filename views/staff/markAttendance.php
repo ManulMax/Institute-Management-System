@@ -120,7 +120,7 @@
                 </script> 
            
              
-      <form action="<?php echo URL; ?>markAttendance/search" method="POST">        
+      <form action="<?php echo URL; ?>markAttendance/search/<?php echo $this->subjectname.'/'.$this->batchname; ?>" method="POST">        
         <table class="qr-scan">
             <tr><td><div class="qr"></div></td></tr>
             <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
@@ -144,26 +144,60 @@
                     <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
-            
-            <!--<tr>
-              <td style="color:black">Last payment</td>
-            </tr>
 
-            <tr>
-              <td style="color:black">Last payment date</td>
-              <td><input type="text" name="payment-date" class="payment-date" value="<?php if(isset($this->stuLastPaymentDate)){echo $this->stuLastPaymentDate; }else{ echo ""; }; ?>"></td>
-            </tr>
-
-            <tr>
-              <td style="color:black">Paid amount</td>
-              <td><input type="text" name="paid-amount" class="paid-amount" value="<?php if(isset($this->stuLastPaidAmount)){echo $this->stuLastPaidAmount; }else{ echo ""; }; ?>"></td>
-            </tr>-->
     
         </table>
-
-        <p style="color:red; margin-left: 300px;margin-top:100px;">Fees in due 1000</p>
+        <div style="color: black;margin-top: 50px;">
+        <div class="row">
+          <div class="col-15">
+          </div>
+          <div class="col-25">
+            <p>Last payment date:</p>
+          </div>
+          <div class="col-50">
+            <p name="payment-date" class="payment-date"><?php if(isset($this->stuLastPaymentDate)){echo $this->stuLastPaymentDate; }else{ echo ""; }; ?></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-15">
+          </div>
+          <div class="col-25">
+            <p>Last paid month:</p>
+          </div>
+          <div class="col-50">
+            <p name="payment-month" class="payment-date"><?php if(isset($this->stuLastPaymentMonth)){echo $this->stuLastPaymentMonth; }else{ echo ""; }; ?></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-15">
+          </div>
+          <div class="col-25">
+            <p>Class fee amount:</p>
+          </div>
+          <div class="col-50">
+            <p name="paid-amount" class="paid-amount"><?php if(isset($this->stuLastPaidAmount)){echo $this->stuLastPaidAmount; }else{ echo ""; }; ?></p>
+          </div>
+        </div>
+        <div class="row" id="month-count">
+          <div class="col-15">
+          </div>
+          <div class="col-25">
+            <p>No. of months due:</p>
+          </div>
+          <div class="col-50">
+            <p name="month-count"><?php if(isset($this->diff)){echo $this->diff; }else{ echo ""; }; ?>
+              <script type="text/javascript">
+                if(<?php echo $this->diff; ?> > 0){
+                  document.getElementById("month-count").style.color = "red";
+                  document.getElementById("month-count").style.fontSize = "20px";
+                }
+              </script>
+            </p>
+          </div>
+        </div>
+        </div>
         
-        <input type="submit" name="save-attendance" value="Mark Attendance" class="search" style="margin-left:20%; margin-top:20%">
+        <input type="submit" name="save-attendance" value="Mark Attendance" class="search" style="margin-left:20%; margin-top:10%">
         
     </form>
     </div>
@@ -226,6 +260,12 @@ window.onclick = function(event) {
   }
 }
 
+function colorChange(){
+  var para = document.getElementById("month-count");
+  if(<?php echo $this->diff; ?> > 0){
+    para.style.color = "red";
+  }
+}
 
 
 
