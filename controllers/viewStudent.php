@@ -68,9 +68,13 @@ class viewStudent extends Controller{
         $data['subject3'] = $_POST['subject3-update'];
 
 
-       $this->model->update($data);
+       $result=$this->model->update($data);
         
-            header('location: '.URL.'viewStudent');
+        if($result == 1){
+            header('location: '.URL.'viewStudent?alert=success');
+        }else{
+            header('location: '.URL.'viewStudent?alert=fail');
+        }
         
     }
 

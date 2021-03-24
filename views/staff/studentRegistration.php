@@ -231,7 +231,7 @@
 		</div>
 		<div class="col-75">
 		<div class="popup">
-		  <input type="text" placeholder="Enter grade" name="grade" id="grade" onfocusout="containsNumbers()">
+		  <input type="text" placeholder="Enter grade" name="grade" id="num" onfocusout="containsNumbers()">
 		 <span class="popuptext" id="number-popup"></span>
 		</div>
       		</div>

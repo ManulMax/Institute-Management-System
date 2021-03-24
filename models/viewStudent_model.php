@@ -35,6 +35,7 @@ class viewStudent_Model extends Model{
 
     }
 
+
     public function update($data){
         
 
@@ -44,10 +45,11 @@ class viewStudent_Model extends Model{
         $userID = $this->db->listWhere("reg_no","student","NIC='".$data['NIC']."'");
         $num = mysqli_fetch_assoc($userID);
 
-          $this->db->update('parent',"tel_no='".$data['tel_no']."'","stu_reg_no='".$num['reg_no']."'");
+        $this->db->update('parent',"tel_no='".$data['tel_no']."'","stu_reg_no='".$num['reg_no']."'");
 
-          $this->db->update('studentSubject',"subject1='".$data['subject1']."',subject2='".$data['subject2']."',subject3='".$data['subject3']."'","stu_reg_no='".$num['reg_no']."'");
-        
+        $result=$this->db->update('studentSubject',"subject1='".$data['subject1']."',subject2='".$data['subject2']."',subject3='".$data['subject3']."'","stu_reg_no='".$num['reg_no']."'");
+
+        return $result;
     }
  
     
@@ -55,14 +57,6 @@ class viewStudent_Model extends Model{
         $this->db->update('student',"deleted=1","user_id=$userid");
         return $this->db->update('student',"deleted=1","user_id=$userid");
     }
-
-    
-
-   
-
-   
-   
-
 
 
 
