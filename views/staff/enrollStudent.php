@@ -234,15 +234,26 @@ $(function(){
        </div>
       </div>
     </div>
-
-   
     <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Enrolled student Successfully!";
+            document.getElementById("msg").innerHTML="Student Registered Successfully!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
             alert.style.display = "block";
           }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="Failed to Register Student!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+      </script> 
+   
+    <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert1']; ?>" =="success"){    
+            document.getElementById("msg").innerHTML="Enrolled student Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
             document.getElementById("msg").innerHTML="Failed to enroll student!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
             alert.style.display = "block";

@@ -209,7 +209,7 @@
     
     
   </div>
-       <form method="post" action="<?php echo URL; ?>views/teacher/generatepdf?sal=<?php echo $sal['amount']; ?>">
+       <form method="post" action="<?php echo URL; ?>views/teacher/generatepdf?sal=<?php echo $sal['amount']; ?>&user=<?php echo $_SESSION['userid']; ?>">
       <input type="submit" name="generatepdf" class="roundBtn" style="float: right;margin-right: 10px;" value="Download Report">
     </form>  
     
