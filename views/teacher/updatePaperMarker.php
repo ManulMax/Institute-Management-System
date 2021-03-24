@@ -32,7 +32,7 @@
             <div class='col-25'>
             </div>
           </div>";
-            echo "<div class='row'>
+            echo "<div class='row'> 
         <div class='col-15'>
           <label>Full Name :</label>
         </div>
