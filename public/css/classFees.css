@@ -57,7 +57,7 @@ input[type=text],input[type=date],input[type=time], select, textarea {
 .save {
   background-color: #4CAF50;
   color: white;
-  padding: 8px 10px;
+ /* padding: 8px 10px;*/
   border: none;
   border-radius: 4px;
   cursor: pointer;

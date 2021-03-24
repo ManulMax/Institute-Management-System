@@ -97,7 +97,7 @@
        </div>
 
       <?php
-
+ 
             while($row = mysqli_fetch_assoc($this->userDetails)){ 
 
 
