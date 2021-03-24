@@ -35,6 +35,21 @@ class viewStudent_Model extends Model{
 
     }
 
+    public function update($data){
+        
+
+        $this->db->update('student',"tel_no='".$data['tel_no']."',address='".$data['address']."',school='".$data['school']."',grade='".$data['grade']."',stream='".$data['stream']."'","NIC='".$data['NIC']."'");
+        
+
+        $userID = $this->db->listWhere("reg_no","student","NIC='".$data['NIC']."'");
+        $num = mysqli_fetch_assoc($userID);
+
+          $this->db->update('parent',"tel_no='".$data['tel_no']."'","stu_reg_no='".$num['reg_no']."'");
+
+          $this->db->update('studentSubject',"subject1='".$data['subject1']."',subject2='".$data['subject2']."',subject3='".$data['subject3']."'","stu_reg_no='".$num['reg_no']."'");
+        
+    }
+ 
     
      public function delete($userid){
         $this->db->update('student',"deleted=1","user_id=$userid");

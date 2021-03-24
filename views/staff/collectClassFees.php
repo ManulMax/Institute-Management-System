@@ -326,11 +326,11 @@ $(function(){
     <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Student Details Saved Successfully!";
+            document.getElementById("msg").innerHTML="Payment succesfull!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
             alert.style.display = "block";
           }else if("<?php echo $_GET['alert']; ?>" =="fail"){
-            document.getElementById("msg").innerHTML="Failed to Save student Details!";
+            document.getElementById("msg").innerHTML="Payment failed!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
             alert.style.display = "block";
           }
@@ -393,6 +393,7 @@ var alertmodal = document.getElementById("alertModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("formSubmit");
 
 
 // Get the <span> element that closes the modal
@@ -405,8 +406,16 @@ btn.onclick = function() {
   modal.style.display = "block";
 }
 
+
 btn2.onclick = function() {
   modal2.style.display = "block";
+
+}
+
+btn3.onclick = function() {
+  modal2.style.display = "none";
+  alertmodal.style.display= "block";
+
 }
 
 // When the user clicks on <span> (x), close the modal

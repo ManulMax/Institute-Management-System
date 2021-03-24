@@ -49,16 +49,16 @@ class viewStudent extends Controller{
     function update(){
 
         $data = array();
-        $data['fname'] = $_POST['fname-update'];
+       /* $data['fname'] = $_POST['fname-update'];*/
         /*$data['mname'] = $_POST['mname'];
         $data['lname'] = $_POST['lname'];*/
         $data['tel_no'] = $_POST['tel-update'];
         $data['address'] = $_POST['address-update'];
         $data['NIC'] = $_POST['NIC-update'];
-        $data['gender'] = $_POST['gender-update'];
-        $data['DOB'] = $_POST['DOB-update'];
-        $data['email'] = $_POST['email-update'];
-        $data['name'] = $_POST['parent_name-update'];
+        /*$data['gender'] = $_POST['gender-update'];*/
+        /*$data['DOB'] = $_POST['DOB-update'];*/
+        /*$data['email'] = $_POST['email-update'];*/
+       /* $data['name'] = $_POST['parent_name-update'];*/
         $data['tel'] = $_POST['parent_tel-update'];
         $data['school'] = $_POST['school-update'];
         $data['grade'] = $_POST['grade-update'];
@@ -68,8 +68,10 @@ class viewStudent extends Controller{
         $data['subject3'] = $_POST['subject3-update'];
 
 
-        $this->model->update($data);
-        header('location: '.URL.'viewStudent');
+       $this->model->update($data);
+        
+            header('location: '.URL.'viewStudent');
+        
     }
 
 

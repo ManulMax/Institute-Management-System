@@ -89,7 +89,7 @@
         </div>
         <div class='col-75' style='width: 60%'>
         <div class='popup'>
-          <input type='email' placeholder='Email address...' id='email-update' name='email-update' value='".$row['email']."' onfocusout='validateEmail()'>
+          <input type='email' placeholder='Email address...' id='email-update' name='email-update' value='".$row['email']."' onfocusout='validateEmail()' readonly>
           <span class='popuptext' id='email-popup-update'></span>
           </div>
         </div>
@@ -122,7 +122,7 @@
         </div>
         <div class='col-25'>
         <div class='popup'>
-          <input type='text' placeholder='Parent name...' id='parent_name-update' name='parent_name-update' value='".$row['name']."'>
+          <input type='text' placeholder='Parent name...' id='parent_name-update' name='parent_name-update' value='".$row['name']."' readonly>
           <span class='popuptext' id='parent_name-popup-update'></span>
         </div>
         </div>
