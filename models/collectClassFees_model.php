@@ -43,7 +43,9 @@ class collectClassFees_Model extends Model{
     $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."'");
     $id = mysqli_fetch_assoc($classID);
     
-    $this->db->insert('fees',"(date,month,amount,class_id,stu_reg_no)","('".date("Y/m/d")."','".$data['month']."',".$data['amount'].",".$id['id'].",".$data['stu_reg_no'].")");  
+    $result=$this->db->insert('fees',"(date,month,amount,class_id,stu_reg_no)","('".date("Y/m/d")."','".$data['month']."',".$data['amount'].",".$id['id'].",".$data['stu_reg_no'].")");  
+
+    return $result;
  }
 
 }   

@@ -304,9 +304,37 @@ $(function(){
                 <input type="text" name="paid-amount" class="paid-amount" style="background-color: white;width:50%;">
               </br>
 
-          <div class='row' style='background-color:white;text-align: center;'>
-         <input id="formSubmit" class="save" type="submit" value="Save payment" style="width:200px; margin-top: 20px;" >
+
+         <!-- alert content -->
+  <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
        </div>
+      </div>
+    </div>
+
+              
+         <div class='row' style='background-color:white;text-align: center;'>
+         <input id="formSubmit" class="save" type="submit" value="Save payment" style="width:200px; margin-top: 20px;" >
+         
+       </div>
+
+   
+    <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert']; ?>" =="success"){    
+            document.getElementById("msg").innerHTML="Student Details Saved Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="Failed to Save student Details!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+      </script> 
 
     </div>
 
@@ -314,7 +342,7 @@ $(function(){
 
   
     
-   <div id="myBtn2" class="save" style="margin-left:20%; margin-top:5%;"><h5 style="text-align: center;">View Payment details</h5> </div>
+   <div id="myBtn2" class="save" style="margin-right:30%; margin-top:5%; width:40%;"><h5 style="text-align: center;">View Payment details</h5> </div>
   
        
      
@@ -359,6 +387,7 @@ for (i = 0; i < dropdown.length; i++) {
 // Get the modal
 var modal = document.getElementById("myModal");
 var modal2 = document.getElementById("myModal2");
+var alertmodal = document.getElementById("alertModal");
 
 
 // Get the button that opens the modal
@@ -369,6 +398,7 @@ var btn2 = document.getElementById("myBtn2");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 var spanFees = document.getElementsByClassName("close")[1];
+var alertspan = document.getElementsByClassName("close")[2];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -388,6 +418,12 @@ spanFees.onclick = function() {
   modal2.style.display = "none";
 }
 
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
@@ -395,6 +431,8 @@ window.onclick = function(event) {
   }
   else if (event.target == modal2) {
     modal2.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
   }
 }
 

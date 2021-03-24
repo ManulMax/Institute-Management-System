@@ -36,11 +36,12 @@ class collectClassFees extends Controller{
         $data['subject'] = $_POST['subject'];
         $data['batch'] = $_POST['batch'];
     //   echo " ".$data['stu_reg_no']." ".$data['month']." ".$data['amount']." ".$data['subject']." ".$data['batch'];
-        $this->model->create($data);
- 
-        //get details needed in attendance landing page.(functions called in attendanceLandingPage/index)
-
-        header('location: '.URL.'collectClassFees');
+        $result=$this->model->create($data);
+         if($result == 1){
+            header('location: '.URL.'collectCLassFees?alert=success');
+        }else{
+            header('location: '.URL.'collectCLassFees?alert=fail');
+        }
     }
 
 

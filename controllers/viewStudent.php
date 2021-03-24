@@ -74,8 +74,13 @@ class viewStudent extends Controller{
 
 
      function delete($userid){
-        $this->model->delete($userid);
-        header('location: '.URL.'viewStudent');
+        $result=$this->model->delete($userid);
+        if($result == 1){
+            header('location: '.URL.'viewStudent?alert2=success');
+        }else{
+            header('location: '.URL.'viewStudent?alert2=fail');
+        }
+    
     }
     
 }

@@ -131,83 +131,72 @@ $(function(){
     <table id="allocation" style="width:50%; margin-left:5px;">
     <tr>
     <td style="text-align: right;"><label for="filter-country">NIC</label></td>
-    <td><input type="text" class="input-text" id="filter-name" data-filter-col="3"></td>
+    <td><input type="text" class="input-text" id="filter-name" data-filter-col="2"></td>
  
 
-    <!--<td><label for="filter-city">Subject</label></td>
-    <td><select id="filter-city" data-filter-col="3" style="min-width:60px">
-      <option value="">- All -</option>
-       <?php
-
-            while($row = mysqli_fetch_assoc($this->subjectList)){  
-
-               echo "<option value='".$row['name']."'>".$row['name']."</option>";
-
-            }
-      ?>
-    </select></td>-->
-
-    <!-- <td><label for="filter-city">Batch</label></td>
-     
-     <td><select id="filter-city" data-filter-col="1" style="min-width:60px">
-       <option value="">- All -</option>
-      <option value="1"><?php echo date("Y");?> A/L</option>
-      <option value="2"><?php echo date("Y")+1;?> A/L</option>
-      <option value="3"><?php echo date("Y")+2;?> A/L</option>
-      <option value="4">Revision</option>
-     </select></td>-->
- 
-
-  <!-- <td><input type="button" id="btnGetCount" value="Count Rows" onclick = "CountRows()" />
-<script type="text/javascript">
-    function CountRows() {
-       
-        var rowCount = 0;
-        var table = document.getElementById("data");
-        var rows = table.getElementsByTagName("tr")
-        for (var i = 0; i < rows.length; i++) {
-            
-            if (rows[i].getElementsByTagName("td").length > 0) {
-                rowCount++;
-            }
-        }
-        var message = "Row Count: " + rowCount;
-       
-        alert(message);
-    }
-</script></td>-->
-
+   
 </tr>
 </table>
 </div>
 
 
-<!-- data taken from generatedata.com -->
-<table id="data">
-<thead>
-  <tr>
-    <!--<th>Reg No</th>-->
-    <th>Full Name</th>
-    <th>Grade</th>
-    <th>NIC</th>
-    <th>email</th>
-    <th>Tel no</th>
-    <th></th>
-    <th></th>
-  </tr>
-</thead>
-
-<tbody>
-      <?php
-
-          while($row = mysqli_fetch_assoc($this->stuList)){  
-             echo "<tr><td>" .$row['fname']."</td><td>".$row['grade']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td>".$row['tel_no']."</td><td><a class='btn' id='editBtn' href='http://localhost/IMS_Vidarsha/viewStudent/renderStuUpdate/".$row['user_id']."' style='padding: 5px 15px 5px 15px;'>Edit</a></td>
-             
-             <td><a class='btn' id='deleteBtn' href='http://localhost/IMS_Vidarsha/viewStudent/delete/".$row['user_id']."' style='padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;'>Delete</a></td></tr>";
 
 
-          }
-      ?>
+
+    <!-- alert content -->
+  <div id="confirmModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3>Are you sure?</h3><br />
+        <p>Do you really want to delete this data? This process cannot be undone.</p><br />
+        <div class="col-25">
+        </div>
+        <div class="col-25">
+          <a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
+        </div>
+        <div class="col-25">
+          <a class="roundBtn" id="deleteBtn" style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+        </div>
+        
+       </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+  function promptFunction(userid){
+    var alert = document.getElementById("confirmModal");
+    document.getElementById('deleteBtn').href="<?php echo URL; ?>viewStudent/delete/"+userid;
+    alert.style.display = "block";
+  }
+</script>
+
+   
+    <table id="data">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Grade</th>
+        <th>NIC</th>
+        <th>Email</th>
+        <th>Mobile No.</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+
+          while($row=mysqli_fetch_assoc($this->stuList)) { ?>
+          
+             <tr><td><?php echo $row['fname']; ?></td>
+             <td><?php echo $row['grade']; ?></td>
+             <td><?php echo $row['NIC']; ?></td>
+             <td><?php echo $row['email']; ?></td>
+             <td><?php echo $row['tel_no']; ?></td>
+             <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/viewStudent/renderStuUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
+             <td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['user_id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr>
+         <?php } ?>
       
     </tbody>
     </table>
@@ -215,6 +204,31 @@ $(function(){
 
 
 </div>
+
+<div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert2']; ?>" =="success"){    
+            document.getElementById("msg").innerHTML="Student Deleted Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert2']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="Failed to Delete Student Details!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+      </script>
+
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -261,15 +275,18 @@ for (i = 0; i < dropdown.length; i++) {
 
 
 
-
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+var confirmmodal = document.getElementById("confirmModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[2];
+var confirmspan = document.getElementsByClassName("close")[1];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -278,16 +295,34 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
 }
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+confirmspan.onclick = function() {
+  if(confirmmodal.style.display == "block"){
+      confirmmodal.style.display = "none";
+  }  
+}
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+  }else if (event.target == confirmmodal) {
+    confirmmodal.style.display = "none";
   }
 }
-
 
 
 

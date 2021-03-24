@@ -38,7 +38,7 @@ class viewStudent_Model extends Model{
     
      public function delete($userid){
         $this->db->update('student',"deleted=1","user_id=$userid");
-
+        return $this->db->update('student',"deleted=1","user_id=$userid");
     }
 
     
