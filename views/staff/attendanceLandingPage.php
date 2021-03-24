@@ -121,20 +121,20 @@ $(function(){
     
   
 <div class="container" style="margin: 30px;margin-top: 0px;">
-
+<form method="post" action="<?php echo URL; ?>markAttendance">
 
 <div class="table-filters">
   
     <table id="allocation" >
     <tr>
     <td><label for="filter-city">Class</label>
-    <select style="width:25%;" id="filter-city" data-filter-col="0">
+    <select style="width:25%;" id="filter-class" name="class" data-filter-col="0">
       <option value="">- All -</option>
       <?php
 
             while($row = mysqli_fetch_assoc($this->subjectList)){  
 
-               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+               echo "<option value='".$row['name']." ".$row['batch']."'>".$row['name']." ".$row['batch']."</option>";
 
             }
       ?></select></td>
@@ -160,22 +160,17 @@ $(function(){
   <?php
 
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+         echo "<tr onclick='myFunction(this)'><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
       }
   ?>
 </tbody>
-</tbody>
-
-
 </table>
 
-</div>
+<input type="submit" class="scan-btn" value="Mark attendance" >
 
-
-<a href="markAttendance"><input type="submit" class="scan-btn" value="Mark attendance" ></a>
-
-
+</form>
  </div>
+</div>
 
 
   
@@ -233,6 +228,12 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+function myFunction(x){
+  x.bgColor = 'grey';
+  document.getElementById("filter-class").value=x.cells[0].innerText;
+
 }
 
 

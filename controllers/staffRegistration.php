@@ -13,8 +13,6 @@ class staffRegistration extends Controller{
         
         $data = array();
         $data['fname'] = $_POST['fname'];
-        $data['mname'] = $_POST['mname'];
-        $data['lname'] = $_POST['lname'];
         $data['NIC'] = $_POST['NIC'];
         $data['DOB'] = $_POST['DOB'];
         $data['gender'] = $_POST['gender'];

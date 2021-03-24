@@ -8,6 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
 
 </head>
 <body>
@@ -44,18 +45,13 @@
     <div class="col-15">
       <label for="subject">Full Name :</label>
     </div>
-    <div class="col-20">
-      <input type="text" placeholder="First name..." name="fname">
+    <div class="col-25">      
+      <div class="popup">
+          <input type="text" placeholder="Full name..." name="fname"  id="fullname" onfocusout="validateName()">
+			  <span class="popuptext" id="name-popup"></span>
+			</div>
     </div>
     <div class="col-10">
-    </div>
-    <div class="col-20">
-      <input type="text" placeholder="Middle name..." name="mname">
-    </div>
-    <div class="col-10">
-    </div>
-    <div class="col-20">
-      <input type="text" placeholder="Last name..." name="lname">
     </div>
     </div>
     
@@ -63,8 +59,11 @@
     <div class="col-15">
       <label for="subject"> NIC :</label>
     </div>
-    <div class="col-25">
-      <input type="text" placeholder="Identity card number..." name="NIC">
+    <div class="col-25">      
+      <div class="popup">
+          <input type="text" placeholder="Identity card number..." name="NIC"  id="NIC" onfocusout="validateNIC()">
+			  <span class="popuptext" id="NIC-popup"></span>
+			</div>
     </div>
     <div class="col-10">
     </div>
@@ -94,8 +93,11 @@
     <div class="col-15">
       <label for="subject">Email :</label>
     </div>
-    <div class="col-75" style="width: 60%">
-      <input type="email" placeholder="Email address..." name="email">
+    <div class="col-75" style="width: 60%">      
+      <div class="popup">
+		    <input type="email" placeholder="Email address..." id="email" name="email" onfocusout="validateEmail()">
+		  <span class="popuptext" id="email-popup"></span>
+		  </div>
     </div>
     </div>
     
@@ -104,7 +106,7 @@
       <label for="subject">Address :</label>
     </div>
     <div class="col-75">
-      <textarea rows="4" cols="90" placeholder="Address..." name="address"></textarea>
+      <textarea rows="4" cols="90" placeholder="Address..." name="address" required></textarea>
     </div>
     </div>
     
@@ -113,7 +115,10 @@
       <label for="subject">Mobile No. :</label>
     </div>
     <div class="col-25">
-      <input type="text" placeholder="Mobile number..." name="tel">
+      <div class="popup">
+		      <input type="text" placeholder="Mobile number..." id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		    <span class="popuptext" id="phone-popup"></span>
+		  </div>
     </div>
     </div>
     

@@ -22,7 +22,7 @@ class attendanceLandingPage_Model extends Model{
 
     public function listSubjects(){
 
-        return $this->db->listAll("subject");
+        return $this->db->listWhere("s.name,c.batch","subject s,class c","c.subject_id=s.id");
         
 
     }
