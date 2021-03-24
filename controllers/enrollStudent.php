@@ -34,9 +34,9 @@ class enrollStudent extends Controller{
 
         $result=$this->model->create($data);
          if($result == 1){
-            header('location: '.URL.'enrollStudent?alert=success');
+            header('location: '.URL.'enrollStudent?alert1=success');
         }else{
-            header('location: '.URL.'enrollStudent?alert=fail');
+            header('location: '.URL.'enrollStudent?alert1=fail');
         }
         
     }

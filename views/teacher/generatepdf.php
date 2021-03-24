@@ -32,8 +32,9 @@ class MYPDF extends TCPDF {
 
     // Load table data from file
     public function LoadData() {
+      $userid=$_GET['user'];
         $this->connection = mysqli_connect('localhost','root','isurika','vidarsha') or die("DB connection failed");
-        $sql = "select * from teacher_salary";
+        $sql = "select c.batch,SUM(f.amount)*95/100 as totalAmount from fees f,class c,teacher t where f.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid GROUP BY c.batch";
         $result = mysqli_query($this->connection,$sql);
         $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $data;
@@ -48,7 +49,7 @@ class MYPDF extends TCPDF {
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(10,40, 35, 40, 40);
+        $w = array(50,50);
         $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -60,15 +61,18 @@ class MYPDF extends TCPDF {
         $this->SetFont('');
         // Data
         $fill = 0;
+        $count=0;
         foreach($data as $row) {
-            $this->Cell($w[0], 6, $row['id'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row['date'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, $row['month'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[3], 6, number_format($row['amount']), 'LR', 0, 'R', $fill);
-            $this->Cell($w[4], 6, $row['teacher_reg_no'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[0], 6, $row['batch'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, number_format($row['totalAmount']), 'LR', 0, 'R', $fill);
             $this->Ln();
             $fill=!$fill;
+            $count+=$row['totalAmount'];
         }
+        $this->Cell($w[0], 6, 'Total', 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, number_format($count), 'LR', 0, 'R', $fill);
+            $this->Ln();
+            $fill=!$fill;
         $this->Cell(array_sum($w), 0, '', 'T');
     }
 }
@@ -125,7 +129,7 @@ $html = '<div style="text-align:center">
 $pdf->writeHTML($html, true, false, true, false, '');
 
 // column titles
-$header = array('Id', 'Date', 'Month', 'Amount','Teacher Reg No');
+$header = array('Batch','Amount');
 
 // data loading
 $data = $pdf->LoadData();
