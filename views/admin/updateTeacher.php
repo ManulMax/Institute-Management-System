@@ -96,13 +96,18 @@
       </tr>
     </thead>
     <tbody>
-      <?php
 
-    while($row = mysqli_fetch_assoc($this->tecList)){  
-    echo "<tr><td>" .$row['fname']."</td><td>".$row['NIC']."</td><td>".$row['email']."</td><td>".$row['tel_no']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+    <?php
+    while($row = mysqli_fetch_assoc($this->tecList)){  ?>
+    <tr><td><?php echo $row['fname']?></td>
+    <td><?php echo $row['NIC'] ?> </td>
+    <td><?php echo $row['email'] ?></td>
+    <td><?php echo $row['tel_no'] ?></td>
+    <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/updateTeacher/renderTeacherUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
+		<td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['user_id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr>
+    </tr>
 
-    }
-?>
+    <?php } ?>
     </tbody>
     </table>
     </div>

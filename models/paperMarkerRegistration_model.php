@@ -59,6 +59,4 @@ class paperMarkerRegistration_Model extends Model{
     }
 
 
-
-
 }
