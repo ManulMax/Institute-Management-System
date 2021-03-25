@@ -30,6 +30,13 @@ class updateTeacher extends Controller{
         $data['acc_no'] = $_POST['acc_update'];
         $data['bank_name'] = $_POST['bank_update'];
         $data['branch_name'] =$_POST['branch_update'];
+
+        $result=$this->model->update($data);
+        if($result == 1){
+            header('location: '.URL.'updateTeacher?alert=success');
+        }else{
+            header('location: '.URL.'updateTeacher?alert=fail');
+        }
         
     }
 }

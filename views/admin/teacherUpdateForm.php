@@ -19,7 +19,7 @@
 
 while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
 
-	<form id="regForm" action="<?php echo URL; ?>teacherRegistration/update" method="post" onsubmit="validatstaff()">
+	<form id="regForm" action="<?php echo URL; ?>updateTeacher/update" method="post" onsubmit="validatstaff()">
     <div class="row">
     <div class="col-15">
       <label for="subject">Full Name :</label>
@@ -150,7 +150,7 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
       <label for="subject">Qualifications :</label>
     </div>
     <div class="col-75">
-      <textarea rows="4" cols="90" name="qualifications_update" value="<?php echo $row['qualification']; ?>"></textarea>
+      <textarea rows="4" cols="90" name="qualification_update" value="<?php echo $row['qualification']; ?>"></textarea>
     </div>
     </div>
 
