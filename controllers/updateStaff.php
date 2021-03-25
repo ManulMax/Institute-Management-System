@@ -29,11 +29,11 @@ class updateStaff extends Controller{
         $data['fixed_salary'] = $_POST['salary_update'];
 
 
-        // $result=$this->model->update($data);
-        // if($result == 1){
-        //     header('location: '.URL.'updateStaff?alert=success');
-        // }else{
-        //     header('location: '.URL.'updateStaff?alert=fail');
-        // }
+        $result=$this->model->update($data);
+        if($result == 1){
+            header('location: '.URL.'updateStaff?alert=success');
+        }else{
+            header('location: '.URL.'updateStaff?alert=fail');
+        }
     }
 }
