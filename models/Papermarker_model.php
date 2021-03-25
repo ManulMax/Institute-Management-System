@@ -59,6 +59,4 @@ class Papermarker_Model extends Model{
     }
 
 
-
-
 }

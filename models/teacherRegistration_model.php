@@ -17,7 +17,7 @@ class teacherRegistration_model extends Model{
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
 
-        $this->db->insert('teacher',"(fname,tel_no,address,NIC,DOB,gender,email,qualifications,subject_id,acc_no,bank_name,acc_type,reg_date,user_id)","('".$data['fname']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$data['subject_id'].",".$data['acc_no'].",'".$data['bank_name']."','".$data['acc_type']."','".$data['reg_date']."',".$num['id'].")");
+        $this->db->insert('teacher',"(fname,tel_no,address,NIC,DOB,gender,email,qualifications,subject_id,acc_no,bank_name,branch_name,reg_date,user_id)","('".$data['fname']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$data['subject_id'].",".$data['acc_no'].",'".$data['bank_name']."','".$data['branch_name']."','".$data['reg_date']."',".$num['id'].")");
     }
 
 }

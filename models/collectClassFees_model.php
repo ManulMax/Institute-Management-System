@@ -25,9 +25,16 @@ class collectClassFees_Model extends Model{
 
     public function listStuDetails($reg){
 
-         return $this->db->listWhere("s.fname,s.image,f.month","student s,fees f","s.reg_no=$reg and f.stu_reg_no=s.reg_no ORDER BY f.id DESC LIMIT 1");
+        return $this->db->listWhere("s.fname,s.image","student s","s.reg_no=$reg ");
     }
+ 
+    public function listStudentFeesDetails($reg){
+        
+        $classID = $this->db->listWhere("c.id","class c, subject s","s.name='".$data['subject']."' and s.id=c.subject_id and c.batch='".$data['batch']."'");
+        $id = mysqli_fetch_assoc($classID);
 
+        return $this->db->listWhere("f.month,c.monthly_fee","Fees f, class c","f.stu_reg_no=$reg and f.class_id=".$id['id']." and c.id=".$id['id']." ORDER BY f.id DESC LIMIT 1");
+    }
    
 
     public function listFees($reg){

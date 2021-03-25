@@ -27,7 +27,7 @@ class teacherHome extends Controller{
     }
 
     function getMaterials($id){
-        $this->view->materialList = $this->model->listMaterials($id);
+        $this->view->materialList = $this->model->listMaterials($id); 
         $this->view->render('teacher/materials');
     }
 } 

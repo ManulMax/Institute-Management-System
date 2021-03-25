@@ -20,12 +20,24 @@ class studentHome_Model extends Model{
 
     }
 
+     public function listStuedentSubjects($reg){ 
+
+        
+        return $this->db->listWhere("s.name,c.batch","class c, subject s, enrollment e","e.stu_reg_no=$reg and e.class_id=c.id and c.subject_id=s.id");
+    
+    } 
+
      public function listDetails($userid){
 
         return $this->db->listWhere("*","student","user_id=$userid");
     
 
     }
+
+    /*public function listClasses($userid){
+
+        return $this->db->listWhere("s.reg_no,c.id,c.batch","class c,user u,student s","u.id=s.user_id and s.reg_no=c.stu_reg_no and u.id=$userid");
+    }*/
 
     public function listTeacher(){
 

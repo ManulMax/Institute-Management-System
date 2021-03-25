@@ -19,7 +19,7 @@ class staffRegistration extends Controller{
         $data['email'] = $_POST['email'];
         $data['address'] = $_POST['address'];
         $data['tel_no'] = $_POST['tel'];
-        $data['salary'] = $_POST['salary'];        
+        $data['fixed_salary'] = $_POST['salary'];        
 
         $this->model->create($data);
         header('location: '.URL.'staffRegistration');
