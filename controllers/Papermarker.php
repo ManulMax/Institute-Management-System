@@ -1,6 +1,6 @@
 <?php
 
-class paperMarkerRegistration extends Controller{
+class Papermarker extends Controller{
     function __construct()
     {
         parent::__construct();
@@ -28,9 +28,9 @@ class paperMarkerRegistration extends Controller{
 
         $result=$this->model->create($data);
         if($result == 1){
-            header('location: '.URL.'paperMarkerRegistration?alert=success');
+            header('location: '.URL.'Papermarker?alert=success');
         }else{
-            header('location: '.URL.'paperMarkerRegistration?alert=fail');
+            header('location: '.URL.'Papermarker?alert=fail');
         }
         
     }
@@ -55,18 +55,18 @@ class paperMarkerRegistration extends Controller{
 
         $result=$this->model->update($data);
         if($result == 1){
-            header('location: '.URL.'paperMarkerRegistration?alert=success');
+            header('location: '.URL.'Papermarker?alert1=success');
         }else{
-            header('location: '.URL.'paperMarkerRegistration?alert=fail');
+            header('location: '.URL.'Papermarker?alert1=fail');
         }
     }
 
     function delete($userid){
         $result=$this->model->delete($userid);
         if($result == 1){
-            header('location: '.URL.'paperMarkerRegistration?alert2=success');
+            header('location: '.URL.'Papermarker?alert2=success');
         }else{
-            header('location: '.URL.'paperMarkerRegistration?alert2=fail');
+            header('location: '.URL.'Papermarker?alert2=fail');
         }
     }
 

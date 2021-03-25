@@ -23,7 +23,7 @@
 
         while($row = mysqli_fetch_assoc($this->pmDetails)){ 
 
-         echo "<form method='post' action='".URL."paperMarkerRegistration/update' class='form-container'  onsubmit='return validatePaperMarker()'>";
+         echo "<form method='post' action='".URL."Papermarker/update' class='form-container'  onsubmit='return validatePaperMarker()'>";
         
          echo "<div class='row'>
             <div class='col-75'>
@@ -84,7 +84,7 @@
         </div>
         <div class='col-75' style='width: 60%'>
         <div class='popup'>
-          <input type='email' placeholder='Email address...' id='email' name='email-update' value='".$row['email']."' onfocusout='validateEmail()'>
+          <input type='email' placeholder='Email address...' id='email' name='email-update' value='".$row['email']."' onfocusout='validateEmail()' readonly>
           <span class='popuptext' id='email-popup'></span>
           </div>
         </div>
