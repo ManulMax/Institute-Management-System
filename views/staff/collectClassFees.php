@@ -163,13 +163,13 @@ $(function(){
     <div class="container" style="margin-top:0px;">
         <table class="image-detail">
             <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
-                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></td>
+                    <td><label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
           </table>
 
-          <div class="table-filters">
+    <div class="table-filters">
   
     <table id="allocation"  style="width:100%;margin-top:30px;">
     <tr>
@@ -223,12 +223,12 @@ $(function(){
     }
   ?>
 </tbody>
-</tbody>
 
 
 </table >
 
 </div>
+<div id="myBtn2" class="save" style="margin-right:30%; margin-top:5%; width:40%;"><h5 style="text-align: center;">View Payment details</h5> </div>
 
            <!--<table class="image-detail" style="margin-top:5px;" > 
 
@@ -268,9 +268,7 @@ $(function(){
 
             
     
-       </table>-->
-        
-        
+       </table>-->        
        
 <div id="myModal2" class="modal">
 
@@ -305,7 +303,16 @@ $(function(){
               </br>
 
 
-         <!-- alert content -->
+              
+         <div class='row' style='background-color:white;text-align: center;'>
+         <input id="formSubmit" class="save" type="submit" value="Save payment" style="width:200px; margin-top: 20px;" >
+         
+       </div>
+    </div>
+  </div>  
+</form>
+ </div>
+               <!-- alert content -->
   <div id="alertModal" class="alert-modal">
       <div class="alert-modal-content">
       <span class="close">&times;</span>
@@ -316,13 +323,7 @@ $(function(){
       </div>
     </div>
 
-              
-         <div class='row' style='background-color:white;text-align: center;'>
-         <input id="formSubmit" class="save" type="submit" value="Save payment" style="width:200px; margin-top: 20px;" >
-         
-       </div>
 
-   
     <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert']; ?>" =="success"){    
@@ -334,25 +335,8 @@ $(function(){
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
             alert.style.display = "block";
           }
-      </script> 
-
-    </div>
-
-  </div>
-
-  
-    
-   <div id="myBtn2" class="save" style="margin-right:30%; margin-top:5%; width:40%;"><h5 style="text-align: center;">View Payment details</h5> </div>
-  
-       
-     
-        
-        
-  
-   
-</form>
-
- </div>
+      </script>
+</div>
 
 
 <!-------------------------------footer------------------------------------------>
