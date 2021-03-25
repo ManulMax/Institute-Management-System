@@ -1,6 +1,6 @@
 <?php
 
-class paperMarkerRegistration_Model extends Model{
+class Papermarker_Model extends Model{
 
     public function __construct(){
      	parent::__construct();
