@@ -41,7 +41,7 @@ $(function(){
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
 	<ul>
 	  <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <li>
+	  <!--<li>
         <button class="dropdown-btn"><i class="fas fa-download"></i>Download Materials
           <i class="fa fa-caret-down"></i>
         </button>
@@ -50,6 +50,22 @@ $(function(){
           <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry 2021 A/L</a>
           <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics 2021 A/L</a>
           <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision 2021 A/L</a>
+        </div>
+    </li>-->
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->classList)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>material/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
         </div>
     </li>
     <li>
@@ -261,8 +277,88 @@ $(function(){
         </td>
 
         <td style="padding:0;">
-
+          <div class="table-filters">
           <table style="padding:0;" class="filterShedule">
+            <tr>
+              <td ><label for="filter-city">Teacher</label></td>
+     <td colspan=3><select style="width:100%; background-color: white;" id="filter-city" data-filter-col="0" style="min-width:60px">
+       <option value="">- All -</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->teacherList)){  
+
+               echo "<option value='".$row['fname']."'>".$row['fname']."</option>";
+
+            }
+      ?>
+     </select></td>
+            </tr>
+ <tr>
+  <td><label for="filter-city">Batch</label></td>
+     <td><select id="filter-city" data-filter-col="2" style="min-width:60px;background-color: white;">
+       <option value="">- All -</option>
+      <option value="<?php echo date("Y");?>AL"><?php echo date("Y");?>AL</option>
+      <option value="<?php echo date("Y")+1;?>AL"><?php echo date("Y")+1;?>AL</option>
+      <option value="<?php echo date("Y")+2;?>AL"><?php echo date("Y")+2;?>AL</option>
+      <option value="Revision">Revision</option>
+     </select></td>
+
+     <td><label for="filter-city">Class</label></td>
+     <td><select id="filter-city" data-filter-col="1" style="min-width:60px;background-color: white;">
+       <option value="">- All -</option>
+      <?php
+
+            while($row = mysqli_fetch_assoc($this->subjectList)){  
+
+               echo "<option value='".$row['name']."'>".$row['name']."</option>";
+
+            }
+      ?>
+     </select></td>
+ </tr>
+</table>
+</div>
+
+
+
+<table id="data" style="width:90%;margin-top:30px;">
+<thead>
+  <tr style="color:black">
+    <th>Teacher</th>
+    <th>Class</th>
+    <th>Batch</th>
+    <th>Time</th>
+    <th>Hall</th>
+    
+    
+
+    
+  </tr>
+ 
+</thead>
+<tbody style="color:black" style="margin-top:25px;">
+  <?php
+    
+      while($row = mysqli_fetch_assoc($this->schedules)){  
+         echo "<tr><td>".$row['fname']."</td><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+      
+    }
+  ?>
+</tbody>
+</tbody>
+
+
+</table>
+        </tr>
+      </table>
+        </td>
+
+    </div>
+
+    
+
+
+          <!--<table style="padding:0;" class="filterShedule">
             <tr>
               <td ><label for="filter-city">Teacher</label></td>
      <td colspan=3><select style="width:100%;" id="filter-city" data-filter-col="1" style="min-width:60px">
@@ -301,6 +397,9 @@ $(function(){
      </select></td>
  </tr>
 </table>
+</td>
+</tr>
+<tr>
 <table id="data">
   <tr>
     <th>Teacher</th>
@@ -325,7 +424,7 @@ $(function(){
       </tr>
     </table> 	
 
-</div>
+</div>-->
 
 
 

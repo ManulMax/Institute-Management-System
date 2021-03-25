@@ -279,31 +279,24 @@ $(function(){
       <span class="close">&times;</span>
      <h3>Payment details</h3>
       
+<?php
 
-      <label>Last paid month</label></br>
-          <input type="text" name="month" class="paid-month" style="background-color: white;width:50%;" value="<?php if(isset($this->stuLastPaidMonth)){echo $this->stuLastPaidMonth; }else{ echo ""; }; ?>">
-        </br>
-      <label>Current payment month</label></br>
-        <select name="currentPaymentMonth" style="background-color: white;width:50%;">
-              <option value="">-All-</option>  
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-            </select>
-          </br>
-      <label>Payment amount</label>  </br>  
-                <input type="text" name="paid-amount" class="paid-amount" style="background-color: white;width:50%;">
-              </br>
+        while($row = mysqli_fetch_assoc($this->studentFeesDetails)){ 
 
+           echo "<div class='row'>
+        <div class='col-15'>
+          <label>Last payed month :</label>
+        </div>
+        <div class='col-75'>
+          <div class='popup'>
+            <input type='text'  name='month' class='paid-month' style=value='background-color: white;width:50%;' ".$row['month']."'  readonly>
+            
+          </div>
+        </div>
+        </div>";
+}
+             
+            ?>
 
          <!-- alert content -->
   <div id="alertModal" class="alert-modal">

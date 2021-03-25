@@ -14,17 +14,18 @@ class collectClassFees extends Controller{
     	$this->view->render('staff/collectClassFees');
     } 
 
-    function renderCollectClassFees($reg,$name,$image,$month){
+    function renderCollectClassFees($reg,$name,$image){
         $this->view->stuName = $name;
         $this->view->stuReg = $reg;
         $this->view->image = $image;
-        $this->view->stuLastPaidMonth = $month;
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->subjectList = $this->model->listSubjects($reg);
         $this->view->fees = $this->model->listFees($reg);
+        $this->view->listStudentFeesDetails = $this->model->listStudentFeesDetails($reg);
+
         $this->view->render('staff/collectClassFees');
     }
-   
+    
        
 
      function create(){
@@ -49,7 +50,7 @@ class collectClassFees extends Controller{
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->listStuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
-        $this->renderCollectClassFees($reg,$row['fname'],$row['image'],$row['month']);
+        $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
               
 
     }
