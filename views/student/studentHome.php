@@ -186,9 +186,9 @@ $(function(){
             <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Enrolled subjects</b></h3></div>
              <div class="containerCard">
-            <p>Chemistry</p>  
-            <p>Physics</p>  
-            <p>Combined maths</p>  
+            <p>Chemistry 2020AL</p>  
+            <p>Physics 2020AL</p>  
+            <p>Combined maths 2020AL</p>  
             </div>
           </div>
           <br />
