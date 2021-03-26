@@ -174,7 +174,7 @@
 	          alert.style.display = "block";
 	        }
 	    </script> 
-
+ 
   		<!-- alert content -->
   <div id="confirmModal" class="alert-modal">
     <div class="alert-modal-content">

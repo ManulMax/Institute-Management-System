@@ -142,7 +142,29 @@ $(function(){
 
 
 
+  <!-- alert content -->
+  <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
 
+    <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert1']; ?>" =="success"){    
+            document.getElementById("msg").innerHTML="Student Details Updated Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="Failed to Update Stuedent Details!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+      </script> 
 
     <!-- alert content -->
   <div id="confirmModal" class="alert-modal">
@@ -286,8 +308,9 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-var alertspan = document.getElementsByClassName("close")[2];
-var confirmspan = document.getElementsByClassName("close")[1];
+var alertspan = document.getElementsByClassName("close")[1];
+var confirmspan = document.getElementsByClassName("close")[2];
+
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {

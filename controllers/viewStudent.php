@@ -71,10 +71,12 @@ class viewStudent extends Controller{
        $result=$this->model->update($data);
         
         if($result == 1){
-            header('location: '.URL.'viewStudent?alert=success');
+            header('location: '.URL.'viewStudent?alert1=success');
         }else{
-            header('location: '.URL.'viewStudent?alert=fail');
+            header('location: '.URL.'viewStudent?alert1=fail');
         }
+
+        
         
     }
 
