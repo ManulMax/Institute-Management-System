@@ -20,10 +20,10 @@ class studentHome_Model extends Model{
 
     }
 
-     public function listStuedentSubjects($reg){ 
+     public function listStudentSubjects($userid){ 
 
         
-        return $this->db->listWhere("s.name,c.batch","class c, subject s, enrollment e","e.stu_reg_no=$reg and e.class_id=c.id and c.subject_id=s.id");
+        return $this->db->listWhere("s.name,c.batch","class c,subject s,enrollment e,student stu","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
     
     } 
 
