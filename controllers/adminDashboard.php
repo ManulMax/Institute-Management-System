@@ -13,6 +13,11 @@ class adminDashboard extends Controller{
         $this->view->subCount = $this->model->listSubCount();
         $this->view->tecCount   = $this->model->listTecCount();
 
+        //to display class count in cahart
+        $this->view->sum1 = $this->model->classCount();
+        $this->view->sum2 = $this->model->classCount();
+        $this->view->sum3 = $this->model->classCount();
+        $this->view->sum4 = $this->model->classCount();
 
     	$this->view->render('admin/adminDashboard');
     }

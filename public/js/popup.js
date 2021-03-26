@@ -26,8 +26,8 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-var alertspan = document.getElementsByClassName("close")[2];
-var confirmspan = document.getElementsByClassName("close")[1];
+var alertspan = document.getElementsByClassName("close")[1];
+var confirmspan = document.getElementsByClassName("close")[2];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {

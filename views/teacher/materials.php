@@ -61,7 +61,7 @@
           <?php  } ?>
         </div>
     </li>
-    <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+    <li><a href="<?php echo URL; ?>Papermarker"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
     <li><a href="<?php echo URL; ?>TeacherSalary"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results

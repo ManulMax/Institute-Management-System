@@ -1,6 +1,6 @@
 <?php
 
-class paperMarkerRegistration_Model extends Model{
+class Papermarker_Model extends Model{
 
     public function __construct(){
      	parent::__construct();
@@ -57,8 +57,6 @@ class paperMarkerRegistration_Model extends Model{
         return $this->db->update('paper_marker',"deleted=1","user_id=$userid");
 
     }
-
-
 
 
 }

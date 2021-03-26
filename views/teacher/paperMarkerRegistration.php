@@ -61,7 +61,7 @@
           <?php  } ?>
         </div>
     </li>
-	  <li><a href="<?php echo URL; ?>paperMarkerRegistration"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
+	  <li><a href="<?php echo URL; ?>Papermarker"><i class="fas fa-user-edit"></i>Papermarker Registration</a></li>
 	  <li><a href="<?php echo URL; ?>TeacherSalary"><i class="fas fa-money-bill-wave"></i>Salary Details</a></li>
 	  <li>
         <button class="dropdown-btn"><i class="fas fa-file-signature"></i>Exam Results
@@ -151,7 +151,29 @@
 
   
   <div class="middle" style="background-color:#F8F8FF;">
+<!-- alert content -->
+	<div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
 
+    <script type="text/javascript">
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert1']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Papermarker Details Updated Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Update Papermarker Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	    </script> 
 
   		<!-- alert content -->
   <div id="confirmModal" class="alert-modal">
@@ -174,9 +196,9 @@
 </div>
 
 <script type="text/javascript">
-  function promptFunction(materialId){
+  function promptFunction(pmId){
     var alert = document.getElementById("confirmModal");
-    document.getElementById('deleteBtn').href="<?php echo URL; ?>paperMarkerRegistration/delete/"+materialId;
+    document.getElementById('deleteBtn').href="<?php echo URL; ?>Papermarker/delete/"+pmId;
     alert.style.display = "block";
   }
 </script>
@@ -208,7 +230,7 @@
 		         <td><?php echo $row['address']; ?></td>
 		         <td><?php echo $row['tel_no']; ?></td>
 		         <td><?php echo $row['qualifications']; ?></td>
-		         <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/paperMarkerRegistration/renderPmUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
+		         <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/Papermarker/renderPmUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
 		         <td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['user_id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr>
 		     <?php } ?>
 		  
@@ -219,7 +241,7 @@
 
 <!-- registration form -->
 
-	<form id="regForm" action="<?php echo URL; ?>paperMarkerRegistration/create" method="post" onsubmit="return validatePaperMarker()">
+	<form id="regForm" action="<?php echo URL; ?>Papermarker/create" method="post" onsubmit="return validatePaperMarker()">
 	  <div class="row">
 		<div class="col-15">
 		  <label>Full Name :</label>
@@ -311,17 +333,6 @@
 		</div>
 	  </div>
 
-
-<!-- alert content -->
-	<div id="alertModal" class="alert-modal">
-      <div class="alert-modal-content">
-      <span class="close">&times;</span>
-      <div class='row' style='background-color:white;text-align: center;'>
-        <h3 id="msg"></h3>
-        <img id="alertImg" src="" alt="image" style="width:40%;">
-       </div>
-      </div>
-    </div>
 
 	  <div class="row" style="margin-top:30px;margin-right:10%;">
 		<input class="roundBtn" type="submit" value="Save" style="padding: 12px 20px;margin-left: 45%;font-size: 17px;height: 40px;width: 100px;">
