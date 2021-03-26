@@ -12,7 +12,7 @@ class studentHome extends Controller{
     	 $this->view->subjectList = $this->model->listSubjects();
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
-         $this->view->studentSubject = $this->model->listStuedentSubjects($_SESSION["userid"]);
+         $this->view->studentSubject = $this->model->listStudentSubjects($_SESSION["userid"]);
 
       	$this->view->render('student/studentHome');
     }

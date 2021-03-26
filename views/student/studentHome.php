@@ -59,11 +59,11 @@ $(function(){
         <div class="dropdown-container">
           <?php
              $classes = []; //create array
-              while($class=mysqli_fetch_assoc($this->classList)) {
+              while($class=mysqli_fetch_assoc($this->studentSubject)) {
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>material/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'] ,$row['batch'] ?></a>
+                <a href="<?php echo URL; ?>material/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
           <?php  } ?>
 
         </div>
