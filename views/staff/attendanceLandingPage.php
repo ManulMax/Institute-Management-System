@@ -166,7 +166,7 @@ $(function(){
 </tbody>
 </table>
 
-<input type="submit" class="scan-btn" value="Mark attendance" >
+<input type="submit" class="scan-btn" value="Mark attendance" style="margin-top:10%;margin-right:0%">
 
 </form>
  </div>
