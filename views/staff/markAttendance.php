@@ -123,7 +123,7 @@
       <form action="<?php echo URL; ?>markAttendance/search/<?php echo $this->subjectname.'/'.$this->batchname; ?>" method="POST">        
         <table class="qr-scan">
             <tr><td><div class="qr"></div></td></tr>
-            <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
+            <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No" style="width:75%"></td></tr>
             <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
 
             

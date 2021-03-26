@@ -154,7 +154,7 @@ $(function(){
 
     <table class="midTable" cellpadding="10px;" border="0">
       <tr>
-        <td width="40%">
+       <!-- <td width="40%">
           <div class="card">
             <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>ICT 2021 A/L</b></h3></div>
@@ -179,7 +179,20 @@ $(function(){
             </div>
           </div>
           <br />
-        </td>
+        </td>-->
+
+        <td width="30%;">
+          <div class="card">
+            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
+            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Enrolled subjects</b></h3></div>
+             <div class="containerCard">
+            <p>Chemistry</p>  
+            <p>Physics</p>  
+            <p>Combined maths</p>  
+            </div>
+          </div>
+          <br />
+        </td>  
 
         <td width="60%">
           <div style="position: relative;margin-left: 10%;">
@@ -319,7 +332,7 @@ $(function(){
 </table>
 </div>-->
 
-
+<h3 style="margin-left:10%;">Today's shedule</h3>
 
 <table id="data" style="width:90%;margin-top:30px;">
 <thead>

@@ -163,13 +163,13 @@ $(function(){
     <div class="container" style="margin-top:0px;">
         <table class="image-detail">
             <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></td>
-                    <td><label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
           </table>
 
-    
+  
     <div class="table-filters">
   
     <table id="allocation"  style="width:100%;margin-top:30px;">
@@ -283,7 +283,7 @@ $(function(){
       
 
       <label>Last paid month</label></br>
-          <p name="month" class="paid-month" style="background-color: white;width:50%;color: black;" ><?php echo $this->feesMonth; ?></p>
+          <p name="month" class="paid-month" style="background-color: white;width:50%;color: black;margin-left:10%;" ><?php echo $this->feesMonth; ?></p>
         </br>
       <label>Current payment month</label></br>
         <select name="currentPaymentMonth" style="background-color: white;width:50%;">
@@ -303,7 +303,7 @@ $(function(){
             </select>
           </br>
       <label>Payment amount</label>  </br>  
-                <p name="paid-amount" class="paid-amount" style="background-color: white;width:50%;color: black;"><?php echo $this->feesAmount; ?></p>
+                <p name="paid-amount" class="paid-amount" style="background-color: white;width:50%;color: black;margin-left:10%;"><?php echo $this->feesAmount; ?></p>
               </br>
 
 
