@@ -31,15 +31,21 @@
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
   <ul>
     <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
+     <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
     <li>
-        <button class="dropdown-btn"><i class="fas fa-download"></i>Download Materials
+        <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT 2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry 2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics 2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision 2021 A/L</a>
+          <?php
+             $classes = []; //create array
+              while($class=mysqli_fetch_assoc($this->studentSubject)) {
+                  $classes[] = $class; //assign whole values to array
+              }
+             foreach($classes as $row){  ?>
+                <a href="<?php echo URL; ?>materials/renderDownloadMaterials/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+          <?php  } ?>
+
         </div>
     </li>
     <li>
@@ -47,10 +53,11 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT 2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry 2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics 2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision 2021 A/L</a>
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+          <?php  } ?>
         </div>
     </li>
   </ul> 

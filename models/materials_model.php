@@ -71,6 +71,13 @@ class materials_Model extends Model{
             return $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid))");
     }
 
+    public function listStudentSubjects($userid){ 
+
+        
+        return $this->db->listWhere("s.name,c.batch","class c,subject s,enrollment e,student stu","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
+    
+    } 
+
 
     public function update($data){
 

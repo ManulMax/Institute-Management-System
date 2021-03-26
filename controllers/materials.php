@@ -20,6 +20,8 @@ class materials extends Controller{
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->stuMaterialList = $this->model->listStuMaterials($name,$batch);
         $this->view->userDetails = $this->model->liststuDetails($_SESSION["userid"]);
+        $this->view->studentSubject = $this->model->listStudentSubjects($_SESSION["userid"]);
+
         $this->view->render('student/downloadMaterials');
     }
 
