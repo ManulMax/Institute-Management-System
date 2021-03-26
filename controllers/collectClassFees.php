@@ -21,7 +21,7 @@ class collectClassFees extends Controller{
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->subjectList = $this->model->listSubjects($reg);
         $this->view->fees = $this->model->listFees($reg);
-        $this->view->listStudentFeesDetails = $this->model->listStudentFeesDetails($reg);
+        
 
         $this->view->render('staff/collectClassFees');
     }
@@ -53,6 +53,11 @@ class collectClassFees extends Controller{
         $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
               
 
+    }
+
+    function fees($reg){
+        $fees= $this->model->listStudentFeesDetails($reg);
+        $row = mysqli_fetch_assoc($fees);
     }
 
     

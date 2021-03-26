@@ -63,7 +63,7 @@ $(function(){
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>material/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+                <a href="<?php echo URL; ?>material/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'] ,$row['batch'] ?></a>
           <?php  } ?>
 
         </div>
@@ -277,7 +277,7 @@ $(function(){
         </td>
 
         <td style="padding:0;">
-          <div class="table-filters">
+          <!--<div class="table-filters">
           <table style="padding:0;" class="filterShedule">
             <tr>
               <td ><label for="filter-city">Teacher</label></td>
@@ -317,7 +317,7 @@ $(function(){
      </select></td>
  </tr>
 </table>
-</div>
+</div>-->
 
 
 
@@ -357,84 +357,14 @@ $(function(){
 
     
 
-
-          <!--<table style="padding:0;" class="filterShedule">
-            <tr>
-              <td ><label for="filter-city">Teacher</label></td>
-     <td colspan=3><select style="width:100%;" id="filter-city" data-filter-col="1" style="min-width:60px">
-       <option value="">- All -</option>
-      <?php
-
-            while($row = mysqli_fetch_assoc($this->teacherList)){  
-
-               echo "<option value='".$row['fname']."'>".$row['fname']."</option>";
-
-            }
-      ?>
-     </select></td>
-            </tr>
- <tr>
-  <td><label for="filter-city">Batch</label></td>
-     <td><select id="filter-city" data-filter-col="3" style="min-width:60px">
-       <option value="">- All -</option>
-      <option value="1"><?php echo date("Y");?> A/L</option>
-      <option value="2"><?php echo date("Y")+1;?> A/L</option>
-      <option value="3"><?php echo date("Y")+2;?> A/L</option>
-      <option value="4">Revision</option>
-     </select></td>
-
-     <td><label for="filter-city">Class</label></td>
-     <td><select id="filter-city" data-filter-col="2" style="min-width:60px">
-       <option value="">- All -</option>
-      <?php
-
-            while($row = mysqli_fetch_assoc($this->subjectList)){  
-
-               echo "<option value='".$row['name']."'>".$row['name']."</option>";
-
-            }
-      ?>
-     </select></td>
- </tr>
-</table>
-</td>
-</tr>
-<tr>
-<table id="data">
-  <tr>
-    <th>Teacher</th>
-    <th>Class</th>
-    <th>Batch</th>
-    <th>Time</th>
-    <th>Hall</th>
-  </tr>
-
-
-  <?php
-
-      while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['fname']."</td><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
-
-      }
-  ?>
-
-</table>
-        </td>
-        
-      </tr>
-    </table> 	
-
-</div>-->
-
-
-
-
-
+<!-----------------Footer---------------->
 <div class="footer">
         <div id="copyright" class="cpy clear">           
           <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
         </div>
       </div>
+
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

@@ -36,7 +36,7 @@ class studentHome_Model extends Model{
 
     /*public function listClasses($userid){
 
-        return $this->db->listWhere("s.reg_no,c.id,c.batch","class c,user u,student s","u.id=s.user_id and s.reg_no=c.stu_reg_no and u.id=$userid");
+        return $this->db->listWhere("c.batch,s.name","class c,subject s, enrollment e, student stu,student s","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
     }*/
 
     public function listTeacher(){

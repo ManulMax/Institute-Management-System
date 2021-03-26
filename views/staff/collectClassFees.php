@@ -29,7 +29,7 @@ $(function(){
   </style>
 
  
-
+ 
 </head>
 
 
@@ -169,6 +169,7 @@ $(function(){
             </tr>
           </table>
 
+    
     <div class="table-filters">
   
     <table id="allocation"  style="width:100%;margin-top:30px;">
@@ -227,8 +228,11 @@ $(function(){
 
 </table >
 
-</div>
-<div id="myBtn2" class="save" style="margin-right:30%; margin-top:5%; width:40%;"><h5 style="text-align: center;">View Payment details</h5> </div>
+
+<!--<div id="myBtn2" class="save" style="margin-right:40%; margin-top:20%; width:40%;"><h5 style="text-align: center;">View Payment details</h5></div>-->
+ <!--<button id='myBtn2' class="save" style="margin-right:40%; margin-top:20%; width:40%;"><a href='<?php echo URL; ?>collectClassFees/fees'></a>View payment details</button>-->
+ <i id='myBtn2' class="save" style="margin-right:40%; margin-top:20%; width:40%;"><a href='<?php echo URL; ?>collectClassFees/fees' style="text-decoration: none;color:white;margin-left: 50px;">View payment details</a></i>
+
 
            <!--<table class="image-detail" style="margin-top:5px;" > 
 
@@ -266,7 +270,7 @@ $(function(){
               <td><input type="text" name="paid-amount" class="paid-amount"></td>
             </tr>
 
-            
+    value=<?php if(isset($this->stuLastPaidMonth)){echo $this->stuLastPaidMonth; }else{ echo ""; }; ?>"        
     
        </table>-->        
        
@@ -277,24 +281,32 @@ $(function(){
       <span class="close">&times;</span>
      <h3>Payment details</h3>
       
-<?php
 
-        while($row = mysqli_fetch_assoc($this->studentFeesDetails)){ 
+      <label>Last paid month</label></br>
+          <input type="text" name="month" class="paid-month" style="background-color: white;width:50%;" >
+        </br>
+      <label>Current payment month</label></br>
+        <select name="currentPaymentMonth" style="background-color: white;width:50%;">
+              <option value="">-All-</option>  
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </br>
+      <label>Payment amount</label>  </br>  
+                <input type="text" name="paid-amount" class="paid-amount" style="background-color: white;width:50%;">
+              </br>
 
-           echo "<div class='row'>
-        <div class='col-15'>
-          <label>Last payed month :</label>
-        </div>
-        <div class='col-75'>
-          <div class='popup'>
-            <input type='text'  name='month' class='paid-month' style=value='background-color: white;width:50%;' ".$row['month']."'  readonly>
-            
-          </div>
-        </div>
-        </div>";
-}
-             
-            ?>
+
 
               
          <div class='row' style='background-color:white;text-align: center;'>
