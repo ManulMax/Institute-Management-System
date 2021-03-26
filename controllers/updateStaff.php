@@ -14,22 +14,23 @@ class updateStaff extends Controller{
 
     function renderStaffUpdate($userSf){
         $this->view->staffDetails = $this->model->listStaffDetails($userSf);
+        $this->view->userSf =$userSf;
         $this->view->render('admin/staffUpdateForm');
     }
 
-    function update(){
-
+    function update($userSf){
+        
         $data = array();
-        //$data['fname'] = $_POST['name_update'];
+        $data['fname'] = $_POST['name_update'];
         $data['tel_no'] = $_POST['tel_update'];
         $data['address'] = $_POST['address_update'];
-        //$data['NIC'] = $_POST['NIC_update'];
+        $data['NIC'] = $_POST['NIC_update'];
         $data['DOB'] = $_POST['DOB_update'];
-        //$data['email'] = $_POST['email_update'];
+        $data['email'] = $_POST['email_update'];
         $data['fixed_salary'] = $_POST['salary_update'];
 
 
-        $result=$this->model->update($data);
+        $result=$this->model->update($data,$userSf);
         if($result == 1){
             header('location: '.URL.'updateStaff?alert=success');
         }else{

@@ -18,7 +18,7 @@
 
 while($row = mysqli_fetch_assoc($this->staffDetails)){ ?>
 
-<form id="regForm" action="<?php echo URL; ?>updateStaff/update" method="post" onsubmit="validatstaff()">
+<form id="regForm" action="<?php echo URL; ?>updateStaff/update/<?php echo $this->userSf; ?>" method="post" onsubmit="validatstaff()">
       <div class="row">
       <div class="col-15">
         <label for="subject">Full Name :</label>
