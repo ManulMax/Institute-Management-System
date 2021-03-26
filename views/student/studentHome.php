@@ -63,12 +63,12 @@ $(function(){
                   $classes[] = $class; //assign whole values to array
               }
              foreach($classes as $row){  ?>
-                <a href="<?php echo URL; ?>material/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+                <a href="<?php echo URL; ?>materials/renderDownloadMaterials/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
           <?php  } ?>
 
         </div>
     </li>
-    <li>
+   <!-- <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
           <i class="fa fa-caret-down"></i>
         </button>
@@ -78,8 +78,20 @@ $(function(){
           <a href="<?php echo URL; ?>participateQuizLandingPage">Physics 2021 A/L</a>
           <a href="<?php echo URL; ?>participateQuizLandingPage">Revision 2021 A/L</a>
         </div>
-    </li>
+    </li>-->
 
+      <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
 	</ul>	
 	
   </div>
@@ -186,9 +198,12 @@ $(function(){
             <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Enrolled subjects</b></h3></div>
              <div class="containerCard">
-            <p>Chemistry 2020AL</p>  
-            <p>Physics 2020AL</p>  
-            <p>Combined maths 2020AL</p>  
+              <?php
+       
+         foreach($classes as $row){  ?>
+            <li style="list-style: none;"><?php echo $row['name'].' '.$row['batch']; ?>
+          <?php  } ?></li>
+              
             </div>
           </div>
           <br />

@@ -47,6 +47,11 @@ class materials_Model extends Model{
         return $this->db->listWhere("*","study_material","class_id=$id and deleted=0");
     }
 
+    public function listStuMaterials($name,$batch){
+
+        return $this->db->listWhere("m.id,m.heading,m.description,m.name","subject s,class c, study_material m","m.class_id=c.id and c.batch=$batch and c.subject_id=s.id and s.name=$name and m.deleted=0");
+    }
+
 
     public function listSubjects(){
 

@@ -127,7 +127,7 @@
 
         $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
        
-         while($row = mysqli_fetch_assoc($this->materialList)){ 
+         while($row = mysqli_fetch_assoc($this->stuMaterialList)){ 
           ?>  
               <br />
              <h3><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
