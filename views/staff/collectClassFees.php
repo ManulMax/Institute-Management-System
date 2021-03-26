@@ -229,9 +229,9 @@ $(function(){
 </table >
 
 
-<!--<div id="myBtn2" class="save" style="margin-right:40%; margin-top:20%; width:40%;"><h5 style="text-align: center;">View Payment details</h5></div>-->
+<div id="myBtn2" class="save" style="margin-right:40%; margin-top:20%; width:40%;"><h5 style="text-align: center;">View Payment details</h5></div>
  <!--<button id='myBtn2' class="save" style="margin-right:40%; margin-top:20%; width:40%;"><a href='<?php echo URL; ?>collectClassFees/fees'></a>View payment details</button>-->
- <i id='myBtn2' class="save" style="margin-right:40%; margin-top:20%; width:40%;"><a href='<?php echo URL; ?>collectClassFees/fees' style="text-decoration: none;color:white;margin-left: 50px;">View payment details</a></i>
+<!-- <i id='myBtn2' class="save" style="margin-right:40%; margin-top:20%; width:40%;"><a href='<?php echo URL; ?>collectClassFees/fees' style="text-decoration: none;color:white;margin-left: 50px;">View payment details</a></i> -->
 
 
            <!--<table class="image-detail" style="margin-top:5px;" > 
@@ -283,7 +283,7 @@ $(function(){
       
 
       <label>Last paid month</label></br>
-          <input type="text" name="month" class="paid-month" style="background-color: white;width:50%;" >
+          <p name="month" class="paid-month" style="background-color: white;width:50%;color: black;" ><?php echo $this->feesMonth; ?></p>
         </br>
       <label>Current payment month</label></br>
         <select name="currentPaymentMonth" style="background-color: white;width:50%;">
@@ -303,7 +303,7 @@ $(function(){
             </select>
           </br>
       <label>Payment amount</label>  </br>  
-                <input type="text" name="paid-amount" class="paid-amount" style="background-color: white;width:50%;">
+                <p name="paid-amount" class="paid-amount" style="background-color: white;width:50%;color: black;"><?php echo $this->feesAmount; ?></p>
               </br>
 
 
