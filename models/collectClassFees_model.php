@@ -39,7 +39,10 @@ class collectClassFees_Model extends Model{
     public function listStudentFeesDetails($reg){
         return $this->db->listWhere("f.month,f.amount","student s,fees f","f.stu_reg_no=s.reg_no ORDER BY f.id DESC LIMIT 1");
     }
-   
+
+     /*return $this->db->listWhere("f.month,f.amount","fees f,class c,subject sub","sub.name='".$subjectname."' and sub.id=c.subject_id and c.batch='".$batchname."' and c.id=f.class_id and  f.stu_reg_no=$reg ORDER BY f.id DESC LIMIT 1");
+    }
+   */
 
     public function listFees($reg){
 

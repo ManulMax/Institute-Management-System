@@ -49,7 +49,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+            <a href="<?php echo URL; ?>StudentQuizList/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -123,25 +123,30 @@
   </div>
 
   <div class="middle" style="background-color:white;">
-    
+    <h2 class="className" style="text-align: center;"><?php echo $_SESSION['subject']; ?>&nbsp<?php echo $_SESSION['batch']; ?>  Class</h2>
 
-    <table id="data" style="width:90%;margin-top:10%; margin-right:5%;">
+    <table id="data"  style="width:90%;margin-top:10%; margin-right:5%;">
 <thead>
   <tr style="color:black">
     <th>Name</th>
     <th>Quiz date</th>
     <th>Time limit</th>
-    <th>Status</th>
-  
-    
-    
-
-    
+    <th>Status</th>  
   </tr>
  
 </thead>
 <tbody style="color:black" style="margin-top:25px;">
-  
+  <?php
+
+          while($row=mysqli_fetch_assoc($this->qlist)) { ?>
+          
+             <tr><td><?php echo $row['topic']; ?></td>
+             <td><?php echo $row['date']; ?></td>
+             <td><?php echo $row['time_limit']; ?></td>
+             <td></td>
+             
+           </tr>
+         <?php } ?>
 </tbody>
 </tbody>
 

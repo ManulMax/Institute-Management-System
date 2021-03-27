@@ -20,7 +20,7 @@ class Quiz extends Controller{
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
         $this->view->render('teacher/createQuiz');
-    }
+    } 
 
     function renderViewQuiz($id){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);

@@ -56,7 +56,7 @@
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+            <a href="<?php echo URL; ?>StudentQuizList/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
