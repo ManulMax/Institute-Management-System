@@ -132,7 +132,6 @@
        <?php
 
         $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
-       
          while($row = mysqli_fetch_assoc($this->stuMaterialList)){ 
           ?>  
               <br />
