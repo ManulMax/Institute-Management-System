@@ -1,6 +1,6 @@
 <?php
 
-class participateQuizLandingPage extends Controller{
+class StudentQuizList extends Controller{
     function __construct()
     {
         parent::__construct();
@@ -9,6 +9,6 @@ class participateQuizLandingPage extends Controller{
     function index(){
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
     	$this->view->studentSubject = $this->model->listStudentSubjects($_SESSION["userid"]);
-    	$this->view->render('student/participateQuizLandingPage');
+    	$this->view->render('student/StudentQuizList');
     }
 }

@@ -110,30 +110,32 @@
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
 	<div class="container">
+    <form method="post" action="<?php echo URL; ?>prepareResultSheet/export" align="center">
     <table>
       <tr>
-        <td style="width: 10%;">Class:</td>
-        <td><select>
-      <option value="0">Select Class:</option>
-      <option value="1">2021 A/L</option>
-      <option value="2">2022 A/L</option>
-      <option value="3">2023 A/L</option>
-      <option value="4">Revision</option>
+        <td style="width: 10%;">Batch:</td>
+        <td><select name="batch">
+      <option value="<?php echo date("Y"); ?>AL"><?php echo date("Y"); ?>AL</option>
+      <option value="<?php echo date("Y")+1; ?>AL"><?php echo date("Y")+1; ?>AL</option>
+      <option value="<?php echo date("Y")+2; ?>AL"><?php echo date("Y")+2; ?>AL</option>
+      <option value="Revision">Revision</option>
       </select></td>
       <td style="width: 10%;"></td>
       <td style="width: 10%;">Exam:</td>
-        <td><select>
-      <option value="0">Select Exam:</option>
-      <option value="1">Encapsulation</option>
-      <option value="2"> Abstaction</option>
-      <option value="3"> Inheritance</option>
-      <option value="4">Exception Handing</option>
-      </select></td>
+        <td><select name="exam">
+            <?php
+            while($row=mysqli_fetch_assoc($this->exams)){
+              echo "<option value='".$row['topic']."'>".$row['topic']."</option>";
+            }
+            
+            ?>
+          </select>
+        </td>
       </tr>
 
      </table>
 
-      <form method="post" action="<?php echo URL; ?>prepareResultSheet/export" align="center">  
+        
            <input type="submit" name="export" value="CSV Export" class="btn" />  
       </form>
      
