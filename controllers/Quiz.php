@@ -62,4 +62,16 @@ class Quiz extends Controller{
             header('location: '.URL.'Quiz?alert1=fail');
         }
     } */
+
+    // ------------------------ student quiz -------------------------------------
+
+   /* function renderStuQuizLandingPage($id,$batch){
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->batch = $batch;
+        Session::set('classid',$id);
+        Session::set('batch',$batch);
+        $this->view->qlist = $this->model->listQuizzes($id);
+        $this->view->render('teacher/quizList');
+    } */
 }
