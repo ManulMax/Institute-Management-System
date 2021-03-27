@@ -12,11 +12,12 @@ class updateTeacher extends Controller{
     }
 
     function renderTeacherUpdate($userTec){
+        $this->view->userTec = $userTec;
         $this->view->tecDetails = $this->model->listTecDetails($userTec);
         $this->view->render('admin/teacherUpdateForm');
     }
 
-    function update(){
+    function update($userTec){
 
         $data = array();
         $data['fname'] = $_POST['fname_update'];
@@ -31,7 +32,7 @@ class updateTeacher extends Controller{
         $data['bank_name'] = $_POST['bank_update'];
         $data['branch_name'] =$_POST['branch_update'];
 
-        $result=$this->model->update($data);
+        $result=$this->model->update($data,$userTec);
         if($result == 1){
             header('location: '.URL.'updateTeacher?alert=success');
         }else{

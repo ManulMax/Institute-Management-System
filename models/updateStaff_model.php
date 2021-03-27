@@ -14,9 +14,11 @@ class updateStaff_model extends Model{
         return $this->db->listWhere("*","staff","user_id=$userid");
     }
 
-    public function update($data){
+    public function update($data,$userSf){
         
-        $result = $this->db->update('staff',"tel_no=".$data['tel_no'].",address='".$data['address']."',fixed_salary=".$data['fixed_salary']."");
+        $this->db->update('staff',"tel_no=".$data['tel_no'].",address='".$data['address']."',fixed_salary=".$data['fixed_salary']."","user_id=$userSf");
+       
         return $result;
     }
 }
+

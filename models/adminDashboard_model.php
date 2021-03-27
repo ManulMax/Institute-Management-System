@@ -22,8 +22,8 @@ class adminDashboard_model extends Model{
         return $this->db->listCol("count(reg_no) as tecCount","teacher");
     }
 
-    public function classCount(){
-        return $this->db->listWhere("");
-    }
+    // public function classCount(){
+    //     return $this->db->listWhere("");
+    // }
 
 }
