@@ -61,7 +61,6 @@ input[type="file"]{
 .btn, .btn2 {
 background-color: #4CAF50;
   color: #ffffff;
-  border: none;
   padding: 10px 20px;
   font-size: 17px;
   cursor: pointer;
@@ -75,6 +74,7 @@ opacity:1;
 
 .btn{
 	margin-left: 40%;
+  border: none;
 }
 
 label{

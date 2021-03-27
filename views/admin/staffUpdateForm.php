@@ -57,12 +57,13 @@ while($row = mysqli_fetch_assoc($this->staffDetails)){ ?>
       <div class="col-15">
         <label for="subject">Gender :</label>
       </div>
+      <?php $gender = $row['gender']; ?>
       <div class="col-15" class="genderLabel">
-        <input type="radio" value="male" name="gender" readonly>
+        <input type="radio" value="male" name="gender" <?php echo ($gender=='male')?'checked':'' ?> readonly>
         <label for="male">Male</label>
       </div>
       <div class="col-15" class="genderLabel">
-        <input type="radio" value="female" name="gender" readonly>
+        <input type="radio" value="female" name="gender" <?php echo ($gender=='female')?'checked':'' ?> readonly>
         <label for="female">Female</label>
       </div>
       </div>

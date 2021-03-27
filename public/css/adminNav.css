@@ -362,7 +362,46 @@ label {
   clear: both;
 }
 
+#editBtn{
+  padding: 5px 15px 5px 15px;
+  border-color: white;
+  cursor: pointer;
+  opacity: 0.8 ;
+  border: none ;
+  border-radius: 20px ;
+  font-size: 14px ;
+  height: 40px;
+  margin-top: 0 ;
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+}
 
+#editBtn:hover{
+  text-decoration: bold;
+  background-color: #4CAF50;
+  color: #252525;
+}
+
+#deleteBtn{
+  padding: 5px 15px 5px 15px;
+  border-color: white;
+  cursor: pointer;
+  opacity: 0.8 ;
+  border: none ;
+  border-radius: 20px ;
+  font-size: 14px ;
+  height: 40px;
+  margin-top: 0 ;
+  text-decoration: none;
+  background-color: #252525;
+  color: white;
+}
+
+#deleteBtn:hover{
+  text-decoration: bold;
+  color: #141414;
+}
 
 
 

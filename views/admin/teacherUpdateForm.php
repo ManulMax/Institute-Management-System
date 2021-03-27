@@ -62,11 +62,12 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
       <label for="subject">Gender :</label>
     </div>
     <div class="col-15" class="genderLabel">
-      <input type="radio" value="male" name="gender" readonly>
+      <?php $gender = $row['gender']; ?>
+      <input type="radio" value="male" name="gender"  <?php echo ($gender=='male')?'checked':'' ?> readonly>
       <label for="male">Male</label>
     </div>
     <div class="col-15" class="genderLabel">
-      <input type="radio" value="female" name="gender" readonly>
+      <input type="radio" value="female" name="gender" <?php echo ($gender=='female')?'checked':'' ?> readonly>
       <label for="female">Female</label>
     </div>
     </div>
@@ -88,7 +89,7 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
       <label for="subject">Address :</label>
     </div>
     <div class="col-75">
-      <textarea rows="4" cols="90" placeholder="Address..." name="address_update" value="<?php echo $row['address']; ?>"></textarea>
+      <textarea rows="4" cols="90" placeholder="Address..." name="address_update" ><?php echo $row['address']; ?></textarea>
     </div>
     </div>
     
@@ -150,7 +151,7 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
       <label for="subject">Qualifications :</label>
     </div>
     <div class="col-75">
-      <textarea rows="4" cols="90" name="qualification_update" value="<?php //echo $row['qualification']; ?>"></textarea>
+      <textarea rows="4" cols="90" name="qualification_update" ><?php echo $row['qualification']; ?></textarea>
     </div>
     </div>
 
