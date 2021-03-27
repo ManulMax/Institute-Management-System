@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <link rel="icon" href="<?php echo URL; ?>public/img/logo.png"> 
-<title>Download Materials</title>
+<title>Quizzes list</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -23,7 +23,7 @@
 <div class="row">
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
-	<ul>
+  <ul>
     <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
@@ -53,8 +53,8 @@
           <?php  } ?>
         </div>
     </li>
-  </ul> 	
-	
+  </ul>   
+  
   </div>
 
   <div id="myModal" class="modal">
@@ -117,31 +117,36 @@
 
 
   <div class="headerClass">
-    <h2><i class="fas fa-download"></i>Download Materials</h2>
+    <h2><i class="fas fa-question"></i>Quizzes</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
   <div class="middle" style="background-color:white;">
-<script>
-  function getMaterials($cl){
-    $class=document.getElementById($cl).text;
     
-  }
-</script>
-       <?php
 
-        $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
-       
-         while($row = mysqli_fetch_assoc($this->stuMaterialList)){ 
-          ?>  
-              <br />
-             <h3><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
-             <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
-             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
-             <br /><hr />
-        <?php  } ?>
-  	
+    <table id="data" style="width:90%;margin-top:10%; margin-right:5%;">
+<thead>
+  <tr style="color:black">
+    <th>Name</th>
+    <th>Quiz date</th>
+    <th>Time limit</th>
+    <th>Status</th>
+  
+    
+    
+
+    
+  </tr>
+ 
+</thead>
+<tbody style="color:black" style="margin-top:25px;">
+  
+</tbody>
+</tbody>
+
+
+</table>
 
 </div>
 

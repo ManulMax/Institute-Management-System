@@ -89,7 +89,7 @@ $(function(){
           <?php
        
          foreach($classes as $row){  ?>
-            <a href="<?php echo URL; ?>Quiz/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+            <a href="<?php echo URL; ?>StudentQuizList/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
           <?php  } ?>
         </div>
     </li>
@@ -289,20 +289,7 @@ $(function(){
             <br />
             <br />
 
-            <h3>Quiz results</h3>
-            <br />
-            <h4>ICT</h4>
-            <p>Quiz 1</p>
-            <p>Quiz 2</p>
-            <p>Quiz 3</p>
-            <br />
-
-            <h4>Chemistry</h4>
-            <p>Quiz 1</p>
-            <p>Quiz 2</p>
-            <p>Quiz 3</p>
-            <br />
-          </div>
+           </div>
         </td>
 
         <td style="padding:0;">
