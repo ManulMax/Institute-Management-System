@@ -74,11 +74,11 @@
     <script type="text/javascript">
 	        var alert=document.getElementById("alertModal");
 	        if("<?php echo $_GET['alert1']; ?>" =="success"){    
-	          document.getElementById("msg").innerHTML="Papermarker Details Updated Successfully!";
+	          document.getElementById("msg").innerHTML="Staff Details Updated Successfully!";
 	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
 	          alert.style.display = "block";
 	        }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
-	          document.getElementById("msg").innerHTML="Failed to Update Papermarker Details!";
+	          document.getElementById("msg").innerHTML="Failed to Update staff Details!";
 	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
 	          alert.style.display = "block";
 	        }
@@ -87,11 +87,11 @@
     <script type="text/javascript">
 	        var alert=document.getElementById("alertModal");
 	        if("<?php echo $_GET['alert2']; ?>" =="success"){    
-	          document.getElementById("msg").innerHTML="Papermarker Deleted Successfully!";
+	          document.getElementById("msg").innerHTML="Staff Member Deleted Successfully!";
 	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
 	          alert.style.display = "block";
 	        }else if("<?php echo $_GET['alert2']; ?>" =="fail"){
-	          document.getElementById("msg").innerHTML="Failed to Delete Papermarker Details!";
+	          document.getElementById("msg").innerHTML="Failed to Delete Staff Details!";
 	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
 	          alert.style.display = "block";
 	        }

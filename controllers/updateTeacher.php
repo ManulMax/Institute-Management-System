@@ -40,4 +40,13 @@ class updateTeacher extends Controller{
         }
         
     }
+
+    function delete($userid){
+        $result=$this->model->delete($userid);
+        if($result == 1){
+            header('location: '.URL.'updateTeacher?alert2=success');
+        }else{
+            header('location: '.URL.'updateTeacher?alert2=fail');
+        }
+    }
 }

@@ -24,7 +24,6 @@ class updateStaff_model extends Model{
     public function delete($userid){
         $this->db->update('user',"deleted=1","id=$userid");
         return $this->db->update('staff',"deleted=1","user_id=$userid");
-
     }
 }
 
