@@ -231,7 +231,7 @@ window.onclick = function(event) {
 }
 
 function myFunction(x){
-  x.bgColor = 'grey';
+  x.bgColor = '#DEDEDE';
   document.getElementById("filter-class").value=x.cells[0].innerText;
 
 }

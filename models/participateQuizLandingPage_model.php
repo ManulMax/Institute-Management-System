@@ -13,20 +13,8 @@ class participateQuizLandingPage_Model extends Model{
 
     }
 
-    public function listHalls(){
-
-    	return $this->db->listAll("hall");
-        
-
-    }
-
-    public function listSubjects(){
-
-        return $this->db->listAll("subject");
-        
-
-    }
-
+    
+    
     public function listDetails($userid){
 
         return $this->db->listWhere("*","student","user_id=$userid");
@@ -43,6 +31,6 @@ class participateQuizLandingPage_Model extends Model{
     } 
 
 
-
-
 }
+
+

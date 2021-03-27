@@ -14,6 +14,13 @@ class StudentQuizList_Model extends Model{
     
     } 
 
+    public function listClasses($userid){
+
+        return $this->db->listWhere("s.reg_no,c.id,c.batch","class c,user u,student s,enrollment e","u.id=s.user_id and s.reg_no=e.stu_reg_no and e.class_id=c.id and u.id=$userid");
+    
+
+    }
+
      public function listDetails($userid){
 
         return $this->db->listWhere("*","student","user_id=$userid");
@@ -24,7 +31,11 @@ class StudentQuizList_Model extends Model{
      public function listQuizzes($name,$batch){
 
         
-         return $this->db->listWhere("q.topic,q.date,q.time_limit","quiz q, class c, subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id");
+         return $this->db->listWhere("q.id,q.topic,q.date,q.time_limit","quiz q, class c, subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id");
+    }
+
+    public function getQuiz($id){
+         return $this->db->listWhere("*","quiz","id=$id");
     }
    
     

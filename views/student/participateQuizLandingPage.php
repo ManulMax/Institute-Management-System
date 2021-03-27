@@ -30,7 +30,7 @@
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
   <ul>
     <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
-   <li>
+  <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
           <i class="fa fa-caret-down"></i>
         </button>
@@ -46,7 +46,9 @@
 
         </div>
     </li>
-    <li>
+  
+
+      <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
           <i class="fa fa-caret-down"></i>
         </button>
@@ -132,19 +134,20 @@
   
   <div class="middle" style="background-color:#F8F8FF;">
   <form id="regForm" method="post" action="">
+     <?php $row = mysqli_fetch_assoc($this->quiz); ?>
     <h1 style="color:black; text-align:center;"><Strong>"Quiz Name"</Strong></h1>
     <div class="topSection">Quiz Title:
     <br />
     <br />
-    <p class="head" style="width: 60%; padding-left:30px;">Encapsulation</p><br />
+    <p class="head" style="width: 60%; padding-left:30px;"><?php echo $row['topic']; ?></p><br />
     Time Limit:
   <br />
   <br />
-    <p class="head" style="width: 20%; padding-left:30px;">30 minutes</p><br />
+    <p class="head" style="width: 20%; padding-left:30px;"><?php echo $row['time_limit']; ?></p><br />
     </div>
 
 
-    <button class="attemptQuiz"><a href="<?php echo URL; ?>participateQuiz">Particapte Quiz</a></button>
+    <button class="attemptQuiz"><a  href="<?php echo URL; ?>ParticipateQuiz/index/<?php echo $row['id']; ?>">Particapte Quiz</a></button>
     
   </form>
   </div>

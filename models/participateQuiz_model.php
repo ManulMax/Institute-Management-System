@@ -13,13 +13,12 @@ class participateQuiz_Model extends Model{
 
     }
 
-    public function listHalls(){
+    public function listStudentSubjects($userid){ 
 
-    	return $this->db->listAll("hall");
         
-
-    }
-
+        return $this->db->listWhere("s.name,c.batch","class c,subject s,enrollment e,student stu","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
+    
+    } 
     
 
     public function listSubjects(){
@@ -35,18 +34,12 @@ class participateQuiz_Model extends Model{
     
     }
 
-    public function listQuestions($userid){
-        return $this->db->listAll("question");
+    public function listQuestions($id){
+       return $this->db->listWhere("*","question","quiz_id=$id");
     }
 
 
-    public function listStudentSubjects($userid){ 
-
-        
-        return $this->db->listWhere("s.name,c.batch","class c,subject s,enrollment e,student stu","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
-    
-    } 
-
+   
 
 
 }

@@ -12,7 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentHomeStylesheet">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/StudentQuizList">
 
 
 </head>
@@ -123,9 +123,9 @@
   </div>
 
   <div class="middle" style="background-color:white;">
-    <h2 class="className" style="text-align: center;"><?php echo $_SESSION['subject']; ?>&nbsp<?php echo $_SESSION['batch']; ?>  Class</h2>
+    <h2 class="className"><?php echo $_SESSION['subject']; ?>&nbsp<?php echo $_SESSION['batch']; ?></h2>
 
-    <table id="data"  style="width:90%;margin-top:10%; margin-right:5%;">
+    <table id="data">
 <thead>
   <tr style="color:black">
     <th>Name</th>
@@ -140,7 +140,8 @@
 
           while($row=mysqli_fetch_assoc($this->qlist)) { ?>
           
-             <tr><td><?php echo $row['topic']; ?></td>
+             <tr onclick="myFunction(this)">
+             <td> <a class="quizLink" href="<?php echo URL; ?>StudentQuizList/renderQuizPage/<?php echo $row['id']; ?>" ><?php echo $row['topic']; ?></a></td>
              <td><?php echo $row['date']; ?></td>
              <td><?php echo $row['time_limit']; ?></td>
              <td></td>
@@ -212,6 +213,11 @@ window.onclick = function(event) {
   }
 }
 
+function myFunction(x){
+  x.bgColor = '#DEDEDE';
+  document.getElementById("filter-class").value=x.cells[0].innerText;
+
+}
 
 
 
