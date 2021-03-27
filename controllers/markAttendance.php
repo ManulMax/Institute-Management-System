@@ -25,19 +25,14 @@ class markAttendance extends Controller{
         $this->view->stuLastPaymentMonth = $row['month'];
         $this->view->stuLastPaidAmount = $row['amount'];
 
-        $date1 = $row['date'];
-        $date2 = date("Y/m/d");
+        $date1 = $row['month'];
 
         $ts1 = strtotime($date1);
-        $ts2 = strtotime($date2);
-
-        $year1 = date('Y', $ts1);
-        $year2 = date('Y', $ts2);
 
         $month1 = date('m', $ts1);
-        $month2 = date('m', $ts2);
+        $month2 = date('m');
 
-        $this->view->diff = (($year2 - $year1) * 12) + ($month2 - $month1);
+        $this->view->diff = $month2 > $month1 ? ($month2 - $month1) : ($month2 - $month1 +12);
 
         $this->view->render('staff/markAttendance');
     }
@@ -56,7 +51,7 @@ class markAttendance extends Controller{
 
     function search($subjectname,$batchname){
         $reg = $_POST['regNo'];
-    	$stuDet = $this->model->listStuDetails($reg);
+    	$stuDet = $this->model->listStuDetails($reg,$subjectname,$batchname);
         $row = mysqli_fetch_assoc($stuDet);
         $this->renderMarkAttendance($subjectname,$batchname,$reg,$row);
     }

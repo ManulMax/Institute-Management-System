@@ -31,9 +31,9 @@ class markAttendance_Model extends Model{
 
   
 
-     public function listStuDetails($reg){
+     public function listStuDetails($reg,$subjectname,$batchname){
 
-         return $this->db->listWhere("s.fname,s.image,f.date,f.month,f.amount","student s,fees f","s.reg_no=$reg and f.stu_reg_no=s.reg_no ORDER BY f.id DESC LIMIT 1");
+         return $this->db->listWhere("s.fname,s.image,f.date,f.month,f.amount","student s,fees f,class c,subject sub","sub.name='".$subjectname."' and sub.id=c.subject_id and c.batch='".$batchname."' and c.id=f.class_id and s.reg_no=$reg and f.stu_reg_no=s.reg_no ORDER BY f.id DESC LIMIT 1");
     }
 
 
