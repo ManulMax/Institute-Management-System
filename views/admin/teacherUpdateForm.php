@@ -140,7 +140,7 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
     </div>
     <div class="col-25">
       <div class="popup">
-          <input type="text" placeholder="Branch Name...." name="branch_update"  id="fullname" value="<?php //echo $row['branch_name']; ?>" onfocusout="validateName()">
+          <input type="text" placeholder="Branch Name...." name="branch_update"  id="fullname" value="<?php echo $row['branch_name']; ?>" onfocusout="validateName()">
 			  <span class="popuptext" id="name-popup"></span>
 			</div>
     </div>
@@ -151,7 +151,7 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
       <label for="subject">Qualifications :</label>
     </div>
     <div class="col-75">
-      <textarea rows="4" cols="90" name="qualification_update" ><?php echo $row['qualification']; ?></textarea>
+      <textarea rows="4" cols="90" name="qualification_update" ><?php //echo $row['qualification']; ?></textarea>
     </div>
     </div>
 

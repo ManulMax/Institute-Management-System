@@ -37,4 +37,13 @@ class updateStaff extends Controller{
             header('location: '.URL.'updateStaff?alert=fail');
         }
     }
+
+    function delete($userid){
+        $result=$this->model->delete($userid);
+        if($result == 1){
+            header('location: '.URL.'updateStaff?alert2=success');
+        }else{
+            header('location: '.URL.'updateStaff?alert2=fail');
+        }
+    }
 }

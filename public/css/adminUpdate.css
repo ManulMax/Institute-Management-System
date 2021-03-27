@@ -97,10 +97,6 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-span {
-  display: none;
-}
-
 #data {
   border-collapse: collapse;
   margin-left: 0;
