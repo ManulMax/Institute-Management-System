@@ -281,7 +281,7 @@ var myChart = new Chart(ctx, {
 
 <!-- data taken from generatedata.com -->
 <table id="data">
-  <caption>Today's shedule</caption>
+  <caption>Today's shedule - <?php echo date('l');?></caption>
 <thead>
   <tr>
     <th>Class</th>
