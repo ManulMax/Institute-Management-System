@@ -31,7 +31,7 @@ class StudentQuizList_Model extends Model{
      public function listQuizzes($name,$batch){
 
         
-         return $this->db->listWhere("q.id,q.topic,q.date,q.time_limit","quiz q, class c, subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id");
+         return $this->db->listWhere("q.id,q.topic,q.date,q.time_limit,m.marks","quiz q, class c, subject s,marks m","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id and m.quiz_id=q.id ");
     }
 
     public function getQuiz($id){

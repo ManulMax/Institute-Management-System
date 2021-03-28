@@ -186,9 +186,9 @@ $(function(){
           <?php  } ?></li>
               
             </div>
-          </div>
+          </div> 
           <br />
-        </td>  
+        </td>   
 
         <td width="60%">
           <div style="position: relative;margin-left: 10%;">
@@ -201,12 +201,12 @@ $(function(){
                     labels: ['Janu', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
                     datasets: [{
                         label: 'Monthly Attendance',
-                        data: [4, 3, 4, 4, 3, 2, 1, 4, 3, 3 ],
+                        data: [<?php echo $attendance; ?>],
                         backgroundColor: [
                             '#8FBC8F',
                             '#8FBC8F',
                             '#8FBC8F',
-                            '#8FBC8F',
+                            '#8FBC8F', 
                             '#8FBC8F',
                             '#8FBC8F',
                             '#8FBC8F',
