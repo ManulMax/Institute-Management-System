@@ -9,7 +9,6 @@ class collectClassFees extends Controller{
     function index(){
     	
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
-        
 
     	$this->view->render('staff/collectClassFees');
     } 
@@ -53,6 +52,14 @@ class collectClassFees extends Controller{
     function search(){
         $reg = $_POST['regNo'];
     	$stuDet = $this->model->listStuDetails($reg);
+        $row = mysqli_fetch_assoc($stuDet);
+        $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
+              
+
+    }
+
+    function searchQR($reg){
+        $stuDet = $this->model->listStuDetails($reg);
         $row = mysqli_fetch_assoc($stuDet);
         $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
               

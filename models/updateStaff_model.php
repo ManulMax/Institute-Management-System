@@ -7,7 +7,7 @@ class updateStaff_model extends Model{
     }
 
     public function listStaff(){
-        return $this->db->listAll("staff");    
+        return $this->db->listWhere("*","staff","deleted=0");    
     }
 
     public function listStaffDetails($userid){
@@ -19,6 +19,11 @@ class updateStaff_model extends Model{
         $this->db->update('staff',"tel_no=".$data['tel_no'].",address='".$data['address']."',fixed_salary=".$data['fixed_salary']."","user_id=$userSf");
        
         return $result;
+    }
+
+    public function delete($userid){
+        $this->db->update('user',"deleted=1","id=$userid");
+        return $this->db->update('staff',"deleted=1","user_id=$userid");
     }
 }
 

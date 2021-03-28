@@ -34,10 +34,19 @@ class updateTeacher extends Controller{
 
         $result=$this->model->update($data,$userTec);
         if($result == 1){
-            header('location: '.URL.'updateTeacher?alert=success');
+            //header('location: '.URL.'updateTeacher?alert=success');
         }else{
-            header('location: '.URL.'updateTeacher?alert=fail');
+            //header('location: '.URL.'updateTeacher?alert=fail');
         }
         
+    }
+
+    function delete($userid){
+        $result=$this->model->delete($userid);
+        if($result == 1){
+            header('location: '.URL.'updateTeacher?alert2=success');
+        }else{
+            header('location: '.URL.'updateTeacher?alert2=fail');
+        }
     }
 }
