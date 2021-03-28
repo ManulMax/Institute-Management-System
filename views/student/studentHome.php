@@ -312,11 +312,12 @@ $(function(){
 <table id="data" style="width:90%;margin-top:30px;">
 <thead>
   <tr style="color:black">
-    <th>Teacher</th>
+    
     <th>Class</th>
-    <th>Batch</th>
     <th>Time</th>
     <th>Hall</th>
+    <th>Day</th>
+    <th>Teacher</th>
     
     
 
@@ -328,7 +329,7 @@ $(function(){
   <?php
     
       while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['fname']."</td><td>".$row['name']."</td><td> ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td></tr>";
+         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td> ".$row['day']."</td><td>".$row['fname']." ".$row['lname']."</td></tr>";
       
     }
   ?>
