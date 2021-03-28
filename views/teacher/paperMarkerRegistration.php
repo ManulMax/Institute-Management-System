@@ -185,7 +185,7 @@
       	<div class="col-25">
       	</div>
       	<div class="col-25">
-      		<a class="roundBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;'>Cancel</a>
+      		<a class="roundBtn" id="cancelBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;'>Cancel</a>
       	</div>
       	<div class="col-25">
       		<a class="roundBtn" id="deleteBtn" style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>

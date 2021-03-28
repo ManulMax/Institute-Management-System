@@ -76,6 +76,31 @@
   
   
    <div class="middle" style="background-color:#F8F8FF;">
+
+    <!-- alert content -->
+  <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert1']; ?>" =="success"){    
+            document.getElementById("msg").innerHTML="Papermarker Details Updated Successfully!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+            alert.style.display = "block";
+          }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="Failed to Update Papermarker Details!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+      </script> 
+
     <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
 <div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
   <h1></h1>
@@ -88,7 +113,12 @@
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
   <button id="sub">Submit Quiz</button>
-  <div id="res"></div>
+  <form method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizID; ?>">
+    <input type="text" id="res" name="res">
+    <input type="submit" name="back" value="Go Back">
+    </form>
+  </div>
+
   </div>
 </div>
 
@@ -100,6 +130,57 @@
       </div>
   
   
+<script type="text/javascript">
+
+
+
+// -------------------------------------------------------------------------
+
+// Get the modal
+var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[1];
+
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
+}
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+  }
+}
+</script>
+
+
+
 <script type="text/javascript">
     
 
@@ -175,7 +256,10 @@
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    resultsContainer.value = `${numCorrect} out of ${myQuestions.length}`;
+    
+   // Session::set('marks',numCorrect);
+   // alert($_SESSION['marks']);
   }
 
   function showSlide(n) {
@@ -241,7 +325,8 @@
   showSlide(currentSlide);
 
   // Event listeners
-  submitButton.addEventListener('click', showResults);
+
+  submitButton.addEventListener("click", showResults);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
 })();
@@ -291,35 +376,6 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
-
-
-
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 
 

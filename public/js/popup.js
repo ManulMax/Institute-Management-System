@@ -29,6 +29,8 @@ var span = document.getElementsByClassName("close")[0];
 var alertspan = document.getElementsByClassName("close")[1];
 var confirmspan = document.getElementsByClassName("close")[2];
 
+var cancel = document.getElementsByClassName("cancelBtn");
+
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
@@ -50,6 +52,12 @@ alertspan.onclick = function() {
 confirmspan.onclick = function() {
 	if(confirmmodal.style.display == "block"){
 	  	confirmmodal.style.display = "none";
+  }  
+}
+
+cancel.onclick = function() {
+  if(confirmmodal.style.display == "block"){
+      confirmmodal.style.display = "none";
   }  
 }
 

@@ -38,6 +38,12 @@ class participateQuiz_Model extends Model{
        return $this->db->listWhere("*","question","quiz_id=$id");
     }
 
+    public function saveMarks($id,$marks){
+
+       $this->db->insert("marks","(quiz_id,stu_reg_no,marks)","($id,1,".$marks.")");
+        
+    }
+
 
    
 
