@@ -37,7 +37,7 @@ class studentHome_Model extends Model{
     public function getAttendanceCount($month,$userid){ 
 
         
-        return $this->db->listWhere("count(a.class_id) as sum,a.date","attendance a","a.stu_reg_no=$userid and FORMAT(a.date,'YYYY-mm')=$month");
+        return $this->db->listWhere("count(a.presence) as sum","attendance a,student s","a.stu_reg_no=s.reg_no and s.user_id=$userid and a.date LIKE '".$month."%'");
     
     } 
 

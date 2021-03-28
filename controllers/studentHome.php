@@ -18,12 +18,13 @@ class studentHome extends Controller{
 
          $attendance = "";
          for ($i=0; $i < count($arr); $i++) { 
-                $date=date('Y')."-".$i;
+                $date=date('Y')."-".$arr[$i];
                 $result = $this->model->getAttendanceCount($date,$_SESSION["userid"]);
                 $row = mysqli_fetch_assoc($result);
                 $attendance .= "'".$row['sum']."',";
              }
          $this->view->attendance=substr($attendance, 0, -1);
+         
 
       	$this->view->render('student/studentHome');
     }

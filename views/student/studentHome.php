@@ -201,7 +201,7 @@ $(function(){
                     labels: ['Janu', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
                     datasets: [{
                         label: 'Monthly Attendance',
-                        data: [<?php echo $attendance; ?>],
+                        data: [<?php echo $this->attendance; ?>],
                         backgroundColor: [
                             '#8FBC8F',
                             '#8FBC8F',
