@@ -84,6 +84,7 @@
   </div>
 </br>
 </br>
+
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
   <button id="sub">Submit Quiz</button>

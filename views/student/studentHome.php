@@ -250,22 +250,14 @@ $(function(){
           <div class="marks">
             <h3>Exam results</h3>
             <br />
-            <h4>ICT</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
-            <br />
-
-            <h4>Chemistry</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
-            <br />
-
-            <h4>Physics</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
+            <div class="containerCard">
+              <?php
+       
+         foreach($classes as $row){  ?>
+            <li style="list-style: none;"><?php echo $row['name'].' '.$row['batch']; ?>
+          <?php  } ?></li>
+              
+            </div>
             <br />
             <br />
 
@@ -315,7 +307,7 @@ $(function(){
 </table>
 </div>-->
 
-<h3 style="margin-left:10%;">Today's shedule</h3>
+<h3 style="margin-left:10%;">Shedule</h3>
 
 <table id="data" style="width:90%;margin-top:30px;">
 <thead>
