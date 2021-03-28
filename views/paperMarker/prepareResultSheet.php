@@ -123,36 +123,33 @@
   <div class="middle" style="background-color:#F8F8FF;">
     <h2 class="className"><?php echo $this->batch ?> Class</h2>
 	<div class="container">
-    <form method="post" action="<?php echo URL; ?>prepareResultSheet/export/<?php echo $this->classid.'/'.$this->batch ?>" align="center">
+    <form method="post" action="<?php echo URL; ?>prepareResultSheet/export/<?php echo $this->classid.'/'.$this->batch; ?>" align="center">
     <table>
       <tr>
-      <td style="width: 10%;"></td>
       <td style="width: 10%;">Exam:</td>
-        <td><select name="exam">
+        <td><select name="exam" style="margin-bottom: 5px;">
             <?php
             while($row=mysqli_fetch_assoc($this->exams)){
               echo "<option value='".$row['topic']."'>".$row['topic']."</option>";
             }  ?>
           </select>
         </td>
-        <td><input type="submit" name="export" value="CSV Export" class="btn" /></td>
+        <td><input type="submit" name="export" value="Export Resultsheet Template" class="btn" /></td>
+        <td style="width: 10%;"></td>
       </tr>
 
      </table> 
       </form>
      
 
-    
+    <br/>
+    <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>prepareResultSheet/sendEmail/<?php echo $this->classid.'/'.$this->batch; ?>" align="center">
+      <div style="text-align: center;margin-top: 15%;">
+        <input type="file" id="file" class="btn" name="image" accept="*">
 
-    <br>
-<div style="text-align: center;margin-top: 15%;">
-    <label class="custom-file-upload">
-    <input type="file">
-      <i class="fa fa-cloud-upload"></i> Choose File
-    </label>
-
-    <input type="submit" value="Send result sheet" name="resultSheet" class="btn2">
-</div>
+        <input type="submit" value="Send result sheet" name="resultSheet" class="btn2">
+      </div>
+    </form>
 	</div>
   </div>
   
