@@ -173,6 +173,26 @@ $(function(){
   
   <div class="middle" style="background-color:#F8F8FF;">
 
+    <!-- alert content -->
+  <div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+          var alert=document.getElementById("alertModal");
+          if("<?php echo $_GET['alert']; ?>" =="fail"){
+            document.getElementById("msg").innerHTML="The selected batch already has a class!";
+            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+            alert.style.display = "block";
+          }
+      </script>
+
 <form id="regForm" action="<?php echo URL; ?>Classes/sendEmail" method="post">
 
   
@@ -440,15 +460,20 @@ document.addEventListener("click", closeAllSelect);
 
 
 
+// -------------------------------------------------------------------------
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var alertmodal = document.getElementById("alertModal");
+
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var alertspan = document.getElementsByClassName("close")[1];
+
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -457,15 +482,29 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  if(modal.style.display == "block"){
+    modal.style.display = "none";
+  } 
 }
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+    alertmodal.style.display = "none";
+  } 
+}
+
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
   }
 }
+
+
 </script>
 
 </html>
