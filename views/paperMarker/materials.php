@@ -19,7 +19,6 @@
   <img class="logo" src="<?php echo URL; ?>public/img/logo.png">
   <ul>
     <li><a href="<?php echo URL; ?>paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-     <li><a href="<?php echo URL; ?>prepareResultSheet"><i class="fa fa-user-o"></i>Prepare Result Sheet</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
           <i class="fa fa-caret-down"></i>
@@ -33,6 +32,18 @@
              foreach($classes as $row){ ?>
 
                 <a href="<?php echo URL; ?>materials/renderPmMaterials/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
+        </div>
+    </li>
+    <li>
+        <button class="dropdown-btn"><i class="fa fa-user-o"></i>Prepare Result Sheet
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+             foreach($classes as $row){ ?>
+                <a href="<?php echo URL; ?>prepareResultSheet/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
         </div>

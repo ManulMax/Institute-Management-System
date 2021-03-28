@@ -18,8 +18,7 @@
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
 	<ul>
 	  <li><a href="paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-      <li><a href="#"><i class="fa fa-user-o"></i>Prepare Result Sheet</a></li>
-      <li>
+       <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
           <i class="fa fa-caret-down"></i>
         </button>
@@ -29,12 +28,25 @@
               while($class=mysqli_fetch_assoc($this->classList)) {
                   $classes[] = $class; //assign whole values to array
               }
-             foreach($classes as $row){  ?>
+             foreach($classes as $row){ ?>
+
                 <a href="<?php echo URL; ?>materials/renderPmMaterials/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
           <?php  } ?>
 
         </div>
-      </li>
+    </li>
+    <li>
+        <button class="dropdown-btn"><i class="fa fa-user-o"></i>Prepare Result Sheet
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+             foreach($classes as $row){ ?>
+                <a href="<?php echo URL; ?>prepareResultSheet/index/<?php echo $row['id'].'/'.$row['batch']; ?>"><?php echo $row['batch']; ?></a>
+          <?php  } ?>
+
+        </div>
+    </li>
       
 	</ul>
 	
@@ -109,34 +121,24 @@
   
   <!----------------------------------Middle contet------------------------------------>
   <div class="middle" style="background-color:#F8F8FF;">
+    <h2 class="className"><?php echo $this->batch ?> Class</h2>
 	<div class="container">
-    <form method="post" action="<?php echo URL; ?>prepareResultSheet/export" align="center">
+    <form method="post" action="<?php echo URL; ?>prepareResultSheet/export/<?php echo $this->classid.'/'.$this->batch ?>" align="center">
     <table>
       <tr>
-        <td style="width: 10%;">Batch:</td>
-        <td><select name="batch">
-      <option value="<?php echo date("Y"); ?>AL"><?php echo date("Y"); ?>AL</option>
-      <option value="<?php echo date("Y")+1; ?>AL"><?php echo date("Y")+1; ?>AL</option>
-      <option value="<?php echo date("Y")+2; ?>AL"><?php echo date("Y")+2; ?>AL</option>
-      <option value="Revision">Revision</option>
-      </select></td>
       <td style="width: 10%;"></td>
       <td style="width: 10%;">Exam:</td>
         <td><select name="exam">
             <?php
             while($row=mysqli_fetch_assoc($this->exams)){
               echo "<option value='".$row['topic']."'>".$row['topic']."</option>";
-            }
-            
-            ?>
+            }  ?>
           </select>
         </td>
+        <td><input type="submit" name="export" value="CSV Export" class="btn" /></td>
       </tr>
 
-     </table>
-
-        
-           <input type="submit" name="export" value="CSV Export" class="btn" />  
+     </table> 
       </form>
      
 
