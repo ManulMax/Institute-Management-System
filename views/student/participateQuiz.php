@@ -30,7 +30,7 @@
 
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
   <ul>
-    <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
+    
      <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
     <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
@@ -78,10 +78,13 @@
    <div class="middle" style="background-color:#F8F8FF;">
     <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
 <div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
-  <h1>Quiz on Javascript</h1>
+  <h1></h1>
   <div class="quiz-container">
     <div id="quizz"></div>
   </div>
+</br>
+</br>
+
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
   <button id="sub">Submit Quiz</button>

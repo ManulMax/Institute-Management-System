@@ -42,17 +42,7 @@ $(function(){
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
 	<ul>
 	  <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
-	  <!--<li>
-        <button class="dropdown-btn"><i class="fas fa-download"></i>Download Materials
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">ICT 2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Chemistry 2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Physics 2021 A/L</a>
-          <a href="<?php echo URL; ?>materials/renderDownloadMaterials">Revision 2021 A/L</a>
-        </div>
-    </li>-->
+	  
     <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
           <i class="fa fa-caret-down"></i>
@@ -69,17 +59,7 @@ $(function(){
 
         </div>
     </li>
-   <!-- <li>
-        <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-          <a href="<?php echo URL; ?>participateQuizLandingPage">ICT 2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Chemistry 2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Physics 2021 A/L</a>
-          <a href="<?php echo URL; ?>participateQuizLandingPage">Revision 2021 A/L</a>
-        </div>
-    </li>-->
+  
 
       <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
@@ -270,22 +250,14 @@ $(function(){
           <div class="marks">
             <h3>Exam results</h3>
             <br />
-            <h4>ICT</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
-            <br />
-
-            <h4>Chemistry</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
-            <br />
-
-            <h4>Physics</h4>
-            <p>Exam 1</p>
-            <p>Exam 2</p>
-            <p>Exam 3</p>
+            <div class="containerCard">
+              <?php
+       
+         foreach($classes as $row){  ?>
+            <li style="list-style: none;"><?php echo $row['name'].' '.$row['batch']; ?>
+          <?php  } ?></li>
+              
+            </div>
             <br />
             <br />
 
@@ -335,7 +307,7 @@ $(function(){
 </table>
 </div>-->
 
-<h3 style="margin-left:10%;">Today's shedule</h3>
+<h3 style="margin-left:10%;">Shedule</h3>
 
 <table id="data" style="width:90%;margin-top:30px;">
 <thead>

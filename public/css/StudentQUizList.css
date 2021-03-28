@@ -1,0 +1,111 @@
+button {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #5185a8;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, verdana, sans-serif;
+    font-size: 14px;
+}
+
+
+
+
+#data {
+    border-collapse: collapse;
+    margin-top: 10%;
+    margin-left:5%;
+    text-align: center;
+    width: 90%;
+    font-size: 15px;
+}
+#data th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#data th {
+    background-color: #66CDAA;
+    padding: 10px;
+
+}
+
+/* form styles */
+.table-filters input, select {
+    font: inherit;
+    margin: 0;
+    padding: 4px;
+}
+.table-filters .input-text {
+    min-width: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.table-filters select {
+    min-width: 150px;
+}
+.table-filters label {
+    margin: 0 4px 0 8px;
+}
+
+
+
+/* Filtable styles */
+#data tr.hidden {
+    display: none;
+}
+
+}
+#data tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+#data tr:hover {
+    background-color: #ddd;
+}
+
+
+.large-table {
+    width: 100%;
+}
+.large-table td {
+    font-size: 12px;
+}
+
+
+.midTable {
+    width: 100%;
+    margin-top: 0;
+}
+
+.midTable td{
+    border: none;
+}
+
+
+
+.className{
+    text-align: center;
+    margin-top:5%;
+    color: #00b359;
+}
+
+.quizLink {
+    text-decoration:none;
+    color: black;
+}
+
+
+#icon1, #icon2, #icon3, #icon4{
+  color: #2E8B57;
+}
+
+
+.container{
+    float:right;
+    width:55%;
+    
+
+}

@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/participateQuiz">
 
 </head>
-
+ 
 
 <body>
 <div class="row">
@@ -137,7 +137,7 @@
                 <div class='col-50-detail'>
                   <h3 class='detail'>".$row['DOB']."</h3>
                 </div>
-                <br />
+                <br /> 
               </div>
               <br />";
              

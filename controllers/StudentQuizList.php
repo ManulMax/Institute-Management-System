@@ -16,5 +16,10 @@ class StudentQuizList extends Controller{
         $this->view->render('student/StudentQuizList');
     }
 
-    
+    function renderQuizPage($id){
+        $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
+        $this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
+        $this->view->quiz = $this->model->getQuiz($id);
+        $this->view->render('student/participateQuizLandingPage');
+    }
 }
