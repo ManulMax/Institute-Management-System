@@ -23,13 +23,12 @@ class prepareResultSheet_Model extends Model{
 
     public function listTeacherClasses($userid){
 
-        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,user u,teacher t,paper_marker p","p.user_id=u.id and p.teacher_id=t.user_id and t.reg_no=c.teacher_reg_no and u.id=$userid");
-
+        return $this->db->listWhere("t.reg_no,c.id,c.batch","class c,teacher t,paper_marker p","c.teacher_reg_no=t.reg_no and t.user_id=p.teacher_id and p.user_id=$userid and p.deleted=0");
     }
 
-    public function listExams($userid){
+    public function listExams($userid,$id){
 
-        return $this->db->listWhere("e.id,e.topic","exam e,class c,teacher t,paper_marker p","e.class_id=c.id and c.teacher_reg_no=t.reg_no and p.teacher_id=t.user_id and p.user_id=$userid and p.deleted=0");
+        return $this->db->listWhere("e.id,e.topic","exam e,class c,teacher t,paper_marker p","e.class_id=$id and e.class_id=c.id and c.teacher_reg_no=t.reg_no and p.teacher_id=t.user_id and p.user_id=$userid and p.deleted=0");
     }
 
     public function listStudents($userid,$batch){
