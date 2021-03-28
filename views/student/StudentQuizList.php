@@ -138,27 +138,21 @@
 </thead>
 <tbody style="color:black" style="margin-top:25px;">
   <?php
-
-          while($row=mysqli_fetch_assoc($this->qlist)) { ?>
-          
-             <tr onclick="myFunction(this)">
-             <td> <a class="quizLink" href="<?php echo URL; ?>StudentQuizList/renderQuizPage/<?php echo $row['id']; ?>" ><?php echo $row['topic']; ?></a></td>
-             <td><?php echo $row['date']; ?></td>
-             <td><?php echo $row['time_limit']; ?></td>
-             <td></td>
-             <td><?php echo $row['marks']; ?></td>
-             
+          foreach($this->dataList as $row) { ?>
+            <tr onclick="myFunction(this)">
+             <td> <a class="quizLink" href="<?php if($row[4]==0){echo URL.'StudentQuizList/renderQuizPage/'.$row[0];}else{  echo "";} ?>" ><?php echo $row[1]; ?></a></td>
+             <td><?php echo $row[2]; ?></td>
+             <td><?php echo $row[3]; ?></td>
+             <td id="status"><?php echo ($row[4]==0) ? "Not Submitted" : "Submitted" ?></td>
+             <td><?php echo $row[5]; ?></td>
            </tr>
          <?php } ?>
 </tbody>
 </tbody>
 
-
 </table>
 
 </div>
-
-
 
 
 

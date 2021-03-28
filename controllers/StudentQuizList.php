@@ -12,7 +12,18 @@ class StudentQuizList extends Controller{
     	$this->view->batch = $batch;
         Session::set('subject',$name);
         Session::set('batch',$batch);
-        $this->view->qlist = $this->model->listQuizzes($name,$batch);
+        $qlist = $this->model->listQuizzes($name,$batch);
+        $i=0;
+        while($row=mysqli_fetch_assoc($qlist)){
+            $dataList[$i][0]=$row['id'];
+            $dataList[$i][1]=$row['topic'];
+            $dataList[$i][2]=$row['date'];
+            $dataList[$i][3]=$row['time_limit'];
+            $dataList[$i][4]=$this->model->getStatus($_SESSION["userid"],$row['id']);
+            $dataList[$i][5]=$this->model->getMarks($_SESSION["userid"],$row['id']);
+            $i++;
+        }
+        $this->view->dataList = $dataList;
         $this->view->render('student/StudentQuizList');
     }
 
