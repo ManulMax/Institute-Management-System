@@ -13,9 +13,11 @@ class studentHome_Model extends Model{
 
     }
 
-    public function listSchedules(){
+    public function listSchedules($userid){
 
-        return $this->db->listWhere("t.fname,s.day,s.start_time,s.end_time,h.name as hallName,sub.name,c.batch","schedule s,teacher t,subject sub,class c,hall h","s.class_id=c.id and s.hall_id=h.id and c.subject_id=sub.id and c.teacher_reg_no=t.reg_no");
+        return $this->db->listWhere("t.fname,t.lname,s.name,c.batch,sch.start_time,sch.end_time,h.name as hallName,sch.day","teacher t,class c,subject s,schedule sch, hall h, student stu,enrollment e","stu.user_id=$userid and stu.reg_no=e.stu_reg_no and e.class_id=c.id and c.id=sch.class_id and c.subject_id=s.id and sch.hall_id=h.id and c.teacher_reg_no=t.reg_no");
+
+        /* return $this->db->listWhere("s.day,s.start_time,s.end_time,h.name as hallName,sub.name,c.batch ","schedule s,teacher t,subject sub,class c,hall h","s.class_id=c.id and s.hall_id=h.id and c.subject_id=sub.id and c.teacher_reg_no=t.reg_no");*/
     
 
     }
@@ -41,24 +43,7 @@ class studentHome_Model extends Model{
     
     } 
 
-    /*public function listClasses($userid){
-
-        return $this->db->listWhere("c.batch,s.name","class c,subject s, enrollment e, student stu,student s","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
-    }*/
-
-    public function listTeacher(){
-
-        return $this->db->listAll("teacher");
-        
-
-    }
-
-    public function listSubjects(){
-
-        return $this->db->listAll("subject");
-        
-
-    }
-
+   
+   
 
 }
