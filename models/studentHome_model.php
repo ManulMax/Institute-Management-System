@@ -24,7 +24,7 @@ class studentHome_Model extends Model{
 
         
         return $this->db->listWhere("s.name,c.batch","class c,subject s,enrollment e,student stu","s.id=c.subject_id and c.id=e.class_id and e.stu_reg_no=stu.reg_no and stu.user_id=$userid");
-    
+     
     } 
 
      public function listDetails($userid){
@@ -33,6 +33,13 @@ class studentHome_Model extends Model{
     
 
     }
+
+    public function getAttendanceCount($month,$userid){ 
+
+        
+        return $this->db->listWhere("count(a.class_id) as sum,a.date","attendance a","a.stu_reg_no=$userid and FORMAT(a.date,'YYYY-mm')=$month");
+    
+    } 
 
     /*public function listClasses($userid){
 

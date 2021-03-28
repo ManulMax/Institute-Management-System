@@ -131,7 +131,8 @@
     <th>Name</th>
     <th>Quiz date</th>
     <th>Time limit</th>
-    <th>Status</th>  
+    <th>Status</th> 
+    <th>Score</th> 
   </tr>
  
 </thead>
@@ -145,6 +146,7 @@
              <td><?php echo $row['date']; ?></td>
              <td><?php echo $row['time_limit']; ?></td>
              <td></td>
+             <td><?php echo $row['marks']; ?></td>
              
            </tr>
          <?php } ?>
