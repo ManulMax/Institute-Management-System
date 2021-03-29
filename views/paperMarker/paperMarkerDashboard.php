@@ -207,15 +207,12 @@
 
 
 
-    <div style="position: relative;width: 45%;height: 400px;margin-top: 5%;">
-      <canvas id="myChart"></canvas>
-
+    <div style="position: relative;width: 100%;height: 400px;margin-top: 10%;">
+      <h3 style="margin-left: 40%;padding-top: 50px;">Class schedules</h3>
     </div>
 
 
-<div class="container" >
-
-
+<div class="container">
 <!-- data taken from generatedata.com -->
 <table id="data">
 <thead>
