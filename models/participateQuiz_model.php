@@ -38,6 +38,10 @@ class participateQuiz_Model extends Model{
        return $this->db->listWhere("*","question","quiz_id=$id");
     }
 
+    public function getDuration($id){
+       return $this->db->listWhere("time_hours,time_minutes","quiz","id=$id");
+    }
+
     public function saveMarks($userid,$marks,$quizid){
 
        $this->db->insert("marks","(quiz_id,stu_reg_no,marks)","($quizid,(select reg_no from student where user_id=$userid),".$marks.")");
@@ -46,7 +50,7 @@ class participateQuiz_Model extends Model{
 
      public function listQuizzes($name,$batch){
        
-         return $this->db->listWhere("q.id,q.topic,q.date,q.time_limit","quiz q, class c, subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id");
+         return $this->db->listWhere("q.id,q.topic,q.date,q.time_hours,time_minutes","quiz q, class c, subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id");
     }
 
     public function getStatus($userid,$quizid){    

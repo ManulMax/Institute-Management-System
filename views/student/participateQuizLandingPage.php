@@ -148,7 +148,7 @@
     Time Limit:
   <br />
   <br />
-    <p class="head" style="width: 20%; padding-left:30px;"><?php echo $row['time_limit']; ?></p><br />
+    <p class="head" style="width: 20%; padding-left:30px;"><?php echo $row['time_hours'].'h '.$row['time_minutes'].'min'; ?></p><br />
     </div>
 
 

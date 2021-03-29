@@ -152,11 +152,11 @@
   <?php
           foreach($this->dataList as $row) { ?>
             <tr onclick="myFunction(this)">
-             <td> <a class="quizLink" href="<?php if($row[4]==0){echo URL.'StudentQuizList/renderQuizPage/'.$row[0];}else{  echo "";} ?>" ><?php echo $row[1]; ?></a></td>
+             <td> <a class="quizLink" href="<?php if($row[5]==0){echo URL.'StudentQuizList/renderQuizPage/'.$row[0];}else{  echo "";} ?>" ><?php echo $row[1]; ?></a></td>
              <td><?php echo $row[2]; ?></td>
-             <td><?php echo $row[3]; ?></td>
-             <td id="status"><?php echo ($row[4]==0) ? "Not Submitted" : "Submitted" ?></td>
-             <td><?php echo $row[5]; ?></td>
+             <td><?php echo $row[3].'h '.$row[4].'min'; ?></td>
+             <td id="status"><?php echo ($row[5]==0) ? "Not Submitted" : "Submitted" ?></td>
+             <td><?php echo $row[6]; ?></td>
            </tr>
          <?php } ?>
 </tbody>

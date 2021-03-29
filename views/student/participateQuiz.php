@@ -126,7 +126,7 @@
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
   <button id="sub">Submit Quiz</button>
-  <form method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizzID; ?>">
+  <form id="quizForm" method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizzID; ?>">
     <input type="text" id="res" class="res" name="res" style="width:25%;" placeholder="Marks" readonly>
     <input type="submit" name="back" value="Go Back">
     </form>
@@ -360,15 +360,17 @@ window.onclick = function(event) {
         display.textContent = hours + ":" +minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timer = duration;
+          document.getElementById("res").value = "0";
+            document.getElementById("quizForm").submit();
         }
     }, 1000);
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 5,
+
+    var mins = "<?php echo $this->quizHours*60 + $this->quizMinutes; ?>",
         display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(mins, display);
 };
  </script>
 

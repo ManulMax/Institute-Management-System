@@ -18,14 +18,16 @@ class StudentQuizList extends Controller{
             $dataList[$i][0]=$row['id'];
             $dataList[$i][1]=$row['topic'];
             $dataList[$i][2]=$row['date'];
-            $dataList[$i][3]=$row['time_limit'];
-            $dataList[$i][4]=$this->model->getStatus($_SESSION["userid"],$row['id']);
-            $dataList[$i][5]=$this->model->getMarks($_SESSION["userid"],$row['id']);
+            $dataList[$i][3]=$row['time_hours'];
+            $dataList[$i][4]=$row['time_minutes'];
+            $dataList[$i][5]=$this->model->getStatus($_SESSION["userid"],$row['id']);
+            $dataList[$i][6]=$this->model->getMarks($_SESSION["userid"],$row['id']);
             $i++;
         }
         $this->view->dataList = $dataList;
         $this->view->render('student/StudentQuizList');
     }
+
 
     function renderQuizPage($id){
         $this->view->classList = $this->model->listClasses($_SESSION["userid"]);
