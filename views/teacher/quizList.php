@@ -197,7 +197,7 @@
           
              <tr><td><?php echo $row['date']; ?></td>
              <td><?php echo $row['topic']; ?></td>
-             <td><?php echo $row['time_limit']; ?></td>
+             <td><?php echo $row['time_hours'].'h '.$row['time_minutes'].'min'; ?></td>
              <td></td>
              <td><a class='roundBtn' id='viewBtn' href="<?php echo URL; ?>Quiz/renderViewQuiz/<?php echo $row['id']; ?>" style="padding: 5px 15px 5px 15px;">View</a></td>
             <!-- <td><a class='roundBtn' id='deleteBtn' onclick="promptFunction(<?php echo $row['id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;">Delete</a></td>  -->

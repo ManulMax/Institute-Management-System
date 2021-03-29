@@ -32,16 +32,16 @@ class Quiz_Model extends Model{
         return $this->db->listWhere("*","quiz","class_id=$classid");
     }
 
-    public function saveQuiz($topic,$timeLimit){
+    public function saveQuiz($topic,$hours,$minutes){
 
-        $this->db->insert("quiz","(topic,time_limit,class_id)","('".$topic."','".$timeLimit."',".$_SESSION['classid'].")");
+        $this->db->insert("quiz","(topic,time_hours,time_minutes,class_id)","('".$topic."',$hours,$minutes,".$_SESSION['classid'].")");
         
     }
 
     public function saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5,$choice){
         $quizID = $this->db->listWhere("id","quiz","topic='".$topic."'");
         $num = mysqli_fetch_assoc($quizID);
-        $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","($qno,".$num['id'].",'".$question."','".$ans1."','".$ans2."','".$ans3."','".$ans4."','".$ans5."',".$choice.")");
+        return $this->db->insert("question","(q_no,quiz_id,ques,answer1,answer2,answer3,answer4,answer5,correct_ans)","($qno,".$num['id'].",'".$question."','".$ans1."','".$ans2."','".$ans3."','".$ans4."','".$ans5."',".$choice.")");
     }
 
     public function listQuestions($id){

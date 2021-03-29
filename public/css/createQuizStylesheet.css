@@ -94,12 +94,6 @@ input[type=radio] {
   font-size: 13px;
 }
 
-span{
-          padding: 10px;
-          margin-top: 0px;
-          display: block;
-          color: green;
-      }
 
 #regForm button {
   background-color: #063811;
