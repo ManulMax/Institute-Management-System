@@ -22,6 +22,10 @@ class adminDashboard_model extends Model{
         return $this->db->listCol("count(reg_no) as tecCount","teacher");
     }
 
+    public function classCount($day){
+        return $this->db->listWhere("count(class_id) as sum","schedule","day='".$day."'");
+    }
+
     // public function classCount(){
     //     return $this->db->listWhere("");
     // }

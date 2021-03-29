@@ -18,8 +18,16 @@ class adminDashboard extends Controller{
         // $this->view->sum2 = $this->model->classCount();
         // $this->view->sum3 = $this->model->classCount();
         // $this->view->sum4 = $this->model->classCount();
+        $arr = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
-    	$this->view->render('admin/adminDashboard');
+         $count = "";
+         for ($i=0; $i < count($arr); $i++) { 
+                $result = $this->model->classCount($arr[$i]);
+                $row = mysqli_fetch_assoc($result);
+                $count .= "'".$row['sum']."',";
+             }
+         $this->view->dailyCount=substr($count, 0, -1);
+    	 $this->view->render('admin/adminDashboard');
     }
 }
 
