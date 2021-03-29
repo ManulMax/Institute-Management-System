@@ -166,13 +166,13 @@ $(function(){
 </script>
        <?php
 
-        $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
-         while($row = mysqli_fetch_assoc($this->stuMaterialList)){ 
+        $files = glob("http://localhost/IMS_Vidarsha/public/uploads/results/*");
+         while($row = mysqli_fetch_assoc($this->resultSheetList)){ 
           ?>  
               <br />
-             <h3><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
-             <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
-             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
+             <h3><i class="fas fa-book-open"></i><?php echo $row['topic'] ?></h3>
+             <!--<p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>-->
+             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/results/<?php echo $row['filename'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['filename'] ?></a></p>
              <br /><hr />
         <?php  } ?>
 

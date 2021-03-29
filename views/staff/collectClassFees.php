@@ -153,7 +153,28 @@ $(function(){
             <tr><td><div class="qr"></div></td></tr>
             <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
             <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
-
+                 <!-- alert content -->
+             <div id="alertModal" class="alert-modal">
+                  <div class="alert-modal-content">
+                  <span class="close">&times;</span>
+                  <div class='row' style='background-color:white;text-align: center;'>
+                    <h3 id="msg"></h3>
+                    <img id="alertImg" src="" alt="image" style="width:40%;">
+                   </div>
+                  </div>
+                </div>
+              <script type="text/javascript">
+                    var alert=document.getElementById("alertModal");
+                    if("<?php echo $_GET['alert2']; ?>" =="fail1"){    
+                      document.getElementById("msg").innerHTML="Student does not exsist!";
+                      document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+                      alert.style.display = "block";
+                    }else if("<?php echo $_GET['alert2']; ?>" =="fail2"){
+                      document.getElementById("msg").innerHTML="Student does not excist!";
+                      document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+                      alert.style.display = "block";
+                    }
+                </script> 
             
         </table>
       </form>

@@ -29,13 +29,15 @@ class examMarks_Model extends Model{
 
     }
 
-     public function listStuMaterials($name,$batch){
+     public function listResultSheet($name,$batch){
 
-        return $this->db->listWhere("m.id,m.heading,m.description,m.name","subject s,class c, study_material m","m.class_id=c.id and c.batch='".$batch."' and c.subject_id=s.id and s.name='".$name."' and m.deleted=0");
+        /*return $this->db->listWhere("m.id,m.heading,m.description,m.name","subject s,class c, study_material m","m.class_id=c.id and c.batch='".$batch."' and c.subject_id=s.id and s.name='".$name."' and m.deleted=0");*/
+
+        return $this->db->listWhere("r.id,r.filename,e.topic","result_sheet r,exam e,class c,subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=e.class_id and e.result_sheet_id=r.id ");
     }
 
    
-   
+    
    
 
 }

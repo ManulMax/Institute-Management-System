@@ -130,6 +130,8 @@
     <input type="text" id="res" class="res" name="res" style="width:25%;" placeholder="Marks" readonly>
     <input type="submit" name="back" value="Go Back">
     </form>
+
+    <a class="roundBtn" style="float: left;height: 50px;width: 100%;text-align: center;" href="<?php echo URL; ?>StudentQuizList/index/<?php echo $_SESSION['subject'].'/'.$_SESSION['batch']; ?>"><i class="fas fa-chevron-left"></i>Back</a>
   </div>
 
   </div>
