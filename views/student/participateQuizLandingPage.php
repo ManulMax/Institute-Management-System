@@ -140,19 +140,19 @@
   <div class="middle" style="background-color:#F8F8FF;">
   <form id="regForm" method="post" action="">
      <?php $row = mysqli_fetch_assoc($this->quiz); ?>
-   <h1 style="color:black; text-align:center;"><Strong> </Strong></h1>
-    <div class="topSection">Quiz Title:
+   <h1 style="color:black; text-align:center;"><Strong><?php echo $_SESSION['subject'].'/'.$_SESSION['batch']; ?> </Strong></h1>
+    <div class="topSection"><h3>Quiz Title</h3>
     <br />
-    <br />
-    <p class="head" style="width: 60%; padding-left:30px;"><?php echo $row['topic']; ?></p><br />
-    Time Limit:
+   
+  <h4 style="width: 60%; padding-left:30px;"><?php echo $row['topic']; ?><h4><br />
+    <h3>Time Limit</h3>
   <br />
-  <br />
-    <p class="head" style="width: 20%; padding-left:30px;"><?php echo $row['time_limit']; ?></p><br />
+    <h4 style="width: 20%; padding-left:30px;"><?php echo $row['time_limit']; ?></h4><br />
     </div>
 
 
-    <button class="attemptQuiz"><a  href="<?php echo URL; ?>ParticipateQuiz/index/<?php echo $row['id']; ?>">Particapte Quiz</a></button>
+    <button class="attemptQuiz" style="width:20%;"><a  href="<?php echo URL; ?>ParticipateQuiz/index/<?php echo $row['id']; ?>">Particapte Quiz</a></button>
+    <button class="attemptQuiz" style="width:20%;"><a  href="<?php echo URL; ?>StudentQuizList/index/<?php  echo $_SESSION['subject'].'/'.$_SESSION['batch']; ?>">Back</a></button>
     
   </form>
   </div>
