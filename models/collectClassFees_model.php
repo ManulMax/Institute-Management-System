@@ -25,7 +25,7 @@ class collectClassFees_Model extends Model{
 
     public function listStuDetails($reg){
 
-        return $this->db->listWhere("s.fname,s.image","student s","s.reg_no=$reg ");
+        return $this->db->listWhere("s.fname,s.image","student s","s.reg_no=$reg and s.deleted=0");
     }
  
    /* public function listStudentFeesDetails($reg){

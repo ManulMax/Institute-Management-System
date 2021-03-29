@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+  <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/enrollStu">
 
@@ -138,7 +139,9 @@ $(function(){
         <form action="<?php echo URL; ?>enrollStudent/search" method="POST">        
         <table class="qr-scan">
             <tr><td><div class="qr"></div></td></tr>
-            <tr><td><input type="text" name="regNo" class="regNo" placeholder="Reg No"></td></tr>
+            <tr><td><div class="popup"><input type="text" name="regNo" class="regNo" id="num" placeholder="Reg No" onfocusout="containsNumbers()">
+             <span class="popuptext" id="number-popup"></span>
+             </div></td></tr>
             <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
 
             
@@ -213,7 +216,7 @@ $(function(){
   <?php
     
       while($row = mysqli_fetch_assoc($this->classCapacity)){  
-         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td style=text-align:center>".$row['capacity']."</td><td style=text-align:center>".$row['count1']."</td><td><input type=submit class='btn' id='enrollbtn' value=Enroll></td></tr>";
+         echo "<tr><td>".$row['name']." </td><td>".$row['batch']."</td><td style=text-align:center>".$row['capacity']."</td><td style=text-align:center>".$row['count1']."</td><td><input type=submit class='btn' id='enrollbtn' value=Enroll ></td></tr>";
       
     }
   ?>
@@ -259,6 +262,8 @@ $(function(){
             alert.style.display = "block";
           }
       </script> 
+
+     
 
     
 
@@ -349,6 +354,8 @@ window.onclick = function(event) {
     confirmmodal.style.display = "none";
   }
 }
+
+
 
 </script>
   

@@ -38,6 +38,10 @@ class participateQuiz_Model extends Model{
        return $this->db->listWhere("*","question","quiz_id=$id");
     }
 
+    public function listTime($id){
+       return $this->db->listWhere("time_limit","quiz","id=$id");
+    }
+
 
    
 

@@ -135,7 +135,7 @@
   <div class="middle" style="background-color:#F8F8FF;">
   <form id="regForm" method="post" action="">
      <?php $row = mysqli_fetch_assoc($this->quiz); ?>
-    <h1 style="color:black; text-align:center;"><Strong>"Quiz Name"</Strong></h1>
+   <h1 style="color:black; text-align:center;"><Strong> </Strong></h1>
     <div class="topSection">Quiz Title:
     <br />
     <br />
