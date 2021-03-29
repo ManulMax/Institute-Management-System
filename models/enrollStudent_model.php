@@ -34,7 +34,16 @@ class enrollStudent_Model extends Model{
         
         return $this->db->listWhere("s.name,c.batch, h.capacity, h.capacity-count(e.stu_reg_no) as count1","class c, subject s, hall h, schedule sh, enrollment e","c.subject_id=s.id and sh.class_id=c.id and sh.hall_id=h.id and e.class_id=c.id GROUP BY e.class_id");
 
-}
+    }
+
+    public function checkStudent($reg){
+
+        $del= $this->db->listWhere("deleted","student","reg_no=$reg");
+        return $del;
+
+    }
+
+
 
     public function create($data){
 
