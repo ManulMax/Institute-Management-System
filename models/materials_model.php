@@ -58,17 +58,19 @@ class materials_Model extends Model{
         return $this->db->listAll("subject");
     }
 
-
-    public function getUser($id){
-
-        return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
-    }
-
-
     public function create($data,$classID,$userid){
             move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\".$data['filename']);
 
-            return $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid))");
+            return $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no,deleted)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,(select reg_no from teacher where user_id=$userid),0)");
+    }
+
+    public function pmCreate($data,$classID,$userid){
+            move_uploaded_file($data['temp'], "C:\wamp64\www\IMS_Vidarsha\public\uploads\\".$data['filename']);
+
+            $result=$this->db->listWhere("t.reg_no","teacher t,paper_marker p","p.user_id=$userid and p.teacher_id=t.user_id and p.deleted=0");
+            $tid=mysqli_fetch_assoc($result);
+
+            return $this->db->insert("study_material","(heading,description,name,class_id,teacher_reg_no,deleted)","('".$data['heading']."','".$data['description']."','".$data['filename']."',$classID,".$tid['reg_no'].",0)");
     }
 
     public function listStudentSubjects($userid){ 

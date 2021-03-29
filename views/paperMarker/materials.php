@@ -146,10 +146,10 @@
   
  <!-- ------ form ------ --> 
  <h2 class="topHeading"><i class="fas fa-upload"></i>Upload New Material</h2>
-    <form id="regForm" method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/create" style="padding: 20px;">
+    <form id="regForm" method="post" enctype="multipart/form-data" action="<?php echo URL; ?>materials/pmCreate/<?php echo $this->classid.'/'.$this->batch; ?>" style="padding: 20px;">
     <div class="row">
       <div class="col-25">
-      <label for="fname">Heading</label>
+      <label>Heading</label>
       </div>
       <div class="col-75">
       <input type="text" name="heading">
@@ -157,27 +157,44 @@
     </div>
     <div class="row">
     <div class="col-25">
-      <label for="subject">Description</label>
+      <label>Description</label>
       </div>
       <div class="col-75">
       <textarea placeholder="Write something.." style="height:150px" name="description"></textarea>
       </div>
     </div>
+    <div class="row" style="padding-top: 50px;padding-bottom: 5px;">
+      <div class="col-25">
+      </div>
+      <div class="col-75">   
+         <label style="float: right;padding-bottom: 0px;">Maximum size = 2MB </label>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 0px;">
+      <div class="col-25">
+        <label>Upload File </label>
+      </div>
+      <div class="col-75">   
+        <input type="file" id="file" class="btn" name="file" accept="*">
+      </div>
+    </div>
 
-      <div class="custom-file-container" data-upload-id="myUploader" style="padding-left:10px;padding-right:10px;margin:auto;justify-content:center;">
 
-        <label>Upload File </label>   
-        <label class="custom-file-container__custom-file" >
-          <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-          <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" name="file">
-          <span class="custom-file-container__custom-file__custom-file-control"></span>
-        </label>
-        <a  id="removeLink" href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">Remove</a>
-
-        <div class="previewContainer">
-        <div class="custom-file-container__image-preview"></div>
-        </div>      
-        <input type="submit" class="upload-info-button" name="submit" value="Upload File">
+      <div class="row">
+      <!--  <a id="removeLink" href="javascript:void(0)" title="Clear Image">Remove</a> -->
+        <input type="submit" name="submit" value="Upload File" style="float: right;">
+        <script type="text/javascript">
+            var alert=document.getElementById("alertModal");
+            if("<?php echo $_GET['alert1']; ?>" =="success"){    
+              document.getElementById("msg").innerHTML="Material Uploaded Successfully!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+              alert.style.display = "block";
+            }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+              document.getElementById("msg").innerHTML="Failed to Upload Study Material!";
+              document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+              alert.style.display = "block";
+            }
+          </script>
       </div>      
         
     </form>
