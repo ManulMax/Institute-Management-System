@@ -158,7 +158,7 @@
         <div class="col-75">
           <h4><?php echo $row['topic']; ?></h4>
         </div>
-      </div>
+      </div> 
       <div class="row">
         <div class="col-40">
           <h4>Time Limit :</h4>

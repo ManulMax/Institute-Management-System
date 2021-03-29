@@ -73,6 +73,18 @@ $(function(){
           <?php  } ?>
         </div>
     </li>
+     <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Exam Marks
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>examMarks/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
 	</ul>	
 	
   </div>
@@ -175,7 +187,7 @@ $(function(){
         </td>-->
 
         <td width="30%;">
-          <div class="card">
+          <div class="card" style="height:170px;">
             <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
             <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Enrolled subjects</b></h3></div>
              <div class="containerCard">
@@ -245,71 +257,15 @@ $(function(){
 
         </td>
       </tr>
-      <tr>
-        <td style="padding:0;">
-          <div class="marks">
-            <h3>Exam results</h3>
-            <br />
-            <div class="containerCard">
-              <?php
+      </table>
        
-         foreach($classes as $row){  ?>
-            <li style="list-style: none;"><?php echo $row['name'].' '.$row['batch']; ?>
-          <?php  } ?></li>
-              
-            </div>
-            <br />
-            <br />
 
-           </div>
-        </td>
+        <!--<td colspan=2 style="padding:0;">-->
+         
 
-        <td style="padding:0;">
-          <!--<div class="table-filters">
-          <table style="padding:0;" class="filterShedule">
-            <tr>
-              <td ><label for="filter-city">Teacher</label></td>
-     <td colspan=3><select style="width:100%; background-color: white;" id="filter-city" data-filter-col="0" style="min-width:60px">
-       <option value="">- All -</option>
-      <?php
+<h2 style="margin-top:10%;text-align: center;">Schedule</h2>
 
-            while($row = mysqli_fetch_assoc($this->teacherList)){  
-
-               echo "<option value='".$row['fname']."'>".$row['fname']."</option>";
-
-            }
-      ?>
-     </select></td>
-            </tr>
- <tr>
-  <td><label for="filter-city">Batch</label></td>
-     <td><select id="filter-city" data-filter-col="2" style="min-width:60px;background-color: white;">
-       <option value="">- All -</option>
-      <option value="<?php echo date("Y");?>AL"><?php echo date("Y");?>AL</option>
-      <option value="<?php echo date("Y")+1;?>AL"><?php echo date("Y")+1;?>AL</option>
-      <option value="<?php echo date("Y")+2;?>AL"><?php echo date("Y")+2;?>AL</option>
-      <option value="Revision">Revision</option>
-     </select></td>
-
-     <td><label for="filter-city">Class</label></td>
-     <td><select id="filter-city" data-filter-col="1" style="min-width:60px;background-color: white;">
-       <option value="">- All -</option>
-      <?php
-
-            while($row = mysqli_fetch_assoc($this->subjectList)){  
-
-               echo "<option value='".$row['name']."'>".$row['name']."</option>";
-
-            }
-      ?>
-     </select></td>
- </tr>
-</table>
-</div>-->
-
-<h3 style="margin-left:10%;">Shedule</h3>
-
-<table id="data" style="width:90%;margin-top:30px;">
+<table id="data" class="data">
 <thead>
   <tr style="color:black">
     
@@ -317,7 +273,7 @@ $(function(){
     <th>Time</th>
     <th>Hall</th>
     <th>Day</th>
-    <th>Teacher</th>
+    <th>Teacher</th> 
     
     
 

@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">    
-<title>Participate Quiz</title>
+<link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
+<title>Exam Results</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
+
+
+
 <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/teacherNavStylesheet">
-<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/participateQuiz">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentNavStylesheet">
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/studentHomeStylesheet">
+
+<!-- filter table -->
+
+<link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/libraries/filter-form-Controls-filtable/examples/style2.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="<?php echo URL; ?>public/libraries/filter-form-Controls-filtable/filtable.js"></script>
+<script>
+$(function(){
+  // Basic Filtable usage - pass in a div with the filters and the plugin will handle it
+  $('#data').filtable({ controlPanel: $('.table-filters')});
+});
+</script>
+<style>
+  body {margin: 0; background-color: #fafafa; font-family: 'Open Sans';}
+  .container { margin: 150px auto; max-width: 960px; }
+  </style>
+
 
 </head>
 
@@ -17,15 +39,11 @@
 
 <div class="row">
   <div class="leftNav">
-    <button class="drop-btn">
-          <i class="fas fa-list fa-lg"></i>
-        </button> 
-        
-        
   <img src="<?php echo URL; ?>public/img/logo.png" width = "40%" height = "100px" style= "margin-left: 25%">
-  <ul>
-    <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
-     <li>
+	<ul>
+	  <li><a href="<?php echo URL; ?>studentHome"><i class="fas fa-home"></i>Dashboard</a></li>
+	  
+    <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Download Materials
           <i class="fa fa-caret-down"></i>
         </button>
@@ -41,7 +59,9 @@
 
         </div>
     </li>
-    <li>
+  
+
+      <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Quizzes
           <i class="fa fa-caret-down"></i>
         </button>
@@ -53,7 +73,7 @@
           <?php  } ?>
         </div>
     </li>
-    <li>
+     <li>
         <button class="dropdown-btn"><i class="fas fa-question"></i>Exam Marks
           <i class="fa fa-caret-down"></i>
         </button>
@@ -65,11 +85,11 @@
           <?php  } ?>
         </div>
     </li>
-  </ul> 
-   
+	</ul>	
+	
   </div>
 
-<div id="myModal" class="modal">
+  <div id="myModal" class="modal">
 
   <!-- Modal content -->
     <div class="modal-content">
@@ -129,46 +149,44 @@
 
 
   <div class="headerClass">
-    <h2><i class="fas fa-question"></i>Participate Quiz</h2>
+    <h2><i class="fas fa-file-signature"></i>Exam Results</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
 
-  
-  
-  
-  <div class="middle" style="background-color:#F8F8FF;">
-  <form id="regForm" method="post" action="">
-     <?php $row = mysqli_fetch_assoc($this->quiz); ?>
-   <h1 style="color:black; text-align:center;"><Strong> </Strong></h1>
-    <div class="topSection">Quiz Title:
-    <br />
-    <br />
-    <p class="head" style="width: 60%; padding-left:30px;"><?php echo $row['topic']; ?></p><br />
-    Time Limit:
-  <br />
-  <br />
-    <p class="head" style="width: 20%; padding-left:30px;"><?php echo $row['time_limit']; ?></p><br />
-    </div>
 
+  <div class="middle" style="background-color:white;">
 
-    <button class="attemptQuiz"><a  href="<?php echo URL; ?>ParticipateQuiz/index/<?php echo $row['id']; ?>">Particapte Quiz</a></button>
     
-  </form>
+      <script>
+  function getMaterials($cl){
+    $class=document.getElementById($cl).text;
+    
+  }
+</script>
+       <?php
+
+        $files = glob("http://localhost/IMS_Vidarsha/public/uploads/*");
+         while($row = mysqli_fetch_assoc($this->stuMaterialList)){ 
+          ?>  
+              <br />
+             <h3><i class="fas fa-book-open"></i><?php echo $row['heading'] ?></h3>
+             <p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>
+             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/<?php echo $row['name'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['name'] ?></a></p>
+             <br /><hr />
+        <?php  } ?>
+
+       
   </div>
-  
-  
-  
 
+    
 
+<!-----------------Footer---------------->
 <div class="footer">
         <div id="copyright" class="cpy clear">           
           <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">IS group 01</a></p>                   
         </div>
       </div>
-
-
-</body>
 
 
 
@@ -223,5 +241,8 @@ window.onclick = function(event) {
 
 
 </script>
+
+</body>
+
 
 </html>

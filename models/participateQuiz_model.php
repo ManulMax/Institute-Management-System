@@ -44,6 +44,27 @@ class participateQuiz_Model extends Model{
         
     }
 
+     public function listQuizzes($name,$batch){
+       
+         return $this->db->listWhere("q.id,q.topic,q.date,q.time_limit","quiz q, class c, subject s","s.name='".$name."' and s.id=c.subject_id and c.batch='".$batch."' and c.id=q.class_id");
+    }
+
+    public function getStatus($userid,$quizid){    
+         $result=$this->db->listWhere("count(m.stu_reg_no) as sum","marks m,student s","m.quiz_id=$quizid and m.stu_reg_no=s.reg_no and s.user_id=$userid");
+         $row = mysqli_fetch_assoc($result);
+         return $row['sum'];
+    }
+
+    public function getMarks($userid,$quizid){    
+         $result=$this->db->listWhere("m.marks","marks m,student s","m.quiz_id=$quizid and m.stu_reg_no=s.reg_no and s.user_id=$userid");
+         $row = mysqli_fetch_assoc($result);
+         if(isset($row['marks'])){
+            return $row['marks'];
+         }else{
+            return "-";
+         }
+    }
+
 
    
 
