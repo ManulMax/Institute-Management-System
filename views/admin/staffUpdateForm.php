@@ -4,6 +4,7 @@
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">
   <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/adminNav.css">
   <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/adminUpdate.css">
+  <link rel="stylesheet" href="<?php echo URL; ?>public/css/registerTeacher.css" />
   <title>Staff Info</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
