@@ -266,8 +266,31 @@ function containsNumbers() {
       numPopup.classList.add("show");
      return false;
      }
+    
+}
 
-     /*extra*/
+function validatePhoneNum() {
+  var phone = document.getElementById("phone");
+  var phonePopup = document.getElementById("phone-popup");
+
+  var lettersPhone = /^[0-9]{9}$/;
+   if (isEmpty(phone.value)) {
+      phone.style.borderColor = red;
+      phonePopup.innerHTML="Phone number field cannot be empty!"; 
+      phonePopup.classList.add("show");
+      return false;
+    }else if(phone.value.match(lettersPhone)){
+    
+      phone.style.borderColor = '#228B22';
+      phonePopup.classList.remove("show");
+      return true;
+     }
+   else{
+      phone.style.borderColor = red;
+      phonePopup.innerHTML="Invalid phone number!"; 
+      phonePopup.classList.add("show");
+     return false;
+     }
 }
 
 function validatePaperMarker() {

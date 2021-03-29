@@ -147,7 +147,7 @@
   <h4 style="width: 60%; padding-left:30px;"><?php echo $row['topic']; ?><h4><br />
     <h3>Time Limit</h3>
   <br />
-    <h4 style="width: 20%; padding-left:30px;"><?php echo $row['time_limit']; ?></h4><br />
+    <p class="head" style="width: 20%; padding-left:30px;"><?php echo $row['time_hours'].'h '.$row['time_minutes'].'min'; ?></p><br />
     </div>
 
 
