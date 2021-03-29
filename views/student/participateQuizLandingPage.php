@@ -151,7 +151,7 @@
     </div>
 
 
-    <button class="attemptQuiz" style="width:20%;"><a  href="<?php echo URL; ?>ParticipateQuiz/index/<?php echo $row['id']; ?>">Particapte Quiz</a></button>
+    <button class="attemptQuiz" style="width:20%;"><a  href="<?php echo URL; ?>ParticipateQuiz/index/<?php echo $row['id']; ?>">Participate Quiz</a></button>
     <button class="attemptQuiz" style="width:20%;"><a  href="<?php echo URL; ?>StudentQuizList/index/<?php  echo $_SESSION['subject'].'/'.$_SESSION['batch']; ?>">Back</a></button>
     
   </form>

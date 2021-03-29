@@ -370,7 +370,7 @@ window.onclick = function(event) {
 
 window.onload = function () {
 
-    var mins = "<?php echo $this->quizHours*60 + $this->quizMinutes; ?>",
+    var mins = "<?php echo $this->quizHours*3600 + $this->quizMinutes*60; ?>",
         display = document.querySelector('#time');
     startTimer(mins, display);
 };
