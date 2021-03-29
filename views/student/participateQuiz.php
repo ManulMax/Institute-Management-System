@@ -113,7 +113,7 @@
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
   <button id="sub">Submit Quiz</button>
-  <form method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizID; ?>">
+  <form method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizzID; ?>">
     <input type="text" id="res" name="res">
     <input type="submit" name="back" value="Go Back">
     </form>
