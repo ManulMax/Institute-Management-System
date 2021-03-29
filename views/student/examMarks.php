@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <link rel="icon" href="<?php echo URL; ?>public/img/logo.png">  
-<title>Student Dashboard</title>
+<title>Exam Results</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -149,7 +149,7 @@ $(function(){
 
 
   <div class="headerClass">
-    <h2><i class="fas fa-home"></i>Dashboard</h2>
+    <h2><i class="fas fa-file-signature"></i>Exam Results</h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
@@ -157,148 +157,27 @@ $(function(){
 
   <div class="middle" style="background-color:white;">
 
-    <table class="midTable" cellpadding="10px;" border="0">
-      <tr>
-       <!-- <td width="40%">
-          <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
-            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>ICT 2021 A/L</b></h3></div>
-             <div class="containerCard">
-            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
-            </div>
-          </div>
-          <br />
-          <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
-            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Physics 2021 A/L</b></h3></div>
-             <div class="containerCard">
-            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
-            </div>
-          </div>
-          <br />
-          <div class="card">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
-            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Chemistry 2021 A/L</b></h3></div>
-             <div class="containerCard">
-            <h5><b>Teacher : Vinuri Piyathilake</b></h5>  
-            </div>
-          </div>
-          <br />
-        </td>-->
+    
+      <script>
+  function getMaterials($cl){
+    $class=document.getElementById($cl).text;
+    
+  }
+</script>
+       <?php
 
-        <td width="30%;">
-          <div class="card" style="height:170px;">
-            <div class="quarter-circle-top-left"><i id="icon1" class="fa fa-graduation-cap fa-2x"></i></div>
-            <div style='margin-left: 27%;margin-top: -35px;'><h3><b>Enrolled subjects</b></h3></div>
-             <div class="containerCard">
-              <?php
+        $files = glob("http://localhost/IMS_Vidarsha/public/uploads/results/*");
+         while($row = mysqli_fetch_assoc($this->resultSheetList)){ 
+          ?>  
+              <br />
+             <h3><i class="fas fa-book-open"></i><?php echo $row['topic'] ?></h3>
+             <!--<p style="color: #2F4F4F;padding-left: 10px;"><?php echo $row['description'] ?></p>-->
+             <p><i class="far fa-file-pdf"></i><a href="http://localhost/IMS_Vidarsha/public/uploads/results/<?php echo $row['filename'] ?>" style="text-decoration: none;text-transform: uppercase;"><?php echo $row['filename'] ?></a></p>
+             <br /><hr />
+        <?php  } ?>
+
        
-         foreach($classes as $row){  ?>
-            <li style="list-style: none;"><?php echo $row['name'].' '.$row['batch']; ?>
-          <?php  } ?></li>
-              
-            </div>
-          </div> 
-          <br />
-        </td>   
-
-        <td width="60%">
-          <div style="position: relative;margin-left: 10%;">
-            <canvas id="myChart1"></canvas>
-            <script>
-            var ctx = document.getElementById('myChart1').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Janu', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
-                    datasets: [{
-                        label: 'Monthly Attendance',
-                        data: [<?php echo $this->attendance; ?>],
-                        backgroundColor: [
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F', 
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F'
-
-                        ],
-                        borderColor: [
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F',
-                            '#8FBC8F'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-            </script>
-          </div>
-
-        </td>
-      </tr>
-      </table>
-       
-
-        <!--<td colspan=2 style="padding:0;">-->
-         
-
-<h2 style="margin-top:10%;text-align: center;">Schedule</h2>
-
-<table id="data" class="data">
-<thead>
-  <tr style="color:black">
-    
-    <th>Class</th>
-    <th>Time</th>
-    <th>Hall</th>
-    <th>Day</th>
-    <th>Teacher</th> 
-    
-    
-
-    
-  </tr>
- 
-</thead>
-<tbody style="color:black" style="margin-top:25px;">
-  <?php
-    
-      while($row = mysqli_fetch_assoc($this->schedules)){  
-         echo "<tr><td>".$row['name']." ".$row['batch']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td> ".$row['day']."</td><td>".$row['fname']." ".$row['lname']."</td></tr>";
-      
-    }
-  ?>
-</tbody>
-</tbody>
-
-
-</table>
-        </tr>
-      </table>
-        </td>
-
-    </div>
+  </div>
 
     
 

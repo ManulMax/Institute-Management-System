@@ -221,7 +221,7 @@
         <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert2']; ?>" =="success"){    
-            document.getElementById("msg").value="Resultsheet Uploaded Successfully!";
+            document.getElementById("msg").innerHTML="Resultsheet Uploaded Successfully!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
             alert.style.display = "block";
           }else if("<?php echo $_GET['alert2']; ?>" =="fail"){

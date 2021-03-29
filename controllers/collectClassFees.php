@@ -51,9 +51,18 @@ class collectClassFees extends Controller{
 
     function search(){
         $reg = $_POST['regNo'];
-    	$stuDet = $this->model->listStuDetails($reg);
-        $row = mysqli_fetch_assoc($stuDet);
-        $this->renderCollectClassFees($reg,$row['fname'],$row['image']);
+        $del = $this->model->checkStudent($reg);
+        $deleted = mysqli_fetch_assoc($del);
+        if($deleted['deleted']==1){
+            header('location: '.URL.'enrollStudent?alert2=fail1');
+        }else if($deleted['deleted']==0){
+            $stuDet = $this->model->liststuDetails($reg);
+            $row = mysqli_fetch_assoc($stuDet);
+            $this->renderEnrollStudent($reg,$row['fname'],$row['image']);
+        } 
+        else{
+           header('location: '.URL.'enrollStudent?alert2=fail2');  
+        }   
               
 
     }

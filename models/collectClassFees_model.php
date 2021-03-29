@@ -51,6 +51,14 @@ class collectClassFees_Model extends Model{
     
     } 
 
+    public function checkStudent($reg){
+
+        $del= $this->db->listWhere("deleted","student","reg_no=$reg");
+        return $del;
+
+    }
+
+
 
    public function create($data){
 

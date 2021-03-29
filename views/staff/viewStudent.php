@@ -199,6 +199,7 @@ $(function(){
     <table id="data">
     <thead>
       <tr>
+        <th>Reg_No</th>
         <th>Name</th>
         <th>Grade</th>
         <th>NIC</th>
@@ -212,7 +213,8 @@ $(function(){
 
           while($row=mysqli_fetch_assoc($this->stuList)) { ?>
           
-             <tr><td><?php echo $row['fname']; ?></td>
+             <tr><td><?php echo $row['reg_no']; ?></td>
+              <td><?php echo $row['fname']; ?></td>
              <td><?php echo $row['grade']; ?></td>
              <td><?php echo $row['NIC']; ?></td>
              <td><?php echo $row['email']; ?></td>

@@ -39,5 +39,5 @@ class adminDashboard extends Controller{
          $this->view->dailyCount=substr($count, 0, -1);
     	 $this->view->render('admin/adminDashboard');
     }
-}
+} 
 

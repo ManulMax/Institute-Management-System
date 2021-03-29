@@ -60,6 +60,18 @@
           <?php  } ?>
         </div>
     </li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Exam Marks
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>examMarks/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
   </ul> 
   
   </div>
@@ -102,7 +114,7 @@
           }
       </script> 
 
-    <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>
+   <!-- <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time">30:00</span></h2></div>-->
 <div style="padding-left: 20%;padding-right: 20%;padding-top: 75px;">
   <h1></h1>
   <div class="quiz-container">
@@ -114,10 +126,12 @@
   <button id="previous">Previous Question</button>
   <button id="nxt">Next Question</button>
   <button id="sub">Submit Quiz</button>
-  <form method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizzID; ?>">
-    <input type="text" id="res" name="res">
+  <form id="quizForm" method="post" action="<?php echo URL; ?>participateQuiz/saveMarks/<?php echo $this->quizzID; ?>">
+    <input type="text" id="res" class="res" name="res" style="width:25%;" placeholder="Marks" readonly>
     <input type="submit" name="back" value="Go Back">
     </form>
+
+    <a class="roundBtn" style="float: left;height: 50px;width: 100%;text-align: center;" href="<?php echo URL; ?>StudentQuizList/index/<?php echo $_SESSION['subject'].'/'.$_SESSION['batch']; ?>"><i class="fas fa-chevron-left"></i>Back</a>
   </div>
 
   </div>
@@ -333,7 +347,7 @@ window.onclick = function(event) {
 })();
  </script> 
 
- <!--<script>
+ <script>
   function startTimer(duration, display) {
     var timer = duration, hours, minutes, seconds;
     setInterval(function () {
@@ -348,32 +362,21 @@ window.onclick = function(event) {
         display.textContent = hours + ":" +minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timer = duration;
+          document.getElementById("res").value = "0";
+            document.getElementById("quizForm").submit();
         }
     }, 1000);
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 5,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};
- </script>-->
 
- <script>
-   var count = 15;
-var interval = setInterval(function(){
-  document.getElementById('time').innerHTML=count;
-  count--;
-  if (count === 0){
-    clearInterval(interval);
-    document.getElementById('time').innerHTML='Done';
-    // or...
-    alert("You're out of time!");
-  }
-}, 1000);
+    var mins = "<?php echo $this->quizHours*3600 + $this->quizMinutes*60; ?>",
+        display = document.querySelector('#time');
+    startTimer(mins, display);
+};
  </script>
 
+ 
 
 
 <script>

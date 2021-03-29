@@ -13,4 +13,4 @@ class participateQuizLandingPage extends Controller{
     }
 
     
-}
+} 

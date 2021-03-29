@@ -29,7 +29,7 @@ class Quiz extends Controller{
         $this->view->quiz = $this->model->getQuiz($id);
         $this->view->render('teacher/viewQuiz');
     }
-
+ 
     function create(){
         $itemCount = count($_POST["ques"]);
         $itemValues=0;
