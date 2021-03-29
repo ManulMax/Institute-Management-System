@@ -164,7 +164,7 @@
           <h4>Time Limit :</h4>
         </div>
         <div class="col-60">
-          <h4><?php echo $row['time_limit']; ?></h4>
+          <h4><?php echo $row['time_hours'].'h '.$row['time_minutes'].'min'; ?></h4>
         </div>
       </div>
       <div class="row" style="margin-top: 30px;">

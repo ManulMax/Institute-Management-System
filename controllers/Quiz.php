@@ -34,10 +34,11 @@ class Quiz extends Controller{
         $itemCount = count($_POST["ques"]);
         $itemValues=0;
         $topic=$_POST['topic'];
-        $timeLimit=$_POST['time'];
+        $hours=$_POST['time_hours'];
+        $minutes=$_POST['time_minutes'];
 
-        $this->model->saveQuiz($topic,$timeLimit);
-
+        $this->model->saveQuiz($topic,$hours,$minutes);
+        $result=0;
         for($i=0;$i<$itemCount;$i++) {
             $question=$_POST['ques'][$i];
             $ans1=$_POST['ans1'][$i];
@@ -48,10 +49,13 @@ class Quiz extends Controller{
             $choice=$_POST['choice'][$i];
             $qno = $i + 1;
           //  $correctAns=$_POST['choice'][$i];
-            $this->model->saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5,$choice);
+            $result=$this->model->saveQuestions($topic,$qno,$question,$ans1,$ans2,$ans3,$ans4,$ans5,$choice);
         }
-
-        header('location: '.URL.'createQuiz/renderQuizPage');
+        if($result == 1){
+            header('location: '.URL.'Quiz/renderQuizPage?alert=success');
+        }else{
+            header('location: '.URL.'Quiz/renderQuizPage?alert=fail');
+        }
     }
 
   /*  function delete($quizId){

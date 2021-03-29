@@ -229,12 +229,12 @@
     
                         // The data for our dataset
                         data: {
-                            labels: ['Sunday', 'Monday', 'Tuesday', 'Wedensday', 'Thursday', 'Friday', 'Saturday'],
+                            labels: ['Monday', 'Tuesday', 'Wedensday', 'Thursday', 'Friday', 'Saturday','Sunday'],
                             datasets: [{
                                 label: 'Class Per Day',
                                 backgroundColor: '#1d5b86',
                                 borderColor: '#14870f',
-                                data: [<?php echo "1"//echo $classcount; ?>]
+                                data: [<?php echo $this->dailyCount; ?>]
                             }]
                         },
     

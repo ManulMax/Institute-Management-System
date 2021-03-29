@@ -29,6 +29,7 @@ class materials extends Controller{
         $this->view->classList = $this->model->listTeacherClasses($_SESSION["userid"]);
         $this->view->userDetails = $this->model->listPmDetails($_SESSION["userid"]);
         $this->view->materialList = $this->model->listClassMaterials($id);
+        $this->view->classid = $id;
         $this->view->batch = $batch;
         $this->view->render('paperMarker/materials');
     }
@@ -38,7 +39,6 @@ class materials extends Controller{
         $data = array();
 
         $data['heading']=$_POST['heading'];
-        $data['name']=$_POST['name'];
         $data['description']=$_POST['description'];
         $data['filename']=$_FILES['file']['name'];
         $data['temp']=$_FILES['file']['tmp_name'];
@@ -49,6 +49,25 @@ class materials extends Controller{
             header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert1=success');
         }else{
             header('location: '.URL.'materials/index/'.$classID.'/'.$batch.'?alert1=fail');
+        }
+    }
+
+    function pmCreate($classID,$batch){
+
+        $data = array();
+
+        $data['heading']=$_POST['heading'];
+        $data['description']=$_POST['description'];
+        $data['filename']=$_FILES['file']['name'];
+        $data['temp']=$_FILES['file']['tmp_name'];
+//echo $data['heading'].' '.$data['description'].' '.$data['filename'].' '.$data['temp'];
+
+
+        $result=$this->model->pmCreate($data,$classID,$_SESSION["userid"]);
+        if($result == 1){
+            header('location: '.URL.'materials/renderPmMaterials/'.$classID.'/'.$batch.'?alert1=success');
+        }else{
+            header('location: '.URL.'materials/renderPmMaterials/'.$classID.'/'.$batch.'?alert1=fail');
         }
     }
 
