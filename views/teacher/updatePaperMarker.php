@@ -105,7 +105,7 @@
         </div>
         <div class='col-25'>
         <div class='popup'>
-          <input type='text' placeholder='Mobile number...' id='phone' name='tel-update' value='".$row['tel_no']."' onfocusout='validatePhoneNumber()'>
+          <input type='text' placeholder='Mobile number...' id='phone' name='tel-update' value='".$row['tel_no']."' onfocusout='validatePhoneNum()'>
           <span class='popuptext' id='phone-popup'></span>
         </div>
         </div>
@@ -123,7 +123,7 @@
         <div class='col-35'>
         </div>
         <div class='col-15' style='margin-top:30px;'>
-          <a href='".URL."paperMarkerRegistration' class='btn' style='background-color:#333;padding: 12px 35px;'>Back</a>
+          <a href='".URL."Papermarker' class='btn' style='background-color:#333;padding: 12px 35px;'>Back</a>
         </div>
         <div class='col-15'>
           <input type='submit' class='btn' value='Update' style='padding: 12px 35px;'>
