@@ -24,7 +24,7 @@ class enrollStudent_Model extends Model{
 
      public function listStuDetails($reg){
 
-        return $this->db->listWhere("fname,image","student","reg_no=$reg");
+        return $this->db->listWhere("fname,image","student","reg_no=$reg and deleted=0");
     
 
     }

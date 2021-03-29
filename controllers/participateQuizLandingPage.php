@@ -11,4 +11,6 @@ class participateQuizLandingPage extends Controller{
     	$this->view->studentSubject = $this->model->listStudentSubjects($_SESSION["userid"]);
     	$this->view->render('student/participateQuizLandingPage');
     }
+
+    
 }

@@ -68,7 +68,7 @@
 
 
  <div class="headerClass">
-    <h2><i class="fas fa-question"></i>Participate Quiz</h2>
+    <h2><i class="fas fa-question"></i>Participate Quiz </h2>
     <div class="logout"><a href="<?php echo URL; ?>login/logout" style="color: rgba(244,244,244,0.7);"><i class="fas fa-sign-out-alt"></i></a></div>
     <div id="myBtn" class="userDiv" style="margin-top:10px;float: right;margin-right: 30px;"><i class="fas fa-user"></i>Hello <?php echo $_SESSION['username']; ?> ;-)</div>
   </div>
@@ -76,6 +76,7 @@
   
   
    <div class="middle" style="background-color:#F8F8FF;">
+    <div style="float:right;margin-top:5%;margin-right:10%;">Time remaining <br /><br /><h2 style="text-align:center;"><span id="time"></span></h2></div>
 
     <!-- alert content -->
   <div id="alertModal" class="alert-modal">
@@ -332,17 +333,19 @@ window.onclick = function(event) {
 })();
  </script> 
 
- <script>
+ <!--<script>
   function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
+    var timer = duration, hours, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
+        hours = parseInt((timer/3600) % 24, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
+        hours = hours < 10 ? "0" + hours : hours;
 
-        display.textContent = minutes + ":" + seconds;
+        display.textContent = hours + ":" +minutes + ":" + seconds;
 
         if (--timer < 0) {
             timer = duration;
@@ -351,10 +354,24 @@ window.onclick = function(event) {
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 30,
+    var fiveMinutes = 60 * 5,
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
 };
+ </script>-->
+
+ <script>
+   var count = 15;
+var interval = setInterval(function(){
+  document.getElementById('time').innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('time').innerHTML='Done';
+    // or...
+    alert("You're out of time!");
+  }
+}, 1000);
  </script>
 
 
