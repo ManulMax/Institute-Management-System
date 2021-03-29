@@ -142,13 +142,38 @@ $(function(){
             <tr><td><div class="popup"><input type="text" name="regNo" class="regNo" id="num" placeholder="Reg No" onfocusout="containsNumbers()">
              <span class="popuptext" id="number-popup"></span>
              </div></td></tr>
-            <tr><td><input type="submit" name="search" value="Search" class="search"></td></tr>
+            <tr><td><input type="submit" name="search" value="Search" id=""class="search"></td></tr>
+
+            <!-- alert content -->
+             <div id="alertModal" class="alert-modal">
+                  <div class="alert-modal-content">
+                  <span class="close">&times;</span>
+                  <div class='row' style='background-color:white;text-align: center;'>
+                    <h3 id="msg"></h3>
+                    <img id="alertImg" src="" alt="image" style="width:40%;">
+                   </div>
+                  </div>
+                </div>
+              <script type="text/javascript">
+                    var alert=document.getElementById("alertModal");
+                    if("<?php echo $_GET['alert2']; ?>" =="fail1"){    
+                      document.getElementById("msg").innerHTML="Student does not exsist!";
+                      document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+                      alert.style.display = "block";
+                    }else if("<?php echo $_GET['alert2']; ?>" =="fail2"){
+                      document.getElementById("msg").innerHTML="Student does not excist!";
+                      document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+                      alert.style.display = "block";
+                    }
+                </script> 
 
             
         </table>
       </form>
     </div>   
-</div>    
+</div>  
+
+
 <!---------------------------right side bar----------------------------------->
 <div class="right" style="background-color:#F5F5F5;">
    <form action="<?php echo URL; ?>enrollStudent/create" method="POST"> 
@@ -227,49 +252,42 @@ $(function(){
 </table>
          
 
-<!-- alert content -->
-  <div id="alertModal" class="alert-modal">
-      <div class="alert-modal-content">
-      <span class="close">&times;</span>
-      <div class='row' style='background-color:white;text-align: center;'>
-        <h3 id="msg"></h3>
-        <img id="alertImg" src="" alt="image" style="width:40%;">
-       </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-          var alert=document.getElementById("alertModal");
-          if("<?php echo $_GET['alert']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Student Registered Successfully!";
-            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
-            alert.style.display = "block";
-          }else if("<?php echo $_GET['alert']; ?>" =="fail"){
-            document.getElementById("msg").innerHTML="Failed to Register Student!";
-            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
-            alert.style.display = "block";
-          }
-      </script> 
-   
-    <script type="text/javascript">
-          var alert=document.getElementById("alertModal");
-          if("<?php echo $_GET['alert1']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Enrolled student Successfully!";
-            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
-            alert.style.display = "block";
-          }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
-            document.getElementById("msg").innerHTML="Failed to enroll student!";
-            document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
-            alert.style.display = "block";
-          }
-      </script> 
-
-     
-
-    
-
-
-
-    
+      <!-- alert content -->
+        <div id="alertModal" class="alert-modal">
+            <div class="alert-modal-content">
+            <span class="close">&times;</span>
+            <div class='row' style='background-color:white;text-align: center;'>
+              <h3 id="msg"></h3>
+              <img id="alertImg" src="" alt="image" style="width:40%;">
+             </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+                var alert=document.getElementById("alertModal");
+                if("<?php echo $_GET['alert']; ?>" =="success"){    
+                  document.getElementById("msg").innerHTML="Student Registered Successfully!";
+                  document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+                  alert.style.display = "block";
+                }else if("<?php echo $_GET['alert']; ?>" =="fail"){
+                  document.getElementById("msg").innerHTML="Failed to Register Student!";
+                  document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+                  alert.style.display = "block";
+                }
+            </script> 
+         
+          <script type="text/javascript">
+                var alert=document.getElementById("alertModal");
+                if("<?php echo $_GET['alert1']; ?>" =="success"){    
+                  document.getElementById("msg").innerHTML="Enrolled student Successfully!";
+                  document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+                  alert.style.display = "block";
+                }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+                  document.getElementById("msg").innerHTML="Failed to enroll student!";
+                  document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+                  alert.style.display = "block";
+                }
+            </script> 
+  
     </div>
   </form>
 
@@ -287,6 +305,11 @@ $(function(){
         </div>
       </div>
  </body>
+
+
+
+
+
 
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
@@ -360,4 +383,4 @@ window.onclick = function(event) {
 </script>
   
  
-  </html>
+</html>
