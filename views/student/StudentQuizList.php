@@ -53,6 +53,18 @@
           <?php  } ?>
         </div>
     </li>
+    <li>
+        <button class="dropdown-btn"><i class="fas fa-question"></i>Exam Marks
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <?php
+       
+         foreach($classes as $row){  ?>
+            <a href="<?php echo URL; ?>examMarks/index/<?php echo $row['name'].'/'.$row['batch']; ?>"><?php echo $row['name'].' '.$row['batch']; ?></a>
+          <?php  } ?>
+        </div>
+    </li>
   </ul>   
   
   </div>

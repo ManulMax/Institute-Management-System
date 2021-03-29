@@ -49,7 +49,9 @@
 }
 
 
-
+.res{
+  width:25%;
+}
 
 
 .middle .slide{
@@ -191,3 +193,4 @@ input[type=submit] {
   cursor: pointer;
   float: right;
 }
+

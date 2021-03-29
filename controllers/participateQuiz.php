@@ -11,8 +11,7 @@ class participateQuiz extends Controller{
     	$this->view->questions = $this->model->listQuestions($id);
         $this->view->quizzID = $id;
     	$this->view->studentSubject = $this->model->listStudentSubjects($_SESSION["userid"]);
-        $this->view->timer = $this->model->listTime($id);
-    	$this->view->render('student/participateQuiz');
+        $this->view->render('student/participateQuiz');
     }
 
     function saveMarks($id){
@@ -22,6 +21,6 @@ class participateQuiz extends Controller{
         $this->view->render('student/StudentQuizList');
     }
 
-    
+     
 
 }
