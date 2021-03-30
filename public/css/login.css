@@ -11,6 +11,9 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
+#forgotBtn{
+  text-decoration: none;
+}
 /*________________________________The Modal (background)_____________________________________________________ */
 .modal {
   display: none; /* Hidden by default */
