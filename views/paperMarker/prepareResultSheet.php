@@ -17,7 +17,7 @@
   <div class="leftNav">
   <img src="<?php echo URL; ?>public/img/logo.png" width = "50%" height = "100px" style= "margin-left: 25%">
 	<ul>
-	  <li><a href="paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+	  <li><a href="<?php echo URL; ?>paperMarkerDashboard"><i class="fas fa-home"></i>Dashboard</a></li>
        <li>
         <button class="dropdown-btn"><i class="fas fa-upload"></i>Upload Materials
           <i class="fa fa-caret-down"></i>
@@ -143,13 +143,15 @@
      
 
     <br/>
+
+    <!--
     <form method="post" enctype="multipart/form-data" action="<?php echo URL; ?>prepareResultSheet/sendEmail/<?php echo $this->classid.'/'.$this->batch; ?>" align="center">
       <div style="text-align: center;margin-top: 15%;">
         <input type="file" id="file" class="btn" name="image" accept="*">
 
         <input type="submit" value="Send result sheet" name="resultSheet" class="btn2">
       </div>
-    </form>
+    </form> -->
 	</div>
   </div>
   

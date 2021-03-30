@@ -29,7 +29,8 @@ class Classes_Model extends Model{
 
     public function checkBatch($batchname,$userid){
         $result = $this->db->listWhere("c.id","class c,teacher t","c.batch='".$batchname."' and c.teacher_reg_no=t.reg_no and t.user_id=$userid");
-        if(isset($result)){
+        $res = mysqli_fetch_assoc($result);
+        if(isset($res)){
             return 1;
         }
         return 0;
