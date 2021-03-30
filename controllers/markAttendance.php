@@ -29,7 +29,7 @@ class markAttendance extends Controller{
 
         $date1 = $row['month'];
 
-        $ts1 = strtotime($date1);
+        $ts1 = strtotime($date1); 
 
         $month1 = date('m', $ts1);
         $month2 = date('m');
