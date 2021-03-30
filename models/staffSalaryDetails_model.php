@@ -6,13 +6,7 @@ class staffSalaryDetails_Model extends Model{
      	parent::__construct();
     }
 
-    public function listHalls(){
-
-    	return $this->db->listAll("hall");
-        
-
-    }
-
+   
      public function listDetails($userid){
 
         return $this->db->listWhere("*","staff","user_id=$userid");
@@ -30,67 +24,16 @@ class staffSalaryDetails_Model extends Model{
 
 
     public function listSalaryDetails($userid){
-        return $this->db->listWhere("st.month,st.amount","staff_salary st,staff s","st.staff_reg_no=s.reg_no and s.user_id=$userid ORDER BY id DESC LIMIT 1");
+        return $this->db->listWhere("st.month,st.amount,st.date","staff_salary st,staff s","st.staff_reg_no=s.reg_no and s.user_id=$userid ORDER BY id DESC LIMIT 1");
     
     }
 
-    /* public function listFullSalaryDetails($userid){
-
-        return $this->db->listAll("st.Payment_date,st.Amount","staff_salary st,staff s","$userid=s.user_id and st.staff_reg_no=s.reg_no and st.Payment_date LIKE %DATE('Y') ");
-        
-
-    }*/
+   
 
 
+   
 
-    public function getUser($id){
-
-        return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
-    }
-
-    public function create($data){
-
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
-
-
-    }
-
-    public function update($data){
-
-        $this->db->update('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['email'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']),"nic = '{$data['nic']}'");
-
-    }
-
-    public function delete($id){
-        $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");
-
-        if($data['user_type']=='owner'){
-            return false;
-        } else{
-            $this->db->delete('user',"nic='$id'");
-        }
-
-    }
-
+   
 
 
 

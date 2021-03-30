@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+ <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   <script type="text/javascript" src="http://localhost/IMS_Vidarsha/public/js/form_validation.js"></script>
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/staffNavigation">
   <link rel="stylesheet" href="http://localhost/IMS_Vidarsha/public/css/enrollStu">
@@ -118,7 +118,7 @@ $(function(){
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-     <video id="preview" style="width:150%;height:100%;"></video>
+      <video id="preview" style="width:150%;height:100%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {
@@ -186,7 +186,7 @@ $(function(){
           
              <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
                 <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
-                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
+                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' id="regName" value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
           

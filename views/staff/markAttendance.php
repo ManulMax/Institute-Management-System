@@ -100,8 +100,6 @@
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-       
-          
             <video id="preview" style="width:150%;height:100%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
@@ -122,7 +120,6 @@
                     console.error(e);
                   });
                 </script>
-           
              
       <form action="<?php echo URL; ?>markAttendance/search/<?php echo $this->subjectname.'/'.$this->batchname; ?>" method="POST">        
         <table class="qr-scan">
@@ -144,8 +141,8 @@
       <form action="<?php echo URL; ?>markAttendance/create" method="POST"> 
         <table class="image-detail">
            <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
-                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' id="regName" value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
 
