@@ -198,7 +198,7 @@
                                     label: 'New Registering Student Per Month',
                                     backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                     borderColor: '#14870f',
-                                    data: [<?php echo $this->register; ?>]
+                                    data: [<?php echo $this->attendance; ?>]
                                 }]
                             },
     
