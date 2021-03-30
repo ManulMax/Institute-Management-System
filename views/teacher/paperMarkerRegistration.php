@@ -318,7 +318,7 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="tel" placeholder="eg: 716538865" id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		  <input type="tel" placeholder="eg: 0716538865" id="phone" name="tel" onfocusout="validatePhoneNumber()">
 		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>

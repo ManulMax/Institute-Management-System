@@ -280,10 +280,12 @@ $(function(){
 
   <?php
 
-      while($row = mysqli_fetch_assoc($this->scheduleList)){  
-         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']." ".$row['mname']." ".$row['lname']."</td></tr>";
+  while($row = mysqli_fetch_assoc($this->scheduleList)){  
+         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']."</td></tr>";
 
       }
+
+      
   ?>
  
 </tbody>
