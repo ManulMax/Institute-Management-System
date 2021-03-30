@@ -118,11 +118,15 @@ $(function(){
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-      <video id="preview" style="width:150%;height:100%;"></video>
+     <video id="preview" style="width:150%;height:100%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {
-                    console.log(content);
+                    
+                    var res = content.split("?");
+                    document.getElementById("regNum").value = res[0];
+                    document.getElementById("regName").value = res[1];
+                    console.log(res);
                   });
                   Instascan.Camera.getCameras().then(function (cameras) {
                     if (cameras.length > 0) {
