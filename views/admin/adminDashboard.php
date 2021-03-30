@@ -198,7 +198,7 @@
                                     label: 'New Registering Student Per Month',
                                     backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                     borderColor: '#14870f',
-                                    data: [<?php echo $this->attendance; ?>]
+                                    data: [<?php echo $this->register; ?>]
                                 }]
                             },
     
@@ -207,7 +207,7 @@
                         })
                 </script>
             </div>
-            <?php echo $this->register; ?>
+
 
             <div class="chart" style="position:relative; height:15vh; width:35vw; margin-left: 40vW;margin-top: -15vh;">
                 <canvas id="myChart2"></canvas>
