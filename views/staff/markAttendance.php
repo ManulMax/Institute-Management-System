@@ -100,9 +100,7 @@
 <div class="middle" style="background-color:#F8F8FF;">    
 
     <div class="container">
-       
-          
-            <video id="preview" style="width:150%;height:100%;"></video>
+            <video id="preview" style="width:100%;height:150%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {
@@ -110,6 +108,11 @@
                     var res = content.split("?");
                     document.getElementById("regNum").value = res[0];
                     document.getElementById("regName").value = res[1];
+                    document.getElementById("date").value = res[2];
+                    document.getElementById("month").value = res[3];
+                    document.getElementById("amount").value = res[4];
+                    document.getElementById("due").value = res[5];
+
                     console.log(res);
                   });
                   Instascan.Camera.getCameras().then(function (cameras) {
@@ -122,7 +125,6 @@
                     console.error(e);
                   });
                 </script>
-           
              
       <form action="<?php echo URL; ?>markAttendance/search/<?php echo $this->subjectname.'/'.$this->batchname; ?>" method="POST">        
         <table class="qr-scan">
@@ -144,8 +146,8 @@
       <form action="<?php echo URL; ?>markAttendance/create" method="POST"> 
         <table class="image-detail">
            <tr><td><img src="<?php if(isset($this->image)){echo "http://localhost/IMS_Vidarsha/public/img/studentImages/".$this->image; }else{ echo "http://localhost/IMS_Vidarsha/public/img/placeholder.png"; }; ?>" width="200px" height="200px" ></td>
-                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
-                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
+                <td><label style='color:black'>Reg No</label></br><input type='text' name='regNum' id="regNum" class='input' value="<?php if(isset($this->stuReg)){echo $this->stuReg; }else{ echo ""; }; ?>" ></br></br>
+                    <label style='color:black'>Name</label></br><input type='text' name='name' class='input' id="regName" value="<?php if(isset($this->stuName)){echo $this->stuName; }else{ echo ""; }; ?>">
                 </td>
             </tr>
 
@@ -159,7 +161,7 @@
             <p>Last payment date:</p>
           </div>
           <div class="col-50">
-            <p name="payment-date" class="payment-date"><?php if(isset($this->stuLastPaymentDate)){echo $this->stuLastPaymentDate; }else{ echo ""; }; ?></p>
+            <p name="payment-date" class="payment-date" id="date"><?php if(isset($this->stuLastPaymentDate)){echo $this->stuLastPaymentDate; }else{ echo ""; }; ?></p>
           </div>
         </div>
         <div class="row">
@@ -169,7 +171,7 @@
             <p>Last paid month:</p>
           </div>
           <div class="col-50">
-            <p name="payment-month" class="payment-date"><?php if(isset($this->stuLastPaymentMonth)){echo $this->stuLastPaymentMonth; }else{ echo ""; }; ?></p>
+            <p name="payment-month" class="payment-date" id="month"><?php if(isset($this->stuLastPaymentMonth)){echo $this->stuLastPaymentMonth; }else{ echo ""; }; ?></p>
           </div>
         </div>
         <div class="row">
@@ -179,7 +181,7 @@
             <p>Class fee amount:</p>
           </div>
           <div class="col-50">
-            <p name="paid-amount" class="paid-amount"><?php if(isset($this->stuLastPaidAmount)){echo $this->stuLastPaidAmount; }else{ echo ""; }; ?></p>
+            <p name="paid-amount" class="paid-amount" id="amount"><?php if(isset($this->stuLastPaidAmount)){echo $this->stuLastPaidAmount; }else{ echo ""; }; ?></p>
           </div>
         </div>
         <div class="row" id="month-count">
@@ -189,7 +191,7 @@
             <p>No. of months due:</p>
           </div>
           <div class="col-50">
-            <p name="month-count"><?php if(isset($this->diff)){echo $this->diff; }else{ echo ""; }; ?>
+            <p name="month-count" id="due"><?php if(isset($this->diff)){echo $this->diff; }else{ echo ""; }; ?>
               <script type="text/javascript">
                 if(<?php echo $this->diff; ?> > 0){
                   document.getElementById("month-count").style.color = "red";

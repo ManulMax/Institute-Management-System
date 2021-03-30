@@ -127,7 +127,7 @@ $(function(){
       
 
 
-      <video id="preview" style="width:150%;height:100%;"></video>
+      <video id="preview" style="width:100%;height:150%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {
@@ -135,6 +135,7 @@ $(function(){
                     var res = content.split("?");
                     document.getElementById("regNum").value = res[0];
                     document.getElementById("regName").value = res[1];
+
                     console.log(res);
                   });
                   Instascan.Camera.getCameras().then(function (cameras) {
@@ -307,7 +308,7 @@ $(function(){
       
 
       <label>Last paid month</label></br>
-          <p name="month" class="paid-month" style="background-color: white;width:50%;color: black;margin-left:10%;" ><?php echo $this->feesMonth; ?></p>
+          <p name="month" class="paid-month" id="month" style="background-color: white;width:50%;color: black;margin-left:10%;" ><?php echo $this->feesMonth; ?></p>
         </br>
       <label>Current payment month</label></br>
         <select name="currentPaymentMonth" style="background-color: white;width:50%;">
@@ -327,7 +328,7 @@ $(function(){
             </select>
           </br>
       <label>Payment amount</label>  </br>  
-                <p name="paid-amount" class="paid-amount" style="background-color: white;width:50%;color: black;margin-left:10%;"><?php echo $this->feesAmount; ?></p>
+                <p name="paid-amount" class="paid-amount" id="amount" style="background-color: white;width:50%;color: black;margin-left:10%;"><?php echo $this->feesAmount; ?></p>
               </br>
 
 
