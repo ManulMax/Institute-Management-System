@@ -26,7 +26,7 @@ class adminDashboard_model extends Model{
         return $this->db->listWhere("count(class_id) as sum","schedule","day='".$day."'");
     }
 
-    public function getAttendanceCount($month){         
+    public function getRegisterCount($month){         
         return $this->db->listWhere("count(*) as sum","student s","s.reg_date LIKE '".$month."%'");
     
     } 
