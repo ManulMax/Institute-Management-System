@@ -328,7 +328,7 @@ $(function(){
             </select>
           </br>
       <label>Payment amount</label>  </br>  
-                <p name="paid-amount" class="paid-amount" id="amount" style="background-color: white;width:50%;color: black;margin-left:10%;"><?php echo $this->feesAmount; ?></p>
+                <input type="text" name="paid-amount" value="<?php echo $this->feesAmount; ?>" class="paid-amount" id="amount" style="background-color: white;width:20%;color: black;margin-left:10%;border-color: white;" readonly>
               </br>
 
 
@@ -357,7 +357,7 @@ $(function(){
     <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Payment succesfull!";
+            document.getElementById("msg").innerHTML="Payment succesful!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
             alert.style.display = "block";
           }else if("<?php echo $_GET['alert']; ?>" =="fail"){
