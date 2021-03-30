@@ -21,7 +21,7 @@ class studentHome extends Controller{
                 $row = mysqli_fetch_assoc($result);
                 $attendance .= "'".$row['sum']."',";
              }
-         $this->view->attendance=substr($attendance, 0, -1);
+         $this->view->attendance=substr($attendance);
          
 
       	$this->view->render('student/studentHome');

@@ -403,6 +403,25 @@ label {
   color: #141414;
 }
 
+#cancelBtn{
+  border-color: white;
+  cursor: pointer;
+  opacity: 0.8 ;
+  border: none ;
+  border-radius: 20px ;
+  font-size: 14px ;
+  height: 40px;
+  margin-top: 0 ;
+  text-decoration: none;
+  background-color: #474747;
+  color: white;
+}
+
+#cancelBtn:hover{
+  text-decoration: bold;
+  color: #302f2f;
+}
+
 /*_______________________________________________________________________________________________________________________________________________*/
 /* ____________________________________________________The Modal (background) */
 .modal {

@@ -11,6 +11,9 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
+#forgotBtn{
+  text-decoration: none;
+}
 /*________________________________The Modal (background)_____________________________________________________ */
 .modal {
   display: none; /* Hidden by default */
@@ -128,6 +131,7 @@ form.sign-in-form {
 }
 
 .input-field input {
+  border-radius: 55px;
   background: none;
   outline: none;
   border: none;
@@ -138,6 +142,7 @@ form.sign-in-form {
 }
 
 .input-field select {
+  border-radius: 55px;
   background: none;
   outline: none;
   border: none;

@@ -198,7 +198,7 @@
                                     label: 'New Registering Student Per Month',
                                     backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                     borderColor: '#14870f',
-                                    data: [0, 10, 5, 2, 20, 30, 45, 12, 8, 10, 0, 0]
+                                    data: [<?php echo $this->register; ?>]
                                 }]
                             },
     
@@ -208,16 +208,6 @@
                 </script>
             </div>
 
-            <?php 
-              // $classcount1 = mysqli_fetch_assoc($this->sum1);
-              // $classcount2 = mysqli_fetch_assoc($this->sum2);
-              // $classcount3 = mysqli_fetch_assoc($this->sum3);
-              // $classcount4 = mysqli_fetch_assoc($this->sum4);
-              // $classcount5 = mysqli_fetch_assoc($this->sum5);
-              // $classcount6 = mysqli_fetch_assoc($this->sum6);
-              // $classcount7 = mysqli_fetch_assoc($this->sum7);
-
-             // $classcount = "'".$classcount1['sum']."','".$classcount2['sum']."','".$classcount3['sum']."','".$classcount4['sum']."','".$classcount5['sum']."','".$classcount6['sum']."','".$classcount7['sum']."'" ?>
 
             <div class="chart" style="position:relative; height:15vh; width:35vw; margin-left: 40vW;margin-top: -15vh;">
                 <canvas id="myChart2"></canvas>
