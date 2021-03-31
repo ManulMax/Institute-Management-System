@@ -166,7 +166,7 @@
                 <div class="gmap_canvas" >
                     <iframe width="1000" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=vidarsha%20institute%20galle&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                     </iframe>
-                    <a href="https://www.whatismyip-address.com/divi-discount/"></a>
+
                 </div>  
             </div>
           </section>

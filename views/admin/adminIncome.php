@@ -133,69 +133,7 @@
     </div>
   </div>
 
-  <?php
-      while($row = mysqli_fetch_assoc($this->classList)){ 
-        $result = "'" . implode ( "', '", (array)$row['name'] ) . "'";
-   ?>
-      <?php  } ?>
-    <div class="row" style="margin-top: 5%;">
-    <div class="col-50">
-      <div class="chart" style="position: relative; height:15vh; width:35vw">
-            <canvas id="myChart"></canvas>
-            <script>
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var chart = new Chart(ctx, {
-                    // The type of chart we want to create
-                    type: 'bar',
 
-                    // The data for our dataset
-                    data: {
-                        labels: [<?php $result; ?> ],   
-                        datasets: [{
-                            label: 'New Registering Student Per Month',
-                            backgroundColor: '#0d7377',
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: [<?php //echo $this->stuCount; ?>]
-                        }]
-                    },
-
-                    // Configuration options go here
-                    options: {}
-                })
-        </script>
-        </div>
-    </div>
-
-    <div class="col-50">
-      <div class="chart" style="position: relative; height:15vh; width:35vw">
-            <canvas id="myChart2"></canvas>
-            <script>
-                var ctx = document.getElementById('myChart2').getContext('2d');
-                var chart = new Chart(ctx, {
-                    // The type of chart we want to create
-                    type: 'pie',
-
-                    // The data for our dataset
-                    data: {
-                        labels: ['Physics', 'Combine Maths', 'SFT', 'Chemistry', 'ICT'],
-                        datasets: [{
-                            label: 'New Registering Student Per Month',
-                            backgroundColor: '#14870f',
-                            borderColor: '#7e8a97',
-                            data: [45, 100, 50, 20, 18]
-                        }]
-                    },
-
-                    // Configuration options go here
-                    options: {}
-                })
-        </script>
-        </div>
-    </div>
-
-
-        </div>
-    </div>
 
   </div>
 

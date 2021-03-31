@@ -40,61 +40,34 @@
   <!-------------------Middle contet---------------------------------->
 <div class="middle" style="background-color:#F8F8FF;">
 	
-	<form id="regForm" action="#" method="post">
-    <div class="row">
-    <div class="col-20" style="width: 25%;">
-      <label for="subject">Teacher :</label>
-    </div>
-    <div class="col-75">
-      <div style="width:250px;">
-      <select>
-      <option value="0">Select Teacher:</option>
-      <option value="1">sub1</option>
-      <option value="2">sub2</option>
-      <option value="3">sub3</option>
-      <option value="4">sub4</option>
-      </select>
-    </div>
-    </div>    
-   
-    <div class="row">
-    <div class="col-15">
-      <label for="subject">Email :</label>
-    </div>
-    <div class="col-75" style="width: 60%">
-      <input type="email" placeholder="Email address..." name="email" disabled="">
-    </div>
-    </div>
-    
-    <div class="row">
-    <div class="col-15">
-      <label for="subject">Mobile No. :</label>
-    </div>
-    <div class="col-25">
-      <input type="text" placeholder="Mobile number..." name="tel" disabled="">
-    </div>
-    </div>
+<div id="tableDiv">
+    <table id="data">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Acc No</th>
+        <th>Bank</th>
+        <th>Branch</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <div class="row">
-    <div class="col-15">
-      <label for="subject">Account No. :</label>
-    </div>
-    <div class="col-25">
-      <input type="text" placeholder="Account number..." name="tel" disabled="">
-    </div>
-    </div>
+    <?php
+    while($row = mysqli_fetch_assoc($this->tecList)){  ?>
+    <tr><td><?php echo $row['fname']?></td>
+    <td><?php echo $row['acc_no'] ?> </td>
+    <td><?php echo $row['bank_name'] ?></td>
+    <td><?php echo $row['branch_name'] ?></td>
+    <td><form action="https://sandbox.payhere.lk/pay/of3fcdd76" method="get"><input id="btn" name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:200px;" value="Pay Now"></form></td>
+ </tr>
 
-    <div class="row">
-    <div class="col-15">
-      <label for="subject">Branch Name. :</label>
+    <?php } ?>
+    </tbody>
+    </table>
     </div>
-    <div class="col-25">
-      <input type="text" placeholder="Branch Name..." name="tel" disabled="">
-    </div>
-    </div>
-  </div>
   </form>
-  <form action="https://sandbox.payhere.lk/pay/of3fcdd76" method="get"><input id="btn" name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:200px;" value="Pay Now"></form>
+  
   </div>    	
 </div>
     

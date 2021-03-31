@@ -30,5 +30,13 @@ class adminIncome_model extends Model{
         return 0;   
     } 
 
+    // public function getIncomeNew($reg,$batch){    
+    //     $result=$this->db->listWhere("SUM(f.amount) as income","enrollment e,class c,fees f","c.batch='".$batch."' and c.id=e.class_id and c.teacher_reg_no=$reg and f.class_id=c.id and f.month='".date('F')."'");
+    //     if(!empty($result)){
+    //     	$res=mysqli_fetch_assoc($result);
+    //     	return $res['income'];
+    //     }
+    //     return 0;   
+    // } 
 
 }
