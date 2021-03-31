@@ -110,34 +110,15 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach($this->dataList as $row) { ?>
       <tr>
-        <td>Vinuri Samalka Piyathilake </td>
-        <td>Chemistry</td>
-        <td>2021 A/L</td>
-        <td>60</td>
-        <td>50000.00</td>
+        <td><?php echo $row['1']; ?></td>
+        <td><?php echo $row['2']; ?></td>
+        <td><?php echo $row['3']; ?></td>
+        <td><?php echo $row['4']; ?></td>
+        <td><?php echo $row['5']; ?></td>
       </tr>
-      <tr>
-        <td>Nadeera Siriwardana</td>
-        <td>Combined Maths</td>
-        <td>2022 A/L</td>
-        <td>100</td>
-        <td>85000.00</td>
-      </tr>
-      <tr>
-        <td>Padmika Godakanda</td>
-        <td>Physics</td>
-        <td>2021 A/L</td>
-        <td>60</td>
-        <td>50000.00</td>
-      </tr>
-      <tr>
-        <td>Deneth Viduranga Gamage</td>
-        <td>SFT</td>
-        <td>2021 A/L</td>
-        <td>20</td>
-        <td>30000.00</td>
-      </tr>
+    <?php } ?>
 
     </tbody>
     </table>
