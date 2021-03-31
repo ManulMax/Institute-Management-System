@@ -43,18 +43,7 @@ class enrollStudent_Model extends Model{
 
     }
 
-    public function checkenrollment($data){
-
-        $result1=$this->db->listWhere("c.id","class c,subject s","c.subject_id=s.id and s.name='".$data['subject']."' and  c.batch='".$data['batch']."'");
-        $res1=mysqli_fetch_assoc($result1);
-        $result2=$this->db->ListWhere("stu_reg_no","enrollment","class_id=".$res1['id']." and stu_reg_no=".$data['stu_reg_no']);
-        $res2=mysqli_fetch_assoc($result2);
-        if(isset($res)){
-            return 1;
-        }
-        return 0;
-    }
-
+   
 
 
     public function create($data){
@@ -63,7 +52,7 @@ class enrollStudent_Model extends Model{
     $id = mysqli_fetch_assoc($classID);
 
 
-     $result=$this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".$id['id']."','".$data['stu_reg_no']."','".date("Y/m/d")."')");
+     $result=$this->db->insert('enrollment',"(class_id,stu_reg_no,date)","('".$id['id']."','".$data['stu_reg_no']."','".date("Y-m-d")."')");
 
       return $result;
  }
