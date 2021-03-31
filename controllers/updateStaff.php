@@ -32,9 +32,9 @@ class updateStaff extends Controller{
 
         $result=$this->model->update($data,$userSf);
         if($result == 1){
-            header('location: '.URL.'updateStaff?alert=success');
+            header('location: '.URL.'updateStaff?alert1=success');
         }else{
-            header('location: '.URL.'updateStaff?alert=fail');
+            header('location: '.URL.'updateStaff?alert1=fail');
         }
     }
 

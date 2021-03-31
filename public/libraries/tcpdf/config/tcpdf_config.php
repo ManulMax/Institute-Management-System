@@ -114,7 +114,7 @@ define ('PDF_HEADER_TITLE', 'Vidarsha Educational Institute');
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', "by Nicola Asuni - Tecnick.com\nwww.tcpdf.org");
+define ('PDF_HEADER_STRING', "Vidarsha Educational Institute, Havelock Road, Galle\nvidarsha.edu@gmail.com");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].

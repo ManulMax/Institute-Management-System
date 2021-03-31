@@ -171,7 +171,7 @@
 
     while($row = mysqli_fetch_assoc($this->stuList)){  ?>
 
-    <tr><td><?php  echo $row['fname'].' '.$row['mname'].' '.$row['lname']; ?></td>
+    <tr><td><?php  echo $row['fname']; ?></td>
     <td> <?php echo $row['NIC'] ?></td>
     <td> <?php echo $row['tel_no']; ?></td>
     <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/updateStudent/renderStudentUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>

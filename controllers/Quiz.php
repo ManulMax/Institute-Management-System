@@ -12,7 +12,23 @@ class Quiz extends Controller{
         $this->view->batch = $batch;
         Session::set('classid',$id);
         Session::set('batch',$batch);
-        $this->view->qlist = $this->model->listQuizzes($id);
+
+        $qlist = $this->model->listQuizzes($id);
+        $i=0;
+        while($row=mysqli_fetch_assoc($qlist)){
+            $dataList[$i][0]=$row['id'];
+            $dataList[$i][1]=$row['date'];
+            $dataList[$i][2]=$row['topic'];
+            $dataList[$i][3]=$row['time_hours'];
+            $dataList[$i][4]=$row['time_minutes'];
+            $dataList[$i][5]=$row['class_id'];
+            $dataList[$i][6]=$this->model->getStudentCount($row['id']);
+            $i++;
+        }
+        if(isset($dataList)){
+            $this->view->dataList = $dataList;
+        }
+        
         $this->view->render('teacher/quizList');
     }
 

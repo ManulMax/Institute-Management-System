@@ -47,7 +47,7 @@ class Papermarker extends Controller{
         $data['tel_no'] = $_POST['tel-update']; 
         $data['address'] = $_POST['address-update'];
         $data['NIC'] = $_POST['NIC-update'];
-       // $data['gender'] = $_POST['gender-update'];
+        $data['gender'] = $_POST['gender-update'];
         $data['DOB'] = $_POST['DOB-update'];
         $data['email'] = $_POST['email-update'];
         $data['qualifications'] = $_POST['qualifications-update'];

@@ -191,18 +191,19 @@
       </tr>
     </thead>
     <tbody>
-      <?php
 
-          while($row=mysqli_fetch_assoc($this->qlist)) { ?>
+          <?php
+          if(isset($this->dataList)){
+           foreach($this->dataList as $row) { ?>
           
-             <tr><td><?php echo $row['date']; ?></td>
-             <td><?php echo $row['topic']; ?></td>
-             <td><?php echo $row['time_hours'].'h '.$row['time_minutes'].'min'; ?></td>
-             <td></td>
-             <td><a class='roundBtn' id='viewBtn' href="<?php echo URL; ?>Quiz/renderViewQuiz/<?php echo $row['id']; ?>" style="padding: 5px 15px 5px 15px;">View</a></td>
+             <tr><td><?php echo $row[1]; ?></td>
+             <td><?php echo $row[2]; ?></td>
+             <td><?php echo $row[3].'h '.$row[4].'min'; ?></td>
+             <td><?php echo $row[6]; ?></td>
+             <td><a class='roundBtn' id='viewBtn' href="<?php echo URL; ?>Quiz/renderViewQuiz/<?php echo $row[0]; ?>" style="padding: 5px 15px 5px 15px;">View</a></td>
             <!-- <td><a class='roundBtn' id='deleteBtn' onclick="promptFunction(<?php echo $row['id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;">Delete</a></td>  -->
            </tr>
-         <?php } ?>
+         <?php } } ?>
       
     </tbody>
     </table>

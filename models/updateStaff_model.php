@@ -15,7 +15,7 @@ class updateStaff_model extends Model{
     }
 
     public function update($data,$userSf){        
-        $this->db->update('staff',"tel_no=".$data['tel_no'].",address='".$data['address']."',fixed_salary=".$data['fixed_salary']."","user_id=$userSf");       
+        $result = $this->db->update('staff',"tel_no=".$data['tel_no'].",address='".$data['address']."',fixed_salary=".$data['fixed_salary']."","user_id=$userSf");       
         return $result;
     }
 

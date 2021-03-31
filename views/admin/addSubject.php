@@ -130,7 +130,6 @@
         <th>Subject ID</th>
         <th>Subject</th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -140,7 +139,6 @@ while($row = mysqli_fetch_assoc($this->subList)){  ?>
 <tr>
   <td><?php echo $row['id']?></td>
   <td><?php echo $row['name']?></td>
-  <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/addSubject/renderSubUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
 	<td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr> 
   </tr>
 

@@ -32,9 +32,18 @@ class Quiz_Model extends Model{
         return $this->db->listWhere("*","quiz","class_id=$classid");
     }
 
+    public function getStudentCount($id){    
+        $result=$this->db->listWhere("count(stu_reg_no) as stuCount","marks","quiz_id=$id");
+        if(!empty($result)){
+            $res=mysqli_fetch_assoc($result);
+            return $res['stuCount'];
+        }
+        return 0;   
+    }
+
     public function saveQuiz($topic,$hours,$minutes){
 
-        $this->db->insert("quiz","(topic,time_hours,time_minutes,class_id)","('".$topic."',$hours,$minutes,".$_SESSION['classid'].")");
+        $this->db->insert("quiz","(date,topic,time_hours,time_minutes,class_id)","('".date("Y-m-d")."','".$topic."',$hours,$minutes,".$_SESSION['classid'].")");
         
     }
 
