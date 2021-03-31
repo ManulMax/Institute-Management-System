@@ -48,8 +48,8 @@
     <div class="col-25">
       <label for="filter-reg">New Subject :</label>
     </div>
-
-    <form onsubmit="return confirm('Do you really want to add this subject?');"  id="addSub" action="<?php echo URL; ?>addSubject/create" method="post">
+    <!-- onsubmit="return confirm('Do you really want to add this subject?');" -->
+    <form  id="addSub" action="<?php echo URL; ?>addSubject/create" method="post">
     <div class="col-25">
       <input type="text" placeholder="subject name..." name="subject" required>
     </div>
@@ -59,7 +59,69 @@
     </div>
     </from>
   </div>
-    
+    <!-- alert content -->
+	<div id="alertModal" class="alert-modal">
+      <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+        <h3 id="msg"></h3>
+        <img id="alertImg" src="" alt="image" style="width:40%;">
+       </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert1']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Subject Details Updated Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert1']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Update Subject Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	  </script> 
+
+    <script type="text/javascript">
+	        var alert=document.getElementById("alertModal");
+	        if("<?php echo $_GET['alert2']; ?>" =="success"){    
+	          document.getElementById("msg").innerHTML="Subject Deleted Successfully!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
+	          alert.style.display = "block";
+	        }else if("<?php echo $_GET['alert2']; ?>" =="fail"){
+	          document.getElementById("msg").innerHTML="Failed to Delete Subject Details!";
+	          document.getElementById('alertImg').src="<?php echo URL; ?>public/img/error_icon.png";
+	          alert.style.display = "block";
+	        }
+	  </script>
+ 
+  		<!-- alert content -->
+  <div id="confirmModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <span class="close">&times;</span>
+      <div class='row' style='background-color:white;text-align: center;'>
+      	<h3>Are you sure?</h3><br />
+      	<p>Do you really want to delete this data? This process cannot be undone.</p><br />
+      	<div class="col-25">
+      	</div>
+      	<div class="col-25">
+      		<a class="roundBtn" id="cancelBtn" style='padding: 10px 15px 10px 15px;background-color:#808080;' href="">Cancel</a>
+      	</div>
+      	<div class="col-25">
+      		<a class="roundBtn" id="deleteBtn" style='padding: 10px 15px 10px 15px;background-color:#990000;' href="">Delete</a>
+      	</div>
+      	
+       </div>
+    </div>
+</div>
+  <script type="text/javascript">
+  function promptFunction(subjectID){
+    var alert = document.getElementById("confirmModal");
+    document.getElementById('deleteBtn').href="<?php echo URL; ?>addSubject/delete/"+subjectID;
+    alert.style.display = "block";
+  }
+  </script>  
 
   <div id="tableDiv" style="width: 80%;">
     <table id="data">
@@ -78,8 +140,8 @@ while($row = mysqli_fetch_assoc($this->subList)){  ?>
 <tr>
   <td><?php echo $row['id']?></td>
   <td><?php echo $row['name']?></td>
-  <td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
-  <td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
+  <td><a class='btn' id='editBtn' href="http://localhost/IMS_Vidarsha/addSubject/renderSubUpdate/<?php echo $row['user_id']; ?>" style="padding: 5px 15px 5px 15px;">Edit</a></td>
+	<td><a class='btn' id='deleteBtn' onclick="promptFunction(<?php echo $row['id']; ?>)" style="padding: 5px 15px 5px 15px;background-color:#555555;text-transform: uppercase;">Delete</a></td></tr> 
   </tr>
 
 <?php } ?>
@@ -93,4 +155,44 @@ while($row = mysqli_fetch_assoc($this->subList)){  ?>
 </div>
 
 </body>
+<script>
+  // Get the modal
+var alertmodal = document.getElementById("alertModal");
+var confirmmodal = document.getElementById("confirmModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("deleteBtn");
+
+// Get the <span> element that closes the modal
+var alertspan = document.getElementsByClassName("close")[0];
+var confirmspan = document.getElementsByClassName("close")[1];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  confirmmodal.style.display = "block";
+}
+
+alertspan.onclick = function() {
+  if(alertmodal.style.display == "block"){
+  	alertmodal.style.display = "none";
+  } 
+}
+
+confirmspan.onclick = function() {
+	if(confirmmodal.style.display == "block"){
+	  	confirmmodal.style.display = "none";
+  }  
+}
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+  }else if (event.target == confirmmodal) {
+    confirmmodal.style.display = "none";
+  }
+}
+
+</script>
 </html>
