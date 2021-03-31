@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="<?php echo URL; ?>public/css/adminNav.css" />
   <link rel="stylesheet" href="<?php echo URL; ?>public/css/registerTeacher.css" />
   <link rel="stylesheet" href="<?php echo URL; ?>public/css/registerTeacher.css" />
-  <title>Teacher Update Form</title>
+  <title>Student Update</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://kit.fontawesome.com/b481b35adc.js" crossorigin="anonymous"></script>
@@ -18,9 +18,9 @@
 
 <?php
 
-while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
+while($row = mysqli_fetch_assoc($this->stuDetails)){ ?>
 
-	<form id="regForm" action="<?php echo URL; ?>updateTeacher/update/<?php echo $this->userTec; ?>" method="post" onsubmit="validatstaff()">
+	<form id="regForm" action="<?php echo URL; ?>updateStudent/update/<?php echo $this->userStu; ?>" method="post" onsubmit="validatstaff()">
     <div class="row">
     <div class="col-15">
       <label for="subject">Full Name :</label>
@@ -116,20 +116,20 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
 
     <div class="row">
     <div class="col-15">
-      <label for="subject">Account No. :</label>
+      <label for="subject">School :</label>
     </div>
     <div class="col-25">
-      <input type="text" placeholder="Account number..." name="acc_update" value="<?php echo $row['acc_no']; ?>">
+      <input type="text" placeholder="School..." name="school_update" value="<?php echo $row['school']; ?>">
     </div>
     </div>
 
     <div class="row">
     <div class="col-15">
-      <label for="subject">Bank Name :</label>
+      <label for="subject">Grade :</label>
     </div>
     <div class="col-25">
       <div class="popup">
-          <input type="text" placeholder="Bank Name..." name="bank_update"  id="fullname"  value="<?php echo $row['bank_name']; ?>" onfocusout="validateName()">
+          <input type="text" placeholder="Grade..." name="grade_update"  id="Grade"  value="<?php echo $row['grade']; ?>" >
 			  <span class="popuptext" id="name-popup"></span>
 			</div>
     </div>
@@ -137,37 +137,19 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
 
     <div class="row">
     <div class="col-15">
-      <label for="subject">Branch Name :</label>
+      <label for="subject">Stream :</label>
     </div>
     <div class="col-25">
       <div class="popup">
-          <input type="text" placeholder="Branch Name...." name="branch_update"  id="fullname" value="<?php echo $row['branch_name']; ?>" onfocusout="validateName()">
+          <input type="text" placeholder="A/L Stream...." name="stream_update"  id="Stream" value="<?php echo $row['stream']; ?>" onfocusout="validateName()">
 			  <span class="popuptext" id="name-popup"></span>
 			</div>
     </div>
     </div>
     
     <div class="row">
-    <div class="col-15">
-      <label for="subject">Qualifications :</label>
-    </div>
-    <div class="col-75">
-      <textarea rows="4" cols="90" name="qualification_update" ><?php //echo $row['qualification']; ?></textarea>
-    </div>
-    </div>
+    <div class="col-15" >
 
-    <div class="row">
-    <!-- <div class="col-15" >
-      <label for="subject">Subject :</label>
-    </div>
-    <div class="col-75">
-      <div style="width:250px;">
-      <select name="subject_update">
-      <option value="0">Select Subject:</option>
-      <option value="<?php //echo $row['subject_id']; ?>"> <?php //echo $row['subject_id'];?> </option>
-      </select>
-    </div>
-    </div> -->
   </div>
     
     <div class="row" style="margin-top:30px;margin-right:10%;">

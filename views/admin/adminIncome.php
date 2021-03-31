@@ -133,7 +133,11 @@
     </div>
   </div>
 
-
+  <?php
+      while($row = mysqli_fetch_assoc($this->classList)){ 
+        $result = "'" . implode ( "', '", (array)$row['name'] ) . "'";
+   ?>
+      <?php  } ?>
     <div class="row" style="margin-top: 5%;">
     <div class="col-50">
       <div class="chart" style="position: relative; height:15vh; width:35vw">
@@ -146,12 +150,12 @@
 
                     // The data for our dataset
                     data: {
-                        labels: ['Physics', 'Combine Maths', 'SFT', 'Chemistry', 'ICT'],
+                        labels: [<?php $result; ?> ],   
                         datasets: [{
                             label: 'New Registering Student Per Month',
                             backgroundColor: '#0d7377',
                             borderColor: 'rgb(255, 99, 132)',
-                            data: [60, 100, 20, 60, 0]
+                            data: [<?php //echo $this->stuCount; ?>]
                         }]
                     },
 
@@ -161,6 +165,7 @@
         </script>
         </div>
     </div>
+
     <div class="col-50">
       <div class="chart" style="position: relative; height:15vh; width:35vw">
             <canvas id="myChart2"></canvas>
