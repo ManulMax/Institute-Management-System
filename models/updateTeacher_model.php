@@ -15,10 +15,8 @@ class updateTeacher_model extends Model{
     }
 
     public function update($data,$userTec){
-        $this->db->update('teacher',"fname='".$data['fname']."',tel_no=".$data['tel_no'].",address='".$data['address']."',NIC='".$data['NIC']."',DOB='".$data['DOB']."',email='".$data['email']."',qualificatin='".$data['qualification']."',acc_no=".$data['acc_no'].",bank_name='".$data['bank_name']."',branch_name='".$data['branch_name']."'","user_id=$userTec");
-        //return $result;
-        echo $data['fname'].' '.$data['tel_no'].' '.$data['address'].' '.$data['NIC'].' '.$data['DOB'].' '.$data['email'].' '.$data['qualification'].' '.$data['acc_no'].' '.$data['bank_name'].' '.$data['branch_name'];
-        echo $userTec;
+        return $this->db->update('teacher',"fname='".$data['fname']."',tel_no='".$data['tel_no']."',address='".$data['address']."',NIC='".$data['NIC']."',DOB='".$data['DOB']."',email='".$data['email']."',qualifications='".$data['qualification']."',acc_no=".$data['acc_no'].",bank_name='".$data['bank_name']."',branch_name='".$data['branch_name']."'","user_id=$userTec");
+
     }
 
     public function delete($userid){

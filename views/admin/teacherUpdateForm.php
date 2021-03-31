@@ -152,7 +152,7 @@ while($row = mysqli_fetch_assoc($this->tecDetails)){ ?>
       <label for="subject">Qualifications :</label>
     </div>
     <div class="col-75">
-      <textarea rows="4" cols="90" name="qualification_update" ><?php //echo $row['qualification']; ?></textarea>
+      <textarea rows="4" cols="90" name="qualification_update" ><?php echo $row['qualifications']; ?></textarea>
     </div>
     </div>
 

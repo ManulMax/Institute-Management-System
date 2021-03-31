@@ -47,7 +47,7 @@ class Papermarker_Model extends Model{
 
     public function update($data){
         
-        $result = $this->db->update('paper_marker',"email='".$data['email']."',tel_no='".$data['tel_no']."',address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
+        $result = $this->db->update('paper_marker',"email='".$data['email']."',gender='".$data['gender']."',tel_no='".$data['tel_no']."',address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
         return $result;
     }
 

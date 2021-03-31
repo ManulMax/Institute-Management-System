@@ -124,7 +124,7 @@ function validateName() {
   var x = document.getElementById("fullname");
   var popup = document.getElementById("name-popup");
 
-  var letters = /^[a-zA-Z][a-zA-Z\s]*$/;
+  var letters = /^[a-zA-Z][a-zA-Z\s\.]*$/;
   if (isEmpty(x.value)) {
     x.style.borderColor = red;
     popup.innerHTML="Name field cannot be empty!"; 

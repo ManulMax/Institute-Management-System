@@ -173,7 +173,7 @@
     </div>
 <div style="padding-left: 10%;padding-top: 75px;width: 70%;">
   <h1 id="quizTopic"><?php echo $row['topic']; ?></h1>
-  <div class="quiz-container">
+  <div class="quiz-container" style="margin-bottom:100px;">
     <div id="quizz"></div>
   </div>
   <button id="previous">Previous Question</button>
