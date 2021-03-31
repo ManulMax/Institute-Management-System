@@ -19,21 +19,19 @@ class adminIncome extends Controller{
             $i++;
         }
         $this->view->dataList = $dataList;
+
+        // $j=0;
+        // while($row=mysqli_fetch_assoc($list)){
+        //     $dataListNew[$j][0]=$row['reg_no'];
+        //     $dataListNew[$j][1]=$row['fname'];
+        //     $dataListNew[$j][2]=$row['name'];
+        //     $dataListNew[$j][3]=$row['batch'];
+        //     $dataListNew[$j][4]=$this->model->getStudentCount($row['reg_no'],$row['batch']);
+        //     $dataListNew[$j][5]=$this->model->getIncomeNew($row['reg_no'],$row['batch']);
+        //     $j++;
+        // }
+        // $this->view->dataListNew = $dataListNew;
     	$this->view->render('admin/adminIncome');
-    
-
-    //chart 1
-
-    // $arr = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-
-    // $count = "";
-    // for ($i=0; $i < count($arr); $i++) { 
-    //        $result = $this->model->classCount($arr[$i]);
-    //        $row = mysqli_fetch_assoc($result);
-    //        $count .= "'".$row['sum']."',";
-    //     }
-    // $this->view->dailyCount=substr($count, 0, -1);
-    // $this->view->render('admin/adminDashboard');
     
     }
 
