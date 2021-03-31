@@ -86,7 +86,7 @@ while($row = mysqli_fetch_assoc($this->staffDetails)){ ?>
         <label for="subject">Address :</label>
       </div>
       <div class="col-75">
-        <textarea rows="4" cols="90" placeholder="Address..." name="address_update" value="<?php echo $row['address']; ?>" ></textarea>
+        <textarea rows="4" cols="90" placeholder="Address..." name="address_update" ><?php echo $row['address']; ?></textarea>
       </div>
       </div>
       

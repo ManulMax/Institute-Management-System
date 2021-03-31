@@ -103,7 +103,7 @@
                     <?php
                       while($row = mysqli_fetch_assoc($this->teacherList)){ 
 
-                      echo "<p id='name'><b>".$row['fname']." ".$row['mname']." ".$row['lname']."</b></p>";
+                      echo "<p id='name'><b>".$row['fname']."</b></p>";
                       
                       }
                     ?>
