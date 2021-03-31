@@ -121,7 +121,7 @@ $(function(){
             while($row = mysqli_fetch_assoc($this->userDetails)){ 
 
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
                echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
 
@@ -280,10 +280,12 @@ $(function(){
 
   <?php
 
-      while($row = mysqli_fetch_assoc($this->scheduleList)){  
-         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']." ".$row['mname']." ".$row['lname']."</td></tr>";
+  while($row = mysqli_fetch_assoc($this->scheduleList)){  
+         echo "<tr><td>".$row['day']."</td><td>" .$row['start_time']. "-".$row['end_time']."</td><td>".$row['hallName']."</td><td>".$row['name']."</td><td>".$row['batch']."</td><td>".$row['fname']."</td></tr>";
 
       }
+
+      
   ?>
  
 </tbody>

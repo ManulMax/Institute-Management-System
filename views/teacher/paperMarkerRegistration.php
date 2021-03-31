@@ -101,7 +101,7 @@
             while($row = mysqli_fetch_assoc($this->userDetails)){ 
 
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
                echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
 
@@ -318,7 +318,7 @@
 		</div>
 		<div class="col-25">
 		<div class="popup">
-		  <input type="tel" placeholder="eg: 716538865" id="phone" name="tel" onfocusout="validatePhoneNumber()">
+		  <input type="tel" placeholder="eg: 0716538865" id="phone" name="tel" onfocusout="validatePhoneNumber()">
 		  <span class="popuptext" id="phone-popup"></span>
 		</div>
 		</div>

@@ -48,7 +48,7 @@
 
             while($row = mysqli_fetch_assoc($this->userDetails)){  
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Staff</h4><br />";
                /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
 
@@ -112,10 +112,12 @@
       
     <div class="details">
         <p>Month : <?php echo $sal['month'] ?></p><br />
-        <!--<p>Payment date : <?php echo $sal['date'] ?></p><br />-->
+        <p>Payment date : <?php echo $sal['date'] ?></p><br />
         <p>Total Salary : <?php echo $sal['amount'] ?></p>
 
-      <input type="submit" name="" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;" value="Download Report">
+      <!-- <form method="post" action="<?php echo URL; ?>views/staff/generateStaffsalary?sal=<?php echo $sal['amount']; ?>&user=<?php echo $_SESSION['userid']; ?>">  
+        <input type="submit" name="generatepdf" style="margin-right: 40%;margin-bottom: 15%; margin-top: 10%;" value="Download Report">
+       </form> -->
     
     </div>
     </form>

@@ -40,14 +40,14 @@ class Papermarker_Model extends Model{
         $userID = $this->db->listWhere("id","user","username='".$data['email']."'");
         $num = mysqli_fetch_assoc($userID);
  
-        $result = $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id,deleted)","('".$data['name']."',".$data['tel_no'].",'".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].",0)");
+        $result = $this->db->insert('paper_marker',"(name,tel_no,address,NIC,DOB,gender,email,qualifications,teacher_id,user_id,deleted)","('".$data['name']."','".$data['tel_no']."','".$data['address']."','".$data['NIC']."','".$data['DOB']."','".$data['gender']."','".$data['email']."','".$data['qualifications']."',".$_SESSION['userid'].",".$num['id'].",0)");
         return $result;
 
     }
 
     public function update($data){
         
-        $result = $this->db->update('paper_marker',"email='".$data['email']."',tel_no=".$data['tel_no'].",address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
+        $result = $this->db->update('paper_marker',"email='".$data['email']."',tel_no='".$data['tel_no']."',address='".$data['address']."',qualifications='".$data['qualifications']."'","NIC='".$data['NIC']."'");
         return $result;
     }
 

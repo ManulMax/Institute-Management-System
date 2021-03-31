@@ -11,6 +11,8 @@ class markAttendance extends Controller{
         $pieces = explode(" ",$class);
         $this->view->subjectname = $pieces[0];
         $this->view->batchname = $pieces[1];
+        Session::set('subjectname',$pieces[0]);
+        Session::set('batchname',$pieces[1]);
     	$this->view->userDetails = $this->model->listDetails($_SESSION["userid"]);
     	$this->view->render('staff/markAttendance');
     }
@@ -27,7 +29,7 @@ class markAttendance extends Controller{
 
         $date1 = $row['month'];
 
-        $ts1 = strtotime($date1);
+        $ts1 = strtotime($date1); 
 
         $month1 = date('m', $ts1);
         $month2 = date('m');
@@ -41,12 +43,27 @@ class markAttendance extends Controller{
  
         $data = array();
         $data['stu_reg_no'] = $_POST['regNum'];
-       
-        $this->model->create($data);
+        $data['batchname'] = $_SESSION['batchname'];
+        $data['subjectname'] = $_SESSION['subjectname'];
 
-        //get details needed in attendance landing page.(functions called in attendanceLandingPage/index)
+        $this->view->subjectname = $_SESSION['subjectname'];
+        $this->view->batchname = $_SESSION['batchname'];
 
-        header('location: '.URL.'markAttendance');
+        $result1=$this->model->checkPresence($data);
+
+        if($result1 == 1){
+            $this->view->alert1="fail";
+            $this->view->render('staff/markAttendance');
+        }else if($result1 == 0){
+            $result2=$this->model->create($data);
+            if($result2==1){
+                $this->view->alert2="success";
+            }else{
+                $this->view->alert2="fail";
+            }
+            $this->view->render('staff/markAttendance');
+        }
+
     }
 
     function search($subjectname,$batchname){

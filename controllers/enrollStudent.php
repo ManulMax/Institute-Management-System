@@ -39,6 +39,24 @@ class enrollStudent extends Controller{
             header('location: '.URL.'enrollStudent?alert1=fail');
         }
         
+
+        /*$this->view->subjectname = $_POST['subjectname'];
+        $this->view->batchname = $_POST['batchname'];
+
+        $result1=$this->model->checkEnrollment($data);
+
+        if($result1 == 1){
+            $this->view->alert1="fail";
+            $this->view->render('staff/enrollStudent');
+        }else if($result1 == 0){
+            $result2=$this->model->create($data);
+            if($result2==1){
+                $this->view->alert3="success";
+            }else{
+                $this->view->alert3="fail";
+            }
+            $this->view->render('staff/enrollStudent');
+        }*/
     }
 
     function search(){

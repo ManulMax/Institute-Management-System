@@ -50,7 +50,7 @@
 
             while($row = mysqli_fetch_assoc($this->userDetails)){  
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Staff</h4><br />";
                /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
 
@@ -231,7 +231,7 @@
 		</div>
 		<div class="col-75">
 		<div class="popup">
-		  <input type="text" placeholder="Enter grade" name="grade" id="num" onfocusout="containsNumbers()">
+		  <input type="text" placeholder="Enter grade" name="grade" id="grade" onfocusout="containsNumbers()">
 		 <span class="popuptext" id="number-popup"></span>
 		</div>
       		</div>

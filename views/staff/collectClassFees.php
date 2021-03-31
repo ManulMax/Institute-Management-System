@@ -68,7 +68,7 @@ $(function(){
 
             while($row = mysqli_fetch_assoc($this->userDetails)){  
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Staff</h4><br />";
                /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
 
@@ -127,7 +127,7 @@ $(function(){
       
 
 
-      <video id="preview" style="width:150%;height:100%;"></video>
+      <video id="preview" style="width:100%;height:150%;"></video>
                 <script type="text/javascript">
                   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
                   scanner.addListener('scan', function (content) {
@@ -135,6 +135,7 @@ $(function(){
                     var res = content.split("?");
                     document.getElementById("regNum").value = res[0];
                     document.getElementById("regName").value = res[1];
+
                     console.log(res);
                   });
                   Instascan.Camera.getCameras().then(function (cameras) {
@@ -307,7 +308,7 @@ $(function(){
       
 
       <label>Last paid month</label></br>
-          <p name="month" class="paid-month" style="background-color: white;width:50%;color: black;margin-left:10%;" ><?php echo $this->feesMonth; ?></p>
+          <p name="month" class="paid-month" id="month" style="background-color: white;width:50%;color: black;margin-left:10%;" ><?php echo $this->feesMonth; ?></p>
         </br>
       <label>Current payment month</label></br>
         <select name="currentPaymentMonth" style="background-color: white;width:50%;">
@@ -327,7 +328,7 @@ $(function(){
             </select>
           </br>
       <label>Payment amount</label>  </br>  
-                <p name="paid-amount" class="paid-amount" style="background-color: white;width:50%;color: black;margin-left:10%;"><?php echo $this->feesAmount; ?></p>
+                <input type="text" name="paid-amount" value="<?php echo $this->feesAmount; ?>" class="paid-amount" id="amount" style="background-color: white;width:20%;color: black;margin-left:10%;border-color: white;" readonly>
               </br>
 
 
@@ -356,7 +357,7 @@ $(function(){
     <script type="text/javascript">
           var alert=document.getElementById("alertModal");
           if("<?php echo $_GET['alert']; ?>" =="success"){    
-            document.getElementById("msg").innerHTML="Payment succesfull!";
+            document.getElementById("msg").innerHTML="Payment succesful!";
             document.getElementById('alertImg').src="<?php echo URL; ?>public/img/success_icon.png";
             alert.style.display = "block";
           }else if("<?php echo $_GET['alert']; ?>" =="fail"){

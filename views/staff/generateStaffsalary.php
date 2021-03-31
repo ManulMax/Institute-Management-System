@@ -33,8 +33,8 @@ class MYPDF extends TCPDF {
     // Load table data from file
     public function LoadData() {
       $userid=$_GET['user'];
-        $this->connection = mysqli_connect('localhost','root','isurika','vidarsha') or die("DB connection failed");
-        $sql = "select c.batch,SUM(f.amount)*95/100 as totalAmount from fees f,class c,teacher t where f.class_id=c.id and c.teacher_reg_no=t.reg_no and t.user_id=$userid GROUP BY c.batch";
+        $this->connection = mysqli_connect('localhost','root','','vidarsha') or die("DB connection failed");
+        $sql = "select s.date,s.month,s.amount from satff_salry s,staff st  where  st.reg_no=s.staff_reg_no and st.user_id=$userid ";
         $result = mysqli_query($this->connection,$sql);
         $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $data;
@@ -63,11 +63,11 @@ class MYPDF extends TCPDF {
         $fill = 0;
         $count=0;
         foreach($data as $row) {
-            $this->Cell($w[0], 6, $row['batch'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, number_format($row['totalAmount']), 'LR', 0, 'R', $fill);
+            $this->Cell($w[0], 6, $row['month'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, number_format($row['amount']), 'LR', 0, 'R', $fill);
             $this->Ln();
             $fill=!$fill;
-            $count+=$row['totalAmount'];
+            $count+=$row['amount'];
         }
         $this->Cell($w[0], 6, 'Total', 'LR', 0, 'L', $fill);
             $this->Cell($w[1], 6, number_format($count), 'LR', 0, 'R', $fill);
@@ -129,7 +129,7 @@ $html = '<div style="text-align:center">
 $pdf->writeHTML($html, true, false, true, false, '');
 
 // column titles
-$header = array('Batch','Amount');
+$header = array('Date','Amount');
 
 // data loading
 $data = $pdf->LoadData();

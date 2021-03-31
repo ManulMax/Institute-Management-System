@@ -66,7 +66,7 @@ $(function(){
 
             while($row = mysqli_fetch_assoc($this->userDetails)){  
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Staff</h4><br />";
                /*echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";*/
 
@@ -129,10 +129,12 @@ $(function(){
 
 <div class="table-filters">
   
-    <table id="allocation" style="width:50%; margin-left:5px;">
+    <table id="allocation" style="width:75%; margin-left:5px;">
     <tr>
     <td style="text-align: right;"><label for="filter-country">NIC</label></td>
-    <td><input type="text" class="input-text" id="filter-name" data-filter-col="2"></td>
+    <td colspan=2><input type="text" class="input-text" id="filter-name" data-filter-col="3"></td>
+    <td style="text-align: right;"><label for="filter-country">Reg no</label></td>
+    <td colspan=2><input type="text" class="input-text" id="filter-name" data-filter-col="0"></td>
  
 
    

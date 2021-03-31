@@ -104,7 +104,7 @@
             while($row = mysqli_fetch_assoc($this->userDetails)){ 
 
 
-               echo "<h2 id='name'>".$row['fname']." ".$row['mname']." ".$row['lname']."</h2>";
+               echo "<h2 id='name'>".$row['fname']."</h2>";
                echo "<h4 id='name'>Teacher (Chemistry)</h4><br />";
                echo "<p id='name'>Qualifications : ".$row['qualifications']."</p><br />";
 
@@ -205,7 +205,7 @@
         </tbody>
 
 
-    </table>
+    </table> 
     
     
   </div>
