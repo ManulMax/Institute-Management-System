@@ -8,20 +8,28 @@ class index_Model extends Model{
 
     public function listAllTeachers(){
 
-        return $this->db->listCol("fname,mname,lname","teacher");        
+        return $this->db->listWhere("fname","teacher","deleted=0");        
 
     }
 
     public function listAllSubject(){
 
-        return $this->db->listCol("name","subject");        
+        return $this->db->listWhere("name","subject","deleted=0");        
 
     }
     
-    public function listAllClass(){
-
-        return $this->db->listCol("name","subject");        
-
+    public function listAllClass($today){
+        return $this->db->listWhere("name","subject s,schedule e,class c","e.day='".$today."' and e.class_id=c.id and c.id=s.id");        
+       
     }
 
+    public function listClassTime($today){
+        return $this->db->listWhere("start_time","subject s,schedule e,class c","e.day='".$today."' and e.class_id=c.id and c.id=s.id");        
+       
+    }
+
+    public function listBatch($today){
+        return $this->db->listWhere("batch","subject s,schedule e,class c","e.day='".$today."' and e.class_id=c.id and c.id=s.id");        
+       
+    }
 }

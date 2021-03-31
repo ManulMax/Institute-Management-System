@@ -129,15 +129,23 @@
                   <figcaption>
                     <h6 class="heading">Today Classes</h6>
                     <?php
-                      echo "<p id='name'><b>Physics   2021A/L  8.30a.m</b></p>";
-                      echo "<p id='name'><b>ICT       2022A/L  10.30a.m</b></p>";
-                      echo "<p id='name'><b>Physics   2022A/L  1.30p.m</b></p>";
-                      // while($row = mysqli_fetch_assoc($this->classList)){ 
+                      while($row = mysqli_fetch_assoc($this->classList)){ 
 
-                      // echo "<p id='name'><b>".$row['name']."</b></p>";
+                      echo "<p id='name'><b>".$row['name']."</b></p>";
                       
-                      // }
+                      }
+                      while($row = mysqli_fetch_assoc($this->batchList)){ 
+
+                        echo "<p id='name'><b>".$row['batch']."</b></p>";
+                        
+                        }
+                        while($row = mysqli_fetch_assoc($this->timeList)){ 
+
+                          echo "<p id='name'><b>".$row['start_time']."</b></p>";
+                          
+                          }
                     ?>
+
                   </figcaption>
                 </figure>
               </li>              
