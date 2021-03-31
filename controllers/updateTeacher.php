@@ -27,16 +27,16 @@ class updateTeacher extends Controller{
         $data['DOB'] = $_POST['DOB_update'];
         $data['email'] = $_POST['email_update'];
         $data['qualification'] = $_POST['qualification_update'];
-        $data['subject_id'] = $_POST['subject_update'];
+        //$data['subject_id'] = $_POST['subject_update'];
         $data['acc_no'] = $_POST['acc_update'];
         $data['bank_name'] = $_POST['bank_update'];
         $data['branch_name'] =$_POST['branch_update'];
 
         $result=$this->model->update($data,$userTec);
         if($result == 1){
-            //header('location: '.URL.'updateTeacher?alert=success');
+           // header('location: '.URL.'updateTeacher?alert=success');
         }else{
-            //header('location: '.URL.'updateTeacher?alert=fail');
+           // header('location: '.URL.'updateTeacher?alert=fail');
         }
         
     }
