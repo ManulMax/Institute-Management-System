@@ -63,14 +63,14 @@ class MYPDF extends TCPDF {
         $fill = 0;
         $count=0;
         foreach($data as $row) {
-            $this->Cell($w[0], 6, $row['batch'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, number_format($row['totalAmount']), 'LR', 0, 'R', $fill);
+            $this->Cell($w[0], 6, $row['batch'], 'LR', 0, 'C', $fill);
+            $this->Cell($w[1], 6, number_format($row['totalAmount']), 'LR', 0, 'C', $fill);
             $this->Ln();
             $fill=!$fill;
             $count+=$row['totalAmount'];
         }
-        $this->Cell($w[0], 6, 'Total', 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, number_format($count), 'LR', 0, 'R', $fill);
+        $this->Cell($w[0], 6, 'Total', 'LR', 0, 'C', $fill);
+            $this->Cell($w[1], 6, number_format($count), 'LR', 0, 'C', $fill);
             $this->Ln();
             $fill=!$fill;
         $this->Cell(array_sum($w), 0, '', 'T');
@@ -123,6 +123,7 @@ $pdf->SetFont('helvetica', '', 12);
 $pdf->AddPage();
 
 $html = '<div style="text-align:center">
+<img src="http://localhost/IMS_Vidarsha/public/img/logo.png" style="width:200px;">
 <h2>Monthly Salary Report</h2>
 <h4>Salary amount : '.$_GET['sal'].'</h4>
 </div>';
