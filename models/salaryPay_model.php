@@ -6,4 +6,7 @@ class salaryPay_model extends Model{
      	parent::__construct();
     }
 
+    public function listTeacher(){
+        return $this->db->listWhere("*","teacher","deleted=0"); 
+    }
 }

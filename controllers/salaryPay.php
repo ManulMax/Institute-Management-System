@@ -7,6 +7,7 @@ class salaryPay extends Controller{
     }
 
     function index(){
+        $this->view->tecList = $this->model->listTeacher();
     	$this->view->render('admin/salaryPay');
     }
 }

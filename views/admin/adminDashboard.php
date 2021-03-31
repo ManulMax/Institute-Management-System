@@ -27,7 +27,7 @@
             <li><a href="<?php echo URL; ?>updateStudent"><i class="fa fa-user-o"></i>Update Student</a></li>
             <li><a href="<?php echo URL; ?>addSubject"><i class="fa fa-book"></i>Add Subject</a></li>
             <li><a href="<?php echo URL; ?>salaryPay"><i class="fas fa-money-bill-wave"></i>Salary Payment</a></li>
-            <li><a href="<?php echo URL; ?>adminIncome"><i class="fas fa-money-bill-wave"></i>Income</a></li>
+            <li><a href="https://sandbox.payhere.lk/pay/of3fcdd76"><i class="fas fa-money-bill-wave"></i>Income</a></li>
         </ul>         
     </div>
 
