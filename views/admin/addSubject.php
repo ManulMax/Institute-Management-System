@@ -61,7 +61,7 @@
   </div>
     
 
-  <div id="tableDiv" style="width: 40%;">
+  <div id="tableDiv" style="width: 80%;">
     <table id="data">
     <thead>
       <tr>
@@ -69,17 +69,20 @@
         <th>Subject</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
     <?php
 
-while($row = mysqli_fetch_assoc($this->subList)){  
-echo "<tr><td>".$row['id']."</td><td>" .$row['name']."</td><td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td><td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td></tr>";
+while($row = mysqli_fetch_assoc($this->subList)){  ?>
+<tr>
+  <td><?php echo $row['id']?></td>
+  <td><?php echo $row['name']?></td>
+  <td><input type='submit' value='Edit' style='padding: 5px 15px 5px 15px;'></td>
+  <td><input type='submit' value='Delete' style='padding: 5px;background-color:#555555;'></td>
+  </tr>
 
-}
-?>
+<?php } ?>
     </tbody>
     </table>
     </div>

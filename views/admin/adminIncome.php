@@ -110,35 +110,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Vinuri Samalka Piyathilake </td>
-        <td>Chemistry</td>
-        <td>2021 A/L</td>
-        <td>60</td>
-        <td>50000.00</td>
-      </tr>
-      <tr>
-        <td>Nadeera Siriwardana</td>
-        <td>Combined Maths</td>
-        <td>2022 A/L</td>
-        <td>100</td>
-        <td>85000.00</td>
-      </tr>
-      <tr>
-        <td>Padmika Godakanda</td>
-        <td>Physics</td>
-        <td>2021 A/L</td>
-        <td>60</td>
-        <td>50000.00</td>
-      </tr>
-      <tr>
-        <td>Deneth Viduranga Gamage</td>
-        <td>SFT</td>
-        <td>2021 A/L</td>
-        <td>20</td>
-        <td>30000.00</td>
-      </tr>
-
+    <?php
+      //while($row = mysqli_fetch_assoc($this->incomeData)){  ?>
+        <tr><td><?php //echo $row['fname']; ?></td>
+        <td><?php //echo $row['name']; ?></td>
+        <td><?php //echo $row['batch']; ?></td>
+        <td><?php //echo $row['count']; ?></td>
+        <td><?php //echo $row['income']; ?></td>                   
+    <?php// } ?> 
     </tbody>
     </table>
 
@@ -152,7 +131,11 @@
     </div>
   </div>
 
-
+  <?php
+      while($row = mysqli_fetch_assoc($this->classList)){ 
+        $result = "'" . implode ( "', '", (array)$row['name'] ) . "'";
+   ?>
+      <?php  } ?>
     <div class="row" style="margin-top: 5%;">
     <div class="col-50">
       <div class="chart" style="position: relative; height:15vh; width:35vw">
@@ -165,12 +148,12 @@
 
                     // The data for our dataset
                     data: {
-                        labels: ['Physics', 'Combine Maths', 'SFT', 'Chemistry', 'ICT'],
+                        labels: [<?php $result; ?> ],   
                         datasets: [{
                             label: 'New Registering Student Per Month',
                             backgroundColor: '#0d7377',
                             borderColor: 'rgb(255, 99, 132)',
-                            data: [60, 100, 20, 60, 0]
+                            data: [<?php //echo $this->stuCount; ?>]
                         }]
                     },
 
@@ -180,6 +163,7 @@
         </script>
         </div>
     </div>
+
     <div class="col-50">
       <div class="chart" style="position: relative; height:15vh; width:35vw">
             <canvas id="myChart2"></canvas>

@@ -155,7 +155,7 @@ input[type=submit]:hover {
 
   #tableDiv {
     width: 100%;
-    min-width: 100%;
+    /* min-width: 100%; */
   overflow-x: auto;
 }
 
