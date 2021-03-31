@@ -36,7 +36,7 @@ class staffDashboard_Model extends Model{
 
     public function listAllStudentCount(){
 
-        return $this->db->listWhere("count(e.stu_reg_no) as count1","enrollment e,class c","e.class_id=c.id");
+        return $this->db->listCol("count(reg_no) as count1","student");
 
     }
 
