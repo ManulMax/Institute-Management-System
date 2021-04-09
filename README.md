@@ -4,15 +4,6 @@ Modified with MVC architecture
 
 Necessary Data :page_facing_up:
 
-Payment Gateway - payhere (not functioning)
-SMS Gateway Account Informations
-
-Login URL : http://gateway.greenline.lk
-User ID : 102338 ( VidarshaEdu ) 
-Username : vidarsha@greenline.lk
-Password : vidarsha@7531
-Date : 2020-08-28 04:34:12
-
 ____________________________________________________________________________________________________________________________________
 Database - Sample data must be changed
 
